@@ -73,6 +73,8 @@ Substantial-work guidance also tracks unit ownership, dependencies, evidence, an
 
 Handoff includes [continuation guidance](skills/handoff/references/continuation.md) for requested pickup and explicit pauses. It reconciles notes with current state and preserves incomplete work without automatic commits or cleanup.
 
+For requested worktree cleanup, Pancake loads [cleanup guidance](skills/pancake/references/worktree-cleanup.md). It checks ownership, active use, and retained work before removal, including untracked and ignored data.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.

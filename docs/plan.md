@@ -33,6 +33,7 @@
 - Conditional shipping guidance for current verification, dependency order, authorized delivery, and result confirmation.
 - Substantial-work continuation guidance for ownership, recoverable unit state, dependent revisions, and bounded sustained runs.
 - Conditional handoff guidance for evidence-based pickup and explicit pauses without automatic workspace cleanup.
+- Conditional worktree cleanup with ownership checks, data preservation, normal Git removal, and result confirmation.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.
