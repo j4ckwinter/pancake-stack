@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pancake-stack",
-  "version": "0.1.4",
-  "description": "A Codex skill stack with model and reasoning effort setup. Rigorous workflows are planned.",
+  "version": "0.2.0",
+  "description": "Configure model preferences and explain existing code with evidence. Rigorous workflows are planned.",
   "author": {
     "name": "Jack Winter"
   },
@@ -10,7 +10,7 @@
     "com.openai": {
       "interface": {
         "displayName": "Pancake Stack",
-        "shortDescription": "Configure model and reasoning effort preferences for Pancake Stack.",
+        "shortDescription": "Configure model preferences and understand how code works.",
         "developerName": "Jack Winter",
         "category": "Productivity"
       }

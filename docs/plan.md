@@ -4,6 +4,7 @@
 
 - Plugin manifest and local marketplace.
 - Setup skill with model discovery and preference storage.
+- Read-only how skill for explaining existing code with evidence.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.
 

@@ -2,7 +2,7 @@
 
 A Codex plugin for a shared stack of skills, starting with VS Code.
 
-Setup selects model and reasoning effort preferences. The rigorous pancake workflow is planned.
+Setup selects model and reasoning effort preferences. How explains existing code with implementation references. The rigorous pancake workflow is planned.
 
 ## Install locally
 
@@ -16,6 +16,8 @@ codex plugin add pancake-stack@pancake-stack-local
 These commands register the marketplace and install the plugin in your local Codex configuration.
 
 Start a new Codex chat and select `$pancake-stack:setup`. Setup lists local model choices and saves the preferences you select. Saving does not switch the current chat's model.
+
+Use `$pancake-stack:how` to ask about code, for example “how does model discovery work?” It investigates without changing files. This first version uses the current agent and model.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
 
