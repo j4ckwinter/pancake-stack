@@ -69,6 +69,8 @@ For requested PR status and maintenance, Pancake loads [PR-maintenance guidance]
 
 For requested delivery or its preparation, Pancake loads [shipping guidance](skills/pancake/references/shipping.md). It checks current artifacts and dependencies, confirms the delivery result, and keeps merge, release, and deployment scope explicit.
 
+Substantial-work guidance also tracks unit ownership, dependencies, evidence, and continuation limits. A requested plan remains a plan; sustained work uses actual host capabilities and stops on an explicit pause.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
