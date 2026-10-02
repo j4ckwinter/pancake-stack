@@ -9,7 +9,8 @@ Read [core values](references/values.md) and applicable repository instructions.
 
 ## Choose the work
 
-- For explanations, read [how](../how/SKILL.md).
+- For execution-flow explanations, read [how](../how/SKILL.md).
+- For historical rationale and design motivation, read [why](../why/SKILL.md).
 - For change reviews, read [check](../check/SKILL.md).
 - For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
 - For reported defects, read [fix](../fix/SKILL.md).
