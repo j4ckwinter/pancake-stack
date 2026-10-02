@@ -5,7 +5,7 @@ description: Apply proportionate rigor to a software task. Use when the user inv
 
 # Work with rigor
 
-Read [core values](references/values.md) and applicable repository instructions. Keep the requested outcome and scope explicit. For substantial work, maintain a short plan whose steps end in observable checks. Handle small tasks directly.
+Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicable repository instructions. Apply sift while drafting progress updates, explanations, authorized written artifacts, and final replies. Keep the requested outcome and scope explicit. For substantial work, maintain a short plan whose steps end in observable checks. Handle small tasks directly.
 
 ## Choose the work
 

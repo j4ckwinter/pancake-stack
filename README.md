@@ -37,6 +37,8 @@ Use `$pancake-stack:pr` to draft a PR title and description from the ticket and 
 
 Use `$pancake-stack:scope` to establish the outcome, acceptance criteria, relevant code, boundaries, and unresolved decisions for a ticket. It returns a brief without implementing the work. `/scope` is the intended shortcut, pending a live picker check.
 
+Use `$pancake-stack:sift` to remove filler and vague phrasing from prose while preserving meaning and voice. Pancake reads it as its writing standard for updates and written output. Unlike wtf, sift can edit supplied text or authorized documents. `/sift` is the intended shortcut, pending a live picker check.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
