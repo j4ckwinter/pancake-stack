@@ -25,6 +25,7 @@
 - Conditional decision trails for consequential choices, evidence, corrections, and continuation.
 - Design guidance for caller usage, valid data shapes, state ownership, and recurring workaround diagnosis.
 - Conditional Sift guidance for tutorials, task guides, reference material, and explanations.
+- Check guidance for constraint comments, enforcement gaps, and justified or defective suppressions.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.
