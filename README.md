@@ -53,6 +53,8 @@ For dependent phases, broad migrations, and material uncertainty, Pancake uses [
 
 During substantial work, [decision-trail guidance](skills/pancake/references/decision-trail.md) keeps consequential choices and supporting evidence recoverable. A separate saved record is optional and requires a request.
 
+Design guidance starts from caller usage, makes data ownership and valid states explicit, and revisits shared assumptions when workarounds recur. It remains a proposal unless implementation is requested.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
