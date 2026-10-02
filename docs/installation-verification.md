@@ -18,6 +18,20 @@ The initial live setup prompt requested manual IDs. The updated skill now runs t
 - Install from GitHub in a clean user environment.
 - Verify any shorter slash-command invocation forms once the relevant skills exist.
 
+## Current Pancake host trial
+
+On 2 October 2026, this conversation exposed installed skills from version `0.3.0`. Its cached manifest also reports `0.3.0`; repository version `0.14.27` includes Pancake and the later workflow changes. The earlier source-path trials do not verify this installed copy.
+
+Refresh the local installation using the host's plugin installation flow, then start a new VS Code Codex chat. Before testing, confirm the selected Pancake skill resolves to the updated installed copy and its manifest reports `0.14.27`. Do not replace a missing installed skill with a repository file path, because that would repeat the source-path checks.
+
+Select `$pancake-stack:pancake` in the new chat and send:
+
+> Explain how the setup preference helper resolves a role's model and reasoning effort. Keep this read-only. Cite the implementation and distinguish saved preferences from choices actually applied by the host.
+
+Record the installed version, whether the picker offers Pancake, the answer, relevant source citations, any preference fallback notice, and `git status --short` before and after. A correct answer should describe independent field resolution from role override to defaults to observable host settings. Resolving preferences alone does not apply them. The workspace should remain unchanged.
+
+This first host trial remains pending. Passing it would verify discovery and one read-only workflow, not implementation, independent review, all preference combinations, or shorter slash aliases. The [official packaging guide](https://developers.openai.com/plugins/build/plugins) describes local marketplace refresh behavior; availability can vary by host surface.
+
 The candidate GitHub install flow is:
 
 ```sh
