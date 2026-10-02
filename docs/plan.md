@@ -19,8 +19,8 @@ This phase establishes the Codex package and preference contract. It adds no ski
 
 ## Deferred work
 
-Architecture prototypes are skipped because this phase has no runtime logic or function boundaries. Adversarial design review is skipped because no design is contested. Commit, rebase, and PR work are skipped because this directory has no Git repository or publication request.
+Architecture prototypes were skipped because the foundation phase had no runtime logic or function boundaries. Adversarial design review was skipped because no design was contested. Commit, rebase, and PR work were skipped during that phase because the directory did not yet have a Git repository or publication request.
 
-Full JSON Schema validation and installation in VS Code remain unverified. Repository checks do not prove host installation.
+Full JSON Schema validation remains unverified. Local installation passed through the Codex CLI bundled with the VS Code extension. Workflow invocation in the VS Code composer remains unverified. See [installation verification](installation-verification.md).
 
 Future phases implement setup and rigorous workflows, verify host invocation syntax, and prepare public distribution. Model availability stays a host concern. A distribution source and license still need selection before public release.
