@@ -82,3 +82,5 @@ For requested worktree cleanup, Pancake loads [cleanup guidance](skills/pancake/
 [Setup](docs/setup.md) documents helper usage. [Configuration](docs/configuration.md) defines inheritance and storage. [Verification](docs/installation-verification.md) records tested behavior. [Plan](docs/plan.md) tracks remaining work.
 
 The package uses the [official plugin format](https://developers.openai.com/plugins/build/plugins). Public distribution and a license remain to be selected.
+
+Use `$pancake-stack:recap` to recover decisions, unfinished work, and current state for a project or topic. It starts with supplied context, reconciles repository evidence, and searches prior sessions only when requested and safely scoped. `/recap` remains an intended shortcut pending host verification.

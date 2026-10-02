@@ -2,6 +2,8 @@
 
 ## Completed
 
+- Recap skill for scoped context recovery and reconciliation with current artifacts.
+
 - Plugin manifest and local marketplace.
 - Setup skill with model discovery and preference storage.
 - Read-only how skill for explaining existing code with evidence.

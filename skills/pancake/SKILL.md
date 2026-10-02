@@ -10,6 +10,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 ## Choose the work
 
 - For requested worktree inventory or cleanup, read [worktree-cleanup guidance](references/worktree-cleanup.md). Inventory remains read-only.
+- For catching up on a project or recovering prior decisions and unfinished work, read [recap](../recap/SKILL.md). Historical recovery stays scoped to the requested project and topic.
 - For requested task pickup or an explicit pause, read [handoff](../handoff/SKILL.md) and its continuation guidance.
 - For requested merge, release, publication, deployment, or delivery preparation, read [shipping guidance](references/shipping.md).
 - For requested PR status, feedback triage, or merge-readiness work, read [PR-maintenance guidance](references/pr-maintenance.md). A status request remains read-only.

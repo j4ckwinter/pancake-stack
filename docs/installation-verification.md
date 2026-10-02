@@ -34,6 +34,14 @@ The local installation was refreshed with `codex plugin add pancake-stack@pancak
 
 This first host trial remains pending. Passing it would verify discovery and one read-only workflow, not implementation, independent review, all preference combinations, or shorter slash aliases. The [official packaging guide](https://developers.openai.com/plugins/build/plugins) describes local marketplace refresh behavior; availability can vary by host surface.
 
+### Installed-resource check
+
+After refresh, this session's available-skill catalog exposed all 16 skills from the `0.14.27` cache, including `pancake-stack:pancake`. The assistant read installed Pancake, How, values, and Sift resources and inspected the repository preference helper for the prepared explanation. Resolution in `skills/setup/scripts/preferences.py` treats model and reasoning effort independently, using role override, defaults, then supplied host values. The helper prints resolved preferences; it does not select the host model.
+
+Running the installed helper's `resolve` command returned null for both fields in all three roles. Host values were not supplied, so null remains inheritance rather than an observed model selection. `git status --short` was empty before and after this read-only check.
+
+This confirms current-session catalog exposure and use of installed resources. The user has not yet selected Pancake in a fresh VS Code picker chat. That discovery and invocation check remains pending; this assistant-directed check does not establish shortcut behavior or independent workflow selection.
+
 The candidate GitHub install flow is:
 
 ```sh
