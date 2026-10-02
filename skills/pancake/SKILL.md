@@ -13,6 +13,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 - For execution-flow explanations, read [how](../how/SKILL.md).
 - For historical rationale and design motivation, read [why](../why/SKILL.md).
 - For proving requested behavior, read [verify](../verify/SKILL.md).
+- For adversarial review of contested decisions or consequential assumptions, read [challenge](../challenge/SKILL.md).
 - For change reviews, read [check](../check/SKILL.md).
 - For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
 - For authorized implementation, read [the implementation sequence](references/implementation.md). It covers grounding, design choices, implementation, proportional review, verification, and failure handling.

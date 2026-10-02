@@ -6,7 +6,7 @@ Use this sequence for authorized implementation, including new behavior, fixes, 
 
 Establish the requested outcome and observable acceptance criteria. Inspect relevant code, callers, tests, and current workspace changes. Preserve unrelated work. Use [scope](../../scope/SKILL.md) when requirements are materially unclear, [how](../../how/SKILL.md) for an execution-flow gap, and the reproduction and diagnosis guidance in [fix](../../fix/SKILL.md) for defects. When using fix, perform its implementation and checks in the corresponding phases below rather than completing a separate fix workflow during grounding. Read only the guidance needed.
 
-Settle consequential interface, ownership, compatibility, or persistence choices before implementation with [design](../../design/SKILL.md). Small local changes can use the existing shape directly. Resolve repository facts through inspection; leave required product decisions explicit rather than guessing.
+Settle consequential interface, ownership, compatibility, or persistence choices before implementation with [design](../../design/SKILL.md). Use [challenge](../../challenge/SKILL.md) when a consequential assumption is disputed or needs adversarial examination. Do not require it for every change. Resolve supported findings within the authorized scope before relying on the affected assumption. Small local changes can use the existing shape directly. Resolve repository facts through inspection; leave required product decisions explicit rather than guessing.
 
 ## Plan substantial work
 
