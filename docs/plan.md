@@ -16,6 +16,7 @@
 - Pancake implementation sequence with proportional review, failure handling, and continuation notes.
 - Sift prose skill applied throughout pancake drafting and replies.
 - Challenge skill for evidence-based adversarial review and conditional pancake integration.
+- Reflect skill for evidence-based lessons and structural improvement proposals.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.
@@ -24,6 +25,6 @@
 
 - Retest the updated setup prompt and verify saved preferences.
 - Test GitHub installation and setup in a clean user environment.
-- Verify discovery and invocation of check, fix, pancake, balls, design, why, verify, handoff, pr, scope, sift, and challenge in Codex.
+- Verify discovery and invocation of check, fix, pancake, balls, design, why, verify, handoff, pr, scope, sift, challenge, and reflect in Codex.
 - Exercise the new workflows on real tasks, including preference fallback.
 - Select a license and prepare public distribution.
