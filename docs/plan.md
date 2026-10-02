@@ -2,6 +2,8 @@
 
 ## Completed
 
+- Conditional verification-recipe maintenance with scoped corrections and explicit execution gaps.
+
 - Teach skill for evidence-based explanations at the learner's requested depth.
 
 - Recap skill for scoped context recovery and reconciliation with current artifacts.
