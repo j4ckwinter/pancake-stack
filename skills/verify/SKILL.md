@@ -1,11 +1,13 @@
 ---
 name: verify
-description: Verify requested software behavior through existing tests and relevant user interfaces, reporting evidence and coverage gaps. Use to prove a feature or fix works, rather than to review code or repair defects.
+description: Verify requested software behavior through existing tests and relevant user interfaces, reporting evidence and coverage gaps. Use to prove a feature or fix works, or to prepare a requested reusable verification recipe.
 ---
 
 # Verify the outcome
 
 Read [core values](../pancake/references/values.md) and applicable repository instructions. Establish the behavior to prove from the request, ticket, or recent change. Define the expected observable result before running checks. If no useful target can be identified, ask what behavior needs verification.
+
+For a requested reusable project recipe, or when a relevant recipe already exists, read [project verification recipes](references/recipes.md). Reuse existing recipes only after checking their relevant assumptions. Do not generate a recipe during every verification task.
 
 Inspect documented commands, existing tests, and available tools. Choose the smallest set of checks that covers the requested behavior and affected contracts. Reuse the project's harness before proposing new infrastructure. Inspect unfamiliar commands for side effects before running them. A build, lint check, or passing test suite proves only what it exercises.
 

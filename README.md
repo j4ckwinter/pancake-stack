@@ -45,6 +45,8 @@ Use `$pancake-stack:reflect` to identify durable lessons from the current task a
 
 For authorized performance work, prototypes, and skill evaluations, Pancake loads [measured-experiment guidance](skills/pancake/references/experiments.md). It establishes a baseline, compares observations, and reports uncertainty without adding a separate command.
 
+Verify can also create a [project-specific verification recipe](skills/verify/references/recipes.md) when requested. It reuses established tools and reports recipes as drafts until their documented paths have been exercised.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
