@@ -15,8 +15,7 @@ Read [core values](references/values.md) and applicable repository instructions.
 - For proving requested behavior, read [verify](../verify/SKILL.md).
 - For change reviews, read [check](../check/SKILL.md).
 - For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
-- For reported defects, read [fix](../fix/SKILL.md).
-- For new behavior, inspect the relevant implementation and contracts, compare approaches only when the tradeoff matters, make the simplest sufficient change, and verify the requested outcome.
+- For authorized implementation, read [the implementation sequence](references/implementation.md). It covers grounding, design choices, implementation, proportional review, verification, and failure handling.
 
 Read only the workflow needed for the task. Do not run every workflow in sequence. A scope brief, review, explanation, or design proposal remains read-only unless edits are requested.
 
@@ -30,4 +29,4 @@ Use the current agent by default. Delegate only when an independent review or se
 
 ## Finish
 
-For implemented behavior, use [verify](../verify/SKILL.md) to check the outcome. For other tasks, inspect the resulting artifact and use checks appropriate to the deliverable. Lead with the outcome, then explain material decisions, verification, and remaining gaps. Stop when the authorized outcome is complete. Do not commit, publish, or install the plugin unless requested.
+For implementation, finish or preserve unfinished work as described in [the implementation sequence](references/implementation.md). For other tasks, inspect the resulting artifact and use checks appropriate to the deliverable. Lead with the outcome, then explain material decisions, verification, and remaining gaps. Stop when the authorized outcome is complete. Do not commit, publish, or install the plugin unless requested.

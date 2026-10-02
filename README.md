@@ -2,7 +2,7 @@
 
 A Codex plugin for a shared stack of skills, starting with VS Code.
 
-Setup selects model and reasoning effort preferences. How explains existing code with implementation references. Wtf rewrites the previous answer in plain language. Check reviews changes. Fix diagnoses defects. Pancake applies proportionate rigor to the requested task. Balls prepares a brief standup update for a mixed audience. Design proposes software changes grounded in the existing code. Why investigates historical rationale and separates recorded reasons from inference. Verify checks requested behavior and reports evidence and coverage gaps. Handoff prepares a continuation note for a new chat or colleague. Pr drafts a review-ready title and description from the actual change. Scope turns a ticket into a grounded implementation brief.
+Setup selects model and reasoning effort preferences. How explains existing code with implementation references. Wtf rewrites the previous answer in plain language. Check reviews changes. Fix diagnoses defects. Pancake applies proportionate rigor to the requested task, with a defined implementation sequence, change review, verification, and failure handling. Balls prepares a brief standup update for a mixed audience. Design proposes software changes grounded in the existing code. Why investigates historical rationale and separates recorded reasons from inference. Verify checks requested behavior and reports evidence and coverage gaps. Handoff prepares a continuation note for a new chat or colleague. Pr drafts a review-ready title and description from the actual change. Scope turns a ticket into a grounded implementation brief.
 
 ## Install locally
 

@@ -13,6 +13,7 @@
 - Handoff skill for continuation notes grounded in conversation and repository state.
 - Pr skill for titles and descriptions grounded in the ticket and branch diff.
 - Scope skill for grounded implementation briefs and explicit requirement gaps.
+- Pancake implementation sequence with proportional review, failure handling, and continuation notes.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.
