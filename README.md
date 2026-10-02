@@ -49,6 +49,8 @@ Verify can also create a [project-specific verification recipe](skills/verify/re
 
 Pancake can use [candidate comparison and parallel-work guidance](skills/pancake/references/parallel-work.md) when alternatives or separable work justify it. It keeps candidate state isolated, checks combined results, and reports missing coverage. No separate cookoff command is added.
 
+For dependent phases, broad migrations, and material uncertainty, Pancake uses [substantial-work guidance](skills/pancake/references/substantial-work.md). It checks each unit and the combined outcome, revises plans from evidence, and preserves unfinished state.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.

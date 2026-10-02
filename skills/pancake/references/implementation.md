@@ -10,6 +10,8 @@ Settle consequential interface, ownership, compatibility, or persistence choices
 
 ## Plan substantial work
 
+For dependent phases, broad migrations, or material uncertainty, read [substantial-work guidance](substantial-work.md) for completion criteria and checkpoints.
+
 Identify prerequisites and dependencies. Divide the work into the smallest useful units that each end in an observable check. Complete blocking foundations before dependent changes. Parallelize only separable work when delegation is useful and permitted; isolate writes and account for shared mutable state. A single owner is appropriate when coordination would cost more than it helps.
 
 Keep a short plan in the available planning surface or conversation. Record consequential decisions and revise the plan when new evidence changes dependencies. Check each unit before building further on it. Do not require commits, rebases, or additional artifacts merely to follow this sequence.
