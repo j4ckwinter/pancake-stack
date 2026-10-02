@@ -2,7 +2,7 @@
 
 A Codex plugin for a shared stack of skills, starting with VS Code.
 
-Setup selects model and reasoning effort preferences. How explains existing code with implementation references. Wtf rewrites the previous answer in plain language. The rigorous pancake workflow is planned.
+Setup selects model and reasoning effort preferences. How explains existing code with implementation references. Wtf rewrites the previous answer in plain language. Check reviews changes. Fix diagnoses defects. Pancake applies proportionate rigor to the requested task.
 
 ## Install locally
 
@@ -20,6 +20,10 @@ Start a new Codex chat and select `$pancake-stack:setup`. Setup lists local mode
 Use `$pancake-stack:how` to ask about code, for example “how does model discovery work?” It investigates without changing files. This first version uses the current agent and model.
 
 Use `$pancake-stack:wtf` to restate the previous answer more clearly. `/wtf` is the intended shortcut, pending a live picker check.
+
+Use `$pancake-stack:check` for a read-only change review, `$pancake-stack:fix` for a defect, and `$pancake-stack:pancake` for a rigorous task. These new skills have not yet been verified in the live Codex picker. Pancake reads saved role preferences, but applies them only when the host supports selection for that work. It otherwise uses the current agent settings.
+
+[Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
 

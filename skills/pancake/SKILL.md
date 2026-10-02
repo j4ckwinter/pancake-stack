@@ -1,0 +1,29 @@
+---
+name: pancake
+description: Apply proportionate rigor to a software task. Use when the user invokes pancake or explicitly requests a rigorous investigation, implementation, or review.
+---
+
+# Work with rigor
+
+Read [core values](references/values.md) and applicable repository instructions. Keep the requested outcome and scope explicit. For substantial work, maintain a short plan whose steps end in observable checks. Handle small tasks directly.
+
+## Choose the work
+
+- For explanations, read [how](../how/SKILL.md).
+- For change reviews, read [check](../check/SKILL.md).
+- For reported defects, read [fix](../fix/SKILL.md).
+- For new behavior, inspect the relevant implementation and contracts, compare approaches only when the tradeoff matters, make the simplest sufficient change, and verify the requested outcome.
+
+Read only the workflow needed for the task. Do not run every workflow in sequence. A review or explanation remains read-only unless edits are requested.
+
+## Preferences and agents
+
+Read saved preferences with `python3 <installed-setup-directory>/scripts/preferences.py resolve`, using the [setup helper](../setup/scripts/preferences.py). Resolve paths relative to this installed skill, not the user's workspace. Supply host model and effort arguments only when those values are observable. Missing preferences inherit from the host. If reading fails, report the limitation and preserve the file.
+
+Use implementation preferences for writing code, review preferences for reviewing, and research preferences for investigation. Apply a supported model and reasoning effort only when the host exposes a capability to select them for the intended work. The helper reads preferences; it does not apply them. Do not switch the parent conversation, write global settings, or claim an override was applied when it was not. If an explicit preference cannot be applied, state that briefly and use the current host settings. An unresolved null remains inheritance, not a guessed model or effort.
+
+Use the current agent by default. Delegate only when an independent review or separable investigation materially helps and host capabilities permit it. Keep writes isolated and review delegated results. Do not add agents simply to satisfy a fixed count or describe same-model reviews as a multi-model panel.
+
+## Finish
+
+Inspect the resulting artifact and run checks appropriate to the task. Lead with the outcome, then explain material decisions, verification, and remaining gaps. Stop when the authorized outcome is complete. Do not commit, publish, or install the plugin unless requested.

@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pancake-stack",
-  "version": "0.3.0",
-  "description": "Configure model preferences, explain code, and clarify answers. Rigorous workflows are planned.",
+  "version": "0.4.0",
+  "description": "Configure preferences, explain code, clarify answers, review changes, fix defects, and work with rigor.",
   "author": {
     "name": "Jack Winter"
   },
@@ -10,7 +10,7 @@
     "com.openai": {
       "interface": {
         "displayName": "Pancake Stack",
-        "shortDescription": "Configure preferences, understand code, and clarify answers.",
+        "shortDescription": "Understand, review, fix, and verify software changes.",
         "developerName": "Jack Winter",
         "category": "Productivity"
       }
