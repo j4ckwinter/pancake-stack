@@ -11,6 +11,7 @@
 - Why skill for evidence-based investigation of historical rationale.
 - Verify skill for observable behavior checks, evidence, and scoped cleanup.
 - Handoff skill for continuation notes grounded in conversation and repository state.
+- Pr skill for titles and descriptions grounded in the ticket and branch diff.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.
@@ -19,6 +20,6 @@
 
 - Retest the updated setup prompt and verify saved preferences.
 - Test GitHub installation and setup in a clean user environment.
-- Verify discovery and invocation of check, fix, pancake, balls, design, why, verify, and handoff in Codex.
+- Verify discovery and invocation of check, fix, pancake, balls, design, why, verify, handoff, and pr in Codex.
 - Exercise the new workflows on real tasks, including preference fallback.
 - Select a license and prepare public distribution.

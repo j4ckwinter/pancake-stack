@@ -2,7 +2,7 @@
 
 A Codex plugin for a shared stack of skills, starting with VS Code.
 
-Setup selects model and reasoning effort preferences. How explains existing code with implementation references. Wtf rewrites the previous answer in plain language. Check reviews changes. Fix diagnoses defects. Pancake applies proportionate rigor to the requested task. Balls prepares a brief standup update for a mixed audience. Design proposes software changes grounded in the existing code. Why investigates historical rationale and separates recorded reasons from inference. Verify checks requested behavior and reports evidence and coverage gaps. Handoff prepares a continuation note for a new chat or colleague.
+Setup selects model and reasoning effort preferences. How explains existing code with implementation references. Wtf rewrites the previous answer in plain language. Check reviews changes. Fix diagnoses defects. Pancake applies proportionate rigor to the requested task. Balls prepares a brief standup update for a mixed audience. Design proposes software changes grounded in the existing code. Why investigates historical rationale and separates recorded reasons from inference. Verify checks requested behavior and reports evidence and coverage gaps. Handoff prepares a continuation note for a new chat or colleague. Pr drafts a review-ready title and description from the actual change.
 
 ## Install locally
 
@@ -32,6 +32,8 @@ Use `$pancake-stack:why` to investigate why existing code or a design decision t
 Use `$pancake-stack:verify` to check that a feature or fix works through the relevant interface using existing tools. It reports verification results without repairing code unless requested. `/verify` is the intended shortcut, pending a live picker check.
 
 Use `$pancake-stack:handoff` to summarize the objective, current repository state, decisions, verification, blockers, and next action. It returns the note in chat and saves a file only when requested. `/handoff` is the intended shortcut, pending a live picker check.
+
+Use `$pancake-stack:pr` to draft a PR title and description from the ticket and branch diff. It creates or updates a remote PR only when explicitly requested. `/pr` is the intended shortcut, pending a live picker check.
 
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 

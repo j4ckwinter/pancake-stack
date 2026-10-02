@@ -1,8 +1,8 @@
 # Contributor instructions
 
-Keep this project focused on Codex plugin foundations and the requested setup, how, wtf, check, fix, pancake, balls, design, why, verify, and handoff skills.
+Keep this project focused on Codex plugin foundations and the requested setup, how, wtf, check, fix, pancake, balls, design, why, verify, handoff, and pr skills.
 
-- The setup helpers, how, wtf, check, fix, pancake, balls, design, why, verify, and handoff skills are authorized. Do not add other skills, commands, or hooks until requested.
+- The setup helpers, how, wtf, check, fix, pancake, balls, design, why, verify, handoff, and pr skills are authorized. Do not add other skills, commands, or hooks until requested.
 - Use the current official portable plugin contract for `plugin.json` and the documented Codex marketplace format.
 - Follow the shared values in `skills/pancake/references/values.md`.
 - Keep preference examples and their contract consistent.
