@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "pancake-stack",
+  "version": "0.0.1",
+  "description": "Foundations for a Codex skill stack. No skills or runnable workflows are included yet.",
+  "author": {
+    "name": "Jack Winter"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Pancake Stack",
+        "shortDescription": "Project foundations for a future Codex skill stack.",
+        "developerName": "Jack Winter",
+        "category": "Productivity"
+      }
+    }
+  }
+}

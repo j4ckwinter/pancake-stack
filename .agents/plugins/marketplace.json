@@ -1,0 +1,20 @@
+{
+  "name": "pancake-stack-local",
+  "interface": {
+    "displayName": "Pancake Stack local"
+  },
+  "plugins": [
+    {
+      "name": "pancake-stack",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
