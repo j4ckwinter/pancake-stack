@@ -7,6 +7,8 @@ description: Review the current task for durable lessons and propose concrete im
 
 Read [core values](../pancake/references/values.md), [sift](../sift/SKILL.md), and applicable repository instructions. Reflection produces recommendations by default, not edits or external backlog updates.
 
+For a request to capture or revise personal working conventions, read [personalization guidance](references/personalization.md). Ordinary reflection does not create a profile.
+
 ## Establish the evidence
 
 Use the active conversation and user-supplied task records. Focus on the requested task or reporting period. Preserve the latest corrections and constraints. Do not search unrelated session files or assume the host exposes a transcript path. When earlier context is missing, state the limit and use what is available rather than inventing history.

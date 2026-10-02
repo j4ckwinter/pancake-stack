@@ -2,6 +2,8 @@
 
 ## Completed
 
+- Conditional personalization guidance for requested working-style profiles, separate from shared defaults.
+
 - Conditional TypeScript guidance for domain variants, type reuse, and runtime validation.
 
 - Conditional verification-recipe maintenance with scoped corrections and explicit execution gaps.

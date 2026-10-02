@@ -90,3 +90,5 @@ Use `$pancake-stack:teach` for a guided explanation of code or a software concep
 Verify can audit or update an existing project recipe when requested, using [maintenance guidance](skills/verify/references/maintenance.md). It checks actual paths and separates stale instructions, product regressions, and unavailable prerequisites. An audit stays read-only; updates remain scoped to the recipe and its owned harness.
 
 Design and Pancake implementation can load [TypeScript guidance](skills/design/references/typescript.md) for meaningful variants, authoritative types, and runtime boundary validation. It follows existing project tooling and conventions.
+
+Reflect can draft or update personal working conventions when requested, using [personalization guidance](skills/reflect/references/personalization.md). It separates explicit preferences from inferred habits and keeps personal profiles separate from shared plugin rules and model settings. Saving requires an authorized destination.
