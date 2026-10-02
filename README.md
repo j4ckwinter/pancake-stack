@@ -51,6 +51,8 @@ Pancake can use [candidate comparison and parallel-work guidance](skills/pancake
 
 For dependent phases, broad migrations, and material uncertainty, Pancake uses [substantial-work guidance](skills/pancake/references/substantial-work.md). It checks each unit and the combined outcome, revises plans from evidence, and preserves unfinished state.
 
+During substantial work, [decision-trail guidance](skills/pancake/references/decision-trail.md) keeps consequential choices and supporting evidence recoverable. A separate saved record is optional and requires a request.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.

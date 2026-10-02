@@ -16,6 +16,8 @@ Implement and check each useful unit before relying on it. Separate verified res
 
 ## Check progress and revise
 
+Use [decision-trail guidance](decision-trail.md) when consequential choices or changing assumptions need a recoverable record. Keep it in the conversation unless a separate artifact is requested.
+
 At meaningful phase boundaries, report completed outcomes, verification evidence, changed assumptions, and the next unit. Keep routine updates brief. Continue authorized work without turning each checkpoint into an approval request.
 
 When evidence changes the plan, explain the cause and revise the remaining units. Diagnose failed checks using the implementation sequence. Repeated attempts without new evidence should trigger examination of the premise or observation method. Preserve useful, correct partial work; discard only task-owned experimental changes that failed their stated criteria.
