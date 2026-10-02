@@ -20,6 +20,7 @@
 - Conditional measured-experiment guidance for performance, prototypes, and skill evaluations.
 - Check guidance for hidden consumers and evidence behind compatibility assumptions.
 - Optional project verification recipes with execution evidence and scoped cleanup.
+- Conditional cookoff and parallel-work guidance with isolated candidates and explicit coverage.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.

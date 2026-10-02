@@ -47,6 +47,8 @@ For authorized performance work, prototypes, and skill evaluations, Pancake load
 
 Verify can also create a [project-specific verification recipe](skills/verify/references/recipes.md) when requested. It reuses established tools and reports recipes as drafts until their documented paths have been exercised.
 
+Pancake can use [candidate comparison and parallel-work guidance](skills/pancake/references/parallel-work.md) when alternatives or separable work justify it. It keeps candidate state isolated, checks combined results, and reports missing coverage. No separate cookoff command is added.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
