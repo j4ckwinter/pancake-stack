@@ -28,6 +28,7 @@
 - Check guidance for constraint comments, enforcement gaps, and justified or defective suppressions.
 - Setup and Pancake reporting that separates saved preferences, resolved inheritance, and actual host application.
 - Conditional runtime and trace diagnosis with source attribution and explicit evidence limits.
+- Conditional visual-parity guidance for comparable captures, image differences, inspection, and state coverage.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.

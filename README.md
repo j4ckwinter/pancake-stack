@@ -63,6 +63,8 @@ Setup distinguishes saved preferences from resolved inheritance. Pancake reports
 
 For runtime symptoms and profiling captures, Pancake loads [forensics guidance](skills/pancake/references/forensics.md). It traces observations to source, distinguishes hypotheses from confirmed mechanisms, and keeps diagnosis separate from repair.
 
+For appearance-preserving migrations and interface matching, Pancake loads [visual-parity guidance](skills/pancake/references/visual-parity.md). It compares equivalent states, preserves reference evidence, and reports capture limits and untested states.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
