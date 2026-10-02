@@ -18,6 +18,7 @@
 - Challenge skill for evidence-based adversarial review and conditional pancake integration.
 - Reflect skill for evidence-based lessons and structural improvement proposals.
 - Conditional measured-experiment guidance for performance, prototypes, and skill evaluations.
+- Check guidance for hidden consumers and evidence behind compatibility assumptions.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.
