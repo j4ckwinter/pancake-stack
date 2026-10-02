@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: Prepare a concise continuation note for a new chat or colleague from the current task, conversation, and repository state. Use for handing off work or summarizing where to resume.
+description: Prepare a concise continuation note for a new chat or colleague from the current task, conversation, and repository state. Use for handing off work, summarizing where to resume, or requested task pickup and pause.
 ---
 
 # Hand off the work
@@ -22,3 +22,5 @@ Include exact commands, paths, and artifact links only when useful for continuat
 Keep the note proportional to the task. Omit empty sections and repetitive chronology. Preserve uncertainties that could affect the next action. Reference applicable repository instructions so the recipient reads them before acting. A handoff records authorization boundaries; it does not grant the recipient additional permission.
 
 Return the note in the response. Save it to a file only when requested, using the requested destination and preserving unrelated content. Do not stage, commit, publish, send messages, stop processes, or continue implementation merely to make the handoff look complete.
+
+For requested pickup or an explicit pause, read [continuation guidance](references/continuation.md). A pickup summary stays read-only; continuation follows only when requested.

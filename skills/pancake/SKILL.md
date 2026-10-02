@@ -9,6 +9,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 
 ## Choose the work
 
+- For requested task pickup or an explicit pause, read [handoff](../handoff/SKILL.md) and its continuation guidance.
 - For requested merge, release, publication, deployment, or delivery preparation, read [shipping guidance](references/shipping.md).
 - For requested PR status, feedback triage, or merge-readiness work, read [PR-maintenance guidance](references/pr-maintenance.md). A status request remains read-only.
 - For matching an interface or preserving appearance during a migration, read [visual-parity guidance](references/visual-parity.md).

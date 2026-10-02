@@ -71,6 +71,8 @@ For requested delivery or its preparation, Pancake loads [shipping guidance](ski
 
 Substantial-work guidance also tracks unit ownership, dependencies, evidence, and continuation limits. A requested plan remains a plan; sustained work uses actual host capabilities and stops on an explicit pause.
 
+Handoff includes [continuation guidance](skills/handoff/references/continuation.md) for requested pickup and explicit pauses. It reconciles notes with current state and preserves incomplete work without automatic commits or cleanup.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
