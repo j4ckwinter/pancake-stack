@@ -5,6 +5,8 @@ description: Propose a software design grounded in existing code and constraints
 
 # Design a change
 
+For consequential TypeScript data shapes or boundary choices, read [TypeScript guidance](references/typescript.md).
+
 Read [core values](../pancake/references/values.md) and applicable repository instructions. Establish the requested outcome, constraints, and what is outside scope from the user's request and available context. Ask only when a missing product decision materially changes the design.
 
 Inspect the relevant implementation, callers, tests, and documented contracts. Identify who owns the data and behavior, and which boundaries the change crosses. Cite inspected locations that constrain the proposal. For greenfield work, state assumptions rather than inventing an existing architecture. Distinguish documented rationale from inferred intent.

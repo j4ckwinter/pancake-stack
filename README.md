@@ -88,3 +88,5 @@ Use `$pancake-stack:recap` to recover decisions, unfinished work, and current st
 Use `$pancake-stack:teach` for a guided explanation of code or a software concept. It adapts to your question, uses concrete examples, and preserves uncertainty about design reasons. `/teach` remains an intended shortcut pending host verification.
 
 Verify can audit or update an existing project recipe when requested, using [maintenance guidance](skills/verify/references/maintenance.md). It checks actual paths and separates stale instructions, product regressions, and unavailable prerequisites. An audit stays read-only; updates remain scoped to the recipe and its owned harness.
+
+Design and Pancake implementation can load [TypeScript guidance](skills/design/references/typescript.md) for meaningful variants, authoritative types, and runtime boundary validation. It follows existing project tooling and conventions.

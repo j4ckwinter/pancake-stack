@@ -2,6 +2,8 @@
 
 ## Completed
 
+- Conditional TypeScript guidance for domain variants, type reuse, and runtime validation.
+
 - Conditional verification-recipe maintenance with scoped corrections and explicit execution gaps.
 
 - Teach skill for evidence-based explanations at the learner's requested depth.
