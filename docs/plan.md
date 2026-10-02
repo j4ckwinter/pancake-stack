@@ -29,6 +29,7 @@
 - Setup and Pancake reporting that separates saved preferences, resolved inheritance, and actual host application.
 - Conditional runtime and trace diagnosis with source attribution and explicit evidence limits.
 - Conditional visual-parity guidance for comparable captures, image differences, inspection, and state coverage.
+- Conditional PR maintenance with evidence-based feedback triage, bounded retries, and revision-specific CI reporting.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.

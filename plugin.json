@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pancake-stack",
-  "version": "0.14.12",
+  "version": "0.14.13",
   "description": "Configure preferences, scope and design changes, understand code, challenge assumptions, fix and verify behavior, write clear updates, and reflect on lessons.",
   "author": {
     "name": "Jack Winter"

@@ -9,6 +9,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 
 ## Choose the work
 
+- For requested PR status, feedback triage, or merge-readiness work, read [PR-maintenance guidance](references/pr-maintenance.md). A status request remains read-only.
 - For matching an interface or preserving appearance during a migration, read [visual-parity guidance](references/visual-parity.md).
 - For runtime symptoms or captured profiling artifacts, read [forensics guidance](references/forensics.md). Keep a diagnosis separate from repair unless both are requested.
 - For performance experiments, prototypes that settle observable questions, or skill evaluations, read [measured experiments](references/experiments.md). Use it only when the requested work authorizes the experiment.

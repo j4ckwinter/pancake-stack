@@ -65,6 +65,8 @@ For runtime symptoms and profiling captures, Pancake loads [forensics guidance](
 
 For appearance-preserving migrations and interface matching, Pancake loads [visual-parity guidance](skills/pancake/references/visual-parity.md). It compares equivalent states, preserves reference evidence, and reports capture limits and untested states.
 
+For requested PR status and maintenance, Pancake loads [PR-maintenance guidance](skills/pancake/references/pr-maintenance.md). It assesses CI and feedback against the tested revision, bounds retries, and keeps remote actions within the requested scope.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
