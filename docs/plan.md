@@ -36,6 +36,7 @@
 - Conditional worktree cleanup with ownership checks, data preservation, normal Git removal, and result confirmation.
 - Implementation guidance for scoped subtraction, observed usage, and reducing unnecessary indirection.
 - Design guidance for changed constraints, useful foundations, and migrations with verifiable target states.
+- Fix guidance for failed hypotheses, shared premises, distinguishing observations, and scoped root-cause correction.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.
