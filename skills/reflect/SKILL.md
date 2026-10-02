@@ -25,6 +25,10 @@ For each candidate, identify the observed event, its cause or labeled hypothesis
 
 Choose the smallest effective intervention. Prefer a test, type, validation boundary, script, or design change when it can prevent the failure more reliably than prose. Use skill instructions for a decision that needs judgment, and invocation metadata only when evidence shows discovery failed. Preserve shared defaults and personal preferences as separate concerns.
 
+Place the safeguard at the layer that owns the invariant. Compare mechanisms by the actual failure they prevent and the cost of maintaining them, rather than a fixed ranking. A type can prevent an invalid construction, a boundary parser can reject external data, a regression test can detect broken behavior, and a script can make a repeated operation reliable. Preserve judgment-based guidance where enforcement cannot express the decision.
+
+Describe how the proposed safeguard would catch the observed failure and still allow a relevant valid case. Check for overlap with existing enforcement and identify an owner or maintenance location. If a safeguard is implemented within authorized scope, verify those cases before calling the lesson encoded. A saved recommendation remains a proposal, not prevention. Remove redundant instructions only when verified enforcement covers their purpose and editing those instructions is authorized; keep useful rationale and remaining exceptions.
+
 Present each useful proposal with its supporting evidence, specific target, expected benefit, and a way to verify it. Mark uncertain causal explanations as hypotheses. Prioritize recommendations by consequence and recurrence rather than by how many reviewers agree. A structural improvement is a first-class recommendation, not automatically deferred in favor of skill edits.
 
 ## Return or apply
