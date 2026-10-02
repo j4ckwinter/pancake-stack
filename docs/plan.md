@@ -2,6 +2,8 @@
 
 ## Completed
 
+- Teach skill for evidence-based explanations at the learner's requested depth.
+
 - Recap skill for scoped context recovery and reconciliation with current artifacts.
 
 - Plugin manifest and local marketplace.

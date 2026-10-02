@@ -19,6 +19,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 - For performance experiments, prototypes that settle observable questions, or skill evaluations, read [measured experiments](references/experiments.md). Use it only when the requested work authorizes the experiment.
 - For requested retrospectives and durable lessons, read [reflect](../reflect/SKILL.md). Do not run it automatically after every task.
 - For ticket clarification and implementation briefs, read [scope](../scope/SKILL.md).
+- For guided learning or understanding a concept at the reader's pace, read [teach](../teach/SKILL.md).
 - For execution-flow explanations, read [how](../how/SKILL.md).
 - For historical rationale and design motivation, read [why](../why/SKILL.md).
 - For proving requested behavior, read [verify](../verify/SKILL.md).

@@ -84,3 +84,5 @@ For requested worktree cleanup, Pancake loads [cleanup guidance](skills/pancake/
 The package uses the [official plugin format](https://developers.openai.com/plugins/build/plugins). Public distribution and a license remain to be selected.
 
 Use `$pancake-stack:recap` to recover decisions, unfinished work, and current state for a project or topic. It starts with supplied context, reconciles repository evidence, and searches prior sessions only when requested and safely scoped. `/recap` remains an intended shortcut pending host verification.
+
+Use `$pancake-stack:teach` for a guided explanation of code or a software concept. It adapts to your question, uses concrete examples, and preserves uncertainty about design reasons. `/teach` remains an intended shortcut pending host verification.
