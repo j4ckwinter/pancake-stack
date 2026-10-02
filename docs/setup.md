@@ -1,10 +1,18 @@
 # Set up Pancake Stack
 
-Start a new Codex chat after installing the package and select `$pancake-stack:setup`. The backend reports that exact namespaced skill name. Setup asks for default model and reasoning effort preferences and optional role overrides. Keep a field unset to inherit its default, then the host setting. Live conversational invocation in the VS Code composer remains unverified.
+Start a new Codex chat after installing the package and select `$pancake-stack:setup`. Setup first asks for a model, then a supported reasoning effort. Role customization is optional. Keep a field unset to inherit its default, then the host setting. The user has confirmed that setup loads in VS Code. Completing setup and checking saved preferences remain unverified.
 
-Use models and efforts supported by your host. If setup cannot read a model catalog, provide supported values from your host picker. Setup saves your choices without changing the current conversation or global Codex settings. The rigorous `$pancake` workflow is not implemented yet.
+Setup queries the local Codex app server for model IDs and their supported reasoning efforts before asking you to choose. If discovery fails, setup reports the reason and falls back to accessible host metadata or your host picker. A remote or overridden host can have different choices. Setup saves your choices without changing the current conversation or global Codex settings. The rigorous `$pancake` workflow is not implemented yet.
 
 ## Run the preference helper
+
+Inspect the local model catalog without writing preferences:
+
+```sh
+python3 skills/setup/scripts/catalog.py
+```
+
+The helper uses the [Codex app server protocol](https://learn.chatgpt.com/docs/app-server), follows catalog pagination, and stops discovery after 15 seconds. `--codex` selects an explicit executable path. Discovery failures exit with code `2`.
 
 Use Python 3.8 or later. From the repository root, inspect preferences with:
 
@@ -34,4 +42,4 @@ Run the behavioral tests from the repository root:
 python3 -m unittest discover -s tests -v
 ```
 
-The tests pass explicit temporary preference paths to every helper invocation. They check read and save behavior, inheritance, malformed input, refusal to overwrite corrupt preferences, and filesystem failures. They do not install a plugin or write to user preference storage.
+The preference tests pass explicit temporary paths to every helper invocation. Catalog tests use a temporary fake app server to check pagination, notifications, timeouts, malformed responses, and unavailable executables. The tests do not install a plugin or write to user preference storage.

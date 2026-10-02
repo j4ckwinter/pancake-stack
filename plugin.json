@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pancake-stack",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "A Codex skill stack with model and reasoning effort setup. Rigorous workflows are planned.",
   "author": {
     "name": "Jack Winter"
