@@ -54,3 +54,7 @@
 - Verify discovery and invocation of check, fix, pancake, balls, design, why, verify, handoff, pr, scope, sift, challenge, and reflect in Codex.
 - Exercise the new workflows on real tasks, including preference fallback.
 - Select a license and prepare public distribution.
+
+## Behavioral evaluation
+
+An isolated independent explanation trial at e1cc602 selected How through Pancake, returned a correct code-cited answer, reported static inspection honestly, and preserved every fixture file. This is one repository-source scenario, not a VS Code installation or general behavioral verdict. Broader workflow trials remain pending.
