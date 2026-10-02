@@ -55,6 +55,8 @@ During substantial work, [decision-trail guidance](skills/pancake/references/dec
 
 Design guidance starts from caller usage, makes data ownership and valid states explicit, and revisits shared assumptions when workarounds recur. It remains a proposal unless implementation is requested.
 
+For technical documentation, Sift loads [technical-writing guidance](skills/sift/references/technical-writing.md) to match the reader’s purpose and make instructions and factual claims clear.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.

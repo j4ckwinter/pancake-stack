@@ -26,6 +26,10 @@ Name what happens, who acts, and why the reader needs to know. Replace vague pra
 
 Do not treat a word list as a ban. A word is a problem when it adds no meaning or obscures the point. Brevity must not remove the explanation a reader needs.
 
+## Technical documentation
+
+When drafting or editing technical documentation, read [technical-writing guidance](references/technical-writing.md) to choose the reader's purpose and check instructions, terminology, and factual claims. Ordinary conversational prose uses the guidance above directly.
+
 ## Return the work
 
 For an explicit rewrite, use the supplied passage or clearly identified file. If neither is available, ask what to edit. Return the revised text without a report about the cleanup unless requested. Edit files only when file editing is authorized, preserving unrelated content. Do not investigate the repository or use external sources merely to restyle supplied prose.
