@@ -37,6 +37,8 @@ The Git-backed install was not run. The marketplace name remains `pancake-stack-
 
 ## Verification limits
 
-The local package installation passed through the extension's bundled CLI. No VS Code UI automation was available. No skill was created or invoked. Composer discovery, actual workflow execution, and Git-backed installation remain unverified.
+Step 2 added the setup skill and bumped the package to `0.1.0`. A second `codex plugin add pancake-stack@pancake-stack-local --json` installed that version successfully. The bundled Codex app server's `skills/list` response reported the installed skill as `pancake-stack:setup`, with `enabled: true` and plugin ID `pancake-stack@pancake-stack-local`. Use `$pancake-stack:setup` as the backend-discovered name. The earlier `$setup pancake-stack` form remains unverified.
+
+The local package installation passed through the extension's bundled CLI. No VS Code UI automation was available. Backend discovery of setup passed, but no live conversational skill invocation was tested. Composer discovery, actual workflow execution, and Git-backed installation remain unverified.
 
 After setup and pancake skills are implemented, a new Codex chat must verify their picker entries and execution. This installation result proves package installation only.
