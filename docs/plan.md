@@ -58,3 +58,5 @@
 ## Behavioral evaluation
 
 An isolated independent explanation trial at e1cc602 selected How through Pancake, returned a correct code-cited answer, reported static inspection honestly, and preserved every fixture file. This is one repository-source scenario, not a VS Code installation or general behavioral verdict. Broader workflow trials remain pending.
+
+An isolated independent defect-fix trial at 77c833f reproduced an empty-input crash, demonstrated the regression test failing before correction, reran the original case, and preserved unrelated files. Parent inspection and a fresh test run confirmed the resulting artifact. The final reply omitted the cause and before/after evidence, despite collecting them; broader evaluation should track this reporting gap. This remains a repository-source trial, not installed VS Code verification.
