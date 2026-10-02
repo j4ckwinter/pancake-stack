@@ -18,6 +18,10 @@ Keep a short plan in the available planning surface or conversation. Record cons
 
 ## Implement and review
 
+Before adding a layer or mechanism, inspect the affected path for obsolete branches, duplicated decisions, and pass-through wrappers that can be removed within scope. Confirm callers and relevant contracts before deleting anything; apparent redundancy can preserve compatibility or a boundary requirement. Simplify only when it helps the requested change, not as a repository-wide cleanup prerequisite.
+
+Organize the change around observed usage. Keep local behavior direct, mutable state narrowly owned, and domain decisions in one clear place. Introduce an abstraction when it removes meaningful duplication, hides useful complexity, or protects an invariant. Do not add indirection for hypothetical future callers. Assess reader effort by tracing the actual caller path rather than imposing a fixed number of files or layers.
+
 Make the simplest change that meets the agreed outcome. Add a regression test when it reliably exercises a defect, or reuse an existing check when new infrastructure would not earn its cost.
 
 Inspect the completed diff using [check](../../check/SKILL.md), including affected callers and contracts. For a small, low-impact change, the implementing agent can perform a direct review. For consequential changes, such as shared APIs, data migrations, security boundaries, or concurrency, seek an independent reviewer when host capabilities and task permissions allow. Give the reviewer the objective, constraints, actual diff, and relevant evidence, with a read-only scope. Judge each finding against the implementation before acting. State when independent review was unavailable and perform the review directly. Do not imply that self-review is independent or that same-model agents provide model diversity.
