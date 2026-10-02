@@ -30,6 +30,8 @@ Select `$pancake-stack:pancake` in the new chat and send:
 
 Record the installed version, whether the picker offers Pancake, the answer, relevant source citations, any preference fallback notice, and `git status --short` before and after. A correct answer should describe independent field resolution from role override to defaults to observable host settings. Resolving preferences alone does not apply them. The workspace should remain unchanged.
 
+The local installation was refreshed with `codex plugin add pancake-stack@pancake-stack-local --json`. The CLI reported version `0.14.27` at `/Users/jackwinter/.codex/plugins/cache/pancake-stack-local/pancake-stack/0.14.27`. Byte comparison confirmed the installed manifest and all 32 skill files match repository source. This confirms installation contents, not discovery in a new VS Code chat.
+
 This first host trial remains pending. Passing it would verify discovery and one read-only workflow, not implementation, independent review, all preference combinations, or shorter slash aliases. The [official packaging guide](https://developers.openai.com/plugins/build/plugins) describes local marketplace refresh behavior; availability can vary by host surface.
 
 The candidate GitHub install flow is:
