@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pancake-stack",
-  "version": "0.5.0",
-  "description": "Configure preferences, explain code, clarify answers, review changes, fix defects, work with rigor, and prepare standup updates.",
+  "version": "0.6.0",
+  "description": "Configure preferences, understand code, design changes, review and fix defects, work with rigor, and prepare standup updates.",
   "author": {
     "name": "Jack Winter"
   },
@@ -10,7 +10,7 @@
     "com.openai": {
       "interface": {
         "displayName": "Pancake Stack",
-        "shortDescription": "Understand, review, fix, and verify software changes.",
+        "shortDescription": "Understand, design, review, fix, and verify software changes.",
         "developerName": "Jack Winter",
         "category": "Productivity"
       }

@@ -2,7 +2,7 @@
 
 A Codex plugin for a shared stack of skills, starting with VS Code.
 
-Setup selects model and reasoning effort preferences. How explains existing code with implementation references. Wtf rewrites the previous answer in plain language. Check reviews changes. Fix diagnoses defects. Pancake applies proportionate rigor to the requested task. Balls prepares a brief standup update for a mixed audience.
+Setup selects model and reasoning effort preferences. How explains existing code with implementation references. Wtf rewrites the previous answer in plain language. Check reviews changes. Fix diagnoses defects. Pancake applies proportionate rigor to the requested task. Balls prepares a brief standup update for a mixed audience. Design proposes software changes grounded in the existing code.
 
 ## Install locally
 
@@ -24,6 +24,8 @@ Use `$pancake-stack:wtf` to restate the previous answer more clearly. `/wtf` is 
 Use `$pancake-stack:check` for a read-only change review, `$pancake-stack:fix` for a defect, and `$pancake-stack:pancake` for a rigorous task. These new skills have not yet been verified in the live Codex picker. Pancake reads saved role preferences, but applies them only when the host supports selection for that work. It otherwise uses the current agent settings.
 
 Use `$pancake-stack:balls` to prepare a short spoken update covering blockers, aims, and lessons learned. It uses the current ticket, branch, staged changes, and unstaged changes, alongside your notes. `/balls` is the intended shortcut, pending a live picker check.
+
+Use `$pancake-stack:design` to compare approaches and propose interfaces before coding. It returns a proposal without editing files unless implementation is also requested. `/design` is the intended shortcut, pending a live picker check.
 
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 

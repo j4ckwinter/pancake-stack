@@ -11,10 +11,11 @@ Read [core values](references/values.md) and applicable repository instructions.
 
 - For explanations, read [how](../how/SKILL.md).
 - For change reviews, read [check](../check/SKILL.md).
+- For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
 - For reported defects, read [fix](../fix/SKILL.md).
 - For new behavior, inspect the relevant implementation and contracts, compare approaches only when the tradeoff matters, make the simplest sufficient change, and verify the requested outcome.
 
-Read only the workflow needed for the task. Do not run every workflow in sequence. A review or explanation remains read-only unless edits are requested.
+Read only the workflow needed for the task. Do not run every workflow in sequence. A review, explanation, or design proposal remains read-only unless edits are requested.
 
 ## Preferences and agents
 
