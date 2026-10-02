@@ -9,6 +9,7 @@ Read [core values](references/values.md) and applicable repository instructions.
 
 ## Choose the work
 
+- For ticket clarification and implementation briefs, read [scope](../scope/SKILL.md).
 - For execution-flow explanations, read [how](../how/SKILL.md).
 - For historical rationale and design motivation, read [why](../why/SKILL.md).
 - For proving requested behavior, read [verify](../verify/SKILL.md).
@@ -17,7 +18,7 @@ Read [core values](references/values.md) and applicable repository instructions.
 - For reported defects, read [fix](../fix/SKILL.md).
 - For new behavior, inspect the relevant implementation and contracts, compare approaches only when the tradeoff matters, make the simplest sufficient change, and verify the requested outcome.
 
-Read only the workflow needed for the task. Do not run every workflow in sequence. A review, explanation, or design proposal remains read-only unless edits are requested.
+Read only the workflow needed for the task. Do not run every workflow in sequence. A scope brief, review, explanation, or design proposal remains read-only unless edits are requested.
 
 ## Preferences and agents
 
