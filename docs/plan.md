@@ -41,6 +41,7 @@
 - Design boundary guidance for runtime validation, authoritative schemas, and meaningful domain types.
 - Design lifecycle guidance for retries, partial failures, caller migration, and structurally coordinated shared state.
 - Verification guidance for discriminating observations, contract-based expectations, and integration evidence.
+- Implementation execution guidance for useful automation, bounded context, and continued authorized work.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.

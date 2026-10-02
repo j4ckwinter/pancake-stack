@@ -16,6 +16,14 @@ Identify prerequisites and dependencies. Divide the work into the smallest usefu
 
 Keep a short plan in the available planning surface or conversation. Record consequential decisions and revise the plan when new evidence changes dependencies. Check each unit before building further on it. Do not require commits, rebases, or additional artifacts merely to follow this sequence.
 
+## Execute efficiently
+
+Reuse existing scripts, queries, and generators before doing repetitive transformations by hand. Add a small task-specific tool when it makes the work materially more reliable or reviewable, with explicit inputs, write scope, and a way to inspect the result. Validate it on a representative unit before applying it broadly, and consider rerun behavior. A few clear edits need no new automation. Keep tooling within authorized scope; do not install a framework or persist a helper merely to satisfy a process rule.
+
+Bound investigation output to the relevant paths and questions. Retain concise findings with artifact pointers, assumptions, verification state, and next actions rather than repeatedly loading whole files or histories. Expand inspection when evidence identifies another affected boundary. Use the existing parallel-work guidance only when delegation improves the task; context size alone is not a reason to invent workers or lose decisive evidence.
+
+Resolve observable repository facts through inspection and make routine reversible implementation choices within the requested scope. Continue independent authorized work while awaiting a required product decision. Ask only for information or authorization that is genuinely missing, after making the dependent choice concrete where possible. Explain material assumptions so the user can steer; do not interpret silence as approval or replace a requested product decision with an untested guess.
+
 ## Implement and review
 
 Before adding a layer or mechanism, inspect the affected path for obsolete branches, duplicated decisions, and pass-through wrappers that can be removed within scope. Confirm callers and relevant contracts before deleting anything; apparent redundancy can preserve compatibility or a boundary requirement. Simplify only when it helps the requested change, not as a repository-wide cleanup prerequisite.
