@@ -35,6 +35,7 @@
 - Conditional handoff guidance for evidence-based pickup and explicit pauses without automatic workspace cleanup.
 - Conditional worktree cleanup with ownership checks, data preservation, normal Git removal, and result confirmation.
 - Implementation guidance for scoped subtraction, observed usage, and reducing unnecessary indirection.
+- Design guidance for changed constraints, useful foundations, and migrations with verifiable target states.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.
