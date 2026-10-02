@@ -1,7 +1,7 @@
 {
-  "name": "pancake-stack-local",
+  "name": "pancake-stack",
   "interface": {
-    "displayName": "Pancake Stack local"
+    "displayName": "Pancake Stack"
   },
   "plugins": [
     {

@@ -10,7 +10,7 @@ run these from the repo:
 
 ```sh
 codex plugin marketplace add .
-codex plugin add pancake-stack@pancake-stack-local
+codex plugin add pancake-stack@pancake-stack
 ```
 
 then open a new Codex chat. two things to start with:

@@ -46,7 +46,7 @@ The candidate GitHub install flow is:
 
 ```sh
 codex plugin marketplace add j4ckwinter/pancake-stack
-codex plugin add pancake-stack@pancake-stack-local
+codex plugin add pancake-stack@pancake-stack
 ```
 
-`pancake-stack-local` is the catalog's name even when registered from Git. The Git-backed flow has not been tested.
+The marketplace is now named `pancake-stack`. Earlier results above used its previous name, `pancake-stack-local`, and retain the original commands and cache paths. Installation under the renamed marketplace and the Git-backed flow remain unverified. Existing installations keep the previous marketplace identity until migrated.
