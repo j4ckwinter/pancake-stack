@@ -4,7 +4,7 @@ Use this sequence for authorized implementation, including new behavior, fixes, 
 
 ## Ground and choose
 
-Establish the requested outcome and observable acceptance criteria. Inspect relevant code, callers, tests, and current workspace changes. Preserve unrelated work. Use [scope](../../scope/SKILL.md) when requirements are materially unclear, [how](../../how/SKILL.md) for an execution-flow gap, and [fix](../../fix/SKILL.md) for defect reproduction and diagnosis. Read only the guidance needed.
+Establish the requested outcome and observable acceptance criteria. Inspect relevant code, callers, tests, and current workspace changes. Preserve unrelated work. Use [scope](../../scope/SKILL.md) when requirements are materially unclear, [how](../../how/SKILL.md) for an execution-flow gap, and the reproduction and diagnosis guidance in [fix](../../fix/SKILL.md) for defects. When using fix, perform its implementation and checks in the corresponding phases below rather than completing a separate fix workflow during grounding. Read only the guidance needed.
 
 Settle consequential interface, ownership, compatibility, or persistence choices before implementation with [design](../../design/SKILL.md). Small local changes can use the existing shape directly. Resolve repository facts through inspection; leave required product decisions explicit rather than guessing.
 
@@ -22,7 +22,7 @@ Inspect the completed diff using [check](../../check/SKILL.md), including affect
 
 ## Verify and handle failures
 
-Use [verify](../../verify/SKILL.md) to exercise the requested behavior. Tie the conclusion to the code and state actually checked. A review without findings does not replace verification.
+Use [verify](../../verify/SKILL.md) to exercise the requested behavior. Tie the conclusion to the code and state actually checked. A review without findings does not replace verification. For a defect, repeat the original failing scenario under comparable conditions after the correction. Record the before-and-after result. If that scenario cannot be exercised, name the limitation; passing other tests does not establish that the reported defect is resolved. For refactoring, verify that the relevant existing behavior and contracts remain unchanged.
 
 When a check fails, determine whether the failure comes from product behavior, the environment, or the observation method. For a product defect within the authorized implementation scope, diagnose it, make a focused correction, review the correction, and rerun the affected checks. Expand testing only when the correction or failure warrants it. Do not suppress checks, weaken assertions, or add speculative fixes to manufacture a pass.
 

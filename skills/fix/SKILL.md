@@ -13,4 +13,4 @@ Trace the symptom through its inputs, state changes, and callers. Identify the c
 
 Add a regression test when it can exercise the failure reliably through the real interface. Demonstrate failure before the fix and success after it when feasible. Use an existing executable check instead when a new test would require brittle mocks or substantial infrastructure.
 
-Run checks appropriate to the affected behavior and inspect the final diff for unintended changes. Report the cause, the correction, verification results, and any remaining limitation. Do not claim a reproduction or successful check that did not occur.
+Repeat the original failing scenario after the fix under comparable conditions and record the result. If it cannot be exercised, report that gap without treating other passing tests as proof that the reported defect is resolved. Run checks appropriate to the affected behavior and inspect the final diff for unintended changes. Report the cause, the correction, verification results, and any remaining limitation. Do not claim a reproduction or successful check that did not occur.
