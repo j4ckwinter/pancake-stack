@@ -9,6 +9,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 
 ## Choose the work
 
+- For runtime symptoms or captured profiling artifacts, read [forensics guidance](references/forensics.md). Keep a diagnosis separate from repair unless both are requested.
 - For performance experiments, prototypes that settle observable questions, or skill evaluations, read [measured experiments](references/experiments.md). Use it only when the requested work authorizes the experiment.
 - For requested retrospectives and durable lessons, read [reflect](../reflect/SKILL.md). Do not run it automatically after every task.
 - For ticket clarification and implementation briefs, read [scope](../scope/SKILL.md).

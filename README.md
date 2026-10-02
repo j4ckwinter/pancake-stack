@@ -61,6 +61,8 @@ Check also examines relevant comments, claimed constraints, and lint or type-che
 
 Setup distinguishes saved preferences from resolved inheritance. Pancake reports whether explicit model and effort preferences were applied through host capabilities or fell back to current settings.
 
+For runtime symptoms and profiling captures, Pancake loads [forensics guidance](skills/pancake/references/forensics.md). It traces observations to source, distinguishes hypotheses from confirmed mechanisms, and keeps diagnosis separate from repair.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
