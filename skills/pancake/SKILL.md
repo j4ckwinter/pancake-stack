@@ -11,6 +11,7 @@ Read [core values](references/values.md) and applicable repository instructions.
 
 - For execution-flow explanations, read [how](../how/SKILL.md).
 - For historical rationale and design motivation, read [why](../why/SKILL.md).
+- For proving requested behavior, read [verify](../verify/SKILL.md).
 - For change reviews, read [check](../check/SKILL.md).
 - For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
 - For reported defects, read [fix](../fix/SKILL.md).
@@ -28,4 +29,4 @@ Use the current agent by default. Delegate only when an independent review or se
 
 ## Finish
 
-Inspect the resulting artifact and run checks appropriate to the task. Lead with the outcome, then explain material decisions, verification, and remaining gaps. Stop when the authorized outcome is complete. Do not commit, publish, or install the plugin unless requested.
+For implemented behavior, use [verify](../verify/SKILL.md) to check the outcome. For other tasks, inspect the resulting artifact and use checks appropriate to the deliverable. Lead with the outcome, then explain material decisions, verification, and remaining gaps. Stop when the authorized outcome is complete. Do not commit, publish, or install the plugin unless requested.
