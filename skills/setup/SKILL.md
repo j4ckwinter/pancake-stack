@@ -21,7 +21,17 @@ Resolve `scripts/preferences.py` relative to this `SKILL.md` file's installed di
 Keep existing fields unless the user changes them. A field of `null` inherits independently from the defaults, then the host. Preserve preferences if the user cancels or has not finished choosing. Check effective model and effort pairs after inheritance. Resolve unsupported combinations with the user before saving.
 
 4. Send the complete selected JSON object to `python3 <skill-directory>/scripts/preferences.py save` through stdin. Use a structured process invocation or a safely quoted JSON file redirected to stdin. Never interpolate user model strings into shell code. Save once the user has chosen values. Report a validation or filesystem error without claiming success.
-5. Run `show` again to confirm persistence and show the saved preferences. When current host values are observable, run `resolve --host-model <value> --host-reasoning-effort <value>` with safely passed arguments to show effective preferences for each role. Omit unknown host arguments. A remaining `null` means inheritance could not be resolved. Explain that a future workflow must apply supported role choices through host capabilities. The current parent conversation remains unchanged.
+5. Run `show` again to confirm persistence and show the saved preferences. When current host values are observable, run `resolve --host-model <value> --host-reasoning-effort <value>` with safely passed arguments to show effective preferences for each role. Omit unknown host arguments. A remaining `null` means inheritance could not be resolved. Report persistence separately from application using the guidance below. The current parent conversation remains unchanged.
+
+## Report preferences accurately
+
+After confirming persistence, summarize the choices changed by the user and the saved file location. State once that these preferences configure future Pancake workflows and leave the current chat unchanged. Avoid a full schema dump unless requested.
+
+If effective preferences are requested or inheritance affects the result, distinguish saved values from resolved values. Resolve model and effort independently through role, defaults, then observable host values. For a non-null resolved value, identify its source from those fields. An unresolved null means “inherits from Codex; current value unavailable.” Never infer the current model or effort from catalog order or a tool's list of supported choices.
+
+Resolution selects a requested value; it does not demonstrate application. Describe it as a preference for future work. Catalog availability does not establish that the active host can select that model or effort for a delegated task. Explain a known limitation when it affects an explicit selection; otherwise defer application reporting to the workflow that actually uses it. Do not test application by spawning workers or changing host settings during setup.
+
+Keep the existing implementation, review, and research roles. Do not add role names, presets, or model-family substitutions without a requested workflow that consumes them.
 
 ## Preference object
 

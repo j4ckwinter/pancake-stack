@@ -28,6 +28,8 @@ Read saved preferences with `python3 <installed-setup-directory>/scripts/prefere
 
 Use implementation preferences for writing code, review preferences for reviewing, and research preferences for investigation. Apply a supported model and reasoning effort only when the host exposes a capability to select them for the intended work. The helper reads preferences; it does not apply them. Do not switch the parent conversation, write global settings, or claim an override was applied when it was not. If an explicit preference cannot be applied, state that briefly and use the current host settings. An unresolved null remains inheritance, not a guessed model or effort.
 
+When starting work with an explicit preference, distinguish the resolved request from what the host actually selected. Report model and effort separately when one applies and the other does not. Claim application only from the host's supported invocation or reported selection, not from helper output or catalog availability. If selection is rejected, report the affected preference and the observed fallback; do not silently substitute a different model. Give this notice once for the affected role unless the selection changes. Ordinary inheritance needs no repeated setup explanation.
+
 For justified candidate comparisons or independent workstreams, read [parallel work](references/parallel-work.md). Use the current agent by default. Delegate only when an independent review or separable investigation materially helps and host capabilities permit it. Keep writes isolated and review delegated results. Do not add agents simply to satisfy a fixed count or describe same-model reviews as a multi-model panel.
 
 ## Finish

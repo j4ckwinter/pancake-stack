@@ -59,6 +59,8 @@ For technical documentation, Sift loads [technical-writing guidance](skills/sift
 
 Check also examines relevant comments, claimed constraints, and lint or type-check suppressions. It reports evidence-backed correctness problems and preserves useful rationale; review remains read-only.
 
+Setup distinguishes saved preferences from resolved inheritance. Pancake reports whether explicit model and effort preferences were applied through host capabilities or fell back to current settings.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
