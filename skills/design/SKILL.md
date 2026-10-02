@@ -13,7 +13,7 @@ Start with an example of how a caller or user would use the proposed change. Der
 
 Compare alternatives when the choice has meaningful consequences. Include extending the existing design when viable. Explain the concrete tradeoff that decides the recommendation, such as compatibility, maintenance, performance, or operational cost. A small local change may need only a short recommendation. A consequential architectural choice benefits from structurally different alternatives. Do not require a fixed number of designs, agents, or providers.
 
-If an uncertain behavior decides the design, seek narrow evidence from existing checks or inspection. Label estimates and untested assumptions. A prototype that writes files, starts services, or changes configuration requires authorization appropriate to those actions; a design request alone remains read-only.
+If an uncertain behavior decides the design, seek narrow evidence from existing checks or inspection. Label estimates and untested assumptions. For an authorized experiment, use [measured experiments](../pancake/references/experiments.md). A prototype that writes files, starts services, or changes configuration requires authorization appropriate to those actions; a design request alone remains read-only.
 
 Recommend the simplest sufficient approach. Identify affected contracts, migration needs, and material risks. Describe a focused verification plan tied to the intended outcome, distinguishing proposed checks from checks already performed. For larger work, outline an implementation sequence that can be verified incrementally.
 

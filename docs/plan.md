@@ -17,6 +17,7 @@
 - Sift prose skill applied throughout pancake drafting and replies.
 - Challenge skill for evidence-based adversarial review and conditional pancake integration.
 - Reflect skill for evidence-based lessons and structural improvement proposals.
+- Conditional measured-experiment guidance for performance, prototypes, and skill evaluations.
 - Shared core values and check, fix, and pancake skill definitions.
 - Isolated tests for discovery, validation, inheritance, and persistence.
 - Local installation, backend discovery, and user-confirmed setup invocation in VS Code.

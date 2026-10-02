@@ -43,6 +43,8 @@ Use `$pancake-stack:challenge` to stress-test a design or consequential change a
 
 Use `$pancake-stack:reflect` to identify durable lessons from the current task and propose improvements to code, tests, tooling, or guidance. It does not apply changes unless requested. `/reflect` is an intended shortcut, pending a live picker check.
 
+For authorized performance work, prototypes, and skill evaluations, Pancake loads [measured-experiment guidance](skills/pancake/references/experiments.md). It establishes a baseline, compares observations, and reports uncertainty without adding a separate command.
+
 [Core values](skills/pancake/references/values.md) guide these workflows. They are shared instructions, not global host settings.
 
 `/add-plugin pancake-stack`, `/setup pancake-stack`, and `/pancake` remain the intended shortcuts. Their exact host behavior is unverified.
