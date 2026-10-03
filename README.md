@@ -13,7 +13,11 @@ codex plugin marketplace add .
 codex plugin add pancake-stack@pancake-stack
 ```
 
-then open a new Codex chat. two things to start with:
+then open a new Codex chat.
+
+In the skill picker, the main workflow is **Pancake**. Individual skills use short labels such as **PR**, **Wtf**, and **Fix**. Their internal names remain namespaced. On hosts that include skills in slash autocomplete, type `/pancake` to filter the list and select **Pancake**. This is picker selection, not a standalone slash alias. See the [installation record](docs/installation-verification.md) for host verification.
+
+two things to start with:
 
 1. use `$pancake-stack:setup` to pick your models and reasoning effort.
 2. use `$pancake-stack:pancake` when a task needs some rigor. tell it what you need, and it picks the relevant workflow.

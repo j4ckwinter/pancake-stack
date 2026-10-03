@@ -1,0 +1,3 @@
+interface:
+  display_name: "Balls"
+  short_description: "Draft a short spoken standup update"

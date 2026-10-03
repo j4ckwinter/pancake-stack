@@ -1,0 +1,3 @@
+interface:
+  display_name: "Challenge"
+  short_description: "Stress-test consequential design assumptions"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Scope"
+  short_description: "Turn a ticket into an implementation brief"

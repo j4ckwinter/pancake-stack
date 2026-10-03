@@ -1,5 +1,13 @@
 # Installation verification
 
+## Skill labels in 0.17.1
+
+Each skill now declares an explicit UI display name in `agents/openai.yaml`. The main workflow is `Pancake`; individual workflows have short names such as `PR`, `Wtf`, and `Fix`, without the `Pancake Stack:` prefix. Internal plugin and skill identities remain unchanged.
+
+Static inspection of VS Code extension `26.930.31730` found that its skill display-label function prefers `interface.displayName` over the formatted internal name. Repository validation checks the package and skill resources. These checks do not establish the visible picker result.
+
+After refreshing the installation and opening a new chat, verify that typing `/pancake` still finds the bundled skills, that the main workflow displays as `Pancake`, and that selecting `PR` or `Wtf` invokes the intended namespaced skill. Filtering, ordering, and visible labels on the refreshed installation remain pending host checks. No standalone `/pancake` alias is claimed.
+
 Checked on 2 October 2026 with VS Code extension `26.930.21537` and its bundled `codex-cli 0.159.0-alpha.12.1`.
 
 ## Verified behavior

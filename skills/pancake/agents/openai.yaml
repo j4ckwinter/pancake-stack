@@ -1,0 +1,3 @@
+interface:
+  display_name: "Pancake"
+  short_description: "Implement a task with review and verification"
