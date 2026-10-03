@@ -19,4 +19,6 @@ Choose a correction that removes the demonstrated cause and preserves relevant c
 
 Add a regression test when it can exercise the failure reliably through the real interface. Demonstrate failure before the fix and success after it when feasible. Use an existing executable check instead when a new test would require brittle mocks or substantial infrastructure.
 
-Repeat the original failing scenario after the fix under comparable conditions and record the result. If it cannot be exercised, report that gap without treating other passing tests as proof that the reported defect is resolved. Run checks appropriate to the affected behavior and inspect the final diff for unintended changes. Report the cause, the correction, verification results, and any remaining limitation. Do not claim a reproduction or successful check that did not occur.
+Repeat the original failing scenario after the fix under comparable conditions and record the result. If it cannot be exercised, report that gap without treating other passing tests as proof that the reported defect is resolved. Run checks appropriate to the affected behavior and inspect the final diff for unintended changes.
+
+Finish with the cause and correction, followed by the original command or action, its observed failure, and its result after the fix. Include other relevant checks and remaining limitations. Use the observations already collected; do not claim a reproduction or successful check that did not occur.

@@ -97,3 +97,8 @@ A fresh isolated migration trial at e1e77d7 followed the revised review guidance
 ## Follow-up safeguards in 0.16.5
 
 Ordinary unittest discovery now validates the repository's package relationships and restricted skill/header/link conventions using isolated malformed copies. [Accepted safeguards](safeguards.md) record ownership, enforcement, regression checks, and limits. The [focused follow-up](behavioral-results.md#focused-tool-record-follow-up) retains actual CLI tool evidence for summary and migration trials. It establishes source reads and summary reproduction ordering while preserving the final-report and independent-review gaps. No additional product skill, command, or hook was introduced.
+
+
+## Completion workflow in 0.16.6
+
+Implementation now carries defect observations and consequential review needs into its completion step. Review is a separate phase, and standalone fix explicitly reports the original failure and corrected result. [Fresh workflow trials](behavioral-results.md#completion-workflow-correction-in-0166) passed summary reporting and recorded independent migration review on a collaboration-capable host. These are scoped observed successes, not proof of universal adherence or a controlled causal comparison.

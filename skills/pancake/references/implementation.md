@@ -8,6 +8,8 @@ For consequential TypeScript data shapes or boundary handling, read [TypeScript 
 
 Establish the requested outcome and observable acceptance criteria. Inspect relevant code, callers, tests, and current workspace changes. Preserve unrelated work. Use [scope](../../scope/SKILL.md) when requirements are materially unclear, [how](../../how/SKILL.md) for an execution-flow gap, and the reproduction and diagnosis guidance in [fix](../../fix/SKILL.md) for defects. When using fix, perform its implementation and checks in the corresponding phases below rather than completing a separate fix workflow during grounding. Read only the guidance needed.
 
+For a defect, keep the original command or action and its observed failure available for the final report. For a shared interface, data migration, security boundary, or concurrency change, identify the host's independent-review capability and permitted reviewer scope before editing. Carry these facts in the existing plan or conversation; a separate artifact is optional.
+
 Settle consequential interface, ownership, compatibility, or persistence choices before implementation with [design](../../design/SKILL.md). Use [challenge](../../challenge/SKILL.md) when a consequential assumption is disputed or needs adversarial examination. Do not require it for every change. Resolve supported findings within the authorized scope before relying on the affected assumption. Small local changes can use the existing shape directly. Resolve repository facts through inspection; leave required product decisions explicit rather than guessing.
 
 ## Plan substantial work
@@ -26,7 +28,7 @@ Bound investigation output to the relevant paths and questions. Retain concise f
 
 Resolve observable repository facts through inspection and make routine reversible implementation choices within the requested scope. Continue independent authorized work while awaiting a required product decision. Ask only for information or authorization that is genuinely missing, after making the dependent choice concrete where possible. Explain material assumptions so the user can steer; do not interpret silence as approval or replace a requested product decision with an untested guess.
 
-## Implement and review
+## Implement
 
 Before adding a layer or mechanism, inspect the affected path for obsolete branches, duplicated decisions, and pass-through wrappers that can be removed within scope. Confirm callers and relevant contracts before deleting anything; apparent redundancy can preserve compatibility or a boundary requirement. Simplify only when it helps the requested change, not as a repository-wide cleanup prerequisite.
 
@@ -34,7 +36,11 @@ Organize the change around observed usage. Keep local behavior direct, mutable s
 
 Make the simplest change that meets the agreed outcome. Add a regression test when it reliably exercises a defect, or reuse an existing check when new infrastructure would not earn its cost.
 
-Inspect the completed diff using [check](../../check/SKILL.md), including affected callers and contracts. Choose review depth by the affected contract and failure consequences, not the number of changed lines or files. For a local, low-impact change, the implementing agent can perform a direct review. For consequential changes, such as shared APIs, data migrations, security boundaries, or concurrency, obtain an independent review before declaring completion when host capabilities and task permissions allow, even when the diff is small. Give the reviewer the objective, constraints, actual diff, and relevant evidence, with a read-only scope. Judge each finding against the implementation before acting. If independent review is unavailable, name the concrete capability or permission limit and perform the review directly. Do not imply that self-review is independent or that same-model agents provide model diversity.
+## Review the affected contracts
+
+Inspect the completed diff using [check](../../check/SKILL.md), including affected callers and contracts. For a local, low-impact change, the implementing agent can perform a direct review. For the consequential changes identified during grounding, start a separate read-only reviewer through the host's available delegation tool. Give the reviewer the objective, constraints, actual diff, and relevant evidence. Obtain the completed verdict and resolve supported findings before declaring completion. A planned review or a read of the check skill is not a reviewer result.
+
+If no working delegation capability is exposed or review is outside task permissions, perform the review directly and retain the concrete limit for the final report. Do not imply that self-review is independent or that same-model agents provide model diversity.
 
 ## Verify and handle failures
 
@@ -46,4 +52,6 @@ For an environment or tooling limitation, complete independent checks and report
 
 ## Finish or continue
 
-Report the outcome, material decisions, review performed, verification results, and remaining gaps. If work remains unfinished or is explicitly paused, use [handoff](../../handoff/SKILL.md) to preserve a concise continuation note in the conversation. Include completed units, current state, known blockers, and the next action. Save a separate note only when requested. Do not create a handoff for every completed small task.
+Before the final reply, check the task's completion facts against the observations collected above. For a defect, include the cause, the original failing action and result, and the corrected result. For a consequential change, include the completed independent-review verdict or the concrete capability or permission limit and direct-review result. If the reviewer is still running, wait for the verdict rather than reporting completion. Keep the evidence brief; a command and its before-and-after output can fit in one sentence.
+
+Report the outcome, material decisions, these review and verification results, and remaining gaps. If work remains unfinished or is explicitly paused, use [handoff](../../handoff/SKILL.md) to preserve a concise continuation note in the conversation. Include completed units, current state, known blockers, and the next action. Save a separate note only when requested. Do not create a handoff for every completed small task.

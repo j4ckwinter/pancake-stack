@@ -55,3 +55,19 @@ Both processes exited zero and both trusted artifact assessments passed. The [su
 Shell batches deserve separate inspection: summary `item_5` has a zero final exit status despite a `git status` failure in a workspace without Git. That output does not establish a successful Git inspection. The command records do establish that the requested source content was returned. Neither trial demonstrates a general adherence improvement, and no stronger wording was added to implementation guidance on the basis of these runs.
 
 The [accepted safeguards](safeguards.md) distinguish verified package validation and artifact boundaries from these unresolved workflow requirements.
+
+
+## Completion workflow correction in 0.16.6
+
+The implementation sequence now retains defect evidence and identifies consequential review needs during grounding. Review has its own phase. The final completion step uses the retained observations to report the cause and before-and-after result, plus the actual independent-review verdict or a concrete capability or permission limit. Standalone fix uses the same explicit defect-reporting shape. These are judgment-based workflow changes, not mechanical enforcement.
+
+A fresh summary task ran on the same CLI version and invocation shape as the earlier focused task. The [new summary record](evidence/workflow-summary-2026-10-03.json) shows `item_6` reproducing the original CLI failure, `item_8` failing the newly added regression before the correction, and `item_10` passing both tests and CLI inputs. Its final reply identifies division by zero and says the regression failed before the fix and now passes. Source reads returned the revised implementation guidance. Trusted artifact assessment passed.
+
+A fresh migration task used the current collaboration host, where delegation is observable. The [migration record](evidence/workflow-records-2026-10-03.json) retains the host's completed candidate and separate child-reviewer statuses. The reviewer reported no findings and independently passing live and archive tests. The final reply reports that verdict. The host status was inspected after candidate completion; it does not preserve the exact completion timestamps. Trusted artifact assessment passed and confirmed protected files were unchanged. Nested command transcripts were not retained, so individual reviewer command actions and source reads remain reported rather than directly traced.
+
+The migration host differs from the earlier CLI run, and neither task used a randomized baseline or provider-diverse panel. The observed successes support these individual workflows; they do not prove causation, universal adherence, or working delegation in the previous CLI environment. The earlier failures remain in this document and their evidence files.
+
+
+Standalone Fix also ran a fresh summary task on the CLI. Its [record](evidence/workflow-fix-2026-10-03.json) shows the original error in `item_4`, the added command-level regression failing in `item_6`, and passing tests and CLI inputs in `item_9`. The original error shares a shell batch with a succeeding nonempty command, so the batch exits zero despite the earlier traceback. The final reply names division by zero and the failing-before/passing-after regression. Trusted artifact assessment passed.
+
+Independent review of the migration evidence caught imprecise reporting. The final reply says the two tests include zero-value checks, but their saved assertions use only `19.5`. In a read-only audit, the candidate clarified that zero was covered by a separate inline command and supplied its reported command and output. The evidence retains both the original reply and that correction. The inline execution remains self-reported because its original tool transcript was not retained. Later trusted assessment verifies zero behavior but does not prove that earlier candidate action.
