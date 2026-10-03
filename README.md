@@ -20,6 +20,8 @@ then open a new Codex chat. two things to start with:
 
 setup saves your preferences for later. it doesn't switch the model in your current chat.
 
+see [prompt recipes](docs/recipes.md) for concrete tasks and host limitations.
+
 ## the rest
 
 you can also reach for a skill directly when you know what you need.

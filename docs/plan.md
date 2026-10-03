@@ -2,6 +2,12 @@
 
 ## Completed
 
+- Benchmark validity guidance for completed timed work, failure counts, representative tuning, runtime limits, and end-to-end impact.
+- Skill evaluation guidance that separates natural candidate tasks from private assessment criteria and variant identities.
+- Reusable fixtures and artifact checks for the seven recorded workflow trial families, with an isolated [evaluation procedure](behavioral-evaluation.md).
+- Concrete [prompt recipes](recipes.md) for the existing skills, with host and evidence limitations.
+- Explicit completion requirement for obtainable independent review of consequential changes. Fresh trial adherence remains unresolved in the [trial results](behavioral-results.md).
+
 - Conditional personalization guidance for requested working-style profiles, separate from shared defaults.
 
 - Conditional TypeScript guidance for domain variants, type reuse, and runtime validation.
@@ -66,6 +72,8 @@
 - Select a license and prepare public distribution.
 
 ## Behavioral evaluation
+
+The [3 October 2026 reusable-fixture trials](behavioral-results.md) exercised all seven recorded trial families and a measurement-validity task. All task artifacts passed their respective acceptance checks. The migration candidate and a fresh follow-up still reported direct review despite available independent review. The empty-input candidate's final reply omitted failing-before evidence. These remain reporting and process gaps, not passing workflow verdicts. No installed-host behavior or causal improvement is claimed.
 
 An isolated independent explanation trial at e1cc602 selected How through Pancake, returned a correct code-cited answer, reported static inspection honestly, and preserved every fixture file. This is one repository-source scenario, not a VS Code installation or general behavioral verdict. Broader workflow trials remain pending.
 

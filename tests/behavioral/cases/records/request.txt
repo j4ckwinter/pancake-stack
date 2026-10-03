@@ -1,0 +1,1 @@
+Change new invoice payloads to use amount instead of total and update the live consumer. Preserve compatibility with archived records that still use total. Update the relevant checks and verify both contracts.

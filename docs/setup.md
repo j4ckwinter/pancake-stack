@@ -2,7 +2,7 @@
 
 Start a new Codex chat after installing the package and select `$pancake-stack:setup`. Setup first asks for a model, then a supported reasoning effort. Role customization is optional. Keep a field unset to inherit its default, then the host setting. The user has confirmed that setup loads in VS Code. Completing setup and checking saved preferences remain unverified.
 
-Setup queries the local Codex app server for model IDs and their supported reasoning efforts before asking you to choose. If discovery fails, setup reports the reason and falls back to accessible host metadata or your host picker. A remote or overridden host can have different choices. Setup saves your choices without changing the current conversation or global Codex settings. The rigorous `$pancake` workflow is not implemented yet.
+Setup queries the local Codex app server for model IDs and their supported reasoning efforts before asking you to choose. If discovery fails, setup reports the reason and falls back to accessible host metadata or your host picker. A remote or overridden host can have different choices. Setup saves your choices without changing the current conversation or global Codex settings.
 
 ## Run the preference helper
 
@@ -36,10 +36,12 @@ Replace the placeholders with values from your host. Resolve does not apply the 
 
 ## Verify without changing user preferences
 
-Run the behavioral tests from the repository root:
+Run the automated helper and fixture-support tests from the repository root:
 
 ```sh
 python3 -m unittest discover -s tests -v
 ```
 
 The preference tests pass explicit temporary paths to every helper invocation. Catalog tests use a temporary fake app server to check pagination, notifications, timeouts, malformed responses, and unavailable executables. The tests do not install a plugin or write to user preference storage.
+
+Use the [behavioral evaluation procedure](behavioral-evaluation.md) to exercise workflows on the fixtures under `tests/behavioral`. Automated fixture checks do not establish how an agent follows a skill or how the host invokes it. Keep those claims tied to workflow trials and the [installation record](installation-verification.md).

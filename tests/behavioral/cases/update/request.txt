@@ -1,0 +1,1 @@
+Rewrite the passage in update.txt to remove filler and unsupported praise while preserving the meaning, evidence, uncertainty, and approval status. Return the revised passage in your reply and leave the file unchanged.

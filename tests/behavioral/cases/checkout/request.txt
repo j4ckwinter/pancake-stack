@@ -1,0 +1,1 @@
+Verify the local delivery rates and whether the carrier integration is ready to use. Report what you actually checked and any remaining gaps. Leave project files unchanged.

@@ -1,0 +1,1 @@
+Fix the summary command so an empty JSON list produces a count and average of zero. Preserve the existing nonempty behavior and add a regression check.
