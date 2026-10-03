@@ -101,3 +101,16 @@ Record each criterion as passed, failed, or unverified. Keep the requested task,
 Report individual scenario results. A successful synthetic trial supports that scenario on the exercised source snapshot. It does not establish general skill effectiveness, installed plugin discovery, shortcut behavior, model compatibility, or production integration readiness. For a variant comparison, use repeated fresh trials when variability warrants them and avoid causal claims from one favorable result.
 
 Keep evidence until it has been inspected and the comparison is complete. Remove only temporary projects, profiles, and processes owned by the run. Do not clean up the user's real configuration, unrelated worktrees, or installed plugin cache. Saving an assessment does not authorize publishing it.
+
+
+## Capture tool evidence on the CLI
+
+The focused follow-up used `codex-cli 0.160.0`. Its tested invocation was `codex exec --ignore-user-config --ignore-rules --ephemeral --json --enable multi_agent -c agents.max_threads=2 -c cli_auth_credentials_store='"file"' --sandbox workspace-write --skip-git-repo-check --cd "$trial_workspace" --output-last-message "$trial_final" -`. The natural task and source skill path arrived on stdin. These flags are host-specific; inspect the current host's help before repeating them. This is an explicit model trial, never part of unittest discovery.
+
+The [official evaluation guide](https://developers.openai.com/blog/eval-skills) documents JSONL command events. Save stdout as `events.jsonl`, stderr separately, the final message, process exit status, invocation, source revision and skill hashes, fixture snapshot, and candidate artifacts. Bound the process runtime. Record the actual model only if exposed; a requested model or a null preference is not evidence of selection.
+
+Set `CODEX_HOME` to a private temporary profile before launching. For this run, only the authentication cache was copied into that profile using the [documented file-cache mechanism](https://developers.openai.com/codex/auth); no personal configuration or history was copied. Remove that credential copy in a `finally` block on success, error, or timeout. Never include credentials in retained trial evidence. Keep preference-reading commands pointed at the temporary profile.
+
+Inspect completed command events together with their output and exit status. A command string alone, an agent's claim, or a started event does not prove success. Shell commands containing several operations can conceal earlier failures behind a zero final exit status, so inspect the output too. Compare reproduction with the first recorded edit and assess the final answer separately. A completed source read establishes that content was returned, not that the model understood or followed it. Do not infer independent review from reading the check skill, enabling multi-agent support, or a final claim; require recorded delegation and a completed reviewer result. Missing nested tool records remain unverified.
+
+Retain raw records locally. For a reviewable repository excerpt, preserve event order, IDs, status, commands, and relevant output, and document every redaction or omission. The [focused evidence files](evidence/) replace temporary absolute paths and omit source-read bodies while retaining their hashes; they are excerpts, not full transcripts.

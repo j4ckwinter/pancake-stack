@@ -31,6 +31,8 @@ Place the safeguard at the layer that owns the invariant. Compare mechanisms by 
 
 Describe how the proposed safeguard would catch the observed failure and still allow a relevant valid case. Check for overlap with existing enforcement and identify an owner or maintenance location. If a safeguard is implemented within authorized scope, verify those cases before calling the lesson encoded. A saved recommendation remains a proposal, not prevention. Remove redundant instructions only when verified enforcement covers their purpose and editing those instructions is authorized; keep useful rationale and remaining exceptions.
 
+When the project keeps a record of accepted safeguards, update it within authorized scope with the observed failure, owning location, enforcement mechanism, regression check, and verified or unresolved status. Link the evidence rather than duplicating instructions. Do not create a registry for every reflection or describe an instruction as enforced merely because it was saved.
+
 Present each useful proposal with its supporting evidence, specific target, expected benefit, and a way to verify it. Mark uncertain causal explanations as hypotheses. Prioritize recommendations by consequence and recurrence rather than by how many reviewers agree. A structural improvement is a first-class recommendation, not automatically deferred in favor of skill edits.
 
 ## Return or apply

@@ -92,3 +92,8 @@ An isolated independent implementation trial at fb6779c migrated a shared live p
 Version 0.14.27 clarifies that implementation review depth follows affected contracts and failure consequences rather than diff size. Small shared-API changes retain the independent-review guidance. This addresses the observed migration-trial interpretation; behavioral confirmation of the clarification and installed VS Code verification remain pending.
 
 A fresh isolated migration trial at e1e77d7 followed the revised review guidance and obtained an independent read-only review. Host agent status confirmed the reviewer completed; parent contract reruns passed and unrelated files were preserved. This is one successful follow-up on the same synthetic fixture, not proof of causal improvement, larger-migration reliability, or installed VS Code behavior.
+
+
+## Follow-up safeguards in 0.16.5
+
+Ordinary unittest discovery now validates the repository's package relationships and restricted skill/header/link conventions using isolated malformed copies. [Accepted safeguards](safeguards.md) record ownership, enforcement, regression checks, and limits. The [focused follow-up](behavioral-results.md#focused-tool-record-follow-up) retains actual CLI tool evidence for summary and migration trials. It establishes source reads and summary reproduction ordering while preserving the final-report and independent-review gaps. No additional product skill, command, or hook was introduced.

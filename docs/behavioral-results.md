@@ -35,3 +35,23 @@ The fixture-support tests exercise baseline failures, literal outputs, incomplet
 An independent read-only reviewer reran all eleven focused checks and found no remaining actionable issues in that correction or the revised completion wording. This review covers the repository change. It does not supply the independent review missing from the migration candidates' own workflows.
 
 Use the [evaluation procedure](behavioral-evaluation.md) to repeat these scenarios. Installed discovery, host shortcuts, global configuration, and marketplace registration remain separate checks documented in [the installation record](installation-verification.md).
+
+
+## Focused tool-record follow-up
+
+Two additional trials used the unchanged `437490f` skill snapshot, version `0.16.4`, on `codex-cli 0.160.0`. Each used a fresh temporary workspace and profile, ignored user configuration and rules, and enabled the CLI's multi-agent feature with a two-thread limit. The prompt explicitly permitted independent read-only review. The exact model and reasoning effort were not exposed in the retained events or stderr; null resolved preferences do not identify either. Feature configuration and prompt wording alone do not prove the candidate's available tool inventory. The coordinator inspected tool records and was not blinded. No guidance variant or causal comparison was tested.
+
+Both processes exited zero and both trusted artifact assessments passed. The [summary evidence](evidence/summary-2026-10-03.json) and [migration evidence](evidence/records-2026-10-03.json) retain event order, commands, outputs, final replies, invocation, source hashes, and final project files. Temporary paths are replaced with `$TRIAL_ROOT`; returned skill bodies are replaced with their paths and hashes. Output hashes and raw JSONL hashes refer to the original local records. The raw files remain in the run's local temporary storage. No credentials are retained in either profile or repository evidence.
+
+| Criterion | Tool evidence | Assessment |
+| --- | --- | --- |
+| Summary source reads | Completed `item_1`, `item_3`, and `item_6` returned Pancake, implementation, values, sift, check, and verify guidance. | Reads observed; comprehension and adherence cannot be inferred. |
+| Summary reproduction order | `item_6` exited 1 with `ZeroDivisionError`, before the first recorded edit, `item_8`. `item_9` subsequently passed two tests and both CLI inputs. | Failing-before and passing-after behavior observed. |
+| Summary final report | Final `item_10` names the correction and passing checks but omits the prior failure and cause. | Reporting criterion failed despite correct artifacts and observed reproduction. |
+| Migration source reads | Completed `item_1`, `item_2`, and `item_3` returned implementation and review guidance alongside the live and archive code. | Reads observed; this run does not support missing guidance reads as the explanation. |
+| Migration contracts | `item_5` edits producer, live consumer, and tests; `item_6` passes live and archive tests. Trusted assessment separately confirms both contracts and protected files. | Artifact criterion passed. |
+| Migration review | Final `item_7` says affected callers and contracts were reviewed. The trace has no delegation or completed reviewer event. | Independent review remains unverified; the required workflow criterion is not established. Reading the check skill is not independent review. |
+
+Shell batches deserve separate inspection: summary `item_5` has a zero final exit status despite a `git status` failure in a workspace without Git. That output does not establish a successful Git inspection. The command records do establish that the requested source content was returned. Neither trial demonstrates a general adherence improvement, and no stronger wording was added to implementation guidance on the basis of these runs.
+
+The [accepted safeguards](safeguards.md) distinguish verified package validation and artifact boundaries from these unresolved workflow requirements.

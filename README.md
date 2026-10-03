@@ -49,3 +49,5 @@ you can also reach for a skill directly when you know what you need.
 | `$pancake-stack:reflect` | Find lessons and propose improvements. |
 
 </details>
+
+Repository checks run with `python3 -B -m unittest discover -s tests -v`. They validate package relationships, documented skills, the repository's plain single-line skill headers, relative inline links, preference helpers in temporary storage, and behavioral fixture assessment. The package checks use a limited repository profile rather than implementing the full portable JSON schema, YAML, or Markdown standards. They do not install the plugin or change global preferences. See [accepted safeguards](docs/safeguards.md) for evidence and remaining workflow gaps.
