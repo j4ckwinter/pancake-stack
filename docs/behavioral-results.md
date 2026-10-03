@@ -71,3 +71,14 @@ The migration host differs from the earlier CLI run, and neither task used a ran
 Standalone Fix also ran a fresh summary task on the CLI. Its [record](evidence/workflow-fix-2026-10-03.json) shows the original error in `item_4`, the added command-level regression failing in `item_6`, and passing tests and CLI inputs in `item_9`. The original error shares a shell batch with a succeeding nonempty command, so the batch exits zero despite the earlier traceback. The final reply names division by zero and the failing-before/passing-after regression. Trusted artifact assessment passed.
 
 Independent review of the migration evidence caught imprecise reporting. The final reply says the two tests include zero-value checks, but their saved assertions use only `19.5`. In a read-only audit, the candidate clarified that zero was covered by a separate inline command and supplied its reported command and output. The evidence retains both the original reply and that correction. The inline execution remains self-reported because its original tool transcript was not retained. Later trusted assessment verifies zero behavior but does not prove that earlier candidate action.
+
+
+## TDD skill in 0.17.0
+
+The requested `tdd` skill was exercised on three fresh summary projects. The [retained evidence](evidence/tdd-2026-10-03.json) distinguishes the initial draft from the final source after independent review clarified test-only and already-working behavior.
+
+The initial CLI task added its regression in `item_3`, ran it in `item_4` and observed `ZeroDivisionError`, then changed production code in `item_6`. Both tests passed in `item_7`; trusted artifact assessment separately passed. Its final reply accurately reports failing-before and passing-after evidence. Completed command records establish the ordering; this is one synthetic task, not proof of general effectiveness.
+
+A separate test-only request added a command-level empty-input regression and left production code and the unrelated note unchanged. Parent execution reproduced its expected failure while preserving the existing nonempty assertion. Review identified that the initial prose could confuse already-passing coverage with a required behavioral failure. The final skill now has an explicit test-only branch and does not require manufacturing a failure.
+
+A third fresh task used the final skill to add command coverage for `[6, 10]`, expecting count two and average eight. Parent execution confirmed both tests pass, the new assertion exercises the real command, and production code and the unrelated note remain unchanged. These test-only tasks inherited parent settings; their original tool transcripts were not retained. Parent checks establish the saved artifacts and behavior, not candidate execution ordering. Installed discovery, impractical-service fallback, general effectiveness, and provider-diverse comparison remain unverified.

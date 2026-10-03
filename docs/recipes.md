@@ -24,6 +24,12 @@ Expect a recommendation first, then a verdict grounded in the proposal and inspe
 
 Supply the actual command, error output, and expected behavior when you have them. Expect the cause, correction, and verification evidence. If the original scenario cannot run, the answer must identify that limit.
 
+## Implement through a failing test
+
+> $pancake-stack:tdd Fix the summary command so an empty JSON list returns count and average zero. Add a focused regression test, run it against the broken implementation, then make the correction. Preserve the nonempty result and report the failing-before and passing-after evidence.
+
+Use `tdd` when you want a test-first cycle. Use `fix` when the cause still needs investigation. Expect a failure caused by the requested behavior before production edits, followed by the same check passing. An unavailable service or impractical harness must remain an explicit limit; the skill should not invent infrastructure or claim an unobserved failure.
+
 ## Prove a specific outcome
 
 > $pancake-stack:verify Verify that cancelling an import stops further writes and reports cancellation to the caller. Exercise the supported interface using isolated local data. Check the normal completion path too. Report what passed, failed, or remains unverified. Do not change product code or user settings.

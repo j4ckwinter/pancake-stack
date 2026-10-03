@@ -39,6 +39,7 @@ you can also reach for a skill directly when you know what you need.
 | `$pancake-stack:check` | Review a change for bugs and regressions. |
 | `$pancake-stack:challenge` | Stress-test assumptions and decisions. |
 | `$pancake-stack:fix` | Figure out what broke and fix it. |
+| `$pancake-stack:tdd` | Write and run a failing test, then implement the behavior. |
 | `$pancake-stack:verify` | Check it works and say what still needs checking. |
 | `$pancake-stack:sift` | Clean up supplied prose. |
 | `$pancake-stack:wtf` | Make the previous answer clearer. |

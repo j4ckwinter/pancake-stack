@@ -102,3 +102,10 @@ Ordinary unittest discovery now validates the repository's package relationships
 ## Completion workflow in 0.16.6
 
 Implementation now carries defect observations and consequential review needs into its completion step. Review is a separate phase, and standalone fix explicitly reports the original failure and corrected result. [Fresh workflow trials](behavioral-results.md#completion-workflow-correction-in-0166) passed summary reporting and recorded independent migration review on a collaboration-capable host. These are scoped observed successes, not proof of universal adherence or a controlled causal comparison.
+
+
+## Test-first development in 0.17.0
+
+The requested `tdd` skill adds an explicit failing-test-before-implementation cycle. It reuses existing test infrastructure, preserves unrelated assertions, and distinguishes behavioral failures from environment failures. Requests only to add tests do not authorize production changes. Pancake routes explicit test-first requests to the skill, and the README and prompt recipes document its use.
+
+[Three focused trials](behavioral-results.md#tdd-skill-in-0170) exercised a full failing-before/passing-after cycle, a test-only defect regression, and passing coverage of existing behavior. Independent review clarified the test-only branch. The record preserves source hashes, evidence, and limits.

@@ -26,6 +26,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 - For adversarial review of contested decisions or consequential assumptions, read [challenge](../challenge/SKILL.md).
 - For change reviews, read [check](../check/SKILL.md).
 - For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
+- For explicitly requested test-first development or regression tests, read [tdd](../tdd/SKILL.md). Keep the failing-test step before production changes.
 - For authorized implementation, read [the implementation sequence](references/implementation.md). It covers grounding, design choices, implementation, proportional review, verification, and failure handling.
 
 Read only the workflow needed for the task. Do not run every workflow in sequence. A scope brief, review, explanation, or design proposal remains read-only unless edits are requested.
