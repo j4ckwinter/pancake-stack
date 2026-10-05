@@ -17,10 +17,15 @@ then open a new Codex chat.
 
 In the skill picker, the main workflow is **Pancake**. Individual skills use short labels such as **PR**, **Wtf**, and **Fix**. Their internal names remain namespaced. On hosts that include skills in slash autocomplete, type `/pancake` to filter the list and select **Pancake**. This is picker selection, not a standalone slash alias. See the [installation record](docs/installation-verification.md) for host verification.
 
-two things to start with:
+start with one small task:
 
-1. use `$pancake-stack:setup` to pick your models and reasoning effort.
-2. use `$pancake-stack:pancake` when a task needs some rigor. tell it what you need, and it picks the relevant workflow.
+> $pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
+
+then choose what you need:
+
+1. use `$pancake-stack:setup` if you want saved model and reasoning preferences. you can also leave settings inherited from Codex.
+2. use `$pancake-stack:pancake` for implementation. give it the outcome, relevant files, and how you will know it works.
+3. use `$pancake-stack:design` before implementation when you need to settle the approach.
 
 setup saves your preferences for later. it doesn't switch the model in your current chat.
 
@@ -57,4 +62,4 @@ you can also reach for a skill directly when you know what you need.
 
 Repository checks run with `python3 -B -m unittest discover -s tests -v`. They validate package relationships, documented skills, the repository's plain single-line skill headers, relative inline links, preference helpers in temporary storage, and behavioral fixture assessment. The package checks use a limited repository profile rather than implementing the full portable JSON schema, YAML, or Markdown standards. They do not install the plugin or change global preferences. See [accepted safeguards](docs/safeguards.md) for evidence and remaining workflow gaps.
 
-Challenge supports an optional configured reviewer panel for independent reviews using different models. Setup preserves existing preferences and opts into schema 2 only when you choose a panel. See [configuration](docs/configuration.md) and [setup](docs/setup.md). Model selection depends on the active delegation host.
+Challenge and consequential implementation review support separate optional reviewer panels. Design can run competing independent proposals and an independent judge when explicitly requested. These workflows stay proportionate by default. Setup preserves existing preferences and upgrades the schema only when you choose a new saved panel. See [configuration](docs/configuration.md) and [setup](docs/setup.md). Model selection depends on the active delegation host.
