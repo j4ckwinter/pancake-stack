@@ -87,3 +87,10 @@ A third fresh task used the final skill to add command coverage for `[6, 10]`, e
 ## Challenge panel follow-up on 5 October 2026
 
 Version 0.17.2 adds an optional Challenge reviewer panel. A fresh repository-source Pancake task supplied `gpt-6.1-sol` and `gpt-6-sol`, both with medium reasoning, against the exporter fixture. The lead reported both supported selections accepted and both independent reviews completed after bounded thread-limit retries. Parent host status observed reviewer execution and the second completed verdict. Both reviews identified the local consumer break and left inaccessible external billing compatibility unresolved. Parent artifact assessment passed, confirmed the sample project unchanged, and confirmed no isolated preference file was written. The [retained record](evidence/challenge-panel-2026-10-05.json) distinguishes direct observations from lead-reported model acceptance. This covers one task-supplied panel, not provider diversity, runtime model attestation, installed discovery, or the complete saved-panel setup flow.
+
+
+## Installed Challenge panel on 5 October 2026
+
+Fresh CLI sessions exercised version 0.17.2 from the installed cache. Setup discovered the host catalog and saved a two-reviewer panel in isolated storage. A separate Challenge session consumed that saved panel without task-supplied model choices. Retained spawn results and completed child `turn_context` records show host selection of `gpt-6.1-sol` and `gpt-6-sol`, both at medium effort. Missing, empty, and reported unsupported reviewer-choice runs used direct review and disclosed the absence of independent reviewers. Trusted fixture assessment passed and confirmed the sample project unchanged.
+
+The [installation record](installation-verification.md) and [retained host evidence](evidence/installed-panel-2026-10-05.json) distinguish these observations from remote-runtime attestation, provider diversity, visible VS Code picker behavior, and unverified rejected-spawn or unavailable-delegation fallback. Real user preferences were not changed.

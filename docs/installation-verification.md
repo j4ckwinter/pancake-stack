@@ -1,5 +1,28 @@
 # Installation verification
 
+## Saved Challenge panel in 0.17.2
+
+On 5 October 2026, the local installation was refreshed with `codex plugin add pancake-stack@pancake-stack --json`. It installed version `0.17.2` under the current `pancake-stack` marketplace. The CLI binary was byte-identical to the binary bundled with VS Code extension `26.930.51102`. These checks exercised fresh CLI sessions and app-server discovery, not the visible VS Code picker.
+
+The [installed-panel evidence](evidence/installed-panel-2026-10-05.json) records these results.
+
+| Check | Observed result |
+| --- | --- |
+| Discovery | App-server `skills/list` returned all 19 enabled, namespaced skills from the `0.17.2` cache with no discovery errors. |
+| Installed resources | The manifest, Setup and Challenge instructions, catalog helper, and preference helper matched repository source bytes. |
+| Setup | A fresh `$pancake-stack:setup` session used the installed catalog helper, saved two supported reviewer choices as schema 2, confirmed persistence, and preserved inherited defaults and roles. |
+| Saved-panel application | A fresh `$pancake-stack:challenge` session read that saved configuration without task-supplied model choices. Retained host records show successful spawns and completed reviewer sessions for `gpt-6.1-sol` and `gpt-6-sol`, both at medium effort. |
+| Missing preferences | A separate Challenge session resolved the inherited single-review fallback, performed direct review, disclosed that no independent reviewers ran, and left the missing file absent. |
+| Empty panel | A separate Challenge session read an empty schema 2 panel and performed one direct review with no independent reviewers. The installed helper also resolved both empty and missing cases to supplied host values. |
+| Unavailable reviewer choice | The installed catalog listed `gpt-5.6-terra`. A saved panel requesting it was reported unsupported by the active delegation host. Challenge performed direct review, disclosed the uncovered independent perspective, and selected no substitute. No rejected spawn was exercised. |
+| Artifact checks | Trusted fixture assessment reproduced the consumer failure despite the passing exporter test and confirmed the project remained unchanged. All 36 repository checks passed. |
+
+Preferences were stored at explicit temporary `--config` locations. Real user preferences were not changed. The two completed child sessions' `turn_context` records establish host-selected model and effort, not independent attestation of the remote inference runtime. Both models use the same provider. One child incorrectly described its configured preference, which reinforces using host records instead of reviewer self-description to establish selection.
+
+Missing, empty, and reported unsupported reviewer-choice fallbacks passed. Rejected-spawn and unavailable-delegation fallback remain unverified. An additional run with `--disable multi_agent` still exposed collaboration and completed reviewers, so that flag did not establish an unavailable-delegation scenario in this host. Visible VS Code labels, picker filtering, Git-backed installation, and the default real-user preference save location remain separate checks.
+
+The older entries below retain their original versions and pending checks. This result supersedes their pending local installation under the renamed marketplace and verifies the isolated saved-panel flow on the current CLI backend.
+
 ## Skill labels in 0.17.1
 
 Each skill now declares an explicit UI display name in `agents/openai.yaml`. The main workflow is `Pancake`; individual workflows have short names such as `PR`, `Wtf`, and `Fix`, without the `Pancake Stack:` prefix. Internal plugin and skill identities remain unchanged.

@@ -1,0 +1,1251 @@
+{
+  "date": "2026-10-05",
+  "pluginVersion": "0.17.2",
+  "host": "codex-cli 0.160.0",
+  "extension": "openai.chatgpt-26.930.51102-darwin-arm64",
+  "extensionBinaryMatchesStandalone": true,
+  "storage": "Explicit temporary --config location. Real user preferences were not written.",
+  "runs": {
+    "setup": {
+      "rawJsonlSha256": "706f774a8dc4423f758e28f10de60b05ed9c1702f8ab30edcfaca39bc071cb7e",
+      "completed": true,
+      "events": [
+        {
+          "id": "item_0",
+          "type": "error",
+          "message": "Skill `pancake-stack:setup` exceeded the main prompt context limit and was truncated."
+        },
+        {
+          "id": "item_1",
+          "type": "agent_message",
+          "text": "I\u2019m using the pancake-stack:setup skill to save your two Challenge reviewers while preserving defaults and other roles. I\u2019ll check the existing preferences and model catalog first."
+        },
+        {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat $INSTALLED_PLUGIN/skills/setup/SKILL.md'",
+          "aggregated_output": "Resource output omitted. See command and output hash.",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "350e47f1a3654d8806257b9b7d44c453291f2755a6e145559c96dab2a3fb2b4e"
+        },
+        {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --help'",
+          "aggregated_output": "usage: preferences.py [-h] [--config CONFIG]\n                      {show,save,resolve,resolve-challenge} ...\n\nStore Pancake Stack preferences without modifying Codex settings.\n\npositional arguments:\n  {show,save,resolve,resolve-challenge}\n    save                validate and save the complete JSON object from stdin\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --config CONFIG       override the preference file path\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "cb00d72256e5faaf5168314db89cc00de220b549ccd6e78a7f2fa6bccf2b67ad"
+        },
+        {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/preferences.json show'",
+          "aggregated_output": "{\n  \"schemaVersion\": 1,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  }\n}\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "642e07fbe875f4f35390621dcc7053554481ac43db06ddb2e55830496c85b1f3"
+        },
+        {
+          "id": "item_5",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/catalog.py'",
+          "aggregated_output": "{\n  \"models\": [\n    {\n      \"model\": \"gpt-6.1-sol\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\",\n        \"ultra\"\n      ]\n    },\n    {\n      \"model\": \"gpt-6-astra\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\",\n        \"ultra\"\n      ]\n    },\n    {\n      \"model\": \"gpt-6-sol\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\",\n        \"ultra\"\n      ]\n    },\n    {\n      \"model\": \"gpt-6-luna\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"gpt-5.6-sol\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\",\n        \"ultra\"\n      ]\n    },\n    {\n      \"model\": \"gpt-5.6-terra\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\",\n        \"ultra\"\n      ]\n    },\n    {\n      \"model\": \"gpt-5.6-luna\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"gpt-5.5\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\"\n      ]\n    }\n  ]\n}\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "fd235113fa91a357e8ff0c580d5bedcc8ef42feae1d23d3f5884966bece0d364"
+        },
+        {
+          "id": "item_6",
+          "type": "agent_message",
+          "text": "Both requested models support medium reasoning. Saving the Challenge panel upgrades this file to schema 2, which older helpers cannot read. Defaults and all other roles will stay unchanged."
+        },
+        {
+          "id": "item_7",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"python3 - <<'PY'\nimport json, subprocess\nhelper = '$INSTALLED_PLUGIN/skills/setup/scripts/preferences.py'\nbase = ['python3', helper, '--config', '$HOST_RUN/preferences.json']\nprefs = json.loads(subprocess.check_output(base + ['show'], text=True))\nprefs['schemaVersion'] = 2\nprefs['challengeReviewers'] = [{'model': 'gpt-6.1-sol', 'reasoningEffort': 'medium'}, {'model': 'gpt-6-sol', 'reasoningEffort': 'medium'}]\nsubprocess.run(base + ['save'], input=json.dumps(prefs), text=True, check=True)\nsubprocess.run(base + ['show'], check=True)\nsubprocess.run(base + ['resolve-challenge'], check=True)\nPY\"",
+          "aggregated_output": "{\n  \"schemaVersion\": 2,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  },\n  \"challengeReviewers\": [\n    {\n      \"model\": \"gpt-6.1-sol\",\n      \"reasoningEffort\": \"medium\"\n    },\n    {\n      \"model\": \"gpt-6-sol\",\n      \"reasoningEffort\": \"medium\"\n    }\n  ]\n}\n{\n  \"schemaVersion\": 2,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  },\n  \"challengeReviewers\": [\n    {\n      \"model\": \"gpt-6.1-sol\",\n      \"reasoningEffort\": \"medium\"\n    },\n    {\n      \"model\": \"gpt-6-sol\",\n      \"reasoningEffort\": \"medium\"\n    }\n  ]\n}\n[\n  {\n    \"model\": \"gpt-6.1-sol\",\n    \"reasoningEffort\": \"medium\"\n  },\n  {\n    \"model\": \"gpt-6-sol\",\n    \"reasoningEffort\": \"medium\"\n  }\n]\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "a6a99b93e984676406469bf0075a8c9b9854bb3836acb87164708a38994761b7"
+        },
+        {
+          "id": "item_8",
+          "type": "agent_message",
+          "text": "Saved and verified in [preferences.json]($HOST_RUN/preferences.json):\n\n- Challenge reviewer 1: `gpt-6.1-sol`, medium\n- Challenge reviewer 2: `gpt-6-sol`, medium\n\nDefaults and other roles remain unchanged. The file now uses schema 2. These preferences configure future Pancake workflows; the current chat is unchanged."
+        }
+      ]
+    },
+    "challenge": {
+      "rawJsonlSha256": "dba5524fa6e401bcadb96dae01640655ccdd630326d2af88343753d79f00ce35",
+      "completed": true,
+      "events": [
+        {
+          "id": "item_0",
+          "type": "agent_message",
+          "text": "I\u2019ll use the challenge skill to stress-test `change.diff`, read your saved reviewer preferences, and keep the project unchanged."
+        },
+        {
+          "id": "item_1",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'change.diff'; cat $HOST_RUN/preferences.json; cat $INSTALLED_PLUGIN/skills/pancake/references/values.md; cat $INSTALLED_PLUGIN/skills/sift/SKILL.md; python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --help\"",
+          "aggregated_output": "Resource output omitted. See command and output hash.",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "f0add5c43757104c20e7a2f3f2b01f2089e79d3362c2f03418933fed1d4d498d"
+        },
+        {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'for p in /AGENTS.md /tmp/AGENTS.md $HOST_RUN/AGENTS.md $HOST_RUN/project/AGENTS.md; do if test -f \"$p\"; then cat \"$p\"; fi; done; cat $INSTALLED_PLUGIN/docs/configuration.md'",
+          "aggregated_output": "# Configuration contract\n\n[The example](../config/preferences.example.json) has `schemaVersion` equal to the integer `1`. `defaults` contains `model` and `reasoningEffort`. `roles` contains `implementation`, `review`, and `research`, each with the same two fields. All fields are required. Extra fields, duplicate JSON keys, and unsupported schema versions are rejected.\n\nA role field of `null` inherits its corresponding default. A default field of `null` inherits the host setting. Each field inherits independently. The all-null example therefore inherits the host for every role. An unavailable host value remains `null` in resolved output.\n\nAn explicit `model` or `reasoningEffort` is a nonempty trimmed string. The preference helper validates the structure, not account availability or model and effort compatibility. Setup first runs the bundled catalog helper against the local Codex app server. If discovery fails, it uses accessible host metadata or the user's host picker. Effective pairs need verification after inheritance. A role model override can inherit an effort that its model does not support.\n\nReasoning effort expresses the user's reasoning preference. It does not enforce a numeric token budget. Saving preferences does not change the parent conversation's model or global Codex configuration. Future workflows must apply supported preferences through available host capabilities.\n\nUser storage is `$CODEX_HOME/pancake-stack/config.json`. When `CODEX_HOME` is unset or empty, the path is `~/.codex/pancake-stack/config.json`. Project overrides are deferred. The helper's `--config` flag selects an explicit file path for isolated checks or a user-requested location.\n\n`show` returns the complete configuration. A missing file returns the all-null object without creating directories. `save` accepts the complete JSON object on stdin and atomically replaces the preference file. It refuses to overwrite a malformed or unsupported existing configuration. Repeated saves converge to the same content. Concurrent setup sessions use the last completed save, so finish one setup session before starting another.\n\n`resolve` returns effective preferences by role. Optional `--host-model` and `--host-reasoning-effort` arguments provide observable host values. It reads without writing or applying preferences. Validation and filesystem failures print an error to stderr and exit with code `2`.\n\nSee [Set up Pancake Stack](setup.md) for invocation and helper usage.\n\n## Optional Challenge reviewer panel\n\nSchema 1 stays supported with its exact existing fields and output. Schema 2 adds the required `challengeReviewers` list. Each entry contains exactly `model` and `reasoningEffort`, with the same nullable trimmed string rules. A reviewer field inherits independently through the review role, defaults, then supplied host values. An empty list returns one effective review pair. `resolve` still returns only the three existing roles.\n\n[The panel example](../config/challenge-panel.example.json) contains two all-null entries to demonstrate the shape. These resolve to the same settings and do not demonstrate model diversity. Select distinct model IDs supported by your active host to request diversity. Duplicate model choices remain valid independent perspectives, including choices with different reasoning efforts.\n\n`resolve-challenge` returns a list of effective reviewer pairs. It accepts the same optional host arguments as `resolve` and never writes or applies preferences. Missing storage returns one inherited review pair without creating directories. Schema 1 and an empty schema 2 panel use the same fallback.\n\nSelecting a saved panel explicitly opts into schema 2. Older installed helpers reject schema 2. Update the installed plugin before opting in; ordinary setup preserves schema 1 and does not migrate it automatically. Ordinary schema 2 preference edits preserve the panel. Clearing the list retains schema 2 and restores the single review fallback.\n\nOnly Challenge consumes the panel. Task-supplied reviewer choices replace it for that task without persistence. With delegation available, Challenge launches one reviewer per selected entry, queues host limits, and awaits verdicts. Unsupported or failed choices remain uncovered and must be reported. Model IDs and reasoning efforts must be supported by the actual delegation host, not merely the catalog server. Distinct completed model IDs establish model diversity; they do not by themselves establish provider diversity.\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "91cc5a627524964fe2d4e2faa6989c68adc219d0a20877f096e6c7b2b9bcab26"
+        },
+        {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/preferences.json show; python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/preferences.json resolve-challenge; cat change.diff; rg --files; git status --short'",
+          "aggregated_output": "{\n  \"schemaVersion\": 2,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  },\n  \"challengeReviewers\": [\n    {\n      \"model\": \"gpt-6.1-sol\",\n      \"reasoningEffort\": \"medium\"\n    },\n    {\n      \"model\": \"gpt-6-sol\",\n      \"reasoningEffort\": \"medium\"\n    }\n  ]\n}\n[\n  {\n    \"model\": \"gpt-6.1-sol\",\n    \"reasoningEffort\": \"medium\"\n  },\n  {\n    \"model\": \"gpt-6-sol\",\n    \"reasoningEffort\": \"medium\"\n  }\n]\ndiff --git a/app.py b/app.py\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def export_invoice(total):\n-    return {\"total\": total}\n+    return {\"amount\": total}\ntest_app.py\napp.py\nconsumer.py\nREADME.md\nnotes.txt\nchange.diff\nfatal: not a git repository (or any of the parent directories): .git\n",
+          "exit_code": 128,
+          "status": "failed",
+          "outputSha256": "b8a1d644d0d071a4cafddf711bbcaf1dabfa6baf3d5008e94a037cece74e80e4"
+        },
+        {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'nl -ba app.py; nl -ba consumer.py; nl -ba test_app.py; nl -ba README.md; nl -ba notes.txt; nl -ba change.diff'",
+          "aggregated_output": "     1\tdef export_invoice(total):\n     2\t    return {\"amount\": total}\n     1\tdef read_total(payload):\n     2\t    return payload[\"total\"]\n     1\timport unittest\n     2\t\n     3\tfrom app import export_invoice\n     4\t\n     5\t\n     6\tclass ExportTests(unittest.TestCase):\n     7\t    def test_export(self):\n     8\t        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n     9\t\n    10\t\n    11\tif __name__ == \"__main__\":\n    12\t    unittest.main()\n     1\tThe exporter also feeds an external billing service. Its downstream contract and sandbox are inaccessible from this workspace.\n     1\tKeep this unrelated note unchanged.\n     1\tdiff --git a/app.py b/app.py\n     2\t--- a/app.py\n     3\t+++ b/app.py\n     4\t@@ -1,2 +1,2 @@\n     5\t def export_invoice(total):\n     6\t-    return {\"total\": total}\n     7\t+    return {\"amount\": total}\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "34cd1637e3f7476b2d50c8a19473fb1718449158d2e66fe611ecd08987e1e68e"
+        },
+        {
+          "id": "item_5",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 -B - <<'PY'\nimport unittest\nfrom app import export_invoice\nfrom consumer import read_total\nsuite = unittest.defaultTestLoader.discover('.', pattern='test_app.py')\nresult = unittest.TextTestRunner().run(suite)\nprint('Existing tests passed:', result.wasSuccessful())\nprint('Old payload consumer result:', read_total({'total': 19.5}))\npayload = export_invoice(19.5)\nprint('New exporter payload:', payload)\ntry:\n    print('New payload consumer result:', read_total(payload))\nexcept Exception as exc:\n    print('New payload consumer failure:', type(exc).__name__, str(exc))\nPY\"",
+          "aggregated_output": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\nExisting tests passed: True\nOld payload consumer result: 19.5\nNew exporter payload: {'amount': 19.5}\nNew payload consumer failure: KeyError 'total'\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "69ac13910aae6cc8314b4105116aa312ca9520cff23708590a8b36ea222d4b77"
+        },
+        {
+          "id": "item_6",
+          "type": "agent_message",
+          "text": "The existing test passes, but `read_total(export_invoice(19.5))` raises `KeyError: 'total'`: the consumer still expects the old key. The README also identifies an external billing consumer whose contract is inaccessible, so compatibility there remains unverified. Both saved reviewers are running independently."
+        },
+        {
+          "id": "item_7",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c6d-c9c4-7df2-8084-39407eb9385e",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_8",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c6d-c9c4-7df2-8084-39407eb9385e",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_9",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c6d-c9c4-7df2-8084-39407eb9385e",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_10",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c6d-c9c4-7df2-8084-39407eb9385e",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_11",
+          "type": "agent_message",
+          "text": "**Verdict: request changes.**\n\n- **Act on:** Renaming `total` to `amount` in [app.py]($HOST_RUN/project/app.py:2) breaks [consumer.py]($HOST_RUN/project/consumer.py:2). I reproduced `read_total(export_invoice(19.5))` raising `KeyError: 'total'`. Preserve `total` until consumers are migrated, and add a test covering this handoff.\n- **Unresolved:** The external billing contract is inaccessible, per [README.md]($HOST_RUN/project/README.md:1). Obtain compatibility evidence before removing `total`.\n\nThe existing test passes because it checks only the new payload shape.\n\nBoth independent reviewers completed. Your saved `gpt-6.1-sol/medium` and `gpt-6-sol/medium` selections were accepted by the delegation tool; actual runtime settings were not observable, so model diversity is unverified.\n\nThe project and preferences remain unchanged."
+        }
+      ]
+    },
+    "recorded": {
+      "rawJsonlSha256": "d869377e6ccfb54acf64d42464c02f4552622c0ebdee7fe0b31b67e7cb20fc59",
+      "completed": true,
+      "events": [
+        {
+          "id": "item_0",
+          "type": "agent_message",
+          "text": "I\u2019ll use the challenge skill to stress-test `change.diff`, read your saved reviewer preferences, and return an evidence-based verdict without changing the project."
+        },
+        {
+          "id": "item_1",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'change.diff'; cat $HOST_RUN/preferences.json; cat $INSTALLED_PLUGIN/skills/challenge/SKILL.md; cat $INSTALLED_PLUGIN/skills/pancake/references/values.md; cat $INSTALLED_PLUGIN/skills/sift/SKILL.md\"",
+          "aggregated_output": "Resource output omitted. See command and output hash.",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "598523f6ec6b0c7cddf70ae5f759d21ee6dbcb7f9c212728570b27c70a23d04d"
+        },
+        {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat change.diff; rg --files; python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --help; for p in /AGENTS.md /tmp/AGENTS.md $HOST_RUN/AGENTS.md; do if test -f \"$p\"; then cat \"$p\"; fi; done'",
+          "aggregated_output": "diff --git a/app.py b/app.py\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def export_invoice(total):\n-    return {\"total\": total}\n+    return {\"amount\": total}\ntest_app.py\napp.py\nconsumer.py\nREADME.md\nnotes.txt\nchange.diff\nusage: preferences.py [-h] [--config CONFIG]\n                      {show,save,resolve,resolve-challenge} ...\n\nStore Pancake Stack preferences without modifying Codex settings.\n\npositional arguments:\n  {show,save,resolve,resolve-challenge}\n    save                validate and save the complete JSON object from stdin\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --config CONFIG       override the preference file path\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "7f34ef679138b0cfaa820408cf670418ee0596d3c73b1decae08e7f873d8bc2c"
+        },
+        {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/preferences.json show; python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/preferences.json resolve-challenge; cat app.py consumer.py test_app.py README.md notes.txt; git status --short; cat $INSTALLED_PLUGIN/docs/configuration.md'",
+          "aggregated_output": "{\n  \"schemaVersion\": 2,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  },\n  \"challengeReviewers\": [\n    {\n      \"model\": \"gpt-6.1-sol\",\n      \"reasoningEffort\": \"medium\"\n    },\n    {\n      \"model\": \"gpt-6-sol\",\n      \"reasoningEffort\": \"medium\"\n    }\n  ]\n}\n[\n  {\n    \"model\": \"gpt-6.1-sol\",\n    \"reasoningEffort\": \"medium\"\n  },\n  {\n    \"model\": \"gpt-6-sol\",\n    \"reasoningEffort\": \"medium\"\n  }\n]\ndef export_invoice(total):\n    return {\"amount\": total}\ndef read_total(payload):\n    return payload[\"total\"]\nimport unittest\n\nfrom app import export_invoice\n\n\nclass ExportTests(unittest.TestCase):\n    def test_export(self):\n        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n\n\nif __name__ == \"__main__\":\n    unittest.main()\nThe exporter also feeds an external billing service. Its downstream contract and sandbox are inaccessible from this workspace.\nKeep this unrelated note unchanged.\nfatal: not a git repository (or any of the parent directories): .git\n# Configuration contract\n\n[The example](../config/preferences.example.json) has `schemaVersion` equal to the integer `1`. `defaults` contains `model` and `reasoningEffort`. `roles` contains `implementation`, `review`, and `research`, each with the same two fields. All fields are required. Extra fields, duplicate JSON keys, and unsupported schema versions are rejected.\n\nA role field of `null` inherits its corresponding default. A default field of `null` inherits the host setting. Each field inherits independently. The all-null example therefore inherits the host for every role. An unavailable host value remains `null` in resolved output.\n\nAn explicit `model` or `reasoningEffort` is a nonempty trimmed string. The preference helper validates the structure, not account availability or model and effort compatibility. Setup first runs the bundled catalog helper against the local Codex app server. If discovery fails, it uses accessible host metadata or the user's host picker. Effective pairs need verification after inheritance. A role model override can inherit an effort that its model does not support.\n\nReasoning effort expresses the user's reasoning preference. It does not enforce a numeric token budget. Saving preferences does not change the parent conversation's model or global Codex configuration. Future workflows must apply supported preferences through available host capabilities.\n\nUser storage is `$CODEX_HOME/pancake-stack/config.json`. When `CODEX_HOME` is unset or empty, the path is `~/.codex/pancake-stack/config.json`. Project overrides are deferred. The helper's `--config` flag selects an explicit file path for isolated checks or a user-requested location.\n\n`show` returns the complete configuration. A missing file returns the all-null object without creating directories. `save` accepts the complete JSON object on stdin and atomically replaces the preference file. It refuses to overwrite a malformed or unsupported existing configuration. Repeated saves converge to the same content. Concurrent setup sessions use the last completed save, so finish one setup session before starting another.\n\n`resolve` returns effective preferences by role. Optional `--host-model` and `--host-reasoning-effort` arguments provide observable host values. It reads without writing or applying preferences. Validation and filesystem failures print an error to stderr and exit with code `2`.\n\nSee [Set up Pancake Stack](setup.md) for invocation and helper usage.\n\n## Optional Challenge reviewer panel\n\nSchema 1 stays supported with its exact existing fields and output. Schema 2 adds the required `challengeReviewers` list. Each entry contains exactly `model` and `reasoningEffort`, with the same nullable trimmed string rules. A reviewer field inherits independently through the review role, defaults, then supplied host values. An empty list returns one effective review pair. `resolve` still returns only the three existing roles.\n\n[The panel example](../config/challenge-panel.example.json) contains two all-null entries to demonstrate the shape. These resolve to the same settings and do not demonstrate model diversity. Select distinct model IDs supported by your active host to request diversity. Duplicate model choices remain valid independent perspectives, including choices with different reasoning efforts.\n\n`resolve-challenge` returns a list of effective reviewer pairs. It accepts the same optional host arguments as `resolve` and never writes or applies preferences. Missing storage returns one inherited review pair without creating directories. Schema 1 and an empty schema 2 panel use the same fallback.\n\nSelecting a saved panel explicitly opts into schema 2. Older installed helpers reject schema 2. Update the installed plugin before opting in; ordinary setup preserves schema 1 and does not migrate it automatically. Ordinary schema 2 preference edits preserve the panel. Clearing the list retains schema 2 and restores the single review fallback.\n\nOnly Challenge consumes the panel. Task-supplied reviewer choices replace it for that task without persistence. With delegation available, Challenge launches one reviewer per selected entry, queues host limits, and awaits verdicts. Unsupported or failed choices remain uncovered and must be reported. Model IDs and reasoning efforts must be supported by the actual delegation host, not merely the catalog server. Distinct completed model IDs establish model diversity; they do not by themselves establish provider diversity.\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "f018b78c09a9039bad6933fd57b7c783af683d270cbca0dc0741c2098ad54caa"
+        },
+        {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest -v; PYTHONDONTWRITEBYTECODE=1 python3 -B - <<'PY'\nfrom app import export_invoice\nfrom consumer import read_total\npayload = export_invoice(19.5)\nprint('exported:', payload)\ntry:\n    print('consumer:', read_total(payload))\nexcept Exception as exc:\n    print(type(exc).__name__ + ': ' + str(exc))\nPY\nnl -ba app.py; nl -ba consumer.py; nl -ba test_app.py; nl -ba README.md; shasum -a 256 change.diff app.py consumer.py test_app.py README.md notes.txt $HOST_RUN/preferences.json\"",
+          "aggregated_output": "test_export (test_app.ExportTests) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\nexported: {'amount': 19.5}\nKeyError: 'total'\n     1\tdef export_invoice(total):\n     2\t    return {\"amount\": total}\n     1\tdef read_total(payload):\n     2\t    return payload[\"total\"]\n     1\timport unittest\n     2\t\n     3\tfrom app import export_invoice\n     4\t\n     5\t\n     6\tclass ExportTests(unittest.TestCase):\n     7\t    def test_export(self):\n     8\t        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n     9\t\n    10\t\n    11\tif __name__ == \"__main__\":\n    12\t    unittest.main()\n     1\tThe exporter also feeds an external billing service. Its downstream contract and sandbox are inaccessible from this workspace.\nc5d219eb1df36c0c0a0142cf9dd64196a2eb0d8d3337a88204bdb1420f47631b  change.diff\n345f0f9efccc6679cb3a898d2d5ad730ae2f347fa58170548c3a85054ec82a3b  app.py\nbcf662b3782ea67d0f28e4611868a5663e50763afc48a0150041d7c871f9856f  consumer.py\nf95010575d0a955e881ea5cdfad89e599826b94665dc1791832aaf17d23ae2d0  test_app.py\ncc15bd298ed194fb18a8c3c4485c9fb1cbf4f60cc39462de5701ee60601e3851  README.md\n542e9cb83790c95901dd3207b05df908a597a0c303d5986ef20a9bf59e6d8283  notes.txt\nfacd26a866e8f56e3c7bd4bec123affc69ab61e421060af021d3f9038abf4ca1  $HOST_RUN/preferences.json\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "76073b49c2422606b91ee1326dcae9c6ac17b3fb60d85e06108eccf7da82b791"
+        },
+        {
+          "id": "item_5",
+          "type": "agent_message",
+          "text": "The exporter test passes, but passing its output to `read_total()` raises `KeyError: 'total'`. Both configured reviewers are inspecting independently. The external billing contract is inaccessible, so its compatibility remains unverified."
+        },
+        {
+          "id": "item_6",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c6f-9a5b-7683-9ce4-dbbf8e3dcf0d",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_7",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c6f-9a5b-7683-9ce4-dbbf8e3dcf0d",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_8",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'shasum -a 256 change.diff app.py consumer.py test_app.py README.md notes.txt $HOST_RUN/preferences.json; rg --files --hidden'",
+          "aggregated_output": "c5d219eb1df36c0c0a0142cf9dd64196a2eb0d8d3337a88204bdb1420f47631b  change.diff\n345f0f9efccc6679cb3a898d2d5ad730ae2f347fa58170548c3a85054ec82a3b  app.py\nbcf662b3782ea67d0f28e4611868a5663e50763afc48a0150041d7c871f9856f  consumer.py\nf95010575d0a955e881ea5cdfad89e599826b94665dc1791832aaf17d23ae2d0  test_app.py\ncc15bd298ed194fb18a8c3c4485c9fb1cbf4f60cc39462de5701ee60601e3851  README.md\n542e9cb83790c95901dd3207b05df908a597a0c303d5986ef20a9bf59e6d8283  notes.txt\nfacd26a866e8f56e3c7bd4bec123affc69ab61e421060af021d3f9038abf4ca1  $HOST_RUN/preferences.json\ntest_app.py\napp.py\nconsumer.py\nREADME.md\nnotes.txt\nchange.diff\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "01349ac11e568fbc18cb58d3259fa62da0b36343b348343b89fe5120d4ce6672"
+        },
+        {
+          "id": "item_9",
+          "type": "agent_message",
+          "text": "**Verdict: changes required.**\n\n- **Act on:** [app.py]($HOST_RUN/project/app.py:2) emits `amount`, while [consumer.py]($HOST_RUN/project/consumer.py:2) requires `total`. I reproduced `read_total(export_invoice(19.5))` raising `KeyError: 'total'`. Retain `total` or coordinate the consumer migration and test that composition.\n- **Verification gap:** the existing test passes because it checks only the new dictionary shape. It misses the consumer failure.\n- **Unresolved:** the [external billing contract]($HOST_RUN/project/README.md:1) is inaccessible. Confirm its expected fields before removing `total`.\n\nTwo independent reviewers completed and corroborated the failure. Your saved requests\u2014`gpt-6.1-sol/medium` and `gpt-6-sol/medium`\u2014were accepted by the delegation tool; actual runtime settings were not reported, so model diversity is unverified.\n\nProject files and preferences remain unchanged."
+        }
+      ]
+    },
+    "fallback": {
+      "rawJsonlSha256": "88f2bd7fd629ad313768672b5aa3df7712d5265051c48321b82315f3ca2cf0e3",
+      "completed": true,
+      "events": [
+        {
+          "id": "item_0",
+          "type": "agent_message",
+          "text": "I\u2019m using the challenge skill to stress-test `change.diff`, check the configured reviewer preferences, and return a verdict without changing the project."
+        },
+        {
+          "id": "item_1",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"pwd; rg --files -g AGENTS.md -g change.diff -g '*export*' -g '*test*' -g 'package.json' -g 'pyproject.toml'\"",
+          "aggregated_output": "$HOST_RUN/project\ntest_app.py\nchange.diff\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "9498be1bd7db6f6e2f25ab38fd672b06f6885b91119d1f944acd6c206effd06e"
+        },
+        {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat $INSTALLED_PLUGIN/skills/challenge/SKILL.md $INSTALLED_PLUGIN/skills/pancake/references/values.md $INSTALLED_PLUGIN/skills/sift/SKILL.md $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py'",
+          "aggregated_output": "Resource output omitted. See command and output hash.",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "d3bdd93f5962b2082ceb77fa7d9b68a9f9391463f7af251a8b4a6356819b7ac7"
+        },
+        {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'ls -la; cat change.diff; cat app.py test_app.py; git status --short; for p in /AGENTS.md /tmp/AGENTS.md $HOST_RUN/AGENTS.md; do if [ -f \"$p\" ]; then cat \"$p\"; fi; done'",
+          "aggregated_output": "total 48\ndrwxr-xr-x@  8 jackwinter  wheel  256 Oct  5 15:17 .\ndrwx------@ 13 jackwinter  wheel  416 Oct  5 15:18 ..\n-rw-r--r--@  1 jackwinter  wheel  127 Oct  5 15:17 README.md\n-rw-r--r--@  1 jackwinter  wheel   56 Oct  5 15:17 app.py\n-rw-r--r--@  1 jackwinter  wheel  158 Oct  5 15:17 change.diff\n-rw-r--r--@  1 jackwinter  wheel   53 Oct  5 15:17 consumer.py\n-rw-r--r--@  1 jackwinter  wheel   36 Oct  5 15:17 notes.txt\n-rw-r--r--@  1 jackwinter  wheel  229 Oct  5 15:17 test_app.py\ndiff --git a/app.py b/app.py\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def export_invoice(total):\n-    return {\"total\": total}\n+    return {\"amount\": total}\ndef export_invoice(total):\n    return {\"amount\": total}\nimport unittest\n\nfrom app import export_invoice\n\n\nclass ExportTests(unittest.TestCase):\n    def test_export(self):\n        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n\n\nif __name__ == \"__main__\":\n    unittest.main()\nfatal: not a git repository (or any of the parent directories): .git\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "03e7b41bb7af3ffa5788f9cca61efad6bb03ff500b17db2c98a0fdfe1c862ead"
+        },
+        {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/unsaved.json show'",
+          "aggregated_output": "{\n  \"schemaVersion\": 1,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  }\n}\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "642e07fbe875f4f35390621dcc7053554481ac43db06ddb2e55830496c85b1f3"
+        },
+        {
+          "id": "item_5",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/unsaved.json resolve-challenge'",
+          "aggregated_output": "[\n  {\n    \"model\": null,\n    \"reasoningEffort\": null\n  }\n]\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "eab08a271f98b993bc21b8632f1ab5ffe4e66130225eeb8789cdcbfdfe9139ba"
+        },
+        {
+          "id": "item_6",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"cat README.md consumer.py notes.txt; nl -ba app.py; nl -ba consumer.py; nl -ba test_app.py; python3 -B -m unittest -v; python3 -B - <<'PY'\nfrom app import export_invoice\nimport consumer\nprint('export_invoice(19.5):', export_invoice(19.5))\nprint('consumer functions:', [name for name in vars(consumer) if not name.startswith('_')])\nfor name, function in vars(consumer).items():\n    if callable(function) and getattr(function, '__module__', None) == 'consumer':\n        try:\n            print(name, function(export_invoice(19.5)))\n        except Exception as error:\n            print(name, type(error).__name__, str(error))\nPY\"",
+          "aggregated_output": "The exporter also feeds an external billing service. Its downstream contract and sandbox are inaccessible from this workspace.\ndef read_total(payload):\n    return payload[\"total\"]\nKeep this unrelated note unchanged.\n     1\tdef export_invoice(total):\n     2\t    return {\"amount\": total}\n     1\tdef read_total(payload):\n     2\t    return payload[\"total\"]\n     1\timport unittest\n     2\t\n     3\tfrom app import export_invoice\n     4\t\n     5\t\n     6\tclass ExportTests(unittest.TestCase):\n     7\t    def test_export(self):\n     8\t        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n     9\t\n    10\t\n    11\tif __name__ == \"__main__\":\n    12\t    unittest.main()\ntest_export (test_app.ExportTests) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\nexport_invoice(19.5): {'amount': 19.5}\nconsumer functions: ['read_total']\nread_total KeyError 'total'\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "97bf047675515be2210ba4cf0a6140dd3b78dc3e6f4cf5dd7ebdfbe7e12d6a8a"
+        },
+        {
+          "id": "item_7",
+          "type": "agent_message",
+          "text": "Verdict: **act on the compatibility break before shipping.**\n\n- **Act on:** Renaming `total` to `amount` assumes consumers accept the new key. [consumer.py:2]($HOST_RUN/project/consumer.py:2) still reads `payload[\"total\"]`. I confirmed that `read_total(export_invoice(19.5))` raises `KeyError: 'total'`. Preserve `total` until consumers migrate, and add a producer-to-consumer regression test.\n- **Unresolved:** The exporter also feeds an external billing service whose contract and sandbox are inaccessible, per [README.md]($HOST_RUN/project/README.md). Check its accepted keys before approving the rename.\n\nThe existing test passes because it asserts only the new payload shape; it misses consumer compatibility.\n\nReviewed the diff, implementation, local consumer, and test directly. The supplied preference location resolved to no configured reviewer panel; no independent reviewers ran. Project files and preferences were unchanged."
+        }
+      ]
+    },
+    "cleared": {
+      "rawJsonlSha256": "47ec44bb059fc9488e3cbcf8172710bb5bc764114c35bd29178e2cc6919a8e1e",
+      "completed": true,
+      "events": [
+        {
+          "id": "item_0",
+          "type": "agent_message",
+          "text": "I\u2019ll use the challenge skill to inspect the diff, test consequential assumptions, and return a verdict without changing the project. I\u2019ll also read the reviewer preferences from the location you supplied."
+        },
+        {
+          "id": "item_1",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'change.diff' -g '*export*' -g '*test*' -g 'package.json' -g 'pyproject.toml'\"",
+          "aggregated_output": "$HOST_RUN/project\ntest_app.py\nchange.diff\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "9498be1bd7db6f6e2f25ab38fd672b06f6885b91119d1f944acd6c206effd06e"
+        },
+        {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat $INSTALLED_PLUGIN/skills/challenge/SKILL.md $INSTALLED_PLUGIN/skills/pancake/references/values.md $INSTALLED_PLUGIN/skills/sift/SKILL.md'",
+          "aggregated_output": "Resource output omitted. See command and output hash.",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "67b7a74dcc9d18cdb804754425aa06c8d8cbf72e4c5d7747e29c798a9e377aa3"
+        },
+        {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --help'",
+          "aggregated_output": "usage: preferences.py [-h] [--config CONFIG]\n                      {show,save,resolve,resolve-challenge} ...\n\nStore Pancake Stack preferences without modifying Codex settings.\n\npositional arguments:\n  {show,save,resolve,resolve-challenge}\n    save                validate and save the complete JSON object from stdin\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --config CONFIG       override the preference file path\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "cb00d72256e5faaf5168314db89cc00de220b549ccd6e78a7f2fa6bccf2b67ad"
+        },
+        {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'ls -la; cat change.diff; cat app.py test_app.py; git status --short; for p in /AGENTS.md /tmp/AGENTS.md $HOST_RUN/AGENTS.md $HOST_RUN/project/AGENTS.md; do if [ -f \"$p\" ]; then cat \"$p\"; fi; done'",
+          "aggregated_output": "total 48\ndrwxr-xr-x@  8 jackwinter  wheel  256 Oct  5 15:17 .\ndrwx------@ 23 jackwinter  wheel  736 Oct  5 15:22 ..\n-rw-r--r--@  1 jackwinter  wheel  127 Oct  5 15:17 README.md\n-rw-r--r--@  1 jackwinter  wheel   56 Oct  5 15:17 app.py\n-rw-r--r--@  1 jackwinter  wheel  158 Oct  5 15:17 change.diff\n-rw-r--r--@  1 jackwinter  wheel   53 Oct  5 15:17 consumer.py\n-rw-r--r--@  1 jackwinter  wheel   36 Oct  5 15:17 notes.txt\n-rw-r--r--@  1 jackwinter  wheel  229 Oct  5 15:17 test_app.py\ndiff --git a/app.py b/app.py\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def export_invoice(total):\n-    return {\"total\": total}\n+    return {\"amount\": total}\ndef export_invoice(total):\n    return {\"amount\": total}\nimport unittest\n\nfrom app import export_invoice\n\n\nclass ExportTests(unittest.TestCase):\n    def test_export(self):\n        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n\n\nif __name__ == \"__main__\":\n    unittest.main()\nfatal: not a git repository (or any of the parent directories): .git\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "235c90c6e3aa725d71e7fd0c4da250895155f13322fe8e2e61b6c0aea4cb7451"
+        },
+        {
+          "id": "item_5",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/cleared.json show; python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/cleared.json resolve-challenge'",
+          "aggregated_output": "{\n  \"schemaVersion\": 2,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  },\n  \"challengeReviewers\": []\n}\n[\n  {\n    \"model\": null,\n    \"reasoningEffort\": null\n  }\n]\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "19056f8a146537a1f5b34449b211708b7c71b03cabc6c613eba7c324e509190a"
+        },
+        {
+          "id": "item_6",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"cat README.md consumer.py notes.txt; nl -ba app.py; nl -ba consumer.py; nl -ba test_app.py; PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest -v; PYTHONDONTWRITEBYTECODE=1 python3 -B - <<'PY'\nfrom app import export_invoice\nimport consumer\nprint('Export:', export_invoice(19.5))\nprint('Consumer functions:', [name for name in vars(consumer) if not name.startswith('_')])\nfor name, fn in vars(consumer).items():\n    if callable(fn) and getattr(fn, '__module__', None) == 'consumer':\n        try:\n            print(name, fn(export_invoice(19.5)))\n        except Exception as exc:\n            print(name, type(exc).__name__, str(exc))\nPY\"",
+          "aggregated_output": "The exporter also feeds an external billing service. Its downstream contract and sandbox are inaccessible from this workspace.\ndef read_total(payload):\n    return payload[\"total\"]\nKeep this unrelated note unchanged.\n     1\tdef export_invoice(total):\n     2\t    return {\"amount\": total}\n     1\tdef read_total(payload):\n     2\t    return payload[\"total\"]\n     1\timport unittest\n     2\t\n     3\tfrom app import export_invoice\n     4\t\n     5\t\n     6\tclass ExportTests(unittest.TestCase):\n     7\t    def test_export(self):\n     8\t        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n     9\t\n    10\t\n    11\tif __name__ == \"__main__\":\n    12\t    unittest.main()\ntest_export (test_app.ExportTests) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\nExport: {'amount': 19.5}\nConsumer functions: ['read_total']\nread_total KeyError 'total'\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "deb44f6b2d58b84620094de13600c8f901a5780d390d6128970526986c96dc69"
+        },
+        {
+          "id": "item_7",
+          "type": "agent_message",
+          "text": "Verdict: **act on the compatibility break before shipping.**\n\n- **Act on:** Renaming `total` to `amount` in [app.py]($HOST_RUN/project/app.py:2) assumes consumers accept the new key. The existing [consumer]($HOST_RUN/project/consumer.py:2) still reads `total`. I reproduced `read_total(export_invoice(19.5))` raising `KeyError: 'total'`. Preserve `total` until consumers migrate, and add a test covering this interaction.\n- **Unresolved:** The exporter also feeds an external billing service, whose contract and sandbox are inaccessible according to [README.md]($HOST_RUN/project/README.md:1). Verify its accepted fields before renaming the key.\n\nThe existing test passes but checks only the new export shape. Review covered the diff, implementation, local consumer, test, and README. Your saved reviewer panel is empty; this was one direct review with no independent reviewers. Project files and preferences were unchanged."
+        }
+      ]
+    },
+    "limited": {
+      "rawJsonlSha256": "d4b5f9a2968c73f0cbd410f64beba232198a262e0141a3fb10e89311fd6e8fce",
+      "completed": true,
+      "events": [
+        {
+          "id": "item_0",
+          "type": "agent_message",
+          "text": "I\u2019ll use the challenge skill to inspect `change.diff`, resolve your saved reviewer preferences, and stress-test the exporter assumptions without changing the project."
+        },
+        {
+          "id": "item_1",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'change.diff' -g '*export*' -g '*test*' -g 'package.json' -g 'pyproject.toml'\"",
+          "aggregated_output": "$HOST_RUN/project\ntest_app.py\nchange.diff\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "9498be1bd7db6f6e2f25ab38fd672b06f6885b91119d1f944acd6c206effd06e"
+        },
+        {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat $INSTALLED_PLUGIN/skills/pancake/references/values.md $INSTALLED_PLUGIN/skills/sift/SKILL.md; python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --help'",
+          "aggregated_output": "Resource output omitted. See command and output hash.",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "4590687fd55267a90e1015896f1be19850652dc39454cccf8218de40eaf6b659"
+        },
+        {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'ls -la; cat change.diff; cat app.py test_app.py; git status --short; for p in /AGENTS.md /tmp/AGENTS.md $HOST_RUN/AGENTS.md; do if [ -f \"$p\" ]; then cat \"$p\"; fi; done'",
+          "aggregated_output": "total 48\ndrwxr-xr-x@  8 jackwinter  wheel  256 Oct  5 15:17 .\ndrwx------@ 20 jackwinter  wheel  640 Oct  5 15:20 ..\n-rw-r--r--@  1 jackwinter  wheel  127 Oct  5 15:17 README.md\n-rw-r--r--@  1 jackwinter  wheel   56 Oct  5 15:17 app.py\n-rw-r--r--@  1 jackwinter  wheel  158 Oct  5 15:17 change.diff\n-rw-r--r--@  1 jackwinter  wheel   53 Oct  5 15:17 consumer.py\n-rw-r--r--@  1 jackwinter  wheel   36 Oct  5 15:17 notes.txt\n-rw-r--r--@  1 jackwinter  wheel  229 Oct  5 15:17 test_app.py\ndiff --git a/app.py b/app.py\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def export_invoice(total):\n-    return {\"total\": total}\n+    return {\"amount\": total}\ndef export_invoice(total):\n    return {\"amount\": total}\nimport unittest\n\nfrom app import export_invoice\n\n\nclass ExportTests(unittest.TestCase):\n    def test_export(self):\n        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n\n\nif __name__ == \"__main__\":\n    unittest.main()\nfatal: not a git repository (or any of the parent directories): .git\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "9ae461b36812fb3bc2e9917ebb430939c8530c907e27b1d9348386658e71e783"
+        },
+        {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/preferences.json show; python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py resolve-challenge --help'",
+          "aggregated_output": "{\n  \"schemaVersion\": 2,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  },\n  \"challengeReviewers\": [\n    {\n      \"model\": \"gpt-6.1-sol\",\n      \"reasoningEffort\": \"medium\"\n    },\n    {\n      \"model\": \"gpt-6-sol\",\n      \"reasoningEffort\": \"medium\"\n    }\n  ]\n}\nusage: preferences.py resolve-challenge [-h] [--host-model HOST_MODEL]\n                                        [--host-reasoning-effort HOST_REASONING_EFFORT]\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --host-model HOST_MODEL\n  --host-reasoning-effort HOST_REASONING_EFFORT\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "6be226e4d52034fb4df26000a48d821f3041f1a29d8ee9b672c4f1b0cd6a0c22"
+        },
+        {
+          "id": "item_5",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/preferences.json resolve-challenge; cat README.md consumer.py notes.txt; rg --files --hidden; cat $INSTALLED_PLUGIN/docs/configuration.md'",
+          "aggregated_output": "[\n  {\n    \"model\": \"gpt-6.1-sol\",\n    \"reasoningEffort\": \"medium\"\n  },\n  {\n    \"model\": \"gpt-6-sol\",\n    \"reasoningEffort\": \"medium\"\n  }\n]\nThe exporter also feeds an external billing service. Its downstream contract and sandbox are inaccessible from this workspace.\ndef read_total(payload):\n    return payload[\"total\"]\nKeep this unrelated note unchanged.\ntest_app.py\napp.py\nconsumer.py\nREADME.md\nnotes.txt\nchange.diff\n# Configuration contract\n\n[The example](../config/preferences.example.json) has `schemaVersion` equal to the integer `1`. `defaults` contains `model` and `reasoningEffort`. `roles` contains `implementation`, `review`, and `research`, each with the same two fields. All fields are required. Extra fields, duplicate JSON keys, and unsupported schema versions are rejected.\n\nA role field of `null` inherits its corresponding default. A default field of `null` inherits the host setting. Each field inherits independently. The all-null example therefore inherits the host for every role. An unavailable host value remains `null` in resolved output.\n\nAn explicit `model` or `reasoningEffort` is a nonempty trimmed string. The preference helper validates the structure, not account availability or model and effort compatibility. Setup first runs the bundled catalog helper against the local Codex app server. If discovery fails, it uses accessible host metadata or the user's host picker. Effective pairs need verification after inheritance. A role model override can inherit an effort that its model does not support.\n\nReasoning effort expresses the user's reasoning preference. It does not enforce a numeric token budget. Saving preferences does not change the parent conversation's model or global Codex configuration. Future workflows must apply supported preferences through available host capabilities.\n\nUser storage is `$CODEX_HOME/pancake-stack/config.json`. When `CODEX_HOME` is unset or empty, the path is `~/.codex/pancake-stack/config.json`. Project overrides are deferred. The helper's `--config` flag selects an explicit file path for isolated checks or a user-requested location.\n\n`show` returns the complete configuration. A missing file returns the all-null object without creating directories. `save` accepts the complete JSON object on stdin and atomically replaces the preference file. It refuses to overwrite a malformed or unsupported existing configuration. Repeated saves converge to the same content. Concurrent setup sessions use the last completed save, so finish one setup session before starting another.\n\n`resolve` returns effective preferences by role. Optional `--host-model` and `--host-reasoning-effort` arguments provide observable host values. It reads without writing or applying preferences. Validation and filesystem failures print an error to stderr and exit with code `2`.\n\nSee [Set up Pancake Stack](setup.md) for invocation and helper usage.\n\n## Optional Challenge reviewer panel\n\nSchema 1 stays supported with its exact existing fields and output. Schema 2 adds the required `challengeReviewers` list. Each entry contains exactly `model` and `reasoningEffort`, with the same nullable trimmed string rules. A reviewer field inherits independently through the review role, defaults, then supplied host values. An empty list returns one effective review pair. `resolve` still returns only the three existing roles.\n\n[The panel example](../config/challenge-panel.example.json) contains two all-null entries to demonstrate the shape. These resolve to the same settings and do not demonstrate model diversity. Select distinct model IDs supported by your active host to request diversity. Duplicate model choices remain valid independent perspectives, including choices with different reasoning efforts.\n\n`resolve-challenge` returns a list of effective reviewer pairs. It accepts the same optional host arguments as `resolve` and never writes or applies preferences. Missing storage returns one inherited review pair without creating directories. Schema 1 and an empty schema 2 panel use the same fallback.\n\nSelecting a saved panel explicitly opts into schema 2. Older installed helpers reject schema 2. Update the installed plugin before opting in; ordinary setup preserves schema 1 and does not migrate it automatically. Ordinary schema 2 preference edits preserve the panel. Clearing the list retains schema 2 and restores the single review fallback.\n\nOnly Challenge consumes the panel. Task-supplied reviewer choices replace it for that task without persistence. With delegation available, Challenge launches one reviewer per selected entry, queues host limits, and awaits verdicts. Unsupported or failed choices remain uncovered and must be reported. Model IDs and reasoning efforts must be supported by the actual delegation host, not merely the catalog server. Distinct completed model IDs establish model diversity; they do not by themselves establish provider diversity.\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "64b9b33ac9ccb2fe215070e33aa8e7ce9a0fdd7e32fe935dc50268e503e05477"
+        },
+        {
+          "id": "item_6",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 -B - <<'PY'\nimport unittest\nfrom app import export_invoice\nfrom consumer import read_total\nsuite = unittest.defaultTestLoader.discover('.')\nresult = unittest.TextTestRunner(verbosity=2).run(suite)\nprint('Consumer check:')\ntry:\n    print(read_total(export_invoice(19.5)))\nexcept Exception as exc:\n    print(f'{type(exc).__name__}: {exc}')\nprint('Previous payload consumer check:', read_total({'total': 19.5}))\nPY\n\"",
+          "aggregated_output": "test_export (test_app.ExportTests) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\nConsumer check:\nKeyError: 'total'\nPrevious payload consumer check: 19.5\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "16e1f9b6d99c13b7e335dddb83377918fbf594182f093530e4119ab068e35bee"
+        },
+        {
+          "id": "item_7",
+          "type": "agent_message",
+          "text": "The exporter test passes, but feeding its output to the included consumer raises `KeyError: 'total'`. I\u2019m checking the independent reviews for other issues. The external billing contract is inaccessible here, so its compatibility remains unverified."
+        },
+        {
+          "id": "item_8",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c70-59b2-7e40-ac1b-c50065ead82b",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_9",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'for p in app.py consumer.py test_app.py README.md change.diff; do nl -ba \"$p\"; done; for p in /private/AGENTS.md /private/tmp/AGENTS.md $HOST_RUN/AGENTS.md; do if [ -f \"$p\" ]; then cat \"$p\"; fi; done'",
+          "aggregated_output": "     1\tdef export_invoice(total):\n     2\t    return {\"amount\": total}\n     1\tdef read_total(payload):\n     2\t    return payload[\"total\"]\n     1\timport unittest\n     2\t\n     3\tfrom app import export_invoice\n     4\t\n     5\t\n     6\tclass ExportTests(unittest.TestCase):\n     7\t    def test_export(self):\n     8\t        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n     9\t\n    10\t\n    11\tif __name__ == \"__main__\":\n    12\t    unittest.main()\n     1\tThe exporter also feeds an external billing service. Its downstream contract and sandbox are inaccessible from this workspace.\n     1\tdiff --git a/app.py b/app.py\n     2\t--- a/app.py\n     3\t+++ b/app.py\n     4\t@@ -1,2 +1,2 @@\n     5\t def export_invoice(total):\n     6\t-    return {\"total\": total}\n     7\t+    return {\"amount\": total}\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "f4bcff18b83c75b64889287aa66f37c6e6904048de52700248af318a9a43d75e"
+        },
+        {
+          "id": "item_10",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c70-59b2-7e40-ac1b-c50065ead82b",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_11",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c70-59b2-7e40-ac1b-c50065ead82b",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_12",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c70-59b2-7e40-ac1b-c50065ead82b",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_13",
+          "type": "collab_tool_call",
+          "tool": "wait",
+          "sender_thread_id": "01a10c70-59b2-7e40-ac1b-c50065ead82b",
+          "receiver_thread_ids": [],
+          "prompt": null,
+          "agents_states": {},
+          "status": "completed"
+        },
+        {
+          "id": "item_14",
+          "type": "agent_message",
+          "text": "**Verdict: resolve the consumer incompatibility before accepting this change.**\n\n- **Act on:** The rename assumes consumers accept `amount`. [app.py]($HOST_RUN/project/app.py:2) now emits that key, but [consumer.py]($HOST_RUN/project/consumer.py:2) still requires `total`. Verified: `read_total(export_invoice(19.5))` raises `KeyError: 'total'`. Coordinate the consumer migration and test this combined path. No supplied production call site establishes how often it runs.\n- **Verification gap:** The sole [test]($HOST_RUN/project/test_app.py:8) passes because it checks only the new exporter output.\n- **Unresolved:** The external billing contract is inaccessible, per [README.md]($HOST_RUN/project/README.md:1). Obtain its schema or an integration result before assuming compatibility.\n\nI inspected all six project files and completed two independent reviews. Your saved selections\u2014`gpt-6.1-sol` and `gpt-6-sol`, both at `medium` effort\u2014were accepted by the delegation interface. Actual runtime settings were not reported, so model diversity remains unverified.\n\nThe project and preferences were left unchanged."
+        }
+      ]
+    },
+    "catalog-choice": {
+      "rawJsonlSha256": "0862ac4e5131eedd2f01eb7fbb593b30b3f3e5ba53663ea26b7f535f9a7df6a7",
+      "completed": true,
+      "events": [
+        {
+          "id": "item_0",
+          "type": "agent_message",
+          "text": "I\u2019ll use the challenge skill to stress-test `change.diff`, read your saved reviewer preferences, and keep the project unchanged."
+        },
+        {
+          "id": "item_1",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'change.diff'; cat $HOST_RUN/catalog-choice.json; cat $INSTALLED_PLUGIN/skills/pancake/references/values.md; cat $INSTALLED_PLUGIN/skills/sift/SKILL.md; python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --help\"",
+          "aggregated_output": "Resource output omitted. See command and output hash.",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "2621208eecb27834e420db13d9f57f734a6c29fe75666267ef7e490dfa0fb88b"
+        },
+        {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/catalog-choice.json show; python3 $INSTALLED_PLUGIN/skills/setup/scripts/preferences.py --config $HOST_RUN/catalog-choice.json resolve-challenge; cat change.diff; rg --files; git status --short; for f in /AGENTS.md /tmp/AGENTS.md $HOST_RUN/AGENTS.md; do if [ -f \"$f\" ]; then cat \"$f\"; fi; done'",
+          "aggregated_output": "{\n  \"schemaVersion\": 2,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  },\n  \"challengeReviewers\": [\n    {\n      \"model\": \"gpt-5.6-terra\",\n      \"reasoningEffort\": \"medium\"\n    }\n  ]\n}\n[\n  {\n    \"model\": \"gpt-5.6-terra\",\n    \"reasoningEffort\": \"medium\"\n  }\n]\ndiff --git a/app.py b/app.py\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def export_invoice(total):\n-    return {\"total\": total}\n+    return {\"amount\": total}\ntest_app.py\napp.py\nconsumer.py\nREADME.md\nnotes.txt\nchange.diff\nfatal: not a git repository (or any of the parent directories): .git\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "a8b11f87eece304b8242dc96d409c136e181473cc36c066daa6500800bf2bed3"
+        },
+        {
+          "id": "item_3",
+          "type": "agent_message",
+          "text": "Your saved panel requests `gpt-5.6-terra` with medium reasoning, but that model isn\u2019t available in this host. I\u2019ll review directly without substituting another model; the independent reviewer perspective will remain uncovered."
+        },
+        {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"cat app.py consumer.py test_app.py README.md notes.txt; rg --files --hidden -g 'AGENTS.md' -g '\"'! .git'\"'; cat $INSTALLED_PLUGIN/docs/configuration.md\"",
+          "aggregated_output": "def export_invoice(total):\n    return {\"amount\": total}\ndef read_total(payload):\n    return payload[\"total\"]\nimport unittest\n\nfrom app import export_invoice\n\n\nclass ExportTests(unittest.TestCase):\n    def test_export(self):\n        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n\n\nif __name__ == \"__main__\":\n    unittest.main()\nThe exporter also feeds an external billing service. Its downstream contract and sandbox are inaccessible from this workspace.\nKeep this unrelated note unchanged.\n# Configuration contract\n\n[The example](../config/preferences.example.json) has `schemaVersion` equal to the integer `1`. `defaults` contains `model` and `reasoningEffort`. `roles` contains `implementation`, `review`, and `research`, each with the same two fields. All fields are required. Extra fields, duplicate JSON keys, and unsupported schema versions are rejected.\n\nA role field of `null` inherits its corresponding default. A default field of `null` inherits the host setting. Each field inherits independently. The all-null example therefore inherits the host for every role. An unavailable host value remains `null` in resolved output.\n\nAn explicit `model` or `reasoningEffort` is a nonempty trimmed string. The preference helper validates the structure, not account availability or model and effort compatibility. Setup first runs the bundled catalog helper against the local Codex app server. If discovery fails, it uses accessible host metadata or the user's host picker. Effective pairs need verification after inheritance. A role model override can inherit an effort that its model does not support.\n\nReasoning effort expresses the user's reasoning preference. It does not enforce a numeric token budget. Saving preferences does not change the parent conversation's model or global Codex configuration. Future workflows must apply supported preferences through available host capabilities.\n\nUser storage is `$CODEX_HOME/pancake-stack/config.json`. When `CODEX_HOME` is unset or empty, the path is `~/.codex/pancake-stack/config.json`. Project overrides are deferred. The helper's `--config` flag selects an explicit file path for isolated checks or a user-requested location.\n\n`show` returns the complete configuration. A missing file returns the all-null object without creating directories. `save` accepts the complete JSON object on stdin and atomically replaces the preference file. It refuses to overwrite a malformed or unsupported existing configuration. Repeated saves converge to the same content. Concurrent setup sessions use the last completed save, so finish one setup session before starting another.\n\n`resolve` returns effective preferences by role. Optional `--host-model` and `--host-reasoning-effort` arguments provide observable host values. It reads without writing or applying preferences. Validation and filesystem failures print an error to stderr and exit with code `2`.\n\nSee [Set up Pancake Stack](setup.md) for invocation and helper usage.\n\n## Optional Challenge reviewer panel\n\nSchema 1 stays supported with its exact existing fields and output. Schema 2 adds the required `challengeReviewers` list. Each entry contains exactly `model` and `reasoningEffort`, with the same nullable trimmed string rules. A reviewer field inherits independently through the review role, defaults, then supplied host values. An empty list returns one effective review pair. `resolve` still returns only the three existing roles.\n\n[The panel example](../config/challenge-panel.example.json) contains two all-null entries to demonstrate the shape. These resolve to the same settings and do not demonstrate model diversity. Select distinct model IDs supported by your active host to request diversity. Duplicate model choices remain valid independent perspectives, including choices with different reasoning efforts.\n\n`resolve-challenge` returns a list of effective reviewer pairs. It accepts the same optional host arguments as `resolve` and never writes or applies preferences. Missing storage returns one inherited review pair without creating directories. Schema 1 and an empty schema 2 panel use the same fallback.\n\nSelecting a saved panel explicitly opts into schema 2. Older installed helpers reject schema 2. Update the installed plugin before opting in; ordinary setup preserves schema 1 and does not migrate it automatically. Ordinary schema 2 preference edits preserve the panel. Clearing the list retains schema 2 and restores the single review fallback.\n\nOnly Challenge consumes the panel. Task-supplied reviewer choices replace it for that task without persistence. With delegation available, Challenge launches one reviewer per selected entry, queues host limits, and awaits verdicts. Unsupported or failed choices remain uncovered and must be reported. Model IDs and reasoning efforts must be supported by the actual delegation host, not merely the catalog server. Distinct completed model IDs establish model diversity; they do not by themselves establish provider diversity.\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "76800e48e26c9f52cf10741012edf670a61d29cbcfdac75662f363a99d0fa393"
+        },
+        {
+          "id": "item_5",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest -v; PYTHONDONTWRITEBYTECODE=1 python3 -B - <<'PY'\nfrom app import export_invoice\nfrom consumer import read_total\nfor total in (19.5, 0):\n    before = {\\\"total\\\": total}\n    after = export_invoice(total)\n    print(f'before: {before\"'!r} -> {read_total(before)!r}'\"')\n    try:\n        print(f'after: {after\"'!r} -> {read_total(after)!r}'\"')\n    except KeyError as exc:\n        print(f'after: {after\"'!r} -> {type(exc).__name__}: {exc}'\"')\nPY\nnl -ba app.py; nl -ba consumer.py; nl -ba test_app.py; nl -ba README.md\"",
+          "aggregated_output": "test_export (test_app.ExportTests) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\nbefore: {'total': 19.5} -> 19.5\nafter: {'amount': 19.5} -> KeyError: 'total'\nbefore: {'total': 0} -> 0\nafter: {'amount': 0} -> KeyError: 'total'\n     1\tdef export_invoice(total):\n     2\t    return {\"amount\": total}\n     1\tdef read_total(payload):\n     2\t    return payload[\"total\"]\n     1\timport unittest\n     2\t\n     3\tfrom app import export_invoice\n     4\t\n     5\t\n     6\tclass ExportTests(unittest.TestCase):\n     7\t    def test_export(self):\n     8\t        self.assertEqual(export_invoice(19.5), {\"amount\": 19.5})\n     9\t\n    10\t\n    11\tif __name__ == \"__main__\":\n    12\t    unittest.main()\n     1\tThe exporter also feeds an external billing service. Its downstream contract and sandbox are inaccessible from this workspace.\n",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "dc7c126d08ba236d772c094446e561991a1b3bf4fd1d1b552d62b5ed36a75c73"
+        },
+        {
+          "id": "item_6",
+          "type": "agent_message",
+          "text": "**Verdict: act on the contract break before accepting this change.**\n\n- **Act on:** Renaming `total` to `amount` assumes consumers support the new key. [consumer.py]($HOST_RUN/project/consumer.py:2) still reads `payload[\"total\"]`. I reproduced `read_total(export_invoice(19.5))` raising `KeyError: 'total'`; the old payload succeeds. Preserve `total` until consumers migrate, and add an exporter-to-consumer regression test.\n- **Unresolved:** The external billing contract is inaccessible, as documented in [README.md]($HOST_RUN/project/README.md:1). Verify its accepted fields before removing `total`.\n\nThe existing test passes but only asserts the new output shape; it misses consumer compatibility.\n\nReview coverage: direct code inspection and local runtime checks. Your saved `gpt-5.6-terra` / `medium` reviewer is unsupported by this host, so no independent reviewer ran and no substitute was selected. Project and preferences were left unchanged."
+        }
+      ]
+    }
+  },
+  "sessions": [
+    {
+      "id": "01a10c74-0aa4-7a51-81cb-e562534c75fb",
+      "source": "exec",
+      "agentPath": null,
+      "provider": "openai",
+      "contexts": [
+        {
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "medium"
+        }
+      ],
+      "spawns": [],
+      "completed": true,
+      "finalReply": "**Verdict: act on the contract break before accepting this change.**\n\n- **Act on:** Renaming `total` to `amount` assumes consumers support the new key. [consumer.py]($HOST_RUN/project/consumer.py:2) still reads `payload[\"total\"]`. I reproduced `read_total(export_invoice(19.5))` raising `KeyError: 'total'`; the old payload succeeds. Preserve `total` until consumers migrate, and add an exporter-to-consumer regression test.\n- **Unresolved:** The external billing contract is inaccessible, as documented in [README.md]($HOST_RUN/project/README.md:1). Verify its accepted fields before removing `total`.\n\nThe existing test passes but only asserts the new output shape; it misses consumer compatibility.\n\nReview coverage: direct code inspection and local runtime checks. Your saved `gpt-5.6-terra` / `medium` reviewer is unsupported by this host, so no independent reviewer ran and no substitute was selected. Project and preferences were left unchanged.",
+      "rawSha256": "96de1606a3c23da6c3df47a6f5b487e95672ec9a14f94525eb1e35e1b63c4d59"
+    },
+    {
+      "id": "01a10c70-59b2-7e40-ac1b-c50065ead82b",
+      "source": "exec",
+      "agentPath": null,
+      "provider": "openai",
+      "contexts": [
+        {
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "medium"
+        }
+      ],
+      "spawns": [
+        {
+          "callId": "call_Ftuqk2llmYS6qGAIWIiM4wji",
+          "arguments": {
+            "task_name": "reviewer_one",
+            "fork_turns": "none",
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "medium"
+          },
+          "result": {
+            "task_name": "/root/reviewer_one"
+          }
+        },
+        {
+          "callId": "call_ivXJStzZzAPMDirGQJFYWpOJ",
+          "arguments": {
+            "task_name": "reviewer_two",
+            "fork_turns": "none",
+            "model": "gpt-6-sol",
+            "reasoning_effort": "medium"
+          },
+          "result": {
+            "task_name": "/root/reviewer_two"
+          }
+        }
+      ],
+      "completed": true,
+      "finalReply": "**Verdict: resolve the consumer incompatibility before accepting this change.**\n\n- **Act on:** The rename assumes consumers accept `amount`. [app.py]($HOST_RUN/project/app.py:2) now emits that key, but [consumer.py]($HOST_RUN/project/consumer.py:2) still requires `total`. Verified: `read_total(export_invoice(19.5))` raises `KeyError: 'total'`. Coordinate the consumer migration and test this combined path. No supplied production call site establishes how often it runs.\n- **Verification gap:** The sole [test]($HOST_RUN/project/test_app.py:8) passes because it checks only the new exporter output.\n- **Unresolved:** The external billing contract is inaccessible, per [README.md]($HOST_RUN/project/README.md:1). Obtain its schema or an integration result before assuming compatibility.\n\nI inspected all six project files and completed two independent reviews. Your saved selections\u2014`gpt-6.1-sol` and `gpt-6-sol`, both at `medium` effort\u2014were accepted by the delegation interface. Actual runtime settings were not reported, so model diversity remains unverified.\n\nThe project and preferences were left unchanged.",
+      "rawSha256": "2c38fd71816109d87666b338bd9c741e1de27c094c4928fbeddf041dd6b80ab0"
+    },
+    {
+      "id": "01a10c71-0dcc-7f53-a407-1e1adfd0fb94",
+      "source": {
+        "subagent": {
+          "thread_spawn": {
+            "parent_thread_id": "01a10c70-59b2-7e40-ac1b-c50065ead82b",
+            "depth": 1,
+            "agent_path": "/root/reviewer_two",
+            "agent_nickname": "Curie",
+            "agent_role": null
+          }
+        }
+      },
+      "agentPath": "/root/reviewer_two",
+      "provider": "openai",
+      "contexts": [
+        {
+          "model": "gpt-6-sol",
+          "reasoningEffort": "medium"
+        }
+      ],
+      "spawns": [],
+      "completed": true,
+      "finalReply": "**Verdict: act on a confirmed regression.** [app.py]($HOST_RUN/project/app.py:1) exports `amount`, while [consumer.py]($HOST_RUN/project/consumer.py:1) still reads `total`. Calling `read_total(export_invoice(19.5))` raises `KeyError: 'total'` in a read-only check.\n\nThe sole [test]($HOST_RUN/project/test_app.py:6) passes because it checks the exporter alone. Update the consumer and cover the combined path. The [README]($HOST_RUN/project/README.md:1) mentions an external billing service, but its contract is unavailable here; its compatibility remains unresolved.\n\nNo files changed. No reviewer model or effort was requested in the task I received; the host did not report actual settings to me.",
+      "rawSha256": "e8443e7fbfe4ea86537b26f73b11373918dff69cf48a5f7b5ce50bcbf39959b5"
+    },
+    {
+      "id": "01a10c70-eee3-71c0-b391-dfaef9dd4874",
+      "source": {
+        "subagent": {
+          "thread_spawn": {
+            "parent_thread_id": "01a10c70-59b2-7e40-ac1b-c50065ead82b",
+            "depth": 1,
+            "agent_path": "/root/reviewer_one",
+            "agent_nickname": "Kierkegaard",
+            "agent_role": null
+          }
+        }
+      },
+      "agentPath": "/root/reviewer_one",
+      "provider": "openai",
+      "contexts": [
+        {
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "medium"
+        }
+      ],
+      "spawns": [],
+      "completed": true,
+      "finalReply": "Verdict: the rename works in isolation but breaks the workspace\u2019s consumer when composed with the exporter.\n\n- **Act on:** [consumer.py]($HOST_RUN/project/consumer.py:2) still reads `payload[\"total\"]`, while [app.py]($HOST_RUN/project/app.py:2) now returns `{\"amount\": total}`. The concrete trigger `read_total(export_invoice(19.5))` raises `KeyError: 'total'`. Update the consumer\u2019s key lookup and add a test covering this composition. No production call site connects these functions in the supplied files, so actual invocation frequency is unknown.\n- **Verification gap:** [test_app.py]($HOST_RUN/project/test_app.py:8) checks only the exporter\u2019s new dictionary. Its single test passes; it does not catch the consumer incompatibility.\n- **Unresolved:** [README.md]($HOST_RUN/project/README.md:1) says the exporter feeds an external billing service whose contract and sandbox are inaccessible. External compatibility cannot be established here. Do not infer that service requires either key; obtain its contract or an integration result.\n\nInspected all six supplied files, including [change.diff]($HOST_RUN/project/change.diff:5) and unchanged `notes.txt`. Ran read-only checks with `PYTHONDONTWRITEBYTECODE=1 python3 -B`; no files edited or external actions taken.\n\nRequested reviewer model/effort: not supplied in my task context. Host-reported actual model/effort: unavailable, therefore unknown.",
+      "rawSha256": "1d77b7c9b21e793833a7abd060b512805c8dd2152262ad9b3ef3444d218b51df"
+    },
+    {
+      "id": "01a10c6f-9a5b-7683-9ce4-dbbf8e3dcf0d",
+      "source": "exec",
+      "agentPath": null,
+      "provider": "openai",
+      "contexts": [
+        {
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "medium"
+        }
+      ],
+      "spawns": [
+        {
+          "callId": "call_2mtlmgNPaDjbm5tNPBMrcTyr",
+          "arguments": {
+            "task_name": "reviewer_one",
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "medium",
+            "fork_turns": "none"
+          },
+          "result": {
+            "task_name": "/root/reviewer_one"
+          }
+        },
+        {
+          "callId": "call_Y4BnHQzOCDml01TfGjubw6Ct",
+          "arguments": {
+            "task_name": "reviewer_two",
+            "model": "gpt-6-sol",
+            "reasoning_effort": "medium",
+            "fork_turns": "none"
+          },
+          "result": {
+            "task_name": "/root/reviewer_two"
+          }
+        }
+      ],
+      "completed": true,
+      "finalReply": "**Verdict: changes required.**\n\n- **Act on:** [app.py]($HOST_RUN/project/app.py:2) emits `amount`, while [consumer.py]($HOST_RUN/project/consumer.py:2) requires `total`. I reproduced `read_total(export_invoice(19.5))` raising `KeyError: 'total'`. Retain `total` or coordinate the consumer migration and test that composition.\n- **Verification gap:** the existing test passes because it checks only the new dictionary shape. It misses the consumer failure.\n- **Unresolved:** the [external billing contract]($HOST_RUN/project/README.md:1) is inaccessible. Confirm its expected fields before removing `total`.\n\nTwo independent reviewers completed and corroborated the failure. Your saved requests\u2014`gpt-6.1-sol/medium` and `gpt-6-sol/medium`\u2014were accepted by the delegation tool; actual runtime settings were not reported, so model diversity is unverified.\n\nProject files and preferences remain unchanged.",
+      "rawSha256": "cfded27a88945f3076ab6bbeb4f10b453cd8729e985b6a0975d8797b759b2e86"
+    },
+    {
+      "id": "01a10c70-429d-70b0-9595-4a97a044798f",
+      "source": {
+        "subagent": {
+          "thread_spawn": {
+            "parent_thread_id": "01a10c6f-9a5b-7683-9ce4-dbbf8e3dcf0d",
+            "depth": 1,
+            "agent_path": "/root/reviewer_two",
+            "agent_nickname": "Herschel",
+            "agent_role": null
+          }
+        }
+      },
+      "agentPath": "/root/reviewer_two",
+      "provider": "openai",
+      "contexts": [
+        {
+          "model": "gpt-6-sol",
+          "reasoningEffort": "medium"
+        }
+      ],
+      "spawns": [],
+      "completed": true,
+      "finalReply": "**Verdict: act on the consumer break.** The proposed exporter emits `amount` in [app.py]($HOST_RUN/project/app.py:1), but [consumer.py]($HOST_RUN/project/consumer.py:1) still reads `total`. Calling `read_total(export_invoice(19.5))` raises `KeyError: 'total'`. The passing test in [test_app.py]($HOST_RUN/project/test_app.py:7) checks only the new exporter output, so it misses this failure.\n\nIf existing consumers must keep working, retain `total`. If this is a coordinated migration, update the consumer and test the two functions together. [README.md]($HOST_RUN/project/README.md:1) also identifies an external billing consumer, but its contract is unavailable; its compatibility remains unverified.\n\nThis was a read-only review. The configured reviewer preference was `gpt-6.1-sol` at medium effort; the actual host model and effort were not observable.",
+      "rawSha256": "d307c0c70f3da987c11f9fc104a83996e1746366993f53da325db5876c09490f"
+    },
+    {
+      "id": "01a10c70-227f-7871-ab6e-b9525e850ae7",
+      "source": {
+        "subagent": {
+          "thread_spawn": {
+            "parent_thread_id": "01a10c6f-9a5b-7683-9ce4-dbbf8e3dcf0d",
+            "depth": 1,
+            "agent_path": "/root/reviewer_one",
+            "agent_nickname": "Curie",
+            "agent_role": null
+          }
+        }
+      },
+      "agentPath": "/root/reviewer_one",
+      "provider": "openai",
+      "contexts": [
+        {
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "medium"
+        }
+      ],
+      "spawns": [],
+      "completed": true,
+      "finalReply": "Verdict: changes required. The rename breaks the existing local consumer.\n\n- **Concrete failure:** `read_total(export_invoice(19.5))` raises `KeyError: 'total'`. [app.py]($HOST_RUN/project/app.py:2) now emits `amount`; [consumer.py]($HOST_RUN/project/consumer.py:2) still requires `total`. Any caller composing these functions fails.\n- **Verification gap:** the single existing test passes because it asserts only the new dictionary shape ([test_app.py]($HOST_RUN/project/test_app.py:8)). It does not check consumer compatibility. Passing this test therefore does not establish that the rename is safe.\n- **External uncertainty:** [README.md]($HOST_RUN/project/README.md:1) explicitly says an external billing service receives exports, but its contract and sandbox are inaccessible. Its compatibility cannot be verified here; an external failure is a risk, not an observed finding.\n\nAssumptions challenged: that changing the exporter alone completes the rename, and that the existing passing test establishes downstream compatibility.\n\nCheapest correction: retain `total` until consumer migration and external contract requirements are established. If the rename is required, migrate the local consumer and verify the billing contract; simply adding both fields could also violate a strict external schema.\n\nCheapest additional check: test the exporter-to-consumer composition, with the expected result `19.5`. The direct composition check already reproduces the failure.\n\nInspected all supplied files, including `change.diff` and unrelated `notes.txt`; found no `AGENTS.md` in the project or searched ancestor locations. Ran checks with `python3 -B` and `PYTHONDONTWRITEBYTECODE=1`; no edits or external actions. Actual model and reasoning-effort settings are unknown.",
+      "rawSha256": "6d0dd537ed5e41a17dd7c720e32136dcae07fe9b7ed6fc2cd722477a1ffe9155"
+    }
+  ],
+  "discovery": [
+    {
+      "name": "pancake-stack:balls",
+      "description": "Draft a short spoken standup update covering blockers, aims, and lessons learned for technical and nontechnical colleagues. Use for balls or a standup update in this format.",
+      "interface": {
+        "displayName": "Balls",
+        "shortDescription": "Draft a short spoken standup update",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/balls/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:challenge",
+      "description": "Challenge assumptions in a software design or consequential code change with evidence-based adversarial review. Use for blind spots, contested decisions, or requests to stress-test an approach. Use check for routine diff review.",
+      "interface": {
+        "displayName": "Challenge",
+        "shortDescription": "Stress-test consequential design assumptions",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/challenge/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:check",
+      "description": "Review a code change for actionable bugs, regressions, and verification gaps. Use when the user asks to check a diff, review changes, or assess what a change could break.",
+      "interface": {
+        "displayName": "Check",
+        "shortDescription": "Review changes for bugs and regressions",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/check/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:design",
+      "description": "Propose a software design grounded in existing code and constraints. Use for architecture decisions, interface planning, or comparing implementation approaches before coding.",
+      "interface": {
+        "displayName": "Design",
+        "shortDescription": "Plan a change grounded in existing code",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/design/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:fix",
+      "description": "Diagnose and fix a reported software defect with focused verification. Use for broken behavior, errors, and regression fixes.",
+      "interface": {
+        "displayName": "Fix",
+        "shortDescription": "Diagnose and repair a reported defect",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/fix/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:handoff",
+      "description": "Prepare a concise continuation note for a new chat or colleague from the current task, conversation, and repository state. Use for handing off work, summarizing where to resume, or requested task pickup and pause.",
+      "interface": {
+        "displayName": "Handoff",
+        "shortDescription": "Prepare a concise task continuation note",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/handoff/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:how",
+      "description": "Explain how existing code works by tracing behavior and citing its implementation. Use for code walkthroughs, execution flow, and ownership questions.",
+      "interface": {
+        "displayName": "How",
+        "shortDescription": "Trace how existing code behaves",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/how/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:pancake",
+      "description": "Apply proportionate rigor to a software task. Use when the user invokes pancake or explicitly requests a rigorous investigation, implementation, or review.",
+      "interface": {
+        "displayName": "Pancake",
+        "shortDescription": "Implement a task with review and verification",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/pancake/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:pr",
+      "description": "Draft a pull request title and description grounded in the ticket and actual branch diff. Use for PR wording, or preparing a requested PR creation or update.",
+      "interface": {
+        "displayName": "PR",
+        "shortDescription": "Draft a pull request title and description",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/pr/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:recap",
+      "description": "Recover decisions, unfinished work, and the current state of a named project or topic. Use for catching up or asking where work was left off. Use handoff to prepare a note for someone else.",
+      "interface": {
+        "displayName": "Recap",
+        "shortDescription": "Recover project decisions and unfinished work",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/recap/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:reflect",
+      "description": "Review the current task for durable lessons and propose concrete improvements to code, tests, tooling, or skill guidance. Use for a retrospective or reflection on how work went, rather than a standup summary or code review.",
+      "interface": {
+        "displayName": "Reflect",
+        "shortDescription": "Find lessons and propose durable improvements",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/reflect/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:scope",
+      "description": "Turn a ticket or feature request into an implementation brief grounded in existing code. Use to establish outcomes, acceptance criteria, boundaries, and missing requirements before design or implementation.",
+      "interface": {
+        "displayName": "Scope",
+        "shortDescription": "Turn a ticket into an implementation brief",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/scope/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:setup",
+      "description": "Configure Pancake Stack model and reasoning effort preferences. Use for Pancake Stack setup or $pancake-stack:setup.",
+      "interface": {
+        "displayName": "Setup",
+        "shortDescription": "Choose model and reasoning preferences",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/setup/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:sift",
+      "description": "Write or edit prose to remove filler, vague claims, and formulaic AI phrasing while preserving meaning and voice. Use for prose cleanup or as the writing standard within pancake.",
+      "interface": {
+        "displayName": "Sift",
+        "shortDescription": "Remove filler while preserving meaning and voice",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/sift/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:tdd",
+      "description": "Develop through a failing test before changing production code. Use for explicit TDD, test-first bug fixes, or requested regression tests with a practical test path.",
+      "interface": {
+        "displayName": "TDD",
+        "shortDescription": "Implement behavior through a failing test",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/tdd/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:teach",
+      "description": "Explain code or a software concept at the learner's pace, connecting behavior, purpose, and concrete examples. Use for teach me, learning a subsystem, or guided understanding. Use how for a direct execution-flow walkthrough.",
+      "interface": {
+        "displayName": "Teach",
+        "shortDescription": "Explain code at the learner\u2019s requested depth",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/teach/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:verify",
+      "description": "Verify requested software behavior through existing tests and relevant user interfaces, reporting evidence and coverage gaps. Use to prove a feature or fix works, or to prepare a requested reusable verification recipe.",
+      "interface": {
+        "displayName": "Verify",
+        "shortDescription": "Check behavior and report verification gaps",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/verify/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:why",
+      "description": "Investigate the rationale and history behind existing code or a design decision. Use for why an approach was chosen, historical constraints, or the motivation for a change. Use how for execution flow and fix for defect repair.",
+      "interface": {
+        "displayName": "Why",
+        "shortDescription": "Investigate the reasons behind a design",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/why/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    },
+    {
+      "name": "pancake-stack:wtf",
+      "description": "Rewrite the previous assistant answer in clear, concise language. Use when the user asks to simplify or clarify what you just said.",
+      "interface": {
+        "displayName": "Wtf",
+        "shortDescription": "Make the previous answer easier to understand",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": null
+      },
+      "path": "$INSTALLED_PLUGIN/skills/wtf/SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "pancake-stack@pancake-stack"
+    }
+  ],
+  "discoveryErrors": [],
+  "installedSourceMatches": {
+    "plugin.json": true,
+    "skills/setup/SKILL.md": true,
+    "skills/challenge/SKILL.md": true,
+    "skills/setup/scripts/catalog.py": true,
+    "skills/setup/scripts/preferences.py": true
+  },
+  "savedPreferences": {
+    "schemaVersion": 2,
+    "defaults": {
+      "model": null,
+      "reasoningEffort": null
+    },
+    "roles": {
+      "implementation": {
+        "model": null,
+        "reasoningEffort": null
+      },
+      "review": {
+        "model": null,
+        "reasoningEffort": null
+      },
+      "research": {
+        "model": null,
+        "reasoningEffort": null
+      }
+    },
+    "challengeReviewers": [
+      {
+        "model": "gpt-6.1-sol",
+        "reasoningEffort": "medium"
+      },
+      {
+        "model": "gpt-6-sol",
+        "reasoningEffort": "medium"
+      }
+    ]
+  },
+  "catalogChoicePreferences": {
+    "schemaVersion": 2,
+    "defaults": {
+      "model": null,
+      "reasoningEffort": null
+    },
+    "roles": {
+      "implementation": {
+        "model": null,
+        "reasoningEffort": null
+      },
+      "review": {
+        "model": null,
+        "reasoningEffort": null
+      },
+      "research": {
+        "model": null,
+        "reasoningEffort": null
+      }
+    },
+    "challengeReviewers": [
+      {
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium"
+      }
+    ]
+  },
+  "emptyPanelPreferences": {
+    "schemaVersion": 2,
+    "defaults": {
+      "model": null,
+      "reasoningEffort": null
+    },
+    "roles": {
+      "implementation": {
+        "model": null,
+        "reasoningEffort": null
+      },
+      "review": {
+        "model": null,
+        "reasoningEffort": null
+      },
+      "research": {
+        "model": null,
+        "reasoningEffort": null
+      }
+    },
+    "challengeReviewers": []
+  },
+  "missingPreferencesRemainAbsent": true,
+  "artifactAssessment": "artifact checks passed",
+  "limitations": [
+    "Host turn_context records host-selected model and effort. It is not independent remote-runtime attestation.",
+    "Same provider only.",
+    "Visible VS Code picker behavior was not exercised.",
+    "Isolated explicit config path only. Default real-user preference location was not written.",
+    "Missing and empty panels and a catalog-listed model outside the available delegation choices were exercised. The latter was reported unsupported and reviewed directly without a spawn or substitution. Rejected-spawn and unavailable-delegation fallback were not established.",
+    "The limited run passed --disable multi_agent but still exposed collaboration and spawned reviewers. That flag is not proof that delegation is unavailable in this host.",
+    "One gpt-6-sol reviewer incorrectly described its configured preference as gpt-6.1-sol. Host context records, not reviewer self-description, establish selection."
+  ]
+}
