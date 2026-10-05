@@ -1,5 +1,13 @@
 # Installation verification
 
+## Installed implementation and Design workflows in 0.18
+
+On 5 October 2026, fresh CLI sessions exercised installed versions 0.18.1 and 0.18.2. Setup preserved an existing Challenge panel while saving a separate implementation panel in temporary storage. After a failed completion claim prompted the 0.18.2 correction, a fresh migration completed both requested independent reviewers. Retained child records identify `gpt-6.1-sol` and `gpt-6-sol`, both at medium effort. A small punctuation task with the same saved preferences launched no reviewers.
+
+A separate Design task completed two candidates and a distinct fresh-context judge after their proposals were available. The unchanged project passed baseline checks. See the [behavioral results](behavioral-results.md) and [host evidence](evidence/roadmap-workflows-2026-10-05.json) for the failed first trial, corrected result, exact versions, and evidence limits. The final installed 0.18.2 manifest and affected skill/helper resources match repository source bytes.
+
+These are installed CLI backend checks with explicit temporary configuration paths. They do not establish visible VS Code picker behavior, Git-backed installation, default real-user preference saving, or independent remote-runtime attestation.
+
 ## Saved Challenge panel in 0.17.2
 
 On 5 October 2026, the local installation was refreshed with `codex plugin add pancake-stack@pancake-stack --json`. It installed version `0.17.2` under the current `pancake-stack` marketplace. The CLI binary was byte-identical to the binary bundled with VS Code extension `26.930.51102`. These checks exercised fresh CLI sessions and app-server discovery, not the visible VS Code picker.

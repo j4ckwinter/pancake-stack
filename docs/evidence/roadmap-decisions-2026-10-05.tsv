@@ -1,0 +1,13 @@
+ts	phase	decision	why	evidence	result
+2026-10-05T14:31:07Z	verification	Committed installed-host verification	Preserve checked baseline	24d1e3e	36 tests passed
+2026-10-05T14:31:07Z	design	Saved implementation panel and task-specific Design exploration	Existing preferences own persistent review; Design remains opt-in	skills/setup/scripts/preferences.py	open
+2026-10-05T14:35:25Z	implementation	Committed optional consequential reviewer panel	Preserve default behavior and independent review requirement	cf56e16	39 tests and independent review passed
+2026-10-05T14:36:40Z	design	Committed task-specific competing exploration	Fresh blinded judge preserves optional read-only design	cff4356	39 tests and independent review passed
+2026-10-05T14:39:45Z	onboarding	Committed first-run and workflow examples	Make inherited defaults and opt-in independence clear	docs/recipes.md	39 tests and independent review passed
+2026-10-05T14:39:45Z	coordination	Deferred new coordination and PR-monitoring helpers	Current plan and handoff cover this run; no actual PR lifecycle is assigned	skills/pancake/references/pr-maintenance.md	Conditional item assessed; no new command or watcher
+2026-10-05T14:47:44Z	review	Rejected panel completion claim and require identified verdict per entry	One retained reviewer turn was interrupted without a verdict despite lead completion claim	docs/evidence/roadmap-workflows-2026-10-05.json	Artifact passed; panel trial failed
+2026-10-05T14:49:53Z	audit	Corrected Design checkpoint to fresh-context judge	Full identity blinding cannot be independently checked from encrypted delegation bodies	cff4356	Supersedes earlier blinded-judge wording
+2026-10-05T14:49:54Z	audit	Linked onboarding checkpoint to its commit	Commit evidence is stronger than a file pointer alone	931b157	Supersedes earlier onboarding evidence pointer
+2026-10-05T14:49:54Z	review	Committed identity-specific panel completion correction	Independent trace audit confirmed premature completion claim	a6eaa9a	39 tests passed; fresh installed trial running
+2026-10-05T14:54:07Z	verification	Installed corrected migration and Design trials passed	Check completed child records and artifacts rather than lead claims	docs/evidence/roadmap-workflows-2026-10-05.json	Two completed reviewers; two candidates and separate judge; unchanged Design project
+2026-10-05T14:55:52Z	audit	Final independent audit passed	Verify source bytes and completion records before committing evidence	docs/evidence/roadmap-workflows-2026-10-05.json	Judge ordering and corrected reviewers confirmed; same-provider limits retained
