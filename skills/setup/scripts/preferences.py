@@ -10,6 +10,11 @@ import tempfile
 
 ROLES = ("implementation", "review", "research")
 FIELDS = ("model", "reasoningEffort")
+PANELS = {"challengeReviewers": 2, "implementationReviewers": 3}
+PANEL_COMMANDS = {
+    "resolve-challenge": "challengeReviewers",
+    "resolve-implementation-review": "implementationReviewers",
+}
 
 
 def empty_config():
@@ -29,20 +34,20 @@ def validate(config):
     if not isinstance(config, dict):
         raise ValueError("preferences must be an object")
     version = config.get("schemaVersion")
-    if type(version) is not int or version not in (1, 2):
-        raise ValueError("schemaVersion must be the integer 1 or 2")
+    if type(version) is not int or version not in (1, 2, 3):
+        raise ValueError("schemaVersion must be the integer 1, 2, or 3")
     keys = ("schemaVersion", "defaults", "roles")
-    if version == 2:
-        keys += ("challengeReviewers",)
+    panels = tuple(name for name, minimum in PANELS.items() if version >= minimum)
+    keys += panels
     exact_keys(config, keys, "preferences")
     exact_keys(config["roles"], ROLES, "roles")
     choices = [("defaults", config["defaults"])]
     choices.extend((role, config["roles"][role]) for role in ROLES)
-    if version == 2:
-        reviewers = config["challengeReviewers"]
+    for panel in panels:
+        reviewers = config[panel]
         if not isinstance(reviewers, list):
-            raise ValueError("challengeReviewers must be a list")
-        choices.extend((f"challengeReviewers[{index}]", choice)
+            raise ValueError(f"{panel} must be a list")
+        choices.extend((f"{panel}[{index}]", choice)
                        for index, choice in enumerate(reviewers))
     for label, choice in choices:
         exact_keys(choice, FIELDS, label)
@@ -111,9 +116,9 @@ def resolve(config, host_model, host_effort):
     return effective
 
 
-def resolve_challenge(config, host_model, host_effort):
+def resolve_panel(config, panel, host_model, host_effort):
     review = resolve(config, host_model, host_effort)["review"]
-    reviewers = config.get("challengeReviewers") or [dict.fromkeys(FIELDS)]
+    reviewers = config.get(panel) or [dict.fromkeys(FIELDS)]
     return [
         {field: review[field] if choice[field] is None else choice[field]
          for field in FIELDS}
@@ -127,7 +132,7 @@ def main():
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("show")
     commands.add_parser("save", help="validate and save the complete JSON object from stdin")
-    for command in ("resolve", "resolve-challenge"):
+    for command in ("resolve", *PANEL_COMMANDS):
         resolver = commands.add_parser(command)
         resolver.add_argument("--host-model")
         resolver.add_argument("--host-reasoning-effort")
@@ -140,15 +145,18 @@ def main():
             save_config(path, result)
         else:
             result = read_config(path)
-            if args.command in ("resolve", "resolve-challenge"):
+            if args.command == "resolve" or args.command in PANEL_COMMANDS:
                 host = empty_config()
                 host["defaults"] = {
                     "model": args.host_model,
                     "reasoningEffort": args.host_reasoning_effort,
                 }
                 validate(host)
-                resolver = resolve_challenge if args.command == "resolve-challenge" else resolve
-                result = resolver(result, args.host_model, args.host_reasoning_effort)
+                if args.command == "resolve":
+                    result = resolve(result, args.host_model, args.host_reasoning_effort)
+                else:
+                    result = resolve_panel(result, PANEL_COMMANDS[args.command],
+                                           args.host_model, args.host_reasoning_effort)
         print(json.dumps(result, indent=2))
     except (ValueError, OSError, UnicodeError) as error:
         print(f"preferences: {error}", file=sys.stderr)

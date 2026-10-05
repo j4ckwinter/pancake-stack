@@ -50,7 +50,7 @@ Use the [behavioral evaluation procedure](behavioral-evaluation.md) to exercise 
 
 Ask `$pancake-stack:setup` to configure a Challenge reviewer panel. Setup uses the discovered catalog, accepts already supplied choices, and guides one reviewer at a time. Ordinary setup does not ask about or change the panel. Existing panels survive default and role edits.
 
-Saving a panel explicitly opts into schema 2, which older installed helpers cannot read. Clearing the list restores the existing review fallback while retaining schema 2. The [panel example](../config/challenge-panel.example.json) demonstrates two inherited entries, not distinct model choices. Replace those fields through setup with supported choices before expecting model diversity.
+Saving a Challenge panel on schema 1 explicitly opts into schema 2, which older installed helpers cannot read. Setup preserves schema 3 when already present. Clearing the list restores the existing review fallback while retaining the loaded schema. The [panel example](../config/challenge-panel.example.json) demonstrates two inherited entries, not distinct model choices. Replace those fields through setup with supported choices before expecting model diversity.
 
 Inspect effective reviewer requests without changing preferences:
 
@@ -59,3 +59,17 @@ python3 skills/setup/scripts/preferences.py resolve-challenge --host-model MODEL
 ```
 
 Replace the placeholders with observable host values. The result does not prove that delegated model selection works. Challenge reports requested settings, actual selections, and unavailable perspectives when it runs.
+
+## Configure consequential implementation reviewers
+
+Ask `$pancake-stack:setup` to configure a consequential implementation reviewer panel. Setup accepts supplied choices or guides one reviewer at a time using the discovered catalog. It preserves default and role choices and the Challenge panel. Ordinary setup does not ask about this panel.
+
+Saving an implementation panel explicitly opts into schema 3, which older installed helpers cannot read. Clearing it retains schema 3 and restores the single independent reviewer for consequential work. The [implementation example](../config/implementation-panel.example.json) illustrates two inherited entries. Select distinct supported models to request model diversity. Local, low-impact changes keep direct review.
+
+Inspect effective implementation reviewer requests without changing preferences:
+
+```sh
+python3 skills/setup/scripts/preferences.py resolve-implementation-review --host-model MODEL_ID --host-reasoning-effort EFFORT
+```
+
+Replace the placeholders with observable host values. These are resolved preferences, not proof of applied model settings. The implementation workflow reports completed independent reviews, actual settings, and unavailable perspectives.

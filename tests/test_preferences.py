@@ -102,7 +102,7 @@ class PreferencesTests(unittest.TestCase):
     def test_corrupt_or_future_existing_file_is_not_overwritten(self):
         self.path.parent.mkdir()
         future = copy.deepcopy(EXAMPLE)
-        future["schemaVersion"] = 3
+        future["schemaVersion"] = 4
         for payload in ("{", json.dumps(future)):
             self.path.write_text(payload)
             for command in ("show", "save"):
@@ -179,6 +179,100 @@ class PreferencesTests(unittest.TestCase):
         self.path.write_text(json.dumps(dict(config, challengeReviewers=[{}])))
         malformed = self.path.read_bytes()
         for command in ("show", "resolve-challenge", "save"):
+            result = self.run_cli(command, json.dumps(EXAMPLE))
+            self.assertEqual(result.returncode, 2)
+            self.assertEqual(self.path.read_bytes(), malformed)
+
+    def test_implementation_review_legacy_and_missing_fallback_do_not_write(self):
+        result = self.run_cli("resolve-implementation-review", None,
+                              "--host-model", "parent-model", "--host-reasoning-effort", "low")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout),
+                         [{"model": "parent-model", "reasoningEffort": "low"}])
+        self.assertFalse(self.path.parent.exists())
+        for version in (1, 2):
+            config = copy.deepcopy(EXAMPLE)
+            config["roles"]["review"] = {"model": "review-model", "reasoningEffort": "high"}
+            if version == 2:
+                config.update(schemaVersion=2, challengeReviewers=[
+                    {"model": "challenge-model", "reasoningEffort": "medium"}])
+            self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+            original = self.path.read_bytes()
+            result = self.run_cli("resolve-implementation-review")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(json.loads(result.stdout),
+                             [{"model": "review-model", "reasoningEffort": "high"}])
+            self.assertEqual(json.loads(self.run_cli("show").stdout), config)
+            self.assertEqual(self.path.read_bytes(), original)
+
+    def test_implementation_panel_resolution_preserves_challenge_and_roles(self):
+        config = copy.deepcopy(EXAMPLE)
+        config.update(schemaVersion=3,
+                      challengeReviewers=[{"model": "challenge-model", "reasoningEffort": "low"}],
+                      implementationReviewers=[
+                          {"model": "first-model", "reasoningEffort": None},
+                          {"model": None, "reasoningEffort": "medium"}])
+        config["defaults"]["reasoningEffort"] = "high"
+        config["roles"]["review"]["model"] = "review-model"
+        result = self.run_cli("save", json.dumps(config))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(self.run_cli("show").stdout), config)
+        original = self.path.read_bytes()
+        result = self.run_cli("resolve-implementation-review", None,
+                              "--host-model", "parent-model", "--host-reasoning-effort", "low")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), [
+            {"model": "first-model", "reasoningEffort": "high"},
+            {"model": "review-model", "reasoningEffort": "medium"}])
+        self.assertEqual(json.loads(self.run_cli("resolve-challenge").stdout),
+                         [{"model": "challenge-model", "reasoningEffort": "low"}])
+        self.assertEqual(json.loads(self.run_cli("resolve").stdout), {
+            "implementation": {"model": None, "reasoningEffort": "high"},
+            "review": {"model": "review-model", "reasoningEffort": "high"},
+            "research": {"model": None, "reasoningEffort": "high"}})
+        self.assertEqual(self.path.read_bytes(), original)
+        config["implementationReviewers"] = []
+        self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+        self.assertEqual(json.loads(self.run_cli("resolve-implementation-review").stdout),
+                         [{"model": "review-model", "reasoningEffort": "high"}])
+        self.assertEqual(json.loads(self.run_cli("show").stdout), config)
+        config["roles"]["review"] = {"model": None, "reasoningEffort": None}
+        config["defaults"] = {"model": None, "reasoningEffort": None}
+        config["implementationReviewers"] = [{"model": None, "reasoningEffort": None}]
+        self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+        result = self.run_cli("resolve-implementation-review", None,
+                              "--host-model", "parent-model", "--host-reasoning-effort", "low")
+        self.assertEqual(json.loads(result.stdout),
+                         [{"model": "parent-model", "reasoningEffort": "low"}])
+
+    def test_schema_three_invalid_inputs_preserve_existing_preferences(self):
+        config = copy.deepcopy(EXAMPLE)
+        config.update(schemaVersion=3, challengeReviewers=[], implementationReviewers=[])
+        self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+        original = self.path.read_bytes()
+        invalid = []
+        for panel in (None, {}, "model", [None], [{}], [{"model": "x"}],
+                      [{"model": " x", "reasoningEffort": None}],
+                      [{"model": None, "reasoningEffort": False}],
+                      [{"model": None, "reasoningEffort": None, "extra": None}]):
+            choice = copy.deepcopy(config)
+            choice["implementationReviewers"] = panel
+            invalid.append(json.dumps(choice))
+        for key in ("implementationReviewers", "challengeReviewers"):
+            choice = copy.deepcopy(config)
+            del choice[key]
+            invalid.append(json.dumps(choice))
+        for version in (1, 2):
+            invalid.append(json.dumps(dict(config, schemaVersion=version)))
+        invalid.append(json.dumps(config)[:-1] + ', "implementationReviewers": []}')
+        for payload in invalid:
+            with self.subTest(payload=payload):
+                result = self.run_cli("save", payload)
+                self.assertEqual(result.returncode, 2, result.stdout)
+                self.assertEqual(self.path.read_bytes(), original)
+        self.path.write_text(json.dumps(dict(config, implementationReviewers=[{}])))
+        malformed = self.path.read_bytes()
+        for command in ("show", "resolve", "resolve-challenge", "resolve-implementation-review", "save"):
             result = self.run_cli(command, json.dumps(EXAMPLE))
             self.assertEqual(result.returncode, 2)
             self.assertEqual(self.path.read_bytes(), malformed)

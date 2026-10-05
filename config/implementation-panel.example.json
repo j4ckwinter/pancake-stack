@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "defaults": {
+    "model": null,
+    "reasoningEffort": null
+  },
+  "roles": {
+    "implementation": {
+      "model": null,
+      "reasoningEffort": null
+    },
+    "review": {
+      "model": null,
+      "reasoningEffort": null
+    },
+    "research": {
+      "model": null,
+      "reasoningEffort": null
+    }
+  },
+  "challengeReviewers": [],
+  "implementationReviewers": [
+    {
+      "model": null,
+      "reasoningEffort": null
+    },
+    {
+      "model": null,
+      "reasoningEffort": null
+    }
+  ]
+}
