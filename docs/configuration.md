@@ -15,3 +15,15 @@ User storage is `$CODEX_HOME/pancake-stack/config.json`. When `CODEX_HOME` is un
 `resolve` returns effective preferences by role. Optional `--host-model` and `--host-reasoning-effort` arguments provide observable host values. It reads without writing or applying preferences. Validation and filesystem failures print an error to stderr and exit with code `2`.
 
 See [Set up Pancake Stack](setup.md) for invocation and helper usage.
+
+## Optional Challenge reviewer panel
+
+Schema 1 stays supported with its exact existing fields and output. Schema 2 adds the required `challengeReviewers` list. Each entry contains exactly `model` and `reasoningEffort`, with the same nullable trimmed string rules. A reviewer field inherits independently through the review role, defaults, then supplied host values. An empty list returns one effective review pair. `resolve` still returns only the three existing roles.
+
+[The panel example](../config/challenge-panel.example.json) contains two all-null entries to demonstrate the shape. These resolve to the same settings and do not demonstrate model diversity. Select distinct model IDs supported by your active host to request diversity. Duplicate model choices remain valid independent perspectives, including choices with different reasoning efforts.
+
+`resolve-challenge` returns a list of effective reviewer pairs. It accepts the same optional host arguments as `resolve` and never writes or applies preferences. Missing storage returns one inherited review pair without creating directories. Schema 1 and an empty schema 2 panel use the same fallback.
+
+Selecting a saved panel explicitly opts into schema 2. Older installed helpers reject schema 2. Update the installed plugin before opting in; ordinary setup preserves schema 1 and does not migrate it automatically. Ordinary schema 2 preference edits preserve the panel. Clearing the list retains schema 2 and restores the single review fallback.
+
+Only Challenge consumes the panel. Task-supplied reviewer choices replace it for that task without persistence. With delegation available, Challenge launches one reviewer per selected entry, queues host limits, and awaits verdicts. Unsupported or failed choices remain uncovered and must be reported. Model IDs and reasoning efforts must be supported by the actual delegation host, not merely the catalog server. Distinct completed model IDs establish model diversity; they do not by themselves establish provider diversity.

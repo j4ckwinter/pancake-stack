@@ -45,3 +45,17 @@ python3 -m unittest discover -s tests -v
 The preference tests pass explicit temporary paths to every helper invocation. Catalog tests use a temporary fake app server to check pagination, notifications, timeouts, malformed responses, and unavailable executables. The tests do not install a plugin or write to user preference storage.
 
 Use the [behavioral evaluation procedure](behavioral-evaluation.md) to exercise workflows on the fixtures under `tests/behavioral`. Automated fixture checks do not establish how an agent follows a skill or how the host invokes it. Keep those claims tied to workflow trials and the [installation record](installation-verification.md).
+
+## Configure Challenge reviewers
+
+Ask `$pancake-stack:setup` to configure a Challenge reviewer panel. Setup uses the discovered catalog, accepts already supplied choices, and guides one reviewer at a time. Ordinary setup does not ask about or change the panel. Existing panels survive default and role edits.
+
+Saving a panel explicitly opts into schema 2, which older installed helpers cannot read. Clearing the list restores the existing review fallback while retaining schema 2. The [panel example](../config/challenge-panel.example.json) demonstrates two inherited entries, not distinct model choices. Replace those fields through setup with supported choices before expecting model diversity.
+
+Inspect effective reviewer requests without changing preferences:
+
+```sh
+python3 skills/setup/scripts/preferences.py resolve-challenge --host-model MODEL_ID --host-reasoning-effort EFFORT
+```
+
+Replace the placeholders with observable host values. The result does not prove that delegated model selection works. Challenge reports requested settings, actual selections, and unavailable perspectives when it runs.

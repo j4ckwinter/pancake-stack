@@ -16,6 +16,8 @@ Then challenge the concrete proposal.
 
 > $pancake-stack:challenge Challenge the cancellation proposal above against the current implementation. Find a concrete ordering or failure that breaks its assumptions. Report supported findings and missing evidence. Do not apply fixes.
 
+To request model diversity, first use setup to select a Challenge reviewer panel, or supply supported reviewer model and effort pairs in the challenge prompt for this task only. Challenge launches one independent reviewer per selected entry when the host supports delegation. It reports actual selections and uncovered perspectives. Different models from the same provider do not establish provider diversity.
+
 Expect a recommendation first, then a verdict grounded in the proposal and inspected code. A design request or challenge does not authorize implementation.
 
 ## Repair a reported failure

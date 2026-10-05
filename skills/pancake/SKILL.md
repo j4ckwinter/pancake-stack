@@ -23,7 +23,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 - For execution-flow explanations, read [how](../how/SKILL.md).
 - For historical rationale and design motivation, read [why](../why/SKILL.md).
 - For proving requested behavior, read [verify](../verify/SKILL.md).
-- For adversarial review of contested decisions or consequential assumptions, read [challenge](../challenge/SKILL.md).
+- For adversarial review of contested decisions or consequential assumptions, read [challenge](../challenge/SKILL.md). Challenge consumes its optional reviewer panel and delegates one reviewer per selected entry when supported.
 - For change reviews, read [check](../check/SKILL.md).
 - For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
 - For explicitly requested test-first development or regression tests, read [tdd](../tdd/SKILL.md). Keep the failing-test step before production changes.
@@ -35,7 +35,7 @@ Read only the workflow needed for the task. Do not run every workflow in sequenc
 
 Read saved preferences with `python3 <installed-setup-directory>/scripts/preferences.py resolve`, using the [setup helper](../setup/scripts/preferences.py). Resolve paths relative to this installed skill, not the user's workspace. Supply host model and effort arguments only when those values are observable. Missing preferences inherit from the host. If reading fails, report the limitation and preserve the file.
 
-Use implementation preferences for writing code, review preferences for reviewing, and research preferences for investigation. Apply a supported model and reasoning effort only when the host exposes a capability to select them for the intended work. The helper reads preferences; it does not apply them. Do not switch the parent conversation, write global settings, or claim an override was applied when it was not. If an explicit preference cannot be applied, state that briefly and use the current host settings. An unresolved null remains inheritance, not a guessed model or effort.
+Use implementation preferences for writing code, review preferences for reviewing, and research preferences for investigation. The optional Challenge panel applies only to Challenge; other workflows retain the existing role preferences. Apply a supported model and reasoning effort only when the host exposes a capability to select them for the intended work. The helper reads preferences; it does not apply them. Do not switch the parent conversation, write global settings, or claim an override was applied when it was not. If an explicit preference cannot be applied, state that briefly and use the current host settings. An unresolved null remains inheritance, not a guessed model or effort.
 
 When starting work with an explicit preference, distinguish the resolved request from what the host actually selected. Report model and effort separately when one applies and the other does not. Claim application only from the host's supported invocation or reported selection, not from helper output or catalog availability. If selection is rejected, report the affected preference and the observed fallback; do not silently substitute a different model. Give this notice once for the affected role unless the selection changes. Ordinary inheritance needs no repeated setup explanation.
 

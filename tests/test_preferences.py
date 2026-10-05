@@ -102,13 +102,86 @@ class PreferencesTests(unittest.TestCase):
     def test_corrupt_or_future_existing_file_is_not_overwritten(self):
         self.path.parent.mkdir()
         future = copy.deepcopy(EXAMPLE)
-        future["schemaVersion"] = 2
+        future["schemaVersion"] = 3
         for payload in ("{", json.dumps(future)):
             self.path.write_text(payload)
             for command in ("show", "save"):
                 result = self.run_cli(command, json.dumps(EXAMPLE))
                 self.assertEqual(result.returncode, 2)
                 self.assertEqual(self.path.read_text(), payload)
+
+    def test_challenge_missing_and_legacy_resolution_are_read_only(self):
+        result = self.run_cli("resolve-challenge", None, "--host-model", "parent-model",
+                              "--host-reasoning-effort", "low")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), [{"model": "parent-model", "reasoningEffort": "low"}])
+        self.assertFalse(self.path.parent.exists())
+        self.assertEqual(self.run_cli("save", json.dumps(EXAMPLE)).returncode, 0)
+        original = self.path.read_bytes()
+        self.assertEqual(json.loads(self.run_cli("resolve-challenge").stdout),
+                         [{"model": None, "reasoningEffort": None}])
+        self.assertEqual(self.path.read_bytes(), original)
+        self.assertEqual(json.loads(self.run_cli("show").stdout), EXAMPLE)
+
+    def test_panel_round_trip_inheritance_and_empty_fallback(self):
+        config = copy.deepcopy(EXAMPLE)
+        config["schemaVersion"] = 2
+        config["defaults"]["reasoningEffort"] = "high"
+        config["roles"]["review"]["model"] = "review-model"
+        config["challengeReviewers"] = [
+            {"model": "first-model", "reasoningEffort": None},
+            {"model": None, "reasoningEffort": "medium"},
+        ]
+        self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+        self.assertEqual(json.loads(self.run_cli("show").stdout), config)
+        original = self.path.read_bytes()
+        result = self.run_cli("resolve-challenge", None, "--host-model", "parent-model",
+                              "--host-reasoning-effort", "low")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), [
+            {"model": "first-model", "reasoningEffort": "high"},
+            {"model": "review-model", "reasoningEffort": "medium"},
+        ])
+        roles = json.loads(self.run_cli("resolve").stdout)
+        self.assertEqual(set(roles), {"implementation", "review", "research"})
+        self.assertEqual(roles["review"], {"model": "review-model", "reasoningEffort": "high"})
+        self.assertEqual(self.path.read_bytes(), original)
+        config["challengeReviewers"] = []
+        self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+        self.assertEqual(json.loads(self.run_cli("resolve-challenge").stdout),
+                         [{"model": "review-model", "reasoningEffort": "high"}])
+        config["defaults"] = {"model": None, "reasoningEffort": None}
+        config["roles"]["review"]["model"] = None
+        config["challengeReviewers"] = [{"model": None, "reasoningEffort": None}]
+        self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+        result = self.run_cli("resolve-challenge", None, "--host-model", "parent-model",
+                              "--host-reasoning-effort", "low")
+        self.assertEqual(json.loads(result.stdout), [{"model": "parent-model", "reasoningEffort": "low"}])
+
+    def test_malformed_panels_preserve_saved_panel(self):
+        config = copy.deepcopy(EXAMPLE)
+        config.update(schemaVersion=2, challengeReviewers=[])
+        self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+        original = self.path.read_bytes()
+        for panel in (None, {}, "model", [None], [{}], [{"model": "x"}],
+                      [{"model": " x", "reasoningEffort": None}],
+                      [{"model": None, "reasoningEffort": False}],
+                      [{"model": None, "reasoningEffort": None, "extra": None}]):
+            with self.subTest(panel=panel):
+                invalid = copy.deepcopy(config)
+                invalid["challengeReviewers"] = panel
+                result = self.run_cli("save", json.dumps(invalid))
+                self.assertEqual(result.returncode, 2)
+                self.assertEqual(self.path.read_bytes(), original)
+        for payload in ('{"schemaVersion":2,"defaults":{},"roles":{},"challengeReviewers":[],"challengeReviewers":[]}',):
+            self.assertEqual(self.run_cli("save", payload).returncode, 2)
+            self.assertEqual(self.path.read_bytes(), original)
+        self.path.write_text(json.dumps(dict(config, challengeReviewers=[{}])))
+        malformed = self.path.read_bytes()
+        for command in ("show", "resolve-challenge", "save"):
+            result = self.run_cli(command, json.dumps(EXAMPLE))
+            self.assertEqual(result.returncode, 2)
+            self.assertEqual(self.path.read_bytes(), malformed)
 
     def test_filesystem_error_has_no_traceback(self):
         self.path.parent.write_text("parent is a file")

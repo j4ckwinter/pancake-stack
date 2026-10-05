@@ -26,12 +26,24 @@ def exact_keys(value, keys, label):
 
 
 def validate(config):
-    exact_keys(config, ("schemaVersion", "defaults", "roles"), "preferences")
-    if type(config["schemaVersion"]) is not int or config["schemaVersion"] != 1:
-        raise ValueError("schemaVersion must be the integer 1")
+    if not isinstance(config, dict):
+        raise ValueError("preferences must be an object")
+    version = config.get("schemaVersion")
+    if type(version) is not int or version not in (1, 2):
+        raise ValueError("schemaVersion must be the integer 1 or 2")
+    keys = ("schemaVersion", "defaults", "roles")
+    if version == 2:
+        keys += ("challengeReviewers",)
+    exact_keys(config, keys, "preferences")
     exact_keys(config["roles"], ROLES, "roles")
     choices = [("defaults", config["defaults"])]
     choices.extend((role, config["roles"][role]) for role in ROLES)
+    if version == 2:
+        reviewers = config["challengeReviewers"]
+        if not isinstance(reviewers, list):
+            raise ValueError("challengeReviewers must be a list")
+        choices.extend((f"challengeReviewers[{index}]", choice)
+                       for index, choice in enumerate(reviewers))
     for label, choice in choices:
         exact_keys(choice, FIELDS, label)
         for field, value in choice.items():
@@ -99,15 +111,26 @@ def resolve(config, host_model, host_effort):
     return effective
 
 
+def resolve_challenge(config, host_model, host_effort):
+    review = resolve(config, host_model, host_effort)["review"]
+    reviewers = config.get("challengeReviewers") or [dict.fromkeys(FIELDS)]
+    return [
+        {field: review[field] if choice[field] is None else choice[field]
+         for field in FIELDS}
+        for choice in reviewers
+    ]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, help="override the preference file path")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("show")
     commands.add_parser("save", help="validate and save the complete JSON object from stdin")
-    resolver = commands.add_parser("resolve")
-    resolver.add_argument("--host-model")
-    resolver.add_argument("--host-reasoning-effort")
+    for command in ("resolve", "resolve-challenge"):
+        resolver = commands.add_parser(command)
+        resolver.add_argument("--host-model")
+        resolver.add_argument("--host-reasoning-effort")
     args = parser.parse_args()
     try:
         codex_home = Path(os.environ.get("CODEX_HOME") or Path.home() / ".codex")
@@ -117,14 +140,15 @@ def main():
             save_config(path, result)
         else:
             result = read_config(path)
-            if args.command == "resolve":
+            if args.command in ("resolve", "resolve-challenge"):
                 host = empty_config()
                 host["defaults"] = {
                     "model": args.host_model,
                     "reasoningEffort": args.host_reasoning_effort,
                 }
                 validate(host)
-                result = resolve(result, args.host_model, args.host_reasoning_effort)
+                resolver = resolve_challenge if args.command == "resolve-challenge" else resolve
+                result = resolver(result, args.host_model, args.host_reasoning_effort)
         print(json.dumps(result, indent=2))
     except (ValueError, OSError, UnicodeError) as error:
         print(f"preferences: {error}", file=sys.stderr)

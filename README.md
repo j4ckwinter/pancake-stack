@@ -56,3 +56,5 @@ you can also reach for a skill directly when you know what you need.
 </details>
 
 Repository checks run with `python3 -B -m unittest discover -s tests -v`. They validate package relationships, documented skills, the repository's plain single-line skill headers, relative inline links, preference helpers in temporary storage, and behavioral fixture assessment. The package checks use a limited repository profile rather than implementing the full portable JSON schema, YAML, or Markdown standards. They do not install the plugin or change global preferences. See [accepted safeguards](docs/safeguards.md) for evidence and remaining workflow gaps.
+
+Challenge supports an optional configured reviewer panel for independent reviews using different models. Setup preserves existing preferences and opts into schema 2 only when you choose a panel. See [configuration](docs/configuration.md) and [setup](docs/setup.md). Model selection depends on the active delegation host.
