@@ -109,3 +109,21 @@ The installed Design trial completed two independent candidate sessions, then a 
 Host records establish selected models and reasoning efforts, not independent remote-runtime attestation. All observed models use one provider. Fresh judge context, ordering, and neutral proposal IDs are observable; full identity blinding is not independently established because local delegation message bodies are encrypted. Unavailable judges, partial candidates, and unsupported implementation selections remain unexercised cases.
 
 Onboarding now includes a read-only first task, optional setup, separate review panels, and explicit independent Design examples. Existing substantial-work, decision-trail, handoff, and PR-maintenance guidance covers this run. No assigned PR or cross-session coordination requirement justified a new watcher or registry, so those conditional helpers remain deferred. No push, PR action, scheduler, or real user preference write occurred.
+
+## Delegation fallback follow-up on 6 October 2026
+
+Fresh installed 0.18.2 tasks on `codex-cli 0.160.0` exercised the previously missing rejected-selection and incomplete-exploration paths. Each used an isolated project and temporary `CODEX_HOME`. A separate runtime probe rejected the deliberately invalid negative-fixture model with HTTP 400 before the workflow trials. It was never presented as a supported model choice.
+
+The [fallback evidence](evidence/delegation-fallbacks-2026-10-06.json) retains requests, completed commands, rejected spawn results, child contexts and verdicts, parent artifact checks, and file snapshots.
+
+| Scenario | Observed outcome |
+| --- | --- |
+| Rejected implementation reviewer | The host rejected the requested pair. Pancake made no substitution, performed direct review, and disclosed the missing independent review. Trusted checks confirmed the live `amount` contract and unchanged readable `total` archives. |
+| Rejected Challenge reviewer | The host rejected the requested pair. Challenge disclosed direct review and the missing perspective, reproduced the local consumer break, and left external billing compatibility unresolved. The project remained unchanged. |
+| Partial Design exploration | One author was rejected and one completed. A separate judge completed after the proposal. The lead explicitly reported incomplete exploration and made no substitution. Project hashes and baseline tests were unchanged. |
+| Unavailable Design judge | Two authors completed before the requested judge was rejected. The lead disclosed the absent independent verdict and proposed a design without claiming it was implemented. Project hashes and baseline tests were unchanged. |
+| Delegation outside task permissions | A nonempty saved Challenge panel did not run when the task prohibited independent agents. Direct review disclosed the permission limit. The project and saved panel remained unchanged; the coordinator restored its temporary profile afterward. |
+
+An initial one-thread diagnostic still completed a reviewer. An initial `gpt-5.6-terra` request also completed instead of exercising unavailability. Both diagnostics had a malformed runtime plugin override and read installed instructions by path. They remain inconclusive for their intended unavailable-capability criteria and do not establish automatic skill loading. The corrected tasks loaded the installation-generated temporary profile configuration. The [Setup loading correction](installation-verification.md) retains the underlying verifier correction.
+
+These outcomes cover the named scenarios only. A host with genuinely absent collaboration tools remains unexercised. Permission limits and rejected selections do not prove that missing-tool behavior. All completed agents use one provider; host-selected contexts do not independently attest the remote inference runtime. No actual user preference file, global configuration, publication, or external message changed.

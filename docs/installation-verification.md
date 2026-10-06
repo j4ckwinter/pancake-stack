@@ -1,5 +1,11 @@
 # Installation verification
 
+## Installed delegation fallbacks on 6 October 2026
+
+Fresh 0.18.2 CLI tasks loaded the Git-installed package and exercised rejected implementation and Challenge reviewer requests, partial Design exploration, a rejected Design judge, and a task prohibiting delegation despite a saved panel. They disclosed missing independent coverage without substitution. Parent checks confirmed the requested migration contracts or read-only preservation, as appropriate.
+
+The [fallback results](behavioral-results.md) and [retained host records](evidence/delegation-fallbacks-2026-10-06.json) distinguish these scoped successes from two inconclusive initial diagnostics. A host with genuinely absent collaboration tools remains unverified.
+
 ## Default-path persistence and discovery on 6 October 2026
 
 A fresh installed `$pancake-stack:setup` CLI invocation saved supplied inherit-both choices without a `--config` override. The default destination was `$CODEX_HOME/pancake-stack/config.json` inside the temporary installation profile. Parent inspection and a separate helper process confirmed the literal schema 1 configuration and unchanged inherited roles. The temporary authentication copy was removed after the agent run.

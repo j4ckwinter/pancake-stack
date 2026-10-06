@@ -72,7 +72,7 @@ The completed list records delivered guidance and repository work. The dated sec
 ## Next
 
 - Verify visible VS Code labels, picker filtering, and namespaced invocation in a fresh chat. Backend discovery does not establish the visible result.
-- Exercise rejected reviewer spawns, unavailable delegation, partial Design candidates, an unavailable judge, and unsupported implementation selections. Earlier unsupported Challenge choices were reported without a rejected spawn.
+- Exercise a host with genuinely absent collaboration tools. Rejected selections, partial Design exploration, a rejected judge, and delegation outside task permissions now have observed fallback results.
 - Exercise installed workflows on real repository tasks. The synthetic trials establish individual outcomes, not broad reliability.
 
 License selection and public distribution remain deferred. They require a separate owner decision and publication authorization.
@@ -80,6 +80,8 @@ License selection and public distribution remain deferred. They require a separa
 Git-backed CLI installation passed on 6 October 2026 in a new temporary profile. The installed 0.18.2 manifest and skill resources matched source. See the [installation record](installation-verification.md).
 
 An installed Setup invocation also saved supplied inherited choices at the default path under temporary `CODEX_HOME`. A fresh helper process confirmed persistence. Backend discovery returned all 19 enabled skills without errors. Visible selection remains separate.
+
+Five installed fallback tasks on 6 October covered rejected implementation and Challenge reviewers, partial Design exploration, a rejected judge, and a task prohibiting delegation. Their artifacts and reporting passed the scoped checks. See the [trial results](behavioral-results.md).
 
 ## Behavioral evaluation
 
