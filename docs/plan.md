@@ -72,13 +72,14 @@ The completed list records delivered guidance and repository work. The dated sec
 ## Next
 
 - Verify visible VS Code labels, picker filtering, and namespaced invocation in a fresh chat. Backend discovery does not establish the visible result.
-- Verify preference persistence at the helper's default path in an isolated profile. Existing installed trials used explicit temporary paths.
 - Exercise rejected reviewer spawns, unavailable delegation, partial Design candidates, an unavailable judge, and unsupported implementation selections. Earlier unsupported Challenge choices were reported without a rejected spawn.
 - Exercise installed workflows on real repository tasks. The synthetic trials establish individual outcomes, not broad reliability.
 
 License selection and public distribution remain deferred. They require a separate owner decision and publication authorization.
 
 Git-backed CLI installation passed on 6 October 2026 in a new temporary profile. The installed 0.18.2 manifest and skill resources matched source. See the [installation record](installation-verification.md).
+
+An installed Setup invocation also saved supplied inherited choices at the default path under temporary `CODEX_HOME`. A fresh helper process confirmed persistence. Backend discovery returned all 19 enabled skills without errors. Visible selection remains separate.
 
 ## Behavioral evaluation
 

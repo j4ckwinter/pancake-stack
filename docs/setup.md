@@ -1,6 +1,8 @@
 # Set up Pancake Stack
 
-Start a new Codex chat after installing the package and select `$pancake-stack:setup`. Setup first asks for a model, then a supported reasoning effort. Role customization is optional. Keep a field unset to inherit its default, then the host setting. The user has confirmed that setup loads in VS Code. Completing setup and checking saved preferences remain unverified.
+Start a new Codex chat after installing the package and select `$pancake-stack:setup`. Setup first asks for a model, then a supported reasoning effort. It accepts choices already supplied in your request. Role customization is optional. Keep a field unset to inherit its default, then the host setting.
+
+Installed CLI trials verified saving and reading preferences at explicit temporary paths and at the default path inside an isolated `CODEX_HOME`. The user has confirmed that setup loads in VS Code. Completing its visible VS Code selection flow remains unverified. See the [installation record](installation-verification.md).
 
 Setup queries the local Codex app server for model IDs and their supported reasoning efforts before asking you to choose. If discovery fails, setup reports the reason and falls back to accessible host metadata or your host picker. A remote or overridden host can have different choices. Setup saves your choices without changing the current conversation or global Codex settings.
 

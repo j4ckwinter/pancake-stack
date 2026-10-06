@@ -1,5 +1,13 @@
 # Installation verification
 
+## Default-path persistence and discovery on 6 October 2026
+
+A fresh installed `$pancake-stack:setup` CLI invocation saved supplied inherit-both choices without a `--config` override. The default destination was `$CODEX_HOME/pancake-stack/config.json` inside the temporary installation profile. Parent inspection and a separate helper process confirmed the literal schema 1 configuration and unchanged inherited roles. The temporary authentication copy was removed after the agent run.
+
+App-server `skills/list` returned all 19 enabled namespaced skills from the Git-installed 0.18.2 cache with no discovery errors. The [persistence and discovery evidence](evidence/default-persistence-2026-10-06.json) retains the request, invocation, completed commands, final reply, parent check, and backend display metadata.
+
+This closes default-path persistence in an isolated CLI profile. It does not verify an actual user preference write, multi-turn model selection, visible VS Code labels, or picker filtering.
+
 ## Git-backed installation on 6 October 2026
 
 On `codex-cli 0.160.0`, a new temporary `CODEX_HOME` with no copied user configuration, history, preferences, or authentication successfully registered `j4ckwinter/pancake-stack` and installed `pancake-stack@pancake-stack` version 0.18.2. Marketplace listing identified the source as `https://github.com/j4ckwinter/pancake-stack.git`. The installed manifest and every skill resource matched the local source bytes.
