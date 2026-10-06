@@ -1,12 +1,18 @@
 # Project plan
 
+## Current state
+
+Version 0.18.2 has 19 skills. Installed CLI trials on 5 October 2026 verified isolated Setup persistence, saved Challenge and implementation panels, proportionate review for a small edit, and competing Design proposals with a separate judge. The [installation record](installation-verification.md) and [trial results](behavioral-results.md) retain the evidence and unsuccessful earlier trials.
+
+The completed list records delivered guidance and repository work. The dated sections below record verification at their original versions. Their pending statements describe those earlier trials, not the current backlog.
+
 ## Completed
 
 - Benchmark validity guidance for completed timed work, failure counts, representative tuning, runtime limits, and end-to-end impact.
 - Skill evaluation guidance that separates natural candidate tasks from private assessment criteria and variant identities.
 - Reusable fixtures and artifact checks for the seven recorded workflow trial families, with an isolated [evaluation procedure](behavioral-evaluation.md).
 - Concrete [prompt recipes](recipes.md) for the existing skills, with host and evidence limitations.
-- Explicit completion requirement for obtainable independent review of consequential changes. Fresh trial adherence remains unresolved in the [trial results](behavioral-results.md).
+- Explicit completion requirement for obtainable independent review of consequential changes. Later collaboration and installed CLI trials obtained completed reviewer verdicts. Earlier failures remain in the [trial results](behavioral-results.md).
 
 - Conditional personalization guidance for requested working-style profiles, separate from shared defaults.
 
@@ -65,11 +71,13 @@
 
 ## Next
 
-- Retest the updated setup prompt and verify saved preferences.
-- Test GitHub installation and setup in a clean user environment.
-- Verify discovery and invocation of check, fix, pancake, balls, design, why, verify, handoff, pr, scope, sift, challenge, and reflect in Codex.
-- Exercise the new workflows on real tasks, including preference fallback.
-- Select a license and prepare public distribution.
+- Verify visible VS Code labels, picker filtering, and namespaced invocation in a fresh chat. Backend discovery does not establish the visible result.
+- Test Git-backed installation in a clean temporary Codex profile. Local installation under the current marketplace name is verified.
+- Verify preference persistence at the helper's default path in an isolated profile. Existing installed trials used explicit temporary paths.
+- Exercise rejected reviewer spawns, unavailable delegation, partial Design candidates, an unavailable judge, and unsupported implementation selections. Earlier unsupported Challenge choices were reported without a rejected spawn.
+- Exercise installed workflows on real repository tasks. The synthetic trials establish individual outcomes, not broad reliability.
+
+License selection and public distribution remain deferred. They require a separate owner decision and publication authorization.
 
 ## Behavioral evaluation
 

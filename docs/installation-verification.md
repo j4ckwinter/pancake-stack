@@ -31,7 +31,11 @@ Missing, empty, and reported unsupported reviewer-choice fallbacks passed. Rejec
 
 The older entries below retain their original versions and pending checks. This result supersedes their pending local installation under the renamed marketplace and verifies the isolated saved-panel flow on the current CLI backend.
 
-## Skill labels in 0.17.1
+## Historical checks
+
+The entries below retain their original versions and pending statements. Use the newer installed CLI results above for current backend status. Visible VS Code checks remain pending.
+
+### Skill labels in 0.17.1
 
 Each skill now declares an explicit UI display name in `agents/openai.yaml`. The main workflow is `Pancake`; individual workflows have short names such as `PR`, `Wtf`, and `Fix`, without the `Pancake Stack:` prefix. Internal plugin and skill identities remain unchanged.
 
@@ -57,7 +61,7 @@ The initial live setup prompt requested manual IDs. The updated skill now runs t
 - Install from GitHub in a clean user environment.
 - Verify any shorter slash-command invocation forms once the relevant skills exist.
 
-## Current Pancake host trial
+## Historical Pancake host trial in 0.14.27
 
 On 2 October 2026, this conversation exposed installed skills from version `0.3.0`. Its cached manifest also reports `0.3.0`; repository version `0.14.27` includes Pancake and the later workflow changes. The earlier source-path trials do not verify this installed copy.
 
@@ -88,4 +92,4 @@ codex plugin marketplace add j4ckwinter/pancake-stack
 codex plugin add pancake-stack@pancake-stack
 ```
 
-The marketplace is now named `pancake-stack`. Earlier results above used its previous name, `pancake-stack-local`, and retain the original commands and cache paths. Installation under the renamed marketplace and the Git-backed flow remain unverified. Existing installations keep the previous marketplace identity until migrated.
+The marketplace is now named `pancake-stack`. Earlier results above used its previous name, `pancake-stack-local`, and retain the original commands and cache paths. The 5 October results verify local installation under the renamed marketplace. The Git-backed flow remains unverified. Existing installations keep the previous marketplace identity until migrated.
