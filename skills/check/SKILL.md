@@ -7,6 +7,8 @@ description: Review a code change for actionable bugs, regressions, and verifica
 
 Read [core values](../pancake/references/values.md). Review without editing files unless the user separately requests fixes.
 
+For an explicitly requested structural or code-quality review, also read [structural-quality guidance](../design/references/structural-quality.md). Keep maintainability recommendations separate from correctness findings; an ordinary change review does not require a structural audit.
+
 Use the supplied diff, commit, or branch range. If none is specified, inspect staged and unstaged changes, including relevant untracked files. If the workspace is clean and no review target can be inferred, ask for the target rather than inventing a comparison.
 
 Read repository instructions and the changed code in context. Follow affected callers and contracts, including persisted data, external interfaces, and failure paths when relevant. Focus on concrete breakage rather than style preferences or hypothetical rewrites.

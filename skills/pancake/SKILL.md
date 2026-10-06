@@ -26,6 +26,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 - For proving requested behavior, read [verify](../verify/SKILL.md).
 - For adversarial review of contested decisions or consequential assumptions, read [challenge](../challenge/SKILL.md). Challenge consumes its optional reviewer panel and delegates one reviewer per selected entry when supported.
 - For change reviews, read [check](../check/SKILL.md).
+- For explicitly requested structural or code-quality reviews, read [structural-quality guidance](../design/references/structural-quality.md). Review remains read-only unless edits are requested.
 - For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
 - For explicitly requested test-first development or regression tests, read [tdd](../tdd/SKILL.md). Keep the failing-test step before production changes.
 - For authorized implementation, read [the implementation sequence](references/implementation.md). It covers grounding, design choices, implementation, proportional review, verification, and failure handling.

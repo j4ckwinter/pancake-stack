@@ -5,6 +5,8 @@ description: Propose a software design grounded in existing code and constraints
 
 # Design a change
 
+For structural simplification or maintainability tradeoffs, read [structural-quality guidance](references/structural-quality.md). Use it to assess concrete alternatives without expanding the requested design scope.
+
 For consequential TypeScript data shapes or boundary choices, read [TypeScript guidance](references/typescript.md).
 
 Read [core values](../pancake/references/values.md) and applicable repository instructions. Establish the requested outcome, constraints, and what is outside scope from the user's request and available context. Ask only when a missing product decision materially changes the design.
