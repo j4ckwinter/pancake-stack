@@ -6,7 +6,7 @@ Use this guidance when the user requests a reusable verification recipe, or when
 
 Inspect repository instructions, documented commands, existing harnesses, and the user-facing behavior to be covered. Establish the prerequisites, supported interface, expected result, and isolation strategy from actual sources. Do not invent selectors, ports, credentials, or startup commands. If an essential prerequisite cannot be established, record that gap instead of providing runnable-looking placeholders.
 
-Locate an existing verification guide before choosing a destination. For requested creation, use the user's destination or the repository's established documentation convention. For an explicitly requested project-local Codex skill, use .agents/skills/verify-<project>/SKILL.md and the host's skill-authoring guidance. Never write into the installed plugin cache or global skills directory to configure a project. Preserve existing user content when updating a recipe.
+Locate an existing verification guide before choosing a destination. For requested creation, use the user's destination or the repository's established documentation convention. For an explicitly requested project-local skill, use the active host location and authoring guidance in [active host guidance](../../pancake/references/host-runtime.md). Never write into the installed plugin cache or global skills directory to configure a project. Preserve existing user content when updating a recipe.
 
 ## Keep the recipe reproducible
 

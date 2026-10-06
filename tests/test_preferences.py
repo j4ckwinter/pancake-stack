@@ -1,5 +1,6 @@
 import copy
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -283,6 +284,81 @@ class PreferencesTests(unittest.TestCase):
         self.assertEqual(result.returncode, 2)
         self.assertNotIn("Traceback", result.stderr)
         self.assertEqual(self.path.parent.read_text(), "parent is a file")
+
+
+class HostPreferencesTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.root = Path(self.directory.name)
+        self.env = dict(os.environ, HOME=str(self.root / "home"),
+                        CODEX_HOME=str(self.root / "codex"),
+                        CLAUDE_CONFIG_DIR=str(self.root / "claude"))
+
+    def invoke(self, *args, payload=None):
+        return subprocess.run([sys.executable, str(HELPER), *args],
+                              input=payload, text=True, capture_output=True, env=self.env)
+
+    def profile(self, host):
+        return self.root / host / "pancake-stack/config.json"
+
+    def test_profiles_coexist_without_cross_reads_or_writes(self):
+        codex = copy.deepcopy(EXAMPLE)
+        claude = copy.deepcopy(EXAMPLE)
+        codex["defaults"]["model"] = "codex-choice"
+        claude["defaults"]["model"] = "claude-choice"
+        self.assertEqual(self.invoke("save", payload=json.dumps(codex)).returncode, 0)
+        before = self.profile("codex").read_bytes()
+        self.assertEqual(self.invoke("--host", "claude", "save", payload=json.dumps(claude)).returncode, 0)
+        self.assertEqual(self.profile("codex").read_bytes(), before)
+        self.assertEqual(json.loads(self.invoke("show").stdout), codex)
+        self.assertEqual(json.loads(self.invoke("--host", "claude", "show").stdout), claude)
+        self.profile("claude").unlink()
+        self.assertEqual(json.loads(self.invoke("--host", "claude", "show").stdout), EXAMPLE)
+        self.assertEqual(self.invoke("--host", "claude", "save", payload=json.dumps(claude)).returncode, 0)
+        self.profile("codex").write_text("broken codex")
+        self.assertEqual(json.loads(self.invoke("--host", "claude", "show").stdout), claude)
+        self.assertEqual(self.invoke("--host", "claude", "save", payload=json.dumps(claude)).returncode, 0)
+        self.assertEqual(self.profile("codex").read_text(), "broken codex")
+        self.profile("claude").write_text("broken claude")
+        self.profile("codex").write_text(json.dumps(codex))
+        self.assertEqual(json.loads(self.invoke("show").stdout), codex)
+        result = self.invoke("--host", "claude", "save", payload=json.dumps(claude))
+        self.assertEqual(result.returncode, 2)
+        self.assertEqual(self.profile("claude").read_text(), "broken claude")
+
+    def test_config_override_precedes_both_host_paths(self):
+        explicit = self.root / "explicit.json"
+        for host in ("codex", "claude"):
+            result = self.invoke("--host", host, "--config", str(explicit), "save", payload=json.dumps(EXAMPLE))
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(json.loads(explicit.read_text()), EXAMPLE)
+            self.assertFalse(self.profile(host).exists())
+
+    def test_missing_profiles_are_read_only_and_do_not_fall_back(self):
+        for host in ("codex", "claude"):
+            for command in ("show", "resolve", "resolve-challenge", "resolve-implementation-review"):
+                result = self.invoke("--host", host, command)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                if command == "show":
+                    self.assertEqual(json.loads(result.stdout), EXAMPLE)
+        self.assertFalse((self.root / "codex").exists())
+        self.assertFalse((self.root / "claude").exists())
+        self.assertFalse((self.root / "home/.codex").exists())
+        self.assertFalse((self.root / "home/.claude").exists())
+
+    def test_fallback_directories_and_invalid_host(self):
+        self.env.pop("CODEX_HOME")
+        self.env.pop("CLAUDE_CONFIG_DIR")
+        for host, directory in (("codex", ".codex"), ("claude", ".claude")):
+            result = self.invoke("--host", host, "save", payload=json.dumps(EXAMPLE))
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(json.loads((self.root / "home" / directory / "pancake-stack/config.json").read_text()), EXAMPLE)
+        before = {str(path): path.read_bytes() for path in self.root.rglob("*") if path.is_file()}
+        result = self.invoke("--host", "unknown", "save", payload=json.dumps(EXAMPLE))
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("invalid choice", result.stderr)
+        self.assertEqual({str(path): path.read_bytes() for path in self.root.rglob("*") if path.is_file()}, before)
 
 
 if __name__ == "__main__":

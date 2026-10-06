@@ -15,7 +15,7 @@ class PackageValidationTests(unittest.TestCase):
         self.addCleanup(self.storage.cleanup)
         self.root = Path(self.storage.name) / "package"
         self.root.mkdir()
-        for directory in ("skills", "docs", "config", ".agents", "tests/behavioral/cases"):
+        for directory in ("skills", "docs", "config", ".agents", ".claude-plugin", "tests/behavioral/cases"):
             shutil.copytree(ROOT / directory, self.root / directory)
         for filename in ("README.md", "plugin.json"):
             shutil.copy2(ROOT / filename, self.root / filename)
@@ -42,7 +42,10 @@ class PackageValidationTests(unittest.TestCase):
         self.assertEqual(after, before)
 
     def test_supported_changes_pass(self):
-        self.edit_json("plugin.json", lambda data: data.update(version="1.2.3-rc.1+build.2", description="Different useful description"))
+        for filename in ("plugin.json", ".claude-plugin/plugin.json"):
+            self.edit_json(filename, lambda data: data.update(version="1.2.3-rc.1+build.2", description="Different useful description"))
+        self.edit_json(".claude-plugin/marketplace.json", lambda data: data["plugins"][0].update(version="1.2.3-rc.1+build.2", description="Different useful description"))
+        self.edit_json(".claude-plugin/marketplace.json", lambda data: data["metadata"].update(description="Different useful description"))
         path = self.root / "README.md"
         path.write_text(path.read_text() + "\nRepeat `$pancake-stack:fix`. [Directory](skills/) [fragment](#here) [encoded](docs/%72ecipes.md)\n")
         self.assertEqual(validate_package(self.root), [])
@@ -71,6 +74,31 @@ class PackageValidationTests(unittest.TestCase):
                 self.edit_json("plugin.json", lambda data: data.update({field: value}))
                 self.assert_diagnostic("plugin.json", expected)
                 (self.root / "plugin.json").write_text(original)
+
+    def test_claude_contracts_and_metadata_drift(self):
+        cases = (
+            (".claude-plugin/plugin.json", lambda data: data.update(skills="../skills"), "shared ./skills/"),
+            (".claude-plugin/plugin.json", lambda data: data.update(version="0.0.0"), "version must match"),
+            (".claude-plugin/plugin.json", lambda data: data.update(hooks={}), "native Claude manifest fields"),
+            (".claude-plugin/marketplace.json", lambda data: data["plugins"][0].update(source="../"), "source must be ./"),
+            (".claude-plugin/marketplace.json", lambda data: data["plugins"][0].update(description="drift"), "description must match"),
+            (".claude-plugin/marketplace.json", lambda data: data.update(owner={"name": "other"}), "owner must match"),
+            (".claude-plugin/marketplace.json", lambda data: data.update(plugins=[]), "one local package entry"),
+            (".claude-plugin/marketplace.json", lambda data: data.update(metadata={}), "marketplace description must match"),
+        )
+        for filename, change, expected in cases:
+            with self.subTest(filename=filename, expected=expected):
+                path = self.root / filename
+                original = path.read_text()
+                self.edit_json(filename, change)
+                self.assert_diagnostic(filename, expected)
+                path.write_text(original)
+        for filename in (".claude-plugin/plugin.json", ".claude-plugin/marketplace.json"):
+            path = self.root / filename
+            original = path.read_text()
+            path.write_text('{"name":"a","name":"b"}')
+            self.assert_diagnostic(filename, "duplicate JSON key")
+            path.write_text(original)
 
     def test_skill_frontmatter_and_missing_file(self):
         filename = "skills/fix/SKILL.md"

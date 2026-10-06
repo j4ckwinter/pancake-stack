@@ -1,10 +1,10 @@
 # Set up Pancake Stack
 
-Start a new Codex chat after installing the package and select `$pancake-stack:setup`. Setup first asks for a model, then a supported reasoning effort. It accepts choices already supplied in your request. Role customization is optional. Keep a field unset to inherit its default, then the host setting.
+Start a new chat after installing the package. Invoke `$pancake-stack:setup` in Codex or `/pancake-stack:setup` in Claude Code. Setup first asks for a model, then a supported reasoning effort. It accepts choices already supplied in your request. Role customization is optional. Keep a field unset to inherit its default, then the host setting.
 
 Installed CLI trials verified saving and reading preferences at explicit temporary paths and at the default path inside an isolated `CODEX_HOME`. The user has confirmed that setup loads in VS Code. Completing its visible VS Code selection flow remains unverified. See the [installation record](installation-verification.md).
 
-Setup queries the local Codex app server for model IDs and their supported reasoning efforts before asking you to choose. If discovery fails, setup reports the reason and falls back to accessible host metadata or your host picker. A remote or overridden host can have different choices. Setup saves your choices without changing the current conversation or global Codex settings.
+Setup queries the active host's model metadata before asking you to choose. Codex uses its local app server; Claude Code uses initialization metadata without sending a model turn. If discovery fails, setup reports the reason and falls back to accessible host metadata or your host picker. A remote or overridden host can have different choices. Setup saves your choices without changing the current conversation or global host settings.
 
 ## Run the preference helper
 
@@ -14,13 +14,17 @@ Inspect the local model catalog without writing preferences:
 python3 skills/setup/scripts/catalog.py
 ```
 
-The helper uses the [Codex app server protocol](https://learn.chatgpt.com/docs/app-server), follows catalog pagination, and stops discovery after 15 seconds. `--codex` selects an explicit executable path. Discovery failures exit with code `2`.
+For Claude Code, use `python3 skills/setup/scripts/catalog.py --host claude`. `--claude <executable-path>` selects an observable executable outside PATH. The returned choices describe CLI metadata, not proof of account access or delegated settings. Missing effort metadata remains undiscovered.
+
+The Codex adapter uses the [app server protocol](https://learn.chatgpt.com/docs/app-server) and follows catalog pagination. Both adapters stop discovery after 15 seconds. `--codex` selects an explicit Codex executable path. Discovery failures exit with code `2`.
 
 Use Python 3.8 or later. From the repository root, inspect preferences with:
 
 ```sh
 python3 skills/setup/scripts/preferences.py show
 ```
+
+In Claude Code, add `--host claude` before every preference subcommand. The same save and resolution commands apply, using Claude-owned storage. The configuration and inheritance rules are shared; no preferences move between hosts automatically.
 
 Save a complete preference object through stdin. This command writes user preferences:
 

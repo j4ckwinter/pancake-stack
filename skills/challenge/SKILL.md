@@ -21,6 +21,8 @@ Read surrounding code and tests to check whether each suspected issue is already
 
 ## Independent perspectives
 
+Read [active host guidance](../pancake/references/host-runtime.md) before using preference helpers or delegated settings. On Claude Code, add `--host claude` before every helper subcommand.
+
 Read `python3 <installed-setup-directory>/scripts/preferences.py show` to distinguish a nonempty saved `challengeReviewers` panel from the absent or empty fallback. Then resolve saved reviewer choices with `python3 <installed-setup-directory>/scripts/preferences.py resolve-challenge`, using the [setup helper](../setup/scripts/preferences.py). Resolve its path relative to this installed skill, not the workspace. Supply observable host model and reasoning effort arguments only. The helper returns requested pairs, not evidence of application. Missing preferences, schema 1, or an empty schema 2 panel fall back to the existing review preference. If reading fails, report the limitation and preserve the file.
 
 Explicit reviewer choices supplied for this task override the saved panel for this task only. Resolve each omitted or null field through the saved review role, defaults, then observable host values. Do not save task choices or change the parent model. Read [panel configuration](../../docs/configuration.md) when inheritance or schema details matter.

@@ -12,6 +12,8 @@ Prepare one neutral brief with the same baseline, criteria, constraints, and evi
 
 ## Request independent candidates
 
+Read [active host guidance](../../pancake/references/host-runtime.md) before using preference helpers or delegated settings. On Claude Code, add `--host claude` before every helper subcommand.
+
 Resolve existing role preferences using `python3 <installed-setup-directory>/scripts/preferences.py resolve`, with the [setup helper](../../setup/scripts/preferences.py). Resolve its location relative to this installed skill, not the workspace. For an explicitly requested preference location or isolated verification, pass `--config <path>` before `resolve`. Supply host model and effort arguments only when observable. Candidates inherit research preferences; the judge inherits review preferences. A read failure leaves those preferences unavailable; report it and preserve the file.
 
 Task-supplied candidate and judge pairs override their respective inherited pairs for this invocation only. Resolve omitted or null fields independently through the relevant role, defaults, then observable host values. Do not persist choices or switch the parent conversation. Without supplied candidate pairs, request at least two independent candidates using the research preference. An explicit list with fewer than two entries cannot establish a competing exploration; disclose the gap and use direct Design unless the user supplies the missing choice.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Store Pancake Stack preferences without modifying Codex settings."""
+"""Store Pancake Stack preferences without modifying host settings."""
 
 import argparse
 import json
@@ -10,6 +10,7 @@ import tempfile
 
 ROLES = ("implementation", "review", "research")
 FIELDS = ("model", "reasoningEffort")
+HOST_PATHS = {"codex": ("CODEX_HOME", ".codex"), "claude": ("CLAUDE_CONFIG_DIR", ".claude")}
 PANELS = {"challengeReviewers": 2, "implementationReviewers": 3}
 PANEL_COMMANDS = {
     "resolve-challenge": "challengeReviewers",
@@ -128,6 +129,8 @@ def resolve_panel(config, panel, host_model, host_effort):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--host", choices=HOST_PATHS, default="codex",
+                        help="select isolated Codex or Claude Code preferences")
     parser.add_argument("--config", type=Path, help="override the preference file path")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("show")
@@ -138,8 +141,9 @@ def main():
         resolver.add_argument("--host-reasoning-effort")
     args = parser.parse_args()
     try:
-        codex_home = Path(os.environ.get("CODEX_HOME") or Path.home() / ".codex")
-        path = args.config if args.config is not None else codex_home / "pancake-stack/config.json"
+        variable, directory = HOST_PATHS[args.host]
+        host_home = Path(os.environ.get(variable) or Path.home() / directory)
+        path = args.config if args.config is not None else host_home / "pancake-stack/config.json"
         if args.command == "save":
             result = parse(sys.stdin.read())
             save_config(path, result)

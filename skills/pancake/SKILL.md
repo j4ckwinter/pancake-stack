@@ -33,6 +33,8 @@ Read only the workflow needed for the task. Do not run every workflow in sequenc
 
 ## Preferences and agents
 
+Read [active host guidance](references/host-runtime.md) before using preference helpers or delegated settings. On Claude Code, add `--host claude` before every helper subcommand.
+
 Read saved preferences with `python3 <installed-setup-directory>/scripts/preferences.py resolve`, using the [setup helper](../setup/scripts/preferences.py). Resolve paths relative to this installed skill, not the user's workspace. Supply host model and effort arguments only when those values are observable. Missing preferences inherit from the host. If reading fails, report the limitation and preserve the file.
 
 Use implementation preferences for writing code, review preferences for reviewing, and research preferences for investigation. Challenge uses its optional Challenge panel; consequential implementation review uses its separate implementation panel. Other work retains the existing role preferences. Apply a supported model and reasoning effort only when the host exposes a capability to select them for the intended work. The helper reads preferences; it does not apply them. Do not switch the parent conversation, write global settings, or claim an override was applied when it was not. For an ordinary role preference that cannot be applied, state that briefly and use the current host settings. For selected reviewer panels, follow the respective workflow's coverage and fallback rules; unsupported entries remain uncovered. An unresolved null remains inheritance, not a guessed model or effort.

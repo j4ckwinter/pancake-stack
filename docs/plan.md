@@ -2,7 +2,9 @@
 
 ## Current state
 
-Version 0.18.2 has 19 skills. Installed CLI trials on 5 October 2026 verified isolated Setup persistence, saved Challenge and implementation panels, proportionate review for a small edit, and competing Design proposals with a separate judge. The [installation record](installation-verification.md) and [trial results](behavioral-results.md) retain the evidence and unsuccessful earlier trials.
+Version 0.19.0 packages the same 19 workflows for Codex and Claude Code. Native Claude validation, isolated local installation, skill inventory, and model metadata discovery passed on 6 October 2026. Authenticated Claude behavior remains pending. See [Claude Code support](claude.md).
+
+Installed Codex CLI trials on 5 October 2026 verified isolated Setup persistence, saved Challenge and implementation panels, proportionate review for a small edit, and competing Design proposals with a separate judge. The [installation record](installation-verification.md) and [trial results](behavioral-results.md) retain the evidence and unsuccessful earlier trials.
 
 The completed list records delivered guidance and repository work. The dated sections below record verification at their original versions. Their pending statements describe those earlier trials, not the current backlog.
 
@@ -71,6 +73,8 @@ The completed list records delivered guidance and repository work. The dated sec
 
 ## Next
 
+- Run authenticated Claude How, Fix, Check, Setup interaction, reviewer panels, and competing Design. Verify requested versus applied model and effort separately. This environment reports no Claude authentication.
+- Verify Git-backed Claude installation after the host metadata is available on the remote source.
 - Verify visible VS Code labels, picker filtering, and namespaced invocation in a fresh chat. Backend discovery does not establish the visible result.
 - Exercise a host with genuinely absent collaboration tools. Rejected selections, partial Design exploration, a rejected judge, and delegation outside task permissions now have observed fallback results.
 - Exercise installed workflows on real repository tasks. The synthetic trials establish individual outcomes, not broad reliability.
@@ -82,6 +86,12 @@ Git-backed CLI installation passed on 6 October 2026 in a new temporary profile.
 An installed Setup invocation also saved supplied inherited choices at the default path under temporary `CODEX_HOME`. A fresh helper process confirmed persistence. Backend discovery returned all 19 enabled skills without errors. Visible selection remains separate.
 
 Five installed fallback tasks on 6 October covered rejected implementation and Challenge reviewers, partial Design exploration, a rejected judge, and a task prohibiting delegation. Their artifacts and reporting passed the scoped checks. See the [trial results](behavioral-results.md).
+
+## Claude Code in 0.19.0
+
+Both native manifests reference one shared workflow tree. Explicit `--host claude` selects Claude-owned preferences while unqualified helper calls retain Codex defaults. Schema versions, field inheritance, panels, and review requirements remain unchanged. The Claude catalog adapter reads CLI initialization metadata without a user or model turn and preserves missing effort metadata as undiscovered.
+
+Isolated native validation and local installation passed on Claude Code 2.1.291. SDK initialization listed all 19 unique namespaced workflows. Codex 0.160.0 also installed the package, and an installed How task passed source and preservation assessment. Authenticated Claude workflow and per-worker settings remain unverified. The [host evidence](evidence/claude-support-2026-10-06.json) retains observed results and limits.
 
 ## Behavioral evaluation
 

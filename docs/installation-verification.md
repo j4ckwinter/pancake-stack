@@ -1,5 +1,11 @@
 # Installation verification
 
+## Two-host packaging in 0.19.0
+
+On 6 October 2026, Claude Code 2.1.291 validated both native manifests with `--strict`, installed the local package in temporary `CLAUDE_CONFIG_DIR`, and discovered all 19 unique namespaced skills. Model choices and effort metadata were read through initialization without a user or model turn. Normal and isolated authentication checks reported no sign-in, so authenticated Claude workflows and delegated settings remain unverified.
+
+Codex 0.160.0 installed the same 0.19.0 source in temporary `CODEX_HOME`. An authenticated installed How task explained the delivery fixture, cited source, disclosed static-only inspection, and preserved the project. Parent artifact checks passed. These are scoped observations, not a full cross-host behavioral comparison. See [Claude Code support](claude.md) and [host evidence](evidence/claude-support-2026-10-06.json).
+
 ## Installed delegation fallbacks on 6 October 2026
 
 Fresh 0.18.2 CLI tasks loaded the Git-installed package and exercised rejected implementation and Challenge reviewer requests, partial Design exploration, a rejected Design judge, and a task prohibiting delegation despite a saved panel. They disclosed missing independent coverage without substitution. Parent checks confirmed the requested migration contracts or read-only preservation, as appropriate.

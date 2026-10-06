@@ -1,0 +1,1155 @@
+{
+  "date": "2026-10-06",
+  "packageVersion": "0.19.0",
+  "claudeVersion": "2.1.291",
+  "codexVersion": "0.160.0",
+  "nativeValidation": {
+    "plugin": {
+      "command": [
+        "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+        "plugin",
+        "validate",
+        "/Users/jackwinter/dev/pancake-stack/.claude-plugin/plugin.json",
+        "--strict"
+      ],
+      "exitCode": 0,
+      "stdout": "Validating plugin manifest: /Users/jackwinter/dev/pancake-stack/.claude-plugin/plugin.json\n\n\u2714 Validation passed\n",
+      "stderr": ""
+    },
+    "marketplace": {
+      "command": [
+        "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+        "plugin",
+        "validate",
+        "/Users/jackwinter/dev/pancake-stack/.claude-plugin/marketplace.json",
+        "--strict"
+      ],
+      "exitCode": 0,
+      "stdout": "Validating marketplace manifest: /Users/jackwinter/dev/pancake-stack/.claude-plugin/marketplace.json\n\n\u2714 Validation passed\n",
+      "stderr": ""
+    }
+  },
+  "claudeLocalInstall": [
+    {
+      "command": [
+        "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+        "plugin",
+        "marketplace",
+        "add",
+        "$RUN_ROOT/package"
+      ],
+      "exitCode": 0,
+      "stdout": "Adding marketplace\u2026\u2714 Successfully added marketplace: pancake-stack (declared in user settings)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+        "plugin",
+        "install",
+        "pancake-stack@pancake-stack"
+      ],
+      "exitCode": 0,
+      "stdout": "Installing plugin \"pancake-stack@pancake-stack\"...\u2714 Successfully installed plugin: pancake-stack@pancake-stack (scope: user)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "exitCode": 0,
+      "stdout": "[\n  {\n    \"id\": \"pancake-stack@pancake-stack\",\n    \"version\": \"0.19.0\",\n    \"scope\": \"user\",\n    \"enabled\": true,\n    \"installPath\": \"$RUN_ROOT/installed-profile/plugins/cache/pancake-stack/pancake-stack/0.19.0\",\n    \"readFromFolder\": \"$RUN_ROOT/package\",\n    \"folderVersion\": \"0.19.0\",\n    \"installedAt\": \"2026-10-06T18:06:17.452Z\",\n    \"lastUpdated\": \"2026-10-06T18:06:17.452Z\",\n    \"projectEnabled\": false\n  }\n]\n",
+      "stderr": ""
+    }
+  ],
+  "codexLocalInstall": [
+    {
+      "command": [
+        "codex",
+        "plugin",
+        "marketplace",
+        "add",
+        "$RUN_ROOT/package",
+        "--json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"marketplaceName\": \"pancake-stack\",\n  \"installedRoot\": \"$RUN_ROOT/package\",\n  \"alreadyAdded\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codex",
+        "plugin",
+        "add",
+        "pancake-stack@pancake-stack",
+        "--json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"pluginId\": \"pancake-stack@pancake-stack\",\n  \"name\": \"pancake-stack\",\n  \"marketplaceName\": \"pancake-stack\",\n  \"version\": \"0.19.0\",\n  \"installedPath\": \"$RUN_ROOT/codex-profile/plugins/cache/pancake-stack/pancake-stack/0.19.0\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "claudeDevelopmentInventory": {
+    "invocation": [
+      "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+      "-p",
+      "--input-format",
+      "stream-json",
+      "--output-format",
+      "stream-json",
+      "--verbose",
+      "--no-session-persistence",
+      "--setting-sources",
+      "",
+      "--settings",
+      "{\"disableAllHooks\":true}",
+      "--strict-mcp-config",
+      "--mcp-config",
+      "{\"mcpServers\":{}}",
+      "--tools",
+      "",
+      "--plugin-dir",
+      "/Users/jackwinter/dev/pancake-stack"
+    ],
+    "commands": [
+      {
+        "name": "pancake-stack:balls",
+        "description": "(pancake-stack) Draft a short spoken standup update covering blockers, aims, and lessons learned for technical and nontechnical colleagues. Use for balls or a standup update in this format.",
+        "argumentHint": "",
+        "aliases": [
+          "balls"
+        ]
+      },
+      {
+        "name": "pancake-stack:challenge",
+        "description": "(pancake-stack) Challenge assumptions in a software design or consequential code change with evidence-based adversarial review. Use for blind spots, contested decisions, or requests to stress-test an approach. Use check for routine diff review.",
+        "argumentHint": "",
+        "aliases": [
+          "challenge"
+        ]
+      },
+      {
+        "name": "pancake-stack:check",
+        "description": "(pancake-stack) Review a code change for actionable bugs, regressions, and verification gaps. Use when the user asks to check a diff, review changes, or assess what a change could break.",
+        "argumentHint": "",
+        "aliases": [
+          "check"
+        ]
+      },
+      {
+        "name": "pancake-stack:design",
+        "description": "(pancake-stack) Propose a software design grounded in existing code and constraints. Use for architecture decisions, interface planning, or comparing implementation approaches before coding.",
+        "argumentHint": ""
+      },
+      {
+        "name": "pancake-stack:fix",
+        "description": "(pancake-stack) Diagnose and fix a reported software defect with focused verification. Use for broken behavior, errors, and regression fixes.",
+        "argumentHint": "",
+        "aliases": [
+          "fix"
+        ]
+      },
+      {
+        "name": "pancake-stack:handoff",
+        "description": "(pancake-stack) Prepare a concise continuation note for a new chat or colleague from the current task, conversation, and repository state. Use for handing off work, summarizing where to resume, or requested task pickup and pause.",
+        "argumentHint": "",
+        "aliases": [
+          "handoff"
+        ]
+      },
+      {
+        "name": "pancake-stack:how",
+        "description": "(pancake-stack) Explain how existing code works by tracing behavior and citing its implementation. Use for code walkthroughs, execution flow, and ownership questions.",
+        "argumentHint": "",
+        "aliases": [
+          "how"
+        ]
+      },
+      {
+        "name": "pancake-stack:pancake",
+        "description": "(pancake-stack) Apply proportionate rigor to a software task. Use when the user invokes pancake or explicitly requests a rigorous investigation, implementation, or review.",
+        "argumentHint": "",
+        "aliases": [
+          "pancake"
+        ]
+      },
+      {
+        "name": "pancake-stack:pr",
+        "description": "(pancake-stack) Draft a pull request title and description grounded in the ticket and actual branch diff. Use for PR wording, or preparing a requested PR creation or update.",
+        "argumentHint": ""
+      },
+      {
+        "name": "pancake-stack:recap",
+        "description": "(pancake-stack) Recover decisions, unfinished work, and the current state of a named project or topic. Use for catching up or asking where work was left off. Use handoff to prepare a note for someone else.",
+        "argumentHint": ""
+      },
+      {
+        "name": "pancake-stack:reflect",
+        "description": "(pancake-stack) Review the current task for durable lessons and propose concrete improvements to code, tests, tooling, or skill guidance. Use for a retrospective or reflection on how work went, rather than a standup summary or code review.",
+        "argumentHint": "",
+        "aliases": [
+          "reflect"
+        ]
+      },
+      {
+        "name": "pancake-stack:scope",
+        "description": "(pancake-stack) Turn a ticket or feature request into an implementation brief grounded in existing code. Use to establish outcomes, acceptance criteria, boundaries, and missing requirements before design or implementation.",
+        "argumentHint": "",
+        "aliases": [
+          "scope"
+        ]
+      },
+      {
+        "name": "pancake-stack:setup",
+        "description": "(pancake-stack) Configure Pancake Stack model and reasoning effort preferences. Use for Pancake Stack setup or $pancake-stack:setup.",
+        "argumentHint": "",
+        "aliases": [
+          "setup"
+        ]
+      },
+      {
+        "name": "pancake-stack:sift",
+        "description": "(pancake-stack) Write or edit prose to remove filler, vague claims, and formulaic AI phrasing while preserving meaning and voice. Use for prose cleanup or as the writing standard within pancake.",
+        "argumentHint": "",
+        "aliases": [
+          "sift"
+        ]
+      },
+      {
+        "name": "pancake-stack:tdd",
+        "description": "(pancake-stack) Develop through a failing test before changing production code. Use for explicit TDD, test-first bug fixes, or requested regression tests with a practical test path.",
+        "argumentHint": "",
+        "aliases": [
+          "tdd"
+        ]
+      },
+      {
+        "name": "pancake-stack:teach",
+        "description": "(pancake-stack) Explain code or a software concept at the learner's pace, connecting behavior, purpose, and concrete examples. Use for teach me, learning a subsystem, or guided understanding. Use how for a direct execution-flow walkthrough.",
+        "argumentHint": "",
+        "aliases": [
+          "teach"
+        ]
+      },
+      {
+        "name": "pancake-stack:verify",
+        "description": "(pancake-stack) Verify requested software behavior through existing tests and relevant user interfaces, reporting evidence and coverage gaps. Use to prove a feature or fix works, or to prepare a requested reusable verification recipe.",
+        "argumentHint": ""
+      },
+      {
+        "name": "pancake-stack:why",
+        "description": "(pancake-stack) Investigate the rationale and history behind existing code or a design decision. Use for why an approach was chosen, historical constraints, or the motivation for a change. Use how for execution flow and fix for defect repair.",
+        "argumentHint": "",
+        "aliases": [
+          "why"
+        ]
+      },
+      {
+        "name": "pancake-stack:wtf",
+        "description": "(pancake-stack) Rewrite the previous assistant answer in clear, concise language. Use when the user asks to simplify or clarify what you just said.",
+        "argumentHint": "",
+        "aliases": [
+          "wtf"
+        ]
+      }
+    ],
+    "rawSha256": "f387f16411c976d8bfb3f3f55af9a681157f85573ed7308112d93e28c1b707b0",
+    "uniqueNames": 19
+  },
+  "authentication": {
+    "temporaryProfile": {
+      "loggedIn": false,
+      "authMethod": "none",
+      "apiProvider": "firstParty",
+      "analyticsDisabled": false,
+      "projectsDirectory": "$RUN_ROOT/profile/projects",
+      "configDirectory": "$RUN_ROOT/profile"
+    },
+    "normalProfile": {
+      "exitCode": 1,
+      "loggedIn": false,
+      "authMethod": "none"
+    }
+  },
+  "codexHow": {
+    "request": "$pancake-stack:how Explain how shipping prices are calculated in this project. Cite inspected code and distinguish source inspection from checks actually executed. Keep files and preferences unchanged. Do not install, commit, contact external systems or delegate.\n",
+    "invocation": [
+      "codex",
+      "exec",
+      "--ignore-rules",
+      "--json",
+      "-c",
+      "cli_auth_credentials_store=\"file\"",
+      "--sandbox",
+      "workspace-write",
+      "--skip-git-repo-check",
+      "--cd",
+      "$RUN_ROOT/shipping-prices",
+      "--output-last-message",
+      "$RUN_ROOT/codex-how-final.txt",
+      "-"
+    ],
+    "status": {
+      "exitCode": 0
+    },
+    "events": [
+      {
+        "type": "thread.started",
+        "thread_id": "01a1126a-fdaa-78e0-8c9c-fb3c1ab81f1c"
+      },
+      {
+        "type": "turn.started"
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_0",
+          "type": "agent_message",
+          "text": "I\u2019m using the pancake-stack:how skill to trace the shipping calculation from its entry point. I\u2019ll keep the investigation read-only and distinguish inspected code from any checks I execute.\n"
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_1",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g '\"'!node_modules'\"' -g '\"'!vendor'\"' -g '\"'!package-lock.json'\"' -g '\"'!yarn.lock'\"' -g '\"'!pnpm-lock.yaml'\"'\"",
+          "aggregated_output": "$RUN_ROOT/shipping-prices\n",
+          "exit_code": 1,
+          "status": "failed"
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat $RUN_ROOT/codex-profile/plugins/cache/pancake-stack/pancake-stack/0.19.0/skills/how/SKILL.md'",
+          "aggregated_output": "Installed instructions omitted; command and output hash retained.",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "8c58703d2878e9a9ea4bac37dbf37dc3e7c448d0ea9ef9da355a9832572ad2e4"
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"ls -la; rg --files --hidden -g '\"'!.git/**'\"' -g '\"'!node_modules/**'\"'; for p in /AGENTS.md /private/AGENTS.md /private/var/AGENTS.md /private/var/folders/AGENTS.md /private/var/folders/bk/AGENTS.md /private/var/folders/bk/bh4dh7m97wxbgm0ks511cdgc0000gn/AGENTS.md /private/var/folders/bk/bh4dh7m97wxbgm0ks511cdgc0000gn/T/AGENTS.md $RUN_ROOT/AGENTS.md; do if [ -f \\\"\"'$p\" ]; then cat \"$p\"; fi; done'",
+          "aggregated_output": "total 16\ndrwxr-xr-x@  4 jackwinter  staff  128 Oct  3 20:06 .\ndrwx------@ 30 jackwinter  staff  960 Oct  6 19:12 ..\n-rw-r--r--@  1 jackwinter  staff  267 Oct  3 20:06 app.py\n-rw-r--r--@  1 jackwinter  staff   36 Oct  3 20:06 notes.txt\napp.py\nnotes.txt\n",
+          "exit_code": 0,
+          "status": "completed"
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'nl -ba app.py; nl -ba notes.txt'",
+          "aggregated_output": "     1\tdef quote(subtotal, zone):\n     2\t    if subtotal < 0:\n     3\t        raise ValueError(\"subtotal must be nonnegative\")\n     4\t    if zone not in (\"local\", \"remote\"):\n     5\t        raise ValueError(\"unknown zone\")\n     6\t    if subtotal >= 100:\n     7\t        return 0\n     8\t    return 5 if zone == \"local\" else 12\n     1\tKeep this unrelated note unchanged.\n",
+          "exit_code": 0,
+          "status": "completed"
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_5",
+          "type": "agent_message",
+          "text": "Shipping prices are calculated by `quote(subtotal, zone)` in [app.py]($RUN_ROOT/shipping-prices/app.py:1):\n\n1. A negative subtotal raises `ValueError(\"subtotal must be nonnegative\")`.\n2. A zone other than `\"local\"` or `\"remote\"` raises `ValueError(\"unknown zone\")`.\n3. A subtotal of **100 or more** gets free shipping.\n4. Below 100, shipping costs **5 for local** or **12 for remote**.\n\nValidation happens before the free-shipping check, so an invalid zone still fails even when the subtotal exceeds 100. These rules appear in [app.py, lines 2\u20138]($RUN_ROOT/shipping-prices/app.py:2). The code does not specify a currency.\n\nThis explanation comes from **source inspection**. I executed only file discovery and reading commands; I did not run the function or tests. No files or preferences were changed, and nothing was installed, committed, delegated, or contacted externally."
+        }
+      },
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 69054,
+          "cached_input_tokens": 57728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 731,
+          "reasoning_output_tokens": 0
+        }
+      }
+    ],
+    "rawSha256": "e2119a88ddbda7465230eba472c24814043aafedc63178ff2c1e3dae515f7930",
+    "finalReply": "Shipping prices are calculated by `quote(subtotal, zone)` in [app.py]($RUN_ROOT/shipping-prices/app.py:1):\n\n1. A negative subtotal raises `ValueError(\"subtotal must be nonnegative\")`.\n2. A zone other than `\"local\"` or `\"remote\"` raises `ValueError(\"unknown zone\")`.\n3. A subtotal of **100 or more** gets free shipping.\n4. Below 100, shipping costs **5 for local** or **12 for remote**.\n\nValidation happens before the free-shipping check, so an invalid zone still fails even when the subtotal exceeds 100. These rules appear in [app.py, lines 2\u20138]($RUN_ROOT/shipping-prices/app.py:2). The code does not specify a currency.\n\nThis explanation comes from **source inspection**. I executed only file discovery and reading commands; I did not run the function or tests. No files or preferences were changed, and nothing was installed, committed, delegated, or contacted externally.",
+    "parentAssessment": "Trusted delivery fixture assessment passed; project snapshot unchanged",
+    "credentialCopyRemoved": true,
+    "before": {
+      "app.py": "aa0d1f1eff78f376240414c37f450842dfade4ab2ffa5199976adee8548eb2f0",
+      "notes.txt": "542e9cb83790c95901dd3207b05df908a597a0c303d5986ef20a9bf59e6d8283"
+    },
+    "after": {
+      "app.py": "aa0d1f1eff78f376240414c37f450842dfade4ab2ffa5199976adee8548eb2f0",
+      "notes.txt": "542e9cb83790c95901dd3207b05df908a597a0c303d5986ef20a9bf59e6d8283"
+    },
+    "parentAssessmentRecord": {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "$RUN_ROOT/parent-assess.py"
+      ],
+      "exitCode": 0,
+      "stdout": "artifact checks passed\n",
+      "stderr": "",
+      "assessorSha256": "71d34278f5f99f94a69d065675ddc27f32b02222512f5b6c66832b6f06a43185",
+      "rawScriptSha256": "70083a3548b0a9b45fef56ec2476e3d9e7c860ea1c6553f02e4dc23984e7c672"
+    }
+  },
+  "limitations": [
+    "Claude workflow, setup conversation, reviewer panels, competing Design and per-worker settings were not exercised without authentication",
+    "Model catalog metadata does not establish account access or actual delegated selection",
+    "Local installation does not establish Git-backed Claude distribution; no push or publication",
+    "A tiny Codex source-inspection task is not broad regression coverage",
+    "Raw records retained locally; installed instruction bodies omitted with hashes",
+    "Earlier Claude cache was stale in two Setup files; final fresh profile installs and compares all final source resources. Initial installation remains retained as earlier snapshot."
+  ],
+  "nativeValidationFirstAttempt": {
+    "plugin": {
+      "command": [
+        "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+        "plugin",
+        "validate",
+        "/Users/jackwinter/dev/pancake-stack/.claude-plugin/plugin.json",
+        "--strict"
+      ],
+      "exitCode": 0,
+      "stdout": "Validating plugin manifest: /Users/jackwinter/dev/pancake-stack/.claude-plugin/plugin.json\n\n\u2714 Validation passed\n",
+      "stderr": ""
+    },
+    "marketplace": {
+      "command": [
+        "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+        "plugin",
+        "validate",
+        "/Users/jackwinter/dev/pancake-stack/.claude-plugin/marketplace.json",
+        "--strict"
+      ],
+      "exitCode": 1,
+      "stdout": "Validating marketplace manifest: /Users/jackwinter/dev/pancake-stack/.claude-plugin/marketplace.json\n\n\u26a0 Found 1 warning:\n\n  \u276f description: No marketplace description provided. Adding a description helps users understand what this marketplace offers\n\n\u2718 Validation failed (--strict treats warnings as errors)\n",
+      "stderr": ""
+    }
+  },
+  "claudeCatalog": {
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "/Users/jackwinter/dev/pancake-stack/skills/setup/scripts/catalog.py",
+      "--host",
+      "claude",
+      "--claude",
+      "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude"
+    ],
+    "exitCode": 0,
+    "stdout": "{\n  \"models\": [\n    {\n      \"model\": \"default\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"opus\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"fable\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"sonnet\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"haiku\",\n      \"reasoningEfforts\": []\n    }\n  ]\n}\n",
+    "stderr": "",
+    "assessment": "CLI model choices normalized; no user/model message; missing effort metadata remains empty"
+  },
+  "sourceHashes": {
+    "plugin.json": "eb79023377e1864bbd4844df61fe38296bb1b2337ceb69541bd8dd941ae087f1",
+    ".claude-plugin/plugin.json": "88ebf2964a710ff32074e9c1ccce1da79ffd5ab4e726adce14995e212ef3f125",
+    ".claude-plugin/marketplace.json": "69ec47670b9cedd56303aa4d27fdecfc4c5230837c67dfaf1f66c57237eca394",
+    "skills/balls/SKILL.md": "c3a788b67ec6e193cb62425590567ea3ddd7bb637e2876278d77c90ad5c38f9f",
+    "skills/balls/agents/openai.yaml": "d2d98e537f13e09e8df224529fba69566bd24a26ff2e40aa2955c355b2d5c4c1",
+    "skills/challenge/SKILL.md": "196853fd6716e8621e798da5f7531d5c7fa9d12dad1c4f46af46d2cc9136732b",
+    "skills/challenge/agents/openai.yaml": "18288655adb2764be7e0a43f4b410c87839294ba18032ed1a07bb2d070aded4a",
+    "skills/check/SKILL.md": "5000466ad4b6eea4992803081d3a898786d06ce8ce919382203b02be9190d3be",
+    "skills/check/agents/openai.yaml": "477e0ba47b22e4989cd079e878f61bbdff983858c5681fb622445e451bc3a23a",
+    "skills/design/SKILL.md": "c23fc453bd968f8e7865fb0cb2fa224b7404161599e8d500c4f864f10e39900b",
+    "skills/design/agents/openai.yaml": "58115de3de4c464c23604c7dde7e3edfc94ec49491d4972369e0da6fbfe0624e",
+    "skills/design/references/competing-designs.md": "29180fde80de264525e876d9ce040e5f376c15be7e86943963069c8166a7e9b0",
+    "skills/design/references/typescript.md": "de83740bfd4d9fda86cb3f1846308d85901966fa4728f830824b596c0471520b",
+    "skills/fix/SKILL.md": "0b4067a3b5f8b91ad83ce814fd59c04374642f37ad6f6c1299f4b207b83cafff",
+    "skills/fix/agents/openai.yaml": "5de33902e9c88d9a0a4d4a8275397239a326098ffc3e13c046fe4f6b3ce68e6b",
+    "skills/handoff/SKILL.md": "cdb2114313e2dd48a8df345ee37d364c5af967afa754933fc003c843ed8018ad",
+    "skills/handoff/agents/openai.yaml": "cef4a4cb097b4269a203ede3983123d7cad9fd97f1150c6a84c671ead23de777",
+    "skills/handoff/references/continuation.md": "7c88327e92e20dbb5b2c34993c68930d34633cb0b8b627587320e99a63b8a3b2",
+    "skills/how/SKILL.md": "8c58703d2878e9a9ea4bac37dbf37dc3e7c448d0ea9ef9da355a9832572ad2e4",
+    "skills/how/agents/openai.yaml": "dab8e080bc74551577462bdd2c85ad375859edc4d45abed039b7fbd6bbe4e9d7",
+    "skills/pancake/SKILL.md": "1e649864faee173aaac6c09a9737a16f79c698cc05cc132284e349813b83c2db",
+    "skills/pancake/agents/openai.yaml": "9be4bc45816a22ae67eae89726daa97bdb846fd32df0e3fe30ab4cc800b406e0",
+    "skills/pancake/references/decision-trail.md": "283479850d89ef1e39a3dbee5046bfc353bef4a7d06b5fb6b2152c43669e45ff",
+    "skills/pancake/references/experiments.md": "a3ee8e890bfbf456e72019438a4b6fc6a115ad244232d32b5441d553debd7c8a",
+    "skills/pancake/references/forensics.md": "8cab5e45557a0a96b26d1149f0176b4953295d8e8d027e7029aaf648cd0ff1db",
+    "skills/pancake/references/host-runtime.md": "514169dcb4b559490c69bb21acda0ae6a85b61fc2e7465d2263ad63f050fdcd0",
+    "skills/pancake/references/implementation.md": "b96dee25f83697ca2a55844310216873a50b0f17aa6cd9ef9a146dcb0509b339",
+    "skills/pancake/references/parallel-work.md": "3adb1cb46c6b6de7047008003c891e454c839bcec982fb1931216bc2538b09bb",
+    "skills/pancake/references/pr-maintenance.md": "696dfe88793e8e773f6476e7f2f0d4c21512dde475927ecb3167d9a32ea8c4cb",
+    "skills/pancake/references/shipping.md": "0db62af15d26c1d4cb4643ccee6d166dba0fec3d8ce87524f6dff272c679de51",
+    "skills/pancake/references/substantial-work.md": "d182a723d611ccac29723ea289f2929804092d73f2616cc5750237480b566ab1",
+    "skills/pancake/references/values.md": "9c57c9e939749763f9d0594b139185067c421bdaafaf8ed0bb474d156111cdb5",
+    "skills/pancake/references/visual-parity.md": "fb53dcf9f52ce1656a07d960eed2b73487647512542abd3c824a32aac515755a",
+    "skills/pancake/references/worktree-cleanup.md": "37adee93745772832e20718dbcd0dacac37d292db5337557bd1c2a3df4765f38",
+    "skills/pr/SKILL.md": "318559f250165078cab0d23ee5bd156da49996418666e7b8bb6d0aa5d5de126a",
+    "skills/pr/agents/openai.yaml": "8192514992aba2f025c7c9bfddeae785269d8e5ec3f6f5d557cb577c9d017b67",
+    "skills/recap/SKILL.md": "30abbe05b1bfe101a254d8a882f241e08052033c181c4324cf80e4f79fa34f8d",
+    "skills/recap/agents/openai.yaml": "f5625a3fd8d33766359f7b44f1a49d467ec317202c72fdf089ac377734ba2b77",
+    "skills/reflect/SKILL.md": "a0c22f7e0c867a44528f91018cc7c2d9b68db0932f397c575e3ea411d72ecf93",
+    "skills/reflect/agents/openai.yaml": "6b98ff4840985e5598d903f459d5733f165eaa9c566e0545ad8c420161142ba8",
+    "skills/reflect/references/personalization.md": "c351ebac1e9400183cd30249f019e33486e068811172a98f70945b4f3a122a8c",
+    "skills/scope/SKILL.md": "b19e4150374c8de83b790a4958070d5559627b2c78e2a1e593a5f5901e8c3ff0",
+    "skills/scope/agents/openai.yaml": "c02f66936965b7a33c6542563e2d7942246b3cf449acd4465495822f5e3e032c",
+    "skills/setup/SKILL.md": "fa71230a1ca5dffffe19091e2f686131180ef566eaf84ffbfe4017f0d98ec941",
+    "skills/setup/agents/openai.yaml": "8176768e24c8ade45023122e9aaa32813232c2f71105ea2f25e0c6f29dec0426",
+    "skills/setup/scripts/catalog.py": "0be97e5033072ea821369e83fd3719e04f5c9a9801a154f0904b7883215583e7",
+    "skills/setup/scripts/preferences.py": "641b38f2f526389e257316f8d2b5dbf6549c847a590552632695651e527422c4",
+    "skills/sift/SKILL.md": "a99a0df9ad51d9849c1e97c77215f3e1fd4a9742c5c52f9c92e0cff6ea166394",
+    "skills/sift/agents/openai.yaml": "a6fef275d0d67e78c8ab867f8e45ae08d46f0450d72bb2ad9f2dcda64748cbae",
+    "skills/sift/references/technical-writing.md": "6d415b30db28801d9764aa68546f63b87f607d2602b8aff938205e29c6659aed",
+    "skills/tdd/SKILL.md": "a877ed78d701a8a8879197e5f8e9c1c19d972bb74dda018d2a5edceb24758e2b",
+    "skills/tdd/agents/openai.yaml": "b02f90712c7d38a3f02651a7765db6ca48520f2ae8815ca5d0727712b07e8c29",
+    "skills/teach/SKILL.md": "af06604759033e31a3847fe3e75627ccb0721b61f66fd51abfcd1f64060c43e9",
+    "skills/teach/agents/openai.yaml": "d2668f614a273ebb75e91bf5780062d1cae5fcf498dcb06cdfe3a3116aa04dd4",
+    "skills/verify/SKILL.md": "89cfc4b1038e50968d3e991eaeca7572efef89d69fdfb80921991ad3b16723f0",
+    "skills/verify/agents/openai.yaml": "db029e9ebed49d0310564d5d45d33ee1962517b2aa89da3afef2d47f4376f13d",
+    "skills/verify/references/maintenance.md": "9a2a17d52439d971817f6fa5d48d1b9ccb538987cbfdd5d04793bd1bd01b1fbd",
+    "skills/verify/references/recipes.md": "6393b0a545f904659bb9c8dd33a4d451cc9dab97ab71959030750b69c902eca3",
+    "skills/why/SKILL.md": "27b5f43bbf845019ed5f98e370b09871397b19ba005c6b1d9bbcf78ef48b1581",
+    "skills/why/agents/openai.yaml": "b13eb6b4b2ddf9f5058e344a5394b16f336c7245107a5e0e74d171365765068d",
+    "skills/wtf/SKILL.md": "0b4cb6fb0c61c3c16058f40c4aa1f4e2e87d872f083dd3aec726c5fd17f77691",
+    "skills/wtf/agents/openai.yaml": "605840999d85542836027138bb2ed4455365cd75ed3b02f640661c6e24e2f080"
+  },
+  "claudeInstalledInventory": {
+    "invocation": [
+      "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+      "-p",
+      "--input-format",
+      "stream-json",
+      "--output-format",
+      "stream-json",
+      "--verbose",
+      "--no-session-persistence",
+      "--setting-sources",
+      "user",
+      "--settings",
+      "{\"disableAllHooks\":true}",
+      "--strict-mcp-config",
+      "--mcp-config",
+      "{\"mcpServers\":{}}",
+      "--tools",
+      ""
+    ],
+    "commands": [
+      {
+        "name": "pancake-stack:balls",
+        "description": "(pancake-stack) Draft a short spoken standup update covering blockers, aims, and lessons learned for technical and nontechnical colleagues. Use for balls or a standup update in this format.",
+        "argumentHint": "",
+        "aliases": [
+          "balls"
+        ]
+      },
+      {
+        "name": "pancake-stack:challenge",
+        "description": "(pancake-stack) Challenge assumptions in a software design or consequential code change with evidence-based adversarial review. Use for blind spots, contested decisions, or requests to stress-test an approach. Use check for routine diff review.",
+        "argumentHint": "",
+        "aliases": [
+          "challenge"
+        ]
+      },
+      {
+        "name": "pancake-stack:check",
+        "description": "(pancake-stack) Review a code change for actionable bugs, regressions, and verification gaps. Use when the user asks to check a diff, review changes, or assess what a change could break.",
+        "argumentHint": "",
+        "aliases": [
+          "check"
+        ]
+      },
+      {
+        "name": "pancake-stack:design",
+        "description": "(pancake-stack) Propose a software design grounded in existing code and constraints. Use for architecture decisions, interface planning, or comparing implementation approaches before coding.",
+        "argumentHint": ""
+      },
+      {
+        "name": "pancake-stack:fix",
+        "description": "(pancake-stack) Diagnose and fix a reported software defect with focused verification. Use for broken behavior, errors, and regression fixes.",
+        "argumentHint": "",
+        "aliases": [
+          "fix"
+        ]
+      },
+      {
+        "name": "pancake-stack:handoff",
+        "description": "(pancake-stack) Prepare a concise continuation note for a new chat or colleague from the current task, conversation, and repository state. Use for handing off work, summarizing where to resume, or requested task pickup and pause.",
+        "argumentHint": "",
+        "aliases": [
+          "handoff"
+        ]
+      },
+      {
+        "name": "pancake-stack:how",
+        "description": "(pancake-stack) Explain how existing code works by tracing behavior and citing its implementation. Use for code walkthroughs, execution flow, and ownership questions.",
+        "argumentHint": "",
+        "aliases": [
+          "how"
+        ]
+      },
+      {
+        "name": "pancake-stack:pancake",
+        "description": "(pancake-stack) Apply proportionate rigor to a software task. Use when the user invokes pancake or explicitly requests a rigorous investigation, implementation, or review.",
+        "argumentHint": "",
+        "aliases": [
+          "pancake"
+        ]
+      },
+      {
+        "name": "pancake-stack:pr",
+        "description": "(pancake-stack) Draft a pull request title and description grounded in the ticket and actual branch diff. Use for PR wording, or preparing a requested PR creation or update.",
+        "argumentHint": ""
+      },
+      {
+        "name": "pancake-stack:recap",
+        "description": "(pancake-stack) Recover decisions, unfinished work, and the current state of a named project or topic. Use for catching up or asking where work was left off. Use handoff to prepare a note for someone else.",
+        "argumentHint": ""
+      },
+      {
+        "name": "pancake-stack:reflect",
+        "description": "(pancake-stack) Review the current task for durable lessons and propose concrete improvements to code, tests, tooling, or skill guidance. Use for a retrospective or reflection on how work went, rather than a standup summary or code review.",
+        "argumentHint": "",
+        "aliases": [
+          "reflect"
+        ]
+      },
+      {
+        "name": "pancake-stack:scope",
+        "description": "(pancake-stack) Turn a ticket or feature request into an implementation brief grounded in existing code. Use to establish outcomes, acceptance criteria, boundaries, and missing requirements before design or implementation.",
+        "argumentHint": "",
+        "aliases": [
+          "scope"
+        ]
+      },
+      {
+        "name": "pancake-stack:setup",
+        "description": "(pancake-stack) Configure Pancake Stack model and reasoning effort preferences. Use for Pancake Stack setup.",
+        "argumentHint": "",
+        "aliases": [
+          "setup"
+        ]
+      },
+      {
+        "name": "pancake-stack:sift",
+        "description": "(pancake-stack) Write or edit prose to remove filler, vague claims, and formulaic AI phrasing while preserving meaning and voice. Use for prose cleanup or as the writing standard within pancake.",
+        "argumentHint": "",
+        "aliases": [
+          "sift"
+        ]
+      },
+      {
+        "name": "pancake-stack:tdd",
+        "description": "(pancake-stack) Develop through a failing test before changing production code. Use for explicit TDD, test-first bug fixes, or requested regression tests with a practical test path.",
+        "argumentHint": "",
+        "aliases": [
+          "tdd"
+        ]
+      },
+      {
+        "name": "pancake-stack:teach",
+        "description": "(pancake-stack) Explain code or a software concept at the learner's pace, connecting behavior, purpose, and concrete examples. Use for teach me, learning a subsystem, or guided understanding. Use how for a direct execution-flow walkthrough.",
+        "argumentHint": "",
+        "aliases": [
+          "teach"
+        ]
+      },
+      {
+        "name": "pancake-stack:verify",
+        "description": "(pancake-stack) Verify requested software behavior through existing tests and relevant user interfaces, reporting evidence and coverage gaps. Use to prove a feature or fix works, or to prepare a requested reusable verification recipe.",
+        "argumentHint": ""
+      },
+      {
+        "name": "pancake-stack:why",
+        "description": "(pancake-stack) Investigate the rationale and history behind existing code or a design decision. Use for why an approach was chosen, historical constraints, or the motivation for a change. Use how for execution flow and fix for defect repair.",
+        "argumentHint": "",
+        "aliases": [
+          "why"
+        ]
+      },
+      {
+        "name": "pancake-stack:wtf",
+        "description": "(pancake-stack) Rewrite the previous assistant answer in clear, concise language. Use when the user asks to simplify or clarify what you just said.",
+        "argumentHint": "",
+        "aliases": [
+          "wtf"
+        ]
+      }
+    ],
+    "uniqueNames": 19,
+    "noPluginDirOverride": true,
+    "rawSha256": "cd1025a51597f40fe70fd7563b551dcfcde8bd20b5386e39e665ab6eeb249913"
+  },
+  "profileScope": {
+    "claudeValidationAndCatalog": "$RUN_ROOT/profile",
+    "claudeLocalInstallation": "$RUN_ROOT/installed-profile",
+    "codexLocalInstallation": "$RUN_ROOT/codex-profile",
+    "marketplaceRegistration": "Only temporary profile settings, not actual user settings",
+    "normalAuthenticationCheck": "Read-only status summary only",
+    "claudeFinalInstall": "$RUN_ROOT/final-claude-profile"
+  },
+  "repositoryChecks": {
+    "command": "python3 -B -m unittest discover -s tests -v",
+    "result": "47 tests passed",
+    "rawOutputSha256": "9f50ab73ec645ec0f08d589148dfd78a4503399587e60da99e49511ab6268497"
+  },
+  "review": {
+    "scope": "Complete helper, shared workflow, native package and documentation diff",
+    "result": "Independent read-only review found no actionable defects; reviewer reran isolated suite",
+    "limits": "Authenticated Claude behavior and observed delegated settings remain unverified"
+  },
+  "codexInstalledResources": {
+    "command": [
+      "codex",
+      "plugin",
+      "add",
+      "pancake-stack@pancake-stack",
+      "--json"
+    ],
+    "exitCode": 0,
+    "stdout": "{\n  \"pluginId\": \"pancake-stack@pancake-stack\",\n  \"name\": \"pancake-stack\",\n  \"marketplaceName\": \"pancake-stack\",\n  \"version\": \"0.19.0\",\n  \"installedPath\": \"$RUN_ROOT/codex-profile/plugins/cache/pancake-stack/pancake-stack/0.19.0\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+    "matchedSkillResourceFiles": 59,
+    "allMatchCurrentSource": true
+  },
+  "finalClaudeInstall": {
+    "commands": [
+      {
+        "command": [
+          "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+          "plugin",
+          "validate",
+          "$RUN_ROOT/package/.claude-plugin/plugin.json",
+          "--strict"
+        ],
+        "environment": {
+          "CLAUDE_CONFIG_DIR": "$RUN_ROOT/final-claude-profile",
+          "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+        },
+        "exitCode": 0,
+        "stdout": "Validating plugin manifest: $RUN_ROOT/package/.claude-plugin/plugin.json\n\n\u2714 Validation passed\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+          "plugin",
+          "validate",
+          "$RUN_ROOT/package/.claude-plugin/marketplace.json",
+          "--strict"
+        ],
+        "environment": {
+          "CLAUDE_CONFIG_DIR": "$RUN_ROOT/final-claude-profile",
+          "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+        },
+        "exitCode": 0,
+        "stdout": "Validating marketplace manifest: $RUN_ROOT/package/.claude-plugin/marketplace.json\n\n\u2714 Validation passed\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+          "plugin",
+          "marketplace",
+          "add",
+          "$RUN_ROOT/package"
+        ],
+        "environment": {
+          "CLAUDE_CONFIG_DIR": "$RUN_ROOT/final-claude-profile",
+          "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+        },
+        "exitCode": 0,
+        "stdout": "Adding marketplace\u2026\u2714 Successfully added marketplace: pancake-stack (declared in user settings)\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+          "plugin",
+          "install",
+          "pancake-stack@pancake-stack"
+        ],
+        "environment": {
+          "CLAUDE_CONFIG_DIR": "$RUN_ROOT/final-claude-profile",
+          "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+        },
+        "exitCode": 0,
+        "stdout": "Installing plugin \"pancake-stack@pancake-stack\"...\u2714 Successfully installed plugin: pancake-stack@pancake-stack (scope: user)\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude",
+          "plugin",
+          "list",
+          "--json"
+        ],
+        "environment": {
+          "CLAUDE_CONFIG_DIR": "$RUN_ROOT/final-claude-profile",
+          "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+        },
+        "exitCode": 0,
+        "stdout": "[\n  {\n    \"id\": \"pancake-stack@pancake-stack\",\n    \"version\": \"0.19.0\",\n    \"scope\": \"user\",\n    \"enabled\": true,\n    \"installPath\": \"$RUN_ROOT/final-claude-profile/plugins/cache/pancake-stack/pancake-stack/0.19.0\",\n    \"readFromFolder\": \"$RUN_ROOT/package\",\n    \"folderVersion\": \"0.19.0\",\n    \"installedAt\": \"2026-10-06T18:39:04.831Z\",\n    \"lastUpdated\": \"2026-10-06T18:39:04.831Z\",\n    \"projectEnabled\": false\n  }\n]\n",
+        "stderr": ""
+      }
+    ],
+    "rawSha256": "35c3e76e372823f8f7b39b97899cc7b4b00911fa7c315dca38b53ba7dee5b281",
+    "resourceComparisons": {
+      "skills/pancake/SKILL.md": {
+        "sha256": "1e649864faee173aaac6c09a9737a16f79c698cc05cc132284e349813b83c2db",
+        "matches": true
+      },
+      "skills/pancake/references/implementation.md": {
+        "sha256": "b96dee25f83697ca2a55844310216873a50b0f17aa6cd9ef9a146dcb0509b339",
+        "matches": true
+      },
+      "skills/pancake/references/shipping.md": {
+        "sha256": "0db62af15d26c1d4cb4643ccee6d166dba0fec3d8ce87524f6dff272c679de51",
+        "matches": true
+      },
+      "skills/pancake/references/parallel-work.md": {
+        "sha256": "3adb1cb46c6b6de7047008003c891e454c839bcec982fb1931216bc2538b09bb",
+        "matches": true
+      },
+      "skills/pancake/references/experiments.md": {
+        "sha256": "a3ee8e890bfbf456e72019438a4b6fc6a115ad244232d32b5441d553debd7c8a",
+        "matches": true
+      },
+      "skills/pancake/references/pr-maintenance.md": {
+        "sha256": "696dfe88793e8e773f6476e7f2f0d4c21512dde475927ecb3167d9a32ea8c4cb",
+        "matches": true
+      },
+      "skills/pancake/references/worktree-cleanup.md": {
+        "sha256": "37adee93745772832e20718dbcd0dacac37d292db5337557bd1c2a3df4765f38",
+        "matches": true
+      },
+      "skills/pancake/references/values.md": {
+        "sha256": "9c57c9e939749763f9d0594b139185067c421bdaafaf8ed0bb474d156111cdb5",
+        "matches": true
+      },
+      "skills/pancake/references/substantial-work.md": {
+        "sha256": "d182a723d611ccac29723ea289f2929804092d73f2616cc5750237480b566ab1",
+        "matches": true
+      },
+      "skills/pancake/references/decision-trail.md": {
+        "sha256": "283479850d89ef1e39a3dbee5046bfc353bef4a7d06b5fb6b2152c43669e45ff",
+        "matches": true
+      },
+      "skills/pancake/references/host-runtime.md": {
+        "sha256": "514169dcb4b559490c69bb21acda0ae6a85b61fc2e7465d2263ad63f050fdcd0",
+        "matches": true
+      },
+      "skills/pancake/references/forensics.md": {
+        "sha256": "8cab5e45557a0a96b26d1149f0176b4953295d8e8d027e7029aaf648cd0ff1db",
+        "matches": true
+      },
+      "skills/pancake/references/visual-parity.md": {
+        "sha256": "fb53dcf9f52ce1656a07d960eed2b73487647512542abd3c824a32aac515755a",
+        "matches": true
+      },
+      "skills/pancake/agents/openai.yaml": {
+        "sha256": "9be4bc45816a22ae67eae89726daa97bdb846fd32df0e3fe30ab4cc800b406e0",
+        "matches": true
+      },
+      "skills/sift/SKILL.md": {
+        "sha256": "a99a0df9ad51d9849c1e97c77215f3e1fd4a9742c5c52f9c92e0cff6ea166394",
+        "matches": true
+      },
+      "skills/sift/references/technical-writing.md": {
+        "sha256": "6d415b30db28801d9764aa68546f63b87f607d2602b8aff938205e29c6659aed",
+        "matches": true
+      },
+      "skills/sift/agents/openai.yaml": {
+        "sha256": "a6fef275d0d67e78c8ab867f8e45ae08d46f0450d72bb2ad9f2dcda64748cbae",
+        "matches": true
+      },
+      "skills/recap/SKILL.md": {
+        "sha256": "30abbe05b1bfe101a254d8a882f241e08052033c181c4324cf80e4f79fa34f8d",
+        "matches": true
+      },
+      "skills/recap/agents/openai.yaml": {
+        "sha256": "f5625a3fd8d33766359f7b44f1a49d467ec317202c72fdf089ac377734ba2b77",
+        "matches": true
+      },
+      "skills/balls/SKILL.md": {
+        "sha256": "c3a788b67ec6e193cb62425590567ea3ddd7bb637e2876278d77c90ad5c38f9f",
+        "matches": true
+      },
+      "skills/balls/agents/openai.yaml": {
+        "sha256": "d2d98e537f13e09e8df224529fba69566bd24a26ff2e40aa2955c355b2d5c4c1",
+        "matches": true
+      },
+      "skills/design/SKILL.md": {
+        "sha256": "c23fc453bd968f8e7865fb0cb2fa224b7404161599e8d500c4f864f10e39900b",
+        "matches": true
+      },
+      "skills/design/references/competing-designs.md": {
+        "sha256": "29180fde80de264525e876d9ce040e5f376c15be7e86943963069c8166a7e9b0",
+        "matches": true
+      },
+      "skills/design/references/typescript.md": {
+        "sha256": "de83740bfd4d9fda86cb3f1846308d85901966fa4728f830824b596c0471520b",
+        "matches": true
+      },
+      "skills/design/agents/openai.yaml": {
+        "sha256": "58115de3de4c464c23604c7dde7e3edfc94ec49491d4972369e0da6fbfe0624e",
+        "matches": true
+      },
+      "skills/why/SKILL.md": {
+        "sha256": "27b5f43bbf845019ed5f98e370b09871397b19ba005c6b1d9bbcf78ef48b1581",
+        "matches": true
+      },
+      "skills/why/agents/openai.yaml": {
+        "sha256": "b13eb6b4b2ddf9f5058e344a5394b16f336c7245107a5e0e74d171365765068d",
+        "matches": true
+      },
+      "skills/how/SKILL.md": {
+        "sha256": "8c58703d2878e9a9ea4bac37dbf37dc3e7c448d0ea9ef9da355a9832572ad2e4",
+        "matches": true
+      },
+      "skills/how/agents/openai.yaml": {
+        "sha256": "dab8e080bc74551577462bdd2c85ad375859edc4d45abed039b7fbd6bbe4e9d7",
+        "matches": true
+      },
+      "skills/verify/SKILL.md": {
+        "sha256": "89cfc4b1038e50968d3e991eaeca7572efef89d69fdfb80921991ad3b16723f0",
+        "matches": true
+      },
+      "skills/verify/references/recipes.md": {
+        "sha256": "6393b0a545f904659bb9c8dd33a4d451cc9dab97ab71959030750b69c902eca3",
+        "matches": true
+      },
+      "skills/verify/references/maintenance.md": {
+        "sha256": "9a2a17d52439d971817f6fa5d48d1b9ccb538987cbfdd5d04793bd1bd01b1fbd",
+        "matches": true
+      },
+      "skills/verify/agents/openai.yaml": {
+        "sha256": "db029e9ebed49d0310564d5d45d33ee1962517b2aa89da3afef2d47f4376f13d",
+        "matches": true
+      },
+      "skills/handoff/SKILL.md": {
+        "sha256": "cdb2114313e2dd48a8df345ee37d364c5af967afa754933fc003c843ed8018ad",
+        "matches": true
+      },
+      "skills/handoff/references/continuation.md": {
+        "sha256": "7c88327e92e20dbb5b2c34993c68930d34633cb0b8b627587320e99a63b8a3b2",
+        "matches": true
+      },
+      "skills/handoff/agents/openai.yaml": {
+        "sha256": "cef4a4cb097b4269a203ede3983123d7cad9fd97f1150c6a84c671ead23de777",
+        "matches": true
+      },
+      "skills/reflect/SKILL.md": {
+        "sha256": "a0c22f7e0c867a44528f91018cc7c2d9b68db0932f397c575e3ea411d72ecf93",
+        "matches": true
+      },
+      "skills/reflect/references/personalization.md": {
+        "sha256": "c351ebac1e9400183cd30249f019e33486e068811172a98f70945b4f3a122a8c",
+        "matches": true
+      },
+      "skills/reflect/agents/openai.yaml": {
+        "sha256": "6b98ff4840985e5598d903f459d5733f165eaa9c566e0545ad8c420161142ba8",
+        "matches": true
+      },
+      "skills/setup/SKILL.md": {
+        "sha256": "fa71230a1ca5dffffe19091e2f686131180ef566eaf84ffbfe4017f0d98ec941",
+        "matches": true
+      },
+      "skills/setup/agents/openai.yaml": {
+        "sha256": "8176768e24c8ade45023122e9aaa32813232c2f71105ea2f25e0c6f29dec0426",
+        "matches": true
+      },
+      "skills/setup/scripts/catalog.py": {
+        "sha256": "0be97e5033072ea821369e83fd3719e04f5c9a9801a154f0904b7883215583e7",
+        "matches": true
+      },
+      "skills/setup/scripts/preferences.py": {
+        "sha256": "641b38f2f526389e257316f8d2b5dbf6549c847a590552632695651e527422c4",
+        "matches": true
+      },
+      "skills/scope/SKILL.md": {
+        "sha256": "b19e4150374c8de83b790a4958070d5559627b2c78e2a1e593a5f5901e8c3ff0",
+        "matches": true
+      },
+      "skills/scope/agents/openai.yaml": {
+        "sha256": "c02f66936965b7a33c6542563e2d7942246b3cf449acd4465495822f5e3e032c",
+        "matches": true
+      },
+      "skills/pr/SKILL.md": {
+        "sha256": "318559f250165078cab0d23ee5bd156da49996418666e7b8bb6d0aa5d5de126a",
+        "matches": true
+      },
+      "skills/pr/agents/openai.yaml": {
+        "sha256": "8192514992aba2f025c7c9bfddeae785269d8e5ec3f6f5d557cb577c9d017b67",
+        "matches": true
+      },
+      "skills/fix/SKILL.md": {
+        "sha256": "0b4067a3b5f8b91ad83ce814fd59c04374642f37ad6f6c1299f4b207b83cafff",
+        "matches": true
+      },
+      "skills/fix/agents/openai.yaml": {
+        "sha256": "5de33902e9c88d9a0a4d4a8275397239a326098ffc3e13c046fe4f6b3ce68e6b",
+        "matches": true
+      },
+      "skills/teach/SKILL.md": {
+        "sha256": "af06604759033e31a3847fe3e75627ccb0721b61f66fd51abfcd1f64060c43e9",
+        "matches": true
+      },
+      "skills/teach/agents/openai.yaml": {
+        "sha256": "d2668f614a273ebb75e91bf5780062d1cae5fcf498dcb06cdfe3a3116aa04dd4",
+        "matches": true
+      },
+      "skills/challenge/SKILL.md": {
+        "sha256": "196853fd6716e8621e798da5f7531d5c7fa9d12dad1c4f46af46d2cc9136732b",
+        "matches": true
+      },
+      "skills/challenge/agents/openai.yaml": {
+        "sha256": "18288655adb2764be7e0a43f4b410c87839294ba18032ed1a07bb2d070aded4a",
+        "matches": true
+      },
+      "skills/check/SKILL.md": {
+        "sha256": "5000466ad4b6eea4992803081d3a898786d06ce8ce919382203b02be9190d3be",
+        "matches": true
+      },
+      "skills/check/agents/openai.yaml": {
+        "sha256": "477e0ba47b22e4989cd079e878f61bbdff983858c5681fb622445e451bc3a23a",
+        "matches": true
+      },
+      "skills/tdd/SKILL.md": {
+        "sha256": "a877ed78d701a8a8879197e5f8e9c1c19d972bb74dda018d2a5edceb24758e2b",
+        "matches": true
+      },
+      "skills/tdd/agents/openai.yaml": {
+        "sha256": "b02f90712c7d38a3f02651a7765db6ca48520f2ae8815ca5d0727712b07e8c29",
+        "matches": true
+      },
+      "skills/wtf/SKILL.md": {
+        "sha256": "0b4cb6fb0c61c3c16058f40c4aa1f4e2e87d872f083dd3aec726c5fd17f77691",
+        "matches": true
+      },
+      "skills/wtf/agents/openai.yaml": {
+        "sha256": "605840999d85542836027138bb2ed4455365cd75ed3b02f640661c6e24e2f080",
+        "matches": true
+      }
+    },
+    "installedCatalog": {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "$RUN_ROOT/final-claude-profile/plugins/cache/pancake-stack/pancake-stack/0.19.0/skills/setup/scripts/catalog.py",
+        "--host",
+        "claude",
+        "--claude",
+        "$RUN_ROOT/tooling/node_modules/@anthropic-ai/claude-code-darwin-arm64/claude"
+      ],
+      "environment": {
+        "CLAUDE_CONFIG_DIR": "$RUN_ROOT/final-claude-profile",
+        "CLAUDECODE": "1"
+      },
+      "exitCode": 0,
+      "stdout": "{\n  \"models\": [\n    {\n      \"model\": \"default\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"opus\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"fable\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"sonnet\",\n      \"reasoningEfforts\": [\n        \"low\",\n        \"medium\",\n        \"high\",\n        \"xhigh\",\n        \"max\"\n      ]\n    },\n    {\n      \"model\": \"haiku\",\n      \"reasoningEfforts\": []\n    }\n  ]\n}\n",
+      "stderr": ""
+    }
+  },
+  "skillAuthoringValidation": {
+    "command": "quick_validate.py against all19 skills using a temporary PyYAML environment",
+    "results": [
+      {
+        "skill": "balls",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "challenge",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "check",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "design",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "fix",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "handoff",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "how",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "pancake",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "pr",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "recap",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "reflect",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "scope",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "setup",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "sift",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "tdd",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "teach",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "verify",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "why",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      },
+      {
+        "skill": "wtf",
+        "exitCode": 0,
+        "stdout": "Skill is valid!\n"
+      }
+    ],
+    "scope": "frontmatter validation only; no behavioral claim"
+  },
+  "finalAudit": {
+    "requestedReviewerModel": "gpt-6-astra",
+    "result": "No unresolved attention flags after fresh-cache and raw-record corrections",
+    "scope": "retained artifacts and repository diff; parent full transcript not supplied"
+  }
+}

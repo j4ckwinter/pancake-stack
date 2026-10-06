@@ -2,6 +2,8 @@
 
 Use these prompts in a Codex chat after installing the plugin. Replace the example behavior and paths with your project's details. Select the installed skill in the host picker when available. The `$pancake-stack:...` text invokes a skill in chat, not a shell command.
 
+In Claude Code, use `/pancake-stack:...` with the same task text. Setup discovers Claude choices and saves Claude-owned preferences. The GPT model pairs below are recorded Codex examples; choose models supported by your active Claude host when requesting reviewer panels or competing designs. See [Claude Code support](claude.md) for observed host coverage.
+
 ## Start with a read-only walkthrough
 
 > $pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only. Cite inspected code and name anything you could not verify.

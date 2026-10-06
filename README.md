@@ -6,6 +6,10 @@ these are the skills i use every day to help ai write code i actually want to ke
 
 ## try it out
 
+Pancake Stack packages one shared set of 19 skills for Codex and Claude Code.
+
+### Codex
+
 run these from the repo:
 
 ```sh
@@ -21,9 +25,27 @@ start with one small task:
 
 > $pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
 
+### Claude Code
+
+Load the plugin for one session from the repo:
+
+```sh
+claude --plugin-dir .
+```
+
+Then use the same task with Claude Code's native skill syntax:
+
+> /pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
+
+Use `/pancake-stack:setup`, `/pancake-stack:design`, or any other skill below by replacing the Codex `$` prefix with `/`. The workflows, review requirements, and verification rules come from the same files. Each host keeps its own model preferences.
+
+Claude Code 2.1.291 has validated the package and discovered all 19 skills. Authenticated workflow and reviewer-setting parity checks remain pending. See [Claude Code support](docs/claude.md) for installation and verification scope.
+
+### Choose the work
+
 then choose what you need:
 
-1. use `$pancake-stack:setup` if you want saved model and reasoning preferences. you can also leave settings inherited from Codex.
+1. use `$pancake-stack:setup` if you want saved model and reasoning preferences. you can also leave settings inherited from your host.
 2. use `$pancake-stack:pancake` for implementation. give it the outcome, relevant files, and how you will know it works.
 3. use `$pancake-stack:design` before implementation when you need to settle the approach.
 

@@ -107,6 +107,40 @@ def validate_package(root: Path) -> list[str]:
         elif (root / source["path"]).resolve() != root:
             fail(marketplace_path, "local source does not resolve to package root")
 
+    claude_path = root / ".claude-plugin/plugin.json"
+    claude = json_object(claude_path)
+    for field in ("name", "version", "description", "author"):
+        if claude.get(field) != manifest.get(field):
+            fail(claude_path, f"{field} must match plugin.json")
+    if claude.get("skills") != "./skills/":
+        fail(claude_path, "skills must point to shared ./skills/")
+    elif not (root / claude["skills"]).resolve().is_relative_to(root):
+        fail(claude_path, "skills path escapes package")
+    if set(claude) != {"name", "version", "description", "author", "skills"}:
+        fail(claude_path, "expected native Claude manifest fields")
+
+    claude_market_path = root / ".claude-plugin/marketplace.json"
+    claude_market = json_object(claude_market_path)
+    if claude_market.get("name") != name:
+        fail(claude_market_path, "marketplace name must match plugin.json")
+    if claude_market.get("owner") != author:
+        fail(claude_market_path, "owner must match plugin author")
+    metadata = claude_market.get("metadata")
+    if not isinstance(metadata, dict) or metadata.get("description") != manifest.get("description"):
+        fail(claude_market_path, "marketplace description must match plugin.json")
+    claude_entries = claude_market.get("plugins")
+    if not isinstance(claude_entries, list) or len(claude_entries) != 1 or not isinstance(claude_entries[0], dict):
+        fail(claude_market_path, "expected one local package entry")
+    else:
+        entry = claude_entries[0]
+        for field in ("name", "version", "description", "author"):
+            if entry.get(field) != manifest.get(field):
+                fail(claude_market_path, f"plugin entry {field} must match plugin.json")
+        if entry.get("source") != "./":
+            fail(claude_market_path, "package source must be ./")
+        elif (root / entry["source"]).resolve() != root:
+            fail(claude_market_path, "local source does not resolve to package root")
+
     for path in sorted((root / "config").glob("*.example.json")):
         json_object(path)
 
