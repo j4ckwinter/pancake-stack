@@ -6,6 +6,8 @@ A fresh installed `$pancake-stack:setup` CLI invocation saved supplied inherit-b
 
 App-server `skills/list` returned all 19 enabled namespaced skills from the Git-installed 0.18.2 cache with no discovery errors. The [persistence and discovery evidence](evidence/default-persistence-2026-10-06.json) retains the request, invocation, completed commands, final reply, parent check, and backend display metadata.
 
+The first task read installed Setup by path after a malformed runtime plugin override produced startup warnings. A corrected fresh task loaded the temporary profile's installation-generated configuration. Startup identified `pancake-stack:setup`, and the task reread its complete installed instructions after a prompt-truncation notice. It saved and verified the same default-path object. The evidence preserves both attempts; the corrected task establishes automatic loading.
+
 This closes default-path persistence in an isolated CLI profile. It does not verify an actual user preference write, multi-turn model selection, visible VS Code labels, or picker filtering.
 
 ## Git-backed installation on 6 October 2026

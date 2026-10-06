@@ -476,5 +476,143 @@
     "Supplied inherit-both choices bypass conversational model selection; no multi-turn picker selection was tested",
     "Backend display names and paths do not establish visible VS Code labels or filtering",
     "Source/file-list output bodies omitted with hashes; raw records retained in local run directory"
-  ]
+  ],
+  "initialRunLimitation": "The ignore-user-config run used a quoted plugin override that emitted invalid plugin name warnings. Installed Setup instructions were read by path, so that run alone does not establish automatic skill loading.",
+  "initialStderrSha256": "24b26870cc96ae4ff0275c70040c92bee00de336a0cc27d4300b645fad45746b",
+  "confirmedInvocation": {
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderrDiagnostics": [],
+    "request": "$pancake-stack:setup Configure Pancake Stack defaults to inherit both model and reasoning effort from Codex. Keep all role settings unchanged and finish by saving the preferences. This is an isolated installation check. Use the default preference location under the current CODEX_HOME, without a --config override. Do not modify global Codex settings, other profiles, the project, or any marketplace. Do not spawn agents.\n",
+    "invocation": [
+      "codex",
+      "exec",
+      "--ignore-rules",
+      "--json",
+      "-c",
+      "cli_auth_credentials_store=\"file\"",
+      "--sandbox",
+      "workspace-write",
+      "--skip-git-repo-check",
+      "--cd",
+      "$RUN_ROOT/settings",
+      "--output-last-message",
+      "$RUN_ROOT/setup-confirmed/final.txt",
+      "-"
+    ],
+    "status": {
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 19.86
+    },
+    "rawEventsSha256": "69848cafaa7732be19748605f7994b42c1323ff33be343916fd8541ba8dfb5e8",
+    "events": [
+      {
+        "type": "thread.started",
+        "thread_id": "01a1121e-e31e-73a0-beae-f6d348f17b87"
+      },
+      {
+        "type": "turn.started"
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_0",
+          "type": "error",
+          "message": "Skill `pancake-stack:setup` exceeded the main prompt context limit and was truncated."
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_1",
+          "type": "agent_message",
+          "text": "I\u2019m using the setup skill to save both defaults as \u201cinherit from Codex,\u201d preserving all role settings in the current CODEX_HOME.\n"
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat $RUN_ROOT/git-profile/plugins/cache/pancake-stack/pancake-stack/0.18.2/skills/setup/SKILL.md'",
+          "aggregated_output": "Long source or file-list output omitted; command and output hash retained.",
+          "exit_code": 0,
+          "status": "completed",
+          "outputSha256": "e6614e8c95078ac5df333578ce7b36aaccfda5a210322a1cb9af6b3325df6a04"
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'python3 $RUN_ROOT/git-profile/plugins/cache/pancake-stack/pancake-stack/0.18.2/skills/setup/scripts/preferences.py show'",
+          "aggregated_output": "{\n  \"schemaVersion\": 1,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  }\n}\n",
+          "exit_code": 0,
+          "status": "completed"
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc \"python3 - <<'PY'\nimport json, os, subprocess\nfrom pathlib import Path\nhelper = '$RUN_ROOT/git-profile/plugins/cache/pancake-stack/pancake-stack/0.18.2/skills/setup/scripts/preferences.py'\nprefs = json.loads(subprocess.check_output(['python3', helper, 'show'], text=True))\nprefs['defaults']['model'] = None\nprefs['defaults']['reasoningEffort'] = None\nsubprocess.run(['python3', helper, 'save'], input=json.dumps(prefs), text=True, check=True)\nconfirmed = json.loads(subprocess.check_output(['python3', helper, 'show'], text=True))\nassert confirmed == prefs\nprint('Confirmed preferences:', json.dumps(confirmed))\nprint('Preference location:', Path(os.environ.get('CODEX_HOME', str(Path.home() / '.codex'))) / 'pancake-stack' / 'config.json')\nsubprocess.run(['python3', helper, 'resolve'], check=True)\nPY\"",
+          "aggregated_output": "{\n  \"schemaVersion\": 1,\n  \"defaults\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"roles\": {\n    \"implementation\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"review\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    },\n    \"research\": {\n      \"model\": null,\n      \"reasoningEffort\": null\n    }\n  }\n}\n{\n  \"implementation\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"review\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  },\n  \"research\": {\n    \"model\": null,\n    \"reasoningEffort\": null\n  }\n}\nConfirmed preferences: {\"schemaVersion\": 1, \"defaults\": {\"model\": null, \"reasoningEffort\": null}, \"roles\": {\"implementation\": {\"model\": null, \"reasoningEffort\": null}, \"review\": {\"model\": null, \"reasoningEffort\": null}, \"research\": {\"model\": null, \"reasoningEffort\": null}}}\nPreference location: $RUN_ROOT/git-profile/pancake-stack/config.json\n",
+          "exit_code": 0,
+          "status": "completed"
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_5",
+          "type": "agent_message",
+          "text": "Saved and verified [preferences]($RUN_ROOT/git-profile/pancake-stack/config.json) at the default location under current CODEX_HOME.\n\nBoth defaults inherit from Codex; all role settings remain unchanged. Current host values were unavailable to resolve inheritance. These preferences configure future Pancake workflows and leave this chat unchanged."
+        }
+      },
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 57157,
+          "cached_input_tokens": 41728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 587,
+          "reasoning_output_tokens": 0
+        }
+      }
+    ],
+    "finalReply": "Saved and verified [preferences]($RUN_ROOT/git-profile/pancake-stack/config.json) at the default location under current CODEX_HOME.\n\nBoth defaults inherit from Codex; all role settings remain unchanged. Current host values were unavailable to resolve inheritance. These preferences configure future Pancake workflows and leave this chat unchanged.",
+    "sessions": [
+      {
+        "id": "01a1121e-e31e-73a0-beae-f6d348f17b87",
+        "agentPath": null,
+        "source": "exec",
+        "provider": "openai",
+        "contexts": [
+          {
+            "model": "gpt-6.1-sol"
+          }
+        ],
+        "spawns": [],
+        "completions": [
+          {
+            "timestamp": "2026-10-06T16:49:55.548Z",
+            "finalReply": "Saved and verified [preferences]($RUN_ROOT/git-profile/pancake-stack/config.json) at the default location under current CODEX_HOME.\n\nBoth defaults inherit from Codex; all role settings remain unchanged. Current host values were unavailable to resolve inheritance. These preferences configure future Pancake workflows and leave this chat unchanged."
+          }
+        ],
+        "abortedTurns": [],
+        "rawSha256": "49dd8c966362af844d47d26e75d3916419fc08cd80e76efb16eb2b9a725911f2"
+      }
+    ],
+    "limitations": [
+      "Temporary paths normalized to $RUN_ROOT",
+      "Long source or file-list outputs omitted with hashes",
+      "Encrypted delegation message bodies omitted; spawn settings and results retained",
+      "Host contexts establish selections, not remote-runtime attestation",
+      "Raw records retained locally outside the repository"
+    ],
+    "assessment": "Startup explicitly identified pancake-stack:setup; no invalid plugin name warning; complete installed instructions were reread; default-path object saved and verified.",
+    "freshParentReadMatches": true
+  }
 }
