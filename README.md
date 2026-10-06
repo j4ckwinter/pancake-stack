@@ -6,82 +6,76 @@ these are the skills i use every day to help ai write code i actually want to ke
 
 ## try it out
 
-Pancake Stack packages one shared set of 19 skills for Codex and Claude Code.
+the same skills work in Codex and Claude Code. run these commands from the repo.
 
 ### Codex
-
-run these from the repo:
 
 ```sh
 codex plugin marketplace add .
 codex plugin add pancake-stack@pancake-stack
 ```
 
-then open a new Codex chat.
-
-In the skill picker, the main workflow is **Pancake**. Individual skills use short labels such as **PR**, **Wtf**, and **Fix**. Their internal names remain namespaced. On hosts that include skills in slash autocomplete, type `/pancake` to filter the list and select **Pancake**. This is picker selection, not a standalone slash alias. See the [installation record](docs/installation-verification.md) for host verification.
-
-start with one small task:
+open a new Codex chat, then give it a task:
 
 > $pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
 
+you can also select **Pancake** in the skill picker. see the [installation record](docs/installation-verification.md) for what’s been tested.
+
 ### Claude Code
 
-Load the plugin for one session from the repo:
+load the plugin for one session:
 
 ```sh
 claude --plugin-dir .
 ```
 
-Then use the same task with Claude Code's native skill syntax:
+then give it the same task, using `/` instead of `$`:
 
 > /pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
 
-Use `/pancake-stack:setup`, `/pancake-stack:design`, or any other skill below by replacing the Codex `$` prefix with `/`. The workflows, review requirements, and verification rules come from the same files. Each host keeps its own model preferences.
+Claude Code has validated the package and found all 19 skills. authenticated workflow and reviewer-setting checks are still pending. see [Claude Code support](docs/claude.md) for details.
 
-Claude Code 2.1.291 has validated the package and discovered all 19 skills. Authenticated workflow and reviewer-setting parity checks remain pending. See [Claude Code support](docs/claude.md) for installation and verification scope.
+## use it
 
-### Choose the work
+reach for `$pancake-stack:pancake` when you have work to do. tell it what you want, where to look, and how you’ll know it works.
 
-then choose what you need:
+use `$pancake-stack:design` when you want to settle the approach first. use `$pancake-stack:setup` to save model and reasoning preferences for later. setup doesn’t switch the model in your current chat, and each host keeps its own preferences.
 
-1. use `$pancake-stack:setup` if you want saved model and reasoning preferences. you can also leave settings inherited from your host.
-2. use `$pancake-stack:pancake` for implementation. give it the outcome, relevant files, and how you will know it works.
-3. use `$pancake-stack:design` before implementation when you need to settle the approach.
-
-setup saves your preferences for later. it doesn't switch the model in your current chat.
-
-see [prompt recipes](docs/recipes.md) for concrete tasks and host limitations.
-
-## the rest
-
-you can also reach for a skill directly when you know what you need.
+there are [prompt recipes](docs/recipes.md) if you want a starting point, or you can pick a skill directly:
 
 <details>
 <summary>all the other skills</summary>
 
 | skill | use it to |
 | --- | --- |
-| `$pancake-stack:scope` | Work out what a ticket needs. |
-| `$pancake-stack:design` | Plan a change and compare approaches. |
-| `$pancake-stack:how` | Explain how the code works. |
-| `$pancake-stack:why` | Investigate why it was built that way. |
-| `$pancake-stack:teach` | Explain a concept at your pace. |
-| `$pancake-stack:check` | Review a change for bugs and regressions. |
-| `$pancake-stack:challenge` | Stress-test assumptions and decisions. |
-| `$pancake-stack:fix` | Figure out what broke and fix it. |
-| `$pancake-stack:tdd` | Write and run a failing test, then implement the behavior. |
-| `$pancake-stack:verify` | Check it works and say what still needs checking. |
-| `$pancake-stack:sift` | Clean up supplied prose. |
-| `$pancake-stack:wtf` | Make the previous answer clearer. |
-| `$pancake-stack:balls` | Draft a standup with blockers, aims, and lessons learned. |
-| `$pancake-stack:pr` | Draft a PR title and description. |
-| `$pancake-stack:handoff` | Leave someone enough context to pick things up. |
-| `$pancake-stack:recap` | Catch up on decisions and unfinished work. |
-| `$pancake-stack:reflect` | Find lessons and propose improvements. |
+| `$pancake-stack:scope` | work out what a ticket needs. |
+| `$pancake-stack:design` | plan a change and compare approaches. |
+| `$pancake-stack:how` | explain how the code works. |
+| `$pancake-stack:why` | investigate why it was built that way. |
+| `$pancake-stack:teach` | explain a concept at your pace. |
+| `$pancake-stack:check` | review a change for bugs and regressions. |
+| `$pancake-stack:challenge` | stress-test assumptions and decisions. |
+| `$pancake-stack:fix` | figure out what broke and fix it. |
+| `$pancake-stack:tdd` | write and run a failing test, then implement the behavior. |
+| `$pancake-stack:verify` | check it works and say what still needs checking. |
+| `$pancake-stack:sift` | clean up supplied prose. |
+| `$pancake-stack:wtf` | make the previous answer clearer. |
+| `$pancake-stack:balls` | draft a standup with blockers, aims, and lessons learned. |
+| `$pancake-stack:pr` | draft a PR title and description. |
+| `$pancake-stack:handoff` | leave someone enough context to pick things up. |
+| `$pancake-stack:recap` | catch up on decisions and unfinished work. |
+| `$pancake-stack:reflect` | find lessons and propose improvements. |
 
 </details>
 
-Repository checks run with `python3 -B -m unittest discover -s tests -v`. They validate package relationships, documented skills, the repository's plain single-line skill headers, relative inline links, preference helpers in temporary storage, and behavioral fixture assessment. The package checks use a limited repository profile rather than implementing the full portable JSON schema, YAML, or Markdown standards. They do not install the plugin or change global preferences. See [accepted safeguards](docs/safeguards.md) for evidence and remaining workflow gaps.
+## a bit more
 
-Challenge and consequential implementation review support separate optional reviewer panels. Design can run competing independent proposals and an independent judge when explicitly requested. These workflows stay proportionate by default. Setup preserves existing preferences and upgrades the schema only when you choose a new saved panel. See [configuration](docs/configuration.md) and [setup](docs/setup.md). Model selection depends on the active delegation host.
+[configuration](docs/configuration.md) and [setup](docs/setup.md) cover preferences and optional reviewers. [accepted safeguards](docs/safeguards.md) covers the checks and remaining gaps.
+
+run the repository checks with:
+
+```sh
+python3 -B -m unittest discover -s tests -v
+```
+
+these check the package, skills, links, preference helpers, and behavioral fixtures. preference tests use temporary storage. the checks don’t install the plugin or change your global preferences.
