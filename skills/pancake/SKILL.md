@@ -9,6 +9,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 
 ## Choose the work
 
+- For explicitly requested comment cleanup, read [comment-cleanup guidance](references/comment-cleanup.md). A cleanup audit remains read-only unless edits are requested.
 - For requested worktree inventory or cleanup, read [worktree-cleanup guidance](references/worktree-cleanup.md). Inventory remains read-only.
 - For catching up on a project or recovering prior decisions and unfinished work, read [recap](../recap/SKILL.md). Historical recovery stays scoped to the requested project and topic.
 - For requested task pickup or an explicit pause, read [handoff](../handoff/SKILL.md) and its continuation guidance.
