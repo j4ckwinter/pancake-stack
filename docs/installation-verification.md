@@ -1,12 +1,18 @@
 # Installation verification
 
+## Git-backed installation on 6 October 2026
+
+On `codex-cli 0.160.0`, a new temporary `CODEX_HOME` with no copied user configuration, history, preferences, or authentication successfully registered `j4ckwinter/pancake-stack` and installed `pancake-stack@pancake-stack` version 0.18.2. Marketplace listing identified the source as `https://github.com/j4ckwinter/pancake-stack.git`. The installed manifest and every skill resource matched the local source bytes.
+
+The [installation evidence](evidence/git-install-2026-10-06.json) retains commands, exit codes, source revision, and file hashes. The check fetched remote `main` at `9ea9fea`; local documentation changes were not pushed. This verifies the Git-backed CLI flow on a clean temporary profile. It does not establish a visible VS Code result or agent invocation.
+
 ## Installed implementation and Design workflows in 0.18
 
 On 5 October 2026, fresh CLI sessions exercised installed versions 0.18.1 and 0.18.2. Setup preserved an existing Challenge panel while saving a separate implementation panel in temporary storage. After a failed completion claim prompted the 0.18.2 correction, a fresh migration completed both requested independent reviewers. Retained child records identify `gpt-6.1-sol` and `gpt-6-sol`, both at medium effort. A small punctuation task with the same saved preferences launched no reviewers.
 
 A separate Design task completed two candidates and a distinct fresh-context judge after their proposals were available. The unchanged project passed baseline checks. See the [behavioral results](behavioral-results.md) and [host evidence](evidence/roadmap-workflows-2026-10-05.json) for the failed first trial, corrected result, exact versions, and evidence limits. The final installed 0.18.2 manifest and affected skill/helper resources match repository source bytes.
 
-These are installed CLI backend checks with explicit temporary configuration paths. They do not establish visible VS Code picker behavior, Git-backed installation, default real-user preference saving, or independent remote-runtime attestation.
+These are installed CLI backend checks with explicit temporary configuration paths. They do not establish visible VS Code picker behavior, default real-user preference saving, or independent remote-runtime attestation. The separate 6 October check above establishes Git-backed installation.
 
 ## Saved Challenge panel in 0.17.2
 
@@ -92,4 +98,4 @@ codex plugin marketplace add j4ckwinter/pancake-stack
 codex plugin add pancake-stack@pancake-stack
 ```
 
-The marketplace is now named `pancake-stack`. Earlier results above used its previous name, `pancake-stack-local`, and retain the original commands and cache paths. The 5 October results verify local installation under the renamed marketplace. The Git-backed flow remains unverified. Existing installations keep the previous marketplace identity until migrated.
+The marketplace is now named `pancake-stack`. Earlier results above used its previous name, `pancake-stack-local`, and retain the original commands and cache paths. The 5 October results verify local installation under the renamed marketplace. The 6 October check verifies the Git-backed CLI flow. Existing installations keep the previous marketplace identity until migrated.

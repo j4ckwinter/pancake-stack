@@ -72,12 +72,13 @@ The completed list records delivered guidance and repository work. The dated sec
 ## Next
 
 - Verify visible VS Code labels, picker filtering, and namespaced invocation in a fresh chat. Backend discovery does not establish the visible result.
-- Test Git-backed installation in a clean temporary Codex profile. Local installation under the current marketplace name is verified.
 - Verify preference persistence at the helper's default path in an isolated profile. Existing installed trials used explicit temporary paths.
 - Exercise rejected reviewer spawns, unavailable delegation, partial Design candidates, an unavailable judge, and unsupported implementation selections. Earlier unsupported Challenge choices were reported without a rejected spawn.
 - Exercise installed workflows on real repository tasks. The synthetic trials establish individual outcomes, not broad reliability.
 
 License selection and public distribution remain deferred. They require a separate owner decision and publication authorization.
+
+Git-backed CLI installation passed on 6 October 2026 in a new temporary profile. The installed 0.18.2 manifest and skill resources matched source. See the [installation record](installation-verification.md).
 
 ## Behavioral evaluation
 

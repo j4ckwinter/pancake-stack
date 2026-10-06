@@ -75,7 +75,7 @@ Name the outcome and allowed actions rather than relying on "loop until done" al
 - Use the documented skill names or the host picker. Shorter slash aliases remain unverified in the [installation record](installation-verification.md).
 - Check the installed version before a host trial. Reading a repository skill file does not prove that the host discovers or invokes the installed plugin.
 - Treat resolved model preferences as requests. The helper does not select the host model, and catalog availability does not prove that an override was applied. See [configuration](configuration.md).
-- Keep installation checks separate from repository validation. See the [installation record](installation-verification.md) for the tested host, dated results, and pending checks. Local installation under the current marketplace name has been verified; Git-backed installation remains unverified.
+- Keep installation checks separate from repository validation. See the [installation record](installation-verification.md) for the tested host, dated results, and pending checks. Local and Git-backed CLI installation under the current marketplace name have been verified. Visible VS Code checks remain separate.
 - Ask for evidence through the interface your claim concerns. Distinguish static findings from runtime observations and mark cases that could not run.
 
 
