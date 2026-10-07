@@ -33,19 +33,13 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 
 Read only the workflow needed for the task. Do not run every workflow in sequence. A scope brief, review, explanation, or design proposal remains read-only unless edits are requested.
 
-## Preferences and agents
+## Agents and task choices
 
-Read [active host guidance](references/host-runtime.md) before using preference helpers or delegated settings. On Claude Code, add `--host claude` before every helper subcommand.
+Direct work uses the current conversation settings. Delegates inherit the active host's model and effort unless the user supplies explicit choices for this task. Do not read or write stored Pancake preferences, run model-discovery helpers, or change global host settings.
 
-Work performed directly in the current conversation uses the current host settings. Do not read saved preferences or report unavailable role overrides merely to start a task. This includes explanations, prose edits, direct implementation, and direct review.
+Before applying delegated settings, read [active host guidance](references/host-runtime.md). Use only the controls exposed by the active host. An explicit task choice is a request, not proof of application. Report unsupported or rejected selections and observed fallback when material. Selected reviewer panels retain their coverage rules; unsupported entries remain uncovered. Ordinary inheritance needs no setup explanation.
 
-When preparing delegates, follow [active host guidance](references/host-runtime.md) for lookup timing and task overrides. Resolve saved role models with `python3 <installed-setup-directory>/scripts/preferences.py resolve`, using the [setup helper](../setup/scripts/preferences.py) relative to this installed skill. The command returns all roles; select implementation for code delegates, review for reviewers, and research for investigators from the output. Missing model preferences inherit from the host. Delegates inherit host effort unless this task explicitly requests an effort. Preserve the file and report read failures.
-
-Challenge and consequential implementation review own panel discovery at their review stage. Planning review requirements does not require reading preferences.
-
-The helper reads preferences; it does not apply them. Apply saved models only through controls exposed by the active host for the delegate. Omit effort unless explicitly requested for this task. Saved effort is inactive; resolved host effort is informational. Do not switch the parent conversation, write global settings, or claim an override was applied from helper output or catalog availability. An unresolved null remains inheritance, not a guessed model or effort.
-
-When preparing a delegate with an explicit preference, distinguish the requested settings from the host's accepted or reported selection. If a setting is unsupported or rejected, report the affected preference and observed fallback once for that role. Selected reviewer panels retain their coverage rules; unsupported entries remain uncovered. Ordinary inheritance needs no setup explanation.
+Challenge and consequential implementation review select their task-supplied panels at review time. Without a supplied panel, follow each workflow's default review requirement. Setup can help phrase choices for the current task; it does not persist them.
 
 For justified candidate comparisons or independent workstreams, read [parallel work](references/parallel-work.md). Use the current agent by default. Delegate only when an independent review or separable investigation materially helps and host capabilities permit it. Keep writes isolated and review delegated results. Do not add agents simply to satisfy a fixed count or describe same-model reviews as a multi-model panel.
 

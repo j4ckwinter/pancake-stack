@@ -1,6 +1,6 @@
 # Capture personal working preferences
 
-Use when the user asks to capture or revise their working style. Reflecting on a task does not automatically authorize creating a personal profile. Keep individual preferences separate from shared Pancake instructions and setup's model configuration.
+Use when the user asks to capture or revise their working style. Reflecting on a task does not automatically authorize creating a personal profile. Keep individual preferences separate from shared Pancake instructions and Setup's task-scoped choices.
 
 Start with explicit preferences and corrections in the current conversation and supplied notes. Honor a clear preference without requiring repeated evidence. Treat inferred habits as proposals, supported by recurring examples rather than one incidental task choice. Preserve later corrections and label contradictions or context-dependent preferences. Do not convert task-specific authorization into a standing permission to commit, publish, message others, or change global settings.
 
@@ -10,6 +10,6 @@ Identify the requested scope and destination before saving. A project instructio
 
 Capture concrete choices that change agent behavior, such as response depth, review expectations, or a named workflow. Keep each instruction scoped to the situation where it applies. Omit generic advice, duplicate skill contents, and inferred personality traits. Reference relevant skills only through paths or identifiers available in the target environment; disclose missing dependencies instead of creating broken-looking links.
 
-For a requested personal skill, use [active host guidance](../../pancake/references/host-runtime.md) and the host's skill-authoring guidance and the user's chosen location and invocation policy. Do not assume a personal mode applies on every turn or force an invocation restriction the user did not request. Model preferences belong in the existing setup mechanism rather than a competing profile schema. Personal conventions remain subject to current user instructions and host permissions.
+For a requested personal skill, use [active host guidance](../../pancake/references/host-runtime.md) and the host's skill-authoring guidance and the user's chosen location and invocation policy. Do not assume a personal mode applies on every turn or force an invocation restriction the user did not request. Pancake does not persist model preferences. Use Setup to phrase model or reviewer choices for the current task; do not introduce a replacement profile schema. Personal conventions remain subject to current user instructions and host permissions.
 
 Review the draft against the evidence. Distinguish explicit choices, inferred proposals, and unresolved conflicts. Validate a saved skill's structure and references; that does not prove the profile matches the user's intent. Report what was saved and where, or return the draft for feedback. Do not automatically install, commit, publish, or test the user's preferences through unrelated agent tasks.

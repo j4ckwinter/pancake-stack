@@ -1,3 +1,3 @@
 interface:
   display_name: "Setup"
-  short_description: "Choose models for delegates and reviewers"
+  short_description: "Choose delegate and reviewer settings for the current task."

@@ -4,6 +4,8 @@ i love how quickly ai lets me move. i hate the slop i end up building, fixing, a
 what i do love is pancakes. so naturally, i made a stack.
 these are the skills i use every day to help ai write code i actually want to keep.
 
+the library contains readable playbooks and plugin metadata, with no bundled Python scripts or test suite.
+
 ## try it out
 
 the same skills work in Codex and Claude Code. run these commands from the repo.
@@ -39,7 +41,7 @@ Claude Code has validated the package and found all 19 skills. authenticated wor
 
 reach for `$pancake-stack:pancake` when you have work to do. tell it what you want, where to look, and how you’ll know it works.
 
-use `$pancake-stack:design` when you want to settle the approach first. use `$pancake-stack:setup` to save optional model choices for delegates and reviewers. delegates inherit host effort unless the task requests an effort. setup doesn’t switch the model in your current chat, and each host keeps its own preferences.
+use `$pancake-stack:design` when you want to settle the approach first. use `$pancake-stack:setup` to phrase delegate and reviewer choices for the current task. delegates inherit host settings unless you request an override. setup runs no bundled scripts and saves no preferences.
 
 there are [prompt recipes](docs/recipes.md) if you want a starting point, or you can pick a skill directly:
 
@@ -70,7 +72,7 @@ there are [prompt recipes](docs/recipes.md) if you want a starting point, or you
 
 ## a bit more
 
-[configuration](docs/configuration.md) and [setup](docs/setup.md) cover preferences and optional reviewers. [verification](docs/verification.md) explains the external evaluation repository, recorded results, and remaining gaps.
+[configuration](docs/configuration.md) and [setup](docs/setup.md) cover task settings and optional reviewers. [verification](docs/verification.md) explains the external evaluation repository, recorded results, and remaining gaps.
 
 Tests and evaluation tools live in the separate local `pancake-stack-evals` repository. Maintainers can run them against this checkout with:
 

@@ -14,7 +14,7 @@ Answer the user's question from the implementation. This is an explanation workf
 - Prefer implementation over comments and documentation when they disagree. Use tests to understand expected behavior, while distinguishing expectations from behavior actually observed.
 - Search narrowly and read the relevant callers. Stop when you can explain the requested flow and its ownership. Expand only to resolve a specific gap.
 - Keep the investigation read-only. Use inspection commands. Do not execute unfamiliar application code, run setup or installation, change configuration, or start services merely to explain them. If runtime evidence requires side effects, explain what static inspection establishes and what remains unverified.
-- Work in the current agent. This version does not require subagents or switch models. Saved research preferences do not automatically change the current conversation's model.
+- Work in the current agent. This version does not require subagents or switch models. Task-supplied delegate choices do not change the current conversation's model.
 
 ## Explain
 
