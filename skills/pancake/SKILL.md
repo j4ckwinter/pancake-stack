@@ -51,4 +51,4 @@ For justified candidate comparisons or independent workstreams, read [parallel w
 
 ## Finish
 
-For implementation, finish or preserve unfinished work as described in [the implementation sequence](references/implementation.md). For other tasks, inspect the resulting artifact and use checks appropriate to the deliverable. Lead with the outcome, then explain material decisions, verification, and remaining gaps. Stop when the authorized outcome is complete. Do not commit, publish, or install the plugin unless requested.
+For implementation, finish or preserve unfinished work as described in [the implementation sequence](references/implementation.md). For other tasks, inspect the resulting artifact and use checks appropriate to the deliverable. Lead with the outcome, then explain material decisions, verification, and remaining gaps. Complete the delivery actions authorized by the user's request and context. Resolve any genuine uncertainty about the delivery target before acting. Stop when the authorized outcome is complete.
