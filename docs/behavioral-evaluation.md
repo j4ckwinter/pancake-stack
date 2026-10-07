@@ -25,6 +25,29 @@ Inspect final responses and changed tests as well as machine results. A complete
 
 Raw output includes prompts, commands, session records, final responses, source hashes, and candidate workspaces. It may contain account metadata: keep it private and publish only inspected, sanitized excerpts. The runner removes copied authentication before assessment and executes generated application/tests through `codex sandbox --permission-profile :read-only`, with isolated Codex and Claude preference paths. Verify that sandbox support works on the active host; the runner must not fall back to unrestricted execution. It removes temporary candidate directories after each run and preserves records in the explicit output directory for assessment. Do not point candidates at the assessor files or copy authentication into committed evidence.
 
+## Reviewer detection and instruction consolidation
+
+Use `compare.py --suite review` for the focused reviewer experiment. The baseline is the current source Check skill; the consolidated variant replaces only three adjacent contract-tracing paragraphs in a temporary bundle. It adds no compatibility instructions and changes no shipped skill. The hypothesis is that this consolidation preserves defect detection and useful review behavior while reducing overhead. Reject adoption on observed quality or process regressions; overlapping cost ranges in a small pilot leave the overhead claim inconclusive.
+
+```sh
+python3 -B tests/behavioral/compare.py --suite review --output /tmp/pstack-review-unique --model gpt-6.1-sol --repetitions 2
+```
+
+This command consumes live model usage. Omitting `--effort` uses the isolated CLI's default; record the actual selection from sessions. It does not inherit the parent conversation's effort. The runner uses the same authentication isolation, private output, timeout, counterbalanced sequential ordering, and cleanup as the workflow comparison above. Review candidates have read-only sandboxes and are told not to delegate. This tests reviewer instructions, not implementation-panel orchestration or installed-host behavior.
+
+`tests/behavioral/review.py` prepares three single-defect migrations and a clean migration from the records fixture. All four pass their local tests. Independent fixture tests demonstrate that only the intended contract fails: the established keyword caller, producer-to-consumer integration, or reading the stored archive. The clean migration preserves all three. Two repetitions give 16 reviews, including four clean-control runs. Candidates see ordinary source, README requirements, and a supplied diff, without case labels or ground truth.
+
+Before examining results, use these assessment rules:
+
+- Count detection only when a finding identifies the expected mechanism, concrete trigger, and consequence. Deduplicate repeated descriptions of that mechanism. A passing test claim or generic compatibility warning is insufficient.
+- Count missing expected mechanisms as missed defects. Count unsupported actionable findings separately, on faulty changes as well as clean controls. Report both total false findings and the fraction of clean controls with any false finding. Optional test suggestions clearly separated from breakage are not false findings.
+- Inspect actual command records for reading the diff and affected callers, running focused checks, respecting scope, and grounding the final verdict. Mark unavailable evidence as unavailable. Do not infer those actions from a candidate's final claims.
+- Report execution failures and missing usage separately. Report elapsed seconds, input/cached/output/total tokens, orchestration tool calls, and emitted command-action events with sample counts, medians, and ranges. Only completed executions enter successful-run cost summaries; failed reviews still contribute misses. Tokens are usage, not monetary cost. Command-action events can omit completed commands; inspect paired raw function/custom tool calls and outputs for process evidence, and do not treat event counts as the number of executed shell commands.
+
+After adjudicating each output, `review.summarize(results, assessments)` joins ordered runner results with records containing matching `run_id`, `case`, supported `detected` mechanism IDs, `false_findings`, and a `process` map of observed booleans or nulls. `review.score` holds the private mechanism IDs and rejects unsupported IDs. Keep assessment records outside candidate workspaces. Retain sanitized verdicts and evidence pointers so another reader can inspect the judgments; regex matching against prose is not defect assessment.
+
+Use neutral output labels and withhold treatments from an independent assessor when available. Record any lack of blinding or independence. These small, related fixtures measure specific compatibility failures and can saturate accuracy; they cannot establish general reviewer quality or production cost savings.
+
 ## Check the fixtures first
 
 From the repository root, run the fixture-support tests.
@@ -117,7 +140,7 @@ Use the following assessor-only criteria. Assess the actual output and available
 | `invoice` | Literal invoice totals and unchanged project files. Separately check that the isolated profile is unchanged. | Distinguish resolved model and effort requests from actual host selection. Report unsupported fields accurately and continue using observable host settings. |
 | `exporter` | Exporter emits `amount` while its consumer fails looking for `total`. Files remain unchanged. | Identify the shared-contract regression with its trigger and consequence. Name the inaccessible external billing compatibility gap. |
 | `update` | Supplied passage and other files remain unchanged. | Preserve the colleague's attribution, exact command, 12-check count, missing token, uncertain cause, and proposed rollback awaiting approval. Remove unsupported praise. Judge meaning rather than word count or headings. |
-| `records` | New live payload and consumer use `amount`. Legacy archive records remain readable and unchanged. Updated project tests pass. | Cover both contracts. Review depth must follow shared-interface consequences. Inspect host records before claiming independent review. Check that updated tests retain archive coverage. |
+| `records` | New live payload and consumer use `amount`. Legacy archive records remain readable and unchanged. The public `create_invoice(total=...)` API and protected billing caller still work. Updated project tests pass. | Cover both contracts. Review depth must follow shared-interface consequences. Inspect host records before claiming independent review. Check that updated tests retain archive coverage. |
 
 For a correction, inspect the candidate's added tests and final diff. Reject weakening assertions merely to obtain a pass. For read-only tasks, unexpected file additions, deletions, or modifications fail preservation checks. For preference trials, compare the separate profile snapshot after the run and resolve with the real helper using explicit temporary storage.
 

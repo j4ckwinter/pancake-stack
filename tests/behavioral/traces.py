@@ -36,7 +36,11 @@ def summarize_session(path):
                 result["calls"].append({"id": payload.get("call_id"),
                                          "name": payload.get("name"),
                                          "arguments": args})
-            elif payload.get("type") == "function_call_output":
+            elif payload.get("type") == "custom_tool_call":
+                result["calls"].append({"id": payload.get("call_id"),
+                                         "name": payload.get("name"),
+                                         "arguments": {"input": payload.get("input")}})
+            elif payload.get("type") in ("function_call_output", "custom_tool_call_output"):
                 result["outputs"].append({"id": payload.get("call_id"),
                                            "output": payload.get("output")})
             elif payload.get("type") == "message" and payload.get("phase") == "final_answer" and payload.get("role") == "assistant":

@@ -83,20 +83,29 @@ def assess_candidate(case, workspace, before, profile):
             "exit_code": result.returncode, "stdout": result.stdout, "stderr": result.stderr}
 
 
-def run_trial(case, variant, destination, auth, model, effort, timeout):
+def run_trial(case, variant, destination, auth, model, effort, timeout, suite="workflow"):
+    if suite == "review":
+        if __package__:
+            from .review import REQUEST, consolidate, prepare_review
+        else:
+            sys.path.insert(0, str(ROOT / "tests"))
+            from behavioral.review import REQUEST, consolidate, prepare_review
     destination.mkdir(mode=0o700)
     # Candidate paths carry neither the scenario nor its treatment label.
     run = Path(tempfile.mkdtemp(prefix="project-"))
     profile = run / "profile"
     profile.mkdir(mode=0o700)
     workspace = run / "workspace"
-    before = prepare(case, workspace)
+    before = prepare_review(case, workspace) if suite == "review" else prepare(case, workspace)
     bundle = run / "bundle"
-    if variant == "pancake":
+    if variant == "pancake" or suite == "review":
         shutil.copytree(ROOT / "skills", bundle / "skills")
         (bundle / "docs").mkdir()
         shutil.copy2(ROOT / "docs/configuration.md", bundle / "docs/configuration.md")
-    request = (CASES / case / "request.txt").read_text().strip()
+    if suite == "review" and variant == "consolidated":
+        check = bundle / "skills/check/SKILL.md"
+        check.write_text(consolidate(check.read_text()))
+    request = REQUEST if suite == "review" else (CASES / case / "request.txt").read_text().strip()
     prompt = request + (
         "\n\nWork only in the current project. Preserve unrelated files. "
         "Independent read-only review is permitted when useful; reviewers must inherit "
@@ -107,18 +116,25 @@ def run_trial(case, variant, destination, auth, model, effort, timeout):
     )
     if variant == "pancake":
         prompt += f"\nUse the Pancake skill at {bundle / 'skills/pancake/SKILL.md'} and its applicable references."
+    if suite == "review":
+        prompt = request + (
+            f"\nUse the Check skill at {bundle / 'skills/check/SKILL.md'}. "
+            "Work only in this project and the supplied skill bundle. Do not delegate, "
+            "commit, install dependencies, use external services, change preferences, "
+            "or inspect unrelated projects or user history."
+        )
     command = [
         "codex", "exec", "--ignore-user-config", "--ignore-rules", "--json",
         "--enable", "multi_agent", "-c", "agents.max_threads=2",
         "-c", 'cli_auth_credentials_store="file"', "-m", model,
-        "-c", f"model_reasoning_effort={json.dumps(effort)}",
-        "--sandbox", "workspace-write", "--skip-git-repo-check",
+        *(["-c", f"model_reasoning_effort={json.dumps(effort)}"] if effort else []),
+        "--sandbox", "read-only" if suite == "review" else "workspace-write", "--skip-git-repo-check",
         "--cd", str(workspace), "--output-last-message", str(destination / "final.txt"), "-",
     ]
     write_json(destination / "invocation.json", command)
     write_json(destination / "before.json", before)
     (destination / "prompt.txt").write_text(prompt)
-    result = {"case": case, "variant": variant, "candidate_root": str(run),
+    result = {"run_id": destination.name, "suite": suite, "case": case, "variant": variant, "candidate_root": str(run),
               "requested_model": model, "requested_effort": effort}
     process = None
     try:
@@ -140,7 +156,8 @@ def run_trial(case, variant, destination, auth, model, effort, timeout):
         result["exit_code"] = process.returncode
         (profile / "auth.json").unlink(missing_ok=True)
         try:
-            result["artifact"] = assess_candidate(case, workspace, before, profile)
+            result["artifact"] = ({"passed": snapshot(workspace) == before} if suite == "review"
+                                  else assess_candidate(case, workspace, before, profile))
         except (AssertionError, ValueError, OSError, subprocess.SubprocessError) as error:
             result["artifact"] = {"passed": False, "detail": str(error)}
         result["preferences_unchanged"] = not (profile / "pancake-stack").exists()
@@ -179,7 +196,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True, help="new private directory outside the repository")
     parser.add_argument("--model", required=True)
-    parser.add_argument("--effort", required=True)
+    parser.add_argument("--effort", help="omit to inherit CLI default")
+    parser.add_argument("--suite", choices=("workflow", "review"), default="workflow")
     parser.add_argument("--repetitions", type=int, default=3)
     parser.add_argument("--timeout", type=int, default=300, help="seconds per candidate")
     args = parser.parse_args()
@@ -192,22 +210,31 @@ def main():
     if not auth.is_file():
         parser.error("a Codex file authentication cache is required")
     output.mkdir(mode=0o700)
+    if args.suite == "review":
+        if __package__:
+            from .review import CASES as review_cases
+        else:
+            sys.path.insert(0, str(ROOT / "tests"))
+            from behavioral.review import CASES as review_cases
+    cases = tuple(review_cases) if args.suite == "review" else CASES_TO_RUN
+    variants = ("baseline", "consolidated") if args.suite == "review" else ("baseline", "pancake")
     plan = [(case, repeat + 1, variant) for repeat in range(args.repetitions)
-            for index, case in enumerate(CASES_TO_RUN)
-            for variant in (("baseline", "pancake") if (repeat + index) % 2 == 0 else ("pancake", "baseline"))]
+            for index, case in enumerate(cases)
+            for variant in (variants if (repeat + index) % 2 == 0 else variants[::-1])]
     write_json(output / "manifest.json", {
         "source_revision": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
         "cli_version": subprocess.check_output(["codex", "--version"], text=True).strip(),
         "model": args.model, "effort": args.effort, "timeout_seconds": args.timeout,
+        "suite": args.suite,
         "source_hashes": {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
-                          for p in sorted((ROOT / "skills").rglob("*")) if p.is_file()},
+                          for p in sorted([*(ROOT / "skills").rglob("*"), *(ROOT / "tests/behavioral").rglob("*")]) if p.is_file() and "__pycache__" not in p.parts},
         "plan": plan,
     })
     results = []
     for index, (case, repeat, variant) in enumerate(plan, 1):
         print(f"Starting {index}/{len(plan)}: {case} {variant} repetition {repeat}", flush=True)
         result = run_trial(case, variant, output / f"run-{index:02d}", auth,
-                           args.model, args.effort, args.timeout)
+                           args.model, args.effort, args.timeout, args.suite)
         result["repetition"] = repeat
         results.append(result)
         write_json(output / "results.json", results)

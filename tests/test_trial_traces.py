@@ -12,6 +12,18 @@ class TrialTraceTests(unittest.TestCase):
             path.write_text('\n'.join(json.dumps(event) for event in events))
             return summarize_session(path)
 
+    def test_custom_tool_records_preserve_execution_evidence(self):
+        output = [{"type": "input_text", "text": '{"exit_code": 1, "output": "TypeError"}'}]
+        result = self.read([
+            {"type": "response_item", "payload": {"type": "custom_tool_call", "call_id": "check",
+                "name": "exec", "input": "text(await tools.exec_command({cmd: 'python3 probe.py'}))"}},
+            {"type": "response_item", "payload": {"type": "custom_tool_call_output",
+                "call_id": "check", "output": output}},
+        ])
+        self.assertEqual(result["calls"][0]["id"], "check")
+        self.assertIn("python3 probe.py", result["calls"][0]["arguments"]["input"])
+        self.assertEqual(result["outputs"], [{"id": "check", "output": output}])
+
     def test_completed_worker_requires_identity_verdict_and_completion(self):
         worker = self.read([
             {'type': 'session_meta', 'payload': {'id': 'child', 'parent_thread_id': 'root', 'source': {'subagent': {'thread_spawn': {'agent_path': '/root/review'}}}}},

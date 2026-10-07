@@ -45,6 +45,39 @@ class ComparisonTests(unittest.TestCase):
             self.assertEqual(result["tool_calls"], 1)
             self.assertEqual(result["command_actions"], 1)
 
+    def test_review_runner_uses_read_only_bundle_without_exposing_truth(self):
+        from behavioral.review import consolidate
+        from behavioral.compare import ROOT
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            auth = root / "source-auth"
+            auth.write_text("fake test credential")
+            for index, variant in enumerate(("baseline", "consolidated")):
+                run = root / f"project-{index}"
+                run.mkdir()
+                def candidate(*args, **kwargs):
+                    source = (ROOT / "skills/check/SKILL.md").read_text()
+                    expected = consolidate(source) if variant == "consolidated" else source
+                    self.assertEqual((run / "bundle/skills/check/SKILL.md").read_text(), expected)
+                    prompt = args[0]
+                    self.assertNotIn("keyword-api", prompt)
+                    self.assertNotIn(variant, prompt)
+                    self.assertFalse((run / "workspace/review.py").exists())
+                destination = root / (variant + "-evidence")
+                with patch("behavioral.compare.tempfile.mkdtemp", return_value=str(run)), \
+                        patch("behavioral.compare.subprocess.Popen") as launch:
+                    process = launch.return_value
+                    process.communicate.side_effect = candidate
+                    process.returncode = 0
+                    process.poll.return_value = 0
+                    result = run_trial("keyword", variant, destination, auth, "model", None, 10, "review")
+                command = launch.call_args.args[0]
+                self.assertEqual(command[command.index("--sandbox") + 1], "read-only")
+                self.assertFalse(any("model_reasoning_effort=" in arg for arg in command))
+                self.assertEqual(result["run_id"], destination.name)
+                self.assertTrue(result["artifact"]["passed"])
+                self.assertFalse(run.exists())
+
     def test_rejected_symlink_keeps_result_and_removes_credentials(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

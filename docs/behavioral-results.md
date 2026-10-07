@@ -163,3 +163,32 @@ The [follow-up evidence](evidence/preference-followup-2026-10-07.json) preserves
 | Unavailable selection controls | `--disable multi_agent` did not remove the exposed collaboration tools. That run supplies saved Challenge panel evidence, not evidence about unavailable controls. This branch remains untested on a genuinely restricted host. |
 
 The independent change review found one blanket timing prohibition that would have blocked legitimate pre-implementation delegates. It was narrowed to implementation-review panel discovery, and the reviewer confirmed the correction. Package, source-resolution, skill, preference, fixture, and trace tests passed (53 tests). These focused runs were unblinded, use Codex source skills, and do not establish installed behavior, Claude parity, or universal adherence. Explicit inheritance wording and hosts without selection controls remain limits. No further instructions were added merely to turn those limits into a passing claim.
+
+## Reviewer detection and narrow consolidation, 7 October 2026
+
+The records migration fixture now protects an established `billing.invoice_for_order()` caller using `create_invoice(total=...)`. Its request explicitly preserves that public API. Trusted probes exercise both positional and keyword calls, the unchanged billing caller, the new live payload, and old archived records. A regression test proves that renaming the parameter is rejected even when the candidate's local tests pass.
+
+The [reviewer comparison evidence](evidence/reviewer-comparison-2026-10-07.json) records 16 fresh read-only Codex CLI 0.160.0 reviews using `gpt-6.1-sol`: three single-defect migrations and a clean migration, two repetitions each, with baseline and consolidated Check instructions. Ordering was counterbalanced and execution sequential. No effort override was supplied; session records report null effort, so actual effort is unknown. Each faulty fixture passes its local tests but fails exactly one independent contract probe.
+
+The candidate consolidates only three adjacent contract-tracing paragraphs, reducing Check from 4,697 to 4,356 UTF-8 bytes. It adds no compatibility rule and preserves the surrounding process instructions. A fresh independent assessor reviewed neutral packets with treatment identities and instruction bodies withheld. The lead then mapped its judgments to the variants. Weakened test assertions were deduplicated with their associated contract failure.
+
+| Observation | Current baseline | Consolidated variant |
+| --- | --- | --- |
+| Completed reviews | 8/8 | 8/8 |
+| Detected seeded defects | 6/6 | 6/6 |
+| Missed defects | 0/6 | 0/6 |
+| False actionable findings, all runs | 0 | 0 |
+| Clean controls with false findings | 0/2 | 0/2 |
+| Diff/caller inspection, contract execution, grounded verdict | 8/8 each | 8/8 each |
+| Workspace and preferences preserved | 8/8 | 8/8 |
+| Elapsed seconds, median [min–max] | 28.519 [24.122–35.187] | 29.206 [24.742–30.101] |
+| Input tokens, median [min–max] | 80,509 [79,901–82,251] | 80,630 [63,463–82,012] |
+| Cached input tokens, median [min–max] | 71,168 [67,968–73,856] | 70,592 [54,016–74,880] |
+| Output tokens, median [min–max] | 596 [494–701] | 598 [528–694] |
+| Total tokens, median [min–max] | 81,060 [80,493–82,952] | 81,251 [64,062–82,699] |
+| Recorded top-level tool calls, median [min–max] | 4 [4–4] | 4 [3–4] |
+| Emitted command-action events, median [min–max] | 5.5 [4–7] | 6 [4–7] |
+
+Every cost row has eight completed observations per variant; there were no execution failures or missing usage records. Tokens measure usage, not money. Command-action events omit some executed commands on this host, so their counts cannot measure all shell activity. Paired raw custom tool calls and outputs established the missing executions. Initial assessor packets omitted these records and incorrectly suggested process failures; the assessor corrected those judgments after receiving the complete evidence. The trace parser now retains custom tool inputs and outputs, with a regression test.
+
+Keep the production baseline. This small pilot found no loss of the measured review behavior, but it did not demonstrate lower overhead: medians were similar and ranges overlapped. Accuracy saturated on four closely related fixtures; these observations do not establish general defect detection, production savings, or implementation-panel behavior. No shipped skill instructions, preferences, installation, or marketplace registration changed. The raw records remain private at `/tmp/pstack-review-20261007-pilot`; the linked evidence retains sanitized verdicts, execution excerpts, instruction diff, source hashes, scores, and cost samples.

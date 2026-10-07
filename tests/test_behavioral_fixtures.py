@@ -79,6 +79,24 @@ class BehavioralFixtureTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             assess("records", workspace, before)
 
+    def test_records_rejects_parameter_rename_despite_passing_local_tests(self):
+        workspace = self.root / "project"
+        before = prepare("records", workspace)
+        (workspace / "producer.py").write_text("def create_invoice(amount):\n    return {'amount': amount}\n")
+        (workspace / "consumer.py").write_text("def read_total(payload):\n    return payload['amount']\n")
+        tests = workspace / "test_records.py"
+        tests.write_text(tests.read_text().replace('{"total": 19.5}', '{"amount": 19.5}'))
+        result = subprocess.run([sys.executable, "-B", "-m", "unittest", "discover"],
+                                cwd=workspace, capture_output=True, text=True, timeout=10)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        with self.assertRaisesRegex(AssertionError, "unexpected keyword argument 'total'"):
+            assess("records", workspace, before)
+        (workspace / "producer.py").write_text("def create_invoice(total):\n    return {'amount': total}\n")
+        self.assertEqual(assess("records", workspace, before), "artifact checks passed")
+        (workspace / "billing.py").write_text("# caller removed\n")
+        with self.assertRaisesRegex(AssertionError, "protected file changed: billing.py"):
+            assess("records", workspace, before)
+
     def test_protected_changes_are_rejected_for_every_case(self):
         for case in SCENARIOS:
             with self.subTest(case=case):

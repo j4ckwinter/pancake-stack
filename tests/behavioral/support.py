@@ -91,9 +91,12 @@ from pathlib import Path
 from producer import create_invoice
 from consumer import read_total
 from archive import read_total as read_archive
+from billing import invoice_for_order
 for amount in [0, 19.5, 120]:
     payload = create_invoice(amount)
     assert payload == {'amount': amount}, payload
+    assert create_invoice(total=amount) == payload
+    assert invoice_for_order(amount) == payload
     assert read_total(payload) == amount
 assert read_archive({'total': 0}) == 0
 assert read_archive({'total': 19.5}) == 19.5
