@@ -4,8 +4,6 @@ i love how quickly ai lets me move. i hate the slop i end up building, fixing, a
 what i do love is pancakes. so naturally, i made a stack.
 these are the skills i use every day to help ai write code i actually want to keep.
 
-the library contains readable playbooks and plugin metadata, with no bundled Python scripts or test suite.
-
 ## try it out
 
 the same skills work in Codex and Claude Code. run these commands from the repo.
