@@ -1,6 +1,6 @@
 # Deliver a verified change
 
-Read this when the user requests merging, releasing, publishing, or deploying a change, or preparing it for delivery. Preparation remains read-only unless edits are requested. Identify which delivery action is authorized; implementation or merge readiness alone does not authorize publication or deployment.
+Read this when the user requests committing, merging, releasing, publishing, or deploying a change, or preparing it for delivery. Preparation remains read-only unless edits are requested. Identify which delivery action is authorized; implementation or merge readiness alone does not authorize publication or deployment.
 
 ## Establish the delivery target
 
@@ -19,6 +19,8 @@ Tie the verdict to the inspected revision, base, and environment. Recheck when c
 For dependent PRs or releases, identify the actual dependency order. Deliver only the verified prefix whose prerequisites are satisfied; a ready descendant cannot bypass an unverified dependency. After each delivery, read back the resulting state and reassess the next item's base, artifact, checks, and requirements. Independent changes need no artificial stack.
 
 Use the authorized merge method and existing repository process. Do not assume squash merging, retarget branches, force-push, bypass protections, or delete branches as incidental cleanup. Reuse existing authorization when it covers a necessary action. Obtain any missing required authorization only after preparing the concrete action and evidence.
+
+Follow the repository’s commit-message convention. If none is documented, use Conventional Commits: `type(scope): concise description`. Scope is optional. Describe the actual change, and do not rewrite existing history merely to standardize messages.
 
 Enable auto-merge or equivalent delayed delivery only when requested and supported. Confirm which item is armed and what conditions remain. An armed action is pending, not completed. Use bounded waits with updates when observing delivery; do not create background automation without a request.
 
