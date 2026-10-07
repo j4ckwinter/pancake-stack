@@ -4,6 +4,12 @@ Read this reference before model discovery, preference helpers, or delegated mod
 
 ## Preferences and discovery
 
+Direct work uses current conversation settings without reading saved preferences. Setup and explicit preference inspection may use the helpers directly.
+
+For delegated work, resolve preferences only while preparing the delegate, when supported selection can use them. `preferences.py resolve` returns all three roles; read the relevant role from its output. It takes no positional role argument. A task pair bypasses saved lookup only when both model and effort are specified. For a partial pair, run `resolve` when the delegate interface exposes the missing field, then merge the task fields over the relevant resolved role. For example, a task-supplied reviewer model with omitted effort uses `resolve` output for the review effort; it does not immediately inherit the parent effort. Leave missing fields inherited when the interface cannot select them.
+
+For reviewer panels, a task-supplied list replaces the saved list. Otherwise read the saved panel when preparing review; its size matters even without model selection controls. An explicitly empty task list selects the workflow's fallback. Read saved role fields for that fallback only when supported selection needs them. Keep unsupported requested selections as coverage gaps.
+
 Identify the active client from its tools or explicit session context. Do not infer it from PATH or inherited environment variables. Codex uses the existing helper commands without a host flag. Claude Code adds `--host claude` before every helper subcommand, including `show`, `save`, `resolve`, `resolve-challenge`, and `resolve-implementation-review`. An explicit `--config <path>` before the subcommand overrides either host's location. Never read the other host's profile as a fallback or migrate it without a request.
 
 Codex stores preferences under `$CODEX_HOME/pancake-stack/config.json`, defaulting to `~/.codex/pancake-stack/config.json`. Claude Code uses `$CLAUDE_CONFIG_DIR/pancake-stack/config.json`, defaulting to `~/.claude/pancake-stack/config.json`. These are plugin preference files, not host settings. Saving them does not change the current conversation.
@@ -14,7 +20,7 @@ On Claude Code, run the installed Setup `scripts/catalog.py --host claude` befor
 
 ## Delegated settings
 
-Use the host's available delegation interface. Codex collaboration tools and Claude Code's Agent tool have different argument contracts. Pass only settings supported by the actual exposed tool. Use Claude Code's native model selection when available; do not assume a saved full model ID is accepted by a tool expecting aliases. Use effort selection only when the active interface exposes it. Omit inherited settings rather than inventing values. Never combine model and effort into an identifier or change global settings to emulate a missing override.
+Use the host's available delegation interface. Codex collaboration tools and Claude Code's Agent tool have different argument contracts. Pass only settings supported by the actual exposed tool. If selecting a worker model or effort requires a fresh context, use that supported invocation instead of a full-history fork that cannot accept overrides. Use Claude Code's native model selection when available; do not assume a saved full model ID is accepted by a tool expecting aliases. Use effort selection only when the active interface exposes it. Omit inherited settings rather than inventing values. Never combine model and effort into an identifier or change global settings to emulate a missing override.
 
 Distinguish supported choices, resolved requests, and observed application. Record accepted or reported model and effort separately. Unknown or rejected settings cannot prove parity. Ordinary unavailable role overrides use the workflow's disclosed host fallback. Selected panel entries follow their existing coverage rules and remain uncovered when unsupported. Keep one reviewer per selected panel entry, completed per-reviewer verdicts, and bounded concurrency. Direct sequential passes do not establish independent review.
 

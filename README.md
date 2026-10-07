@@ -39,7 +39,7 @@ Claude Code has validated the package and found all 19 skills. authenticated wor
 
 reach for `$pancake-stack:pancake` when you have work to do. tell it what you want, where to look, and how you’ll know it works.
 
-use `$pancake-stack:design` when you want to settle the approach first. use `$pancake-stack:setup` to save model and reasoning preferences for later. setup doesn’t switch the model in your current chat, and each host keeps its own preferences.
+use `$pancake-stack:design` when you want to settle the approach first. use `$pancake-stack:setup` to save model and reasoning preferences for delegates and reviewers. setup doesn’t switch the model in your current chat, and each host keeps its own preferences.
 
 there are [prompt recipes](docs/recipes.md) if you want a starting point, or you can pick a skill directly:
 

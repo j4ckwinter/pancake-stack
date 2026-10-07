@@ -37,7 +37,7 @@ To inspect Claude preferences from the repository:
 python3 skills/setup/scripts/preferences.py --host claude show
 ```
 
-The flag precedes every preference subcommand. Explicit `--config` overrides either default path. Saving preferences leaves the current chat and global host settings unchanged. See the [configuration contract](configuration.md).
+The flag precedes every preference subcommand. Explicit `--config` overrides either default path. Saving preferences configures future delegates and reviewer panels. Direct work uses current host settings without a preference lookup; saved panels are discovered at review time. Saving preferences leaves the current chat and global host settings unchanged. See the [configuration contract](configuration.md).
 
 ## Delegate with the same review requirements
 

@@ -127,3 +127,37 @@ The [fallback evidence](evidence/delegation-fallbacks-2026-10-06.json) retains r
 An initial one-thread diagnostic still completed a reviewer. An initial `gpt-5.6-terra` request also completed instead of exercising unavailability. Both diagnostics had a malformed runtime plugin override and read installed instructions by path. They remain inconclusive for their intended unavailable-capability criteria and do not establish automatic skill loading. The corrected tasks loaded the installation-generated temporary profile configuration. The [Setup loading correction](installation-verification.md) retains the underlying verifier correction.
 
 These outcomes cover the named scenarios only. A host with genuinely absent collaboration tools remains unexercised. Permission limits and rejected selections do not prove that missing-tool behavior. All completed agents use one provider; host-selected contexts do not independently attest the remote inference runtime. No actual user preference file, global configuration, publication, or external message changed.
+
+
+## Deferred preference lookup trials on 7 October 2026
+
+Four fresh Codex CLI tasks exercised the uncommitted source change that defers saved preference lookup. Each used a separate temporary project and preference profile with a two-entry inherited implementation-review panel. The current source skill tree was copied once before execution. No plugin installation or user preference change was performed. Temporary authentication copies were removed after each process. The [evidence record](evidence/preference-timing-2026-10-07.json) retains the source diff and hashes, requests, completed tool events, final replies, and artifact assessments.
+
+| Scenario | Observed result | Assessment |
+| --- | --- | --- |
+| Direct delivery explanation | Correct explanation, unchanged project, no preference helper command. | Startup lookup avoided in this case. |
+| Delegated delivery investigation | Resolution occurred during delegate preparation after source inspection. An invalid `resolve research` attempt failed, then help inspection and plain `resolve` succeeded. | Conditional resolution observed; independent delegate completion is not established by retained events. |
+| Migration with saved panel | `show` completed before the first edit; panel resolution followed that edit. The resolved panel contained two entries. The candidate reported a delegation thread-context failure and disclosed incomplete review. | Review-time discovery failed. Independent panel review remained incomplete. |
+| Migration with explicit reviewer pair | No saved preference helper command, despite a two-entry saved panel. The candidate reported one completed reviewer using the explicit model and effort. | Saved-lookup bypass passed; actual reviewer selection and completed verdict remain unverified. |
+
+All four trusted artifact assessments passed, and isolated preference objects remained unchanged. The CLI wait events contain empty receiver identities and agent states; final claims do not establish independent review. These are single synthetic runs with an unblinded assessor, no randomized baseline, and no Claude Code or installed-plugin coverage. They support the observed lookup behavior but do not establish general adherence. The premature panel read and recovered helper syntax error remain recorded; the skill instructions were not changed during these verification trials.
+
+
+## Preference follow-up and observation repair on 7 October 2026
+
+A fresh Codex CLI delegation probe retained trial-owned session records instead of relying on the summary JSONL stream. The records identified the child thread, its parent and task path, reported model and effort, its own final answer, and completion. The new read-only trace assessor consumes explicit trial paths. Six regression tests cover missing identities, lead-only claims, generic waits, requested versus observed settings, stale verdicts, and inherited fork history. Session metadata is read from the first owner record; inherited records predating worker creation are excluded. A completed child still needs association with the requested panel entry and reviewed project; the retained spawn calls, workspace metadata, and verdicts provide that evidence here.
+
+The [follow-up evidence](evidence/preference-followup-2026-10-07.json) preserves thirteen task runs across source snapshots, plus the observation probe. Source hashes identify each snapshot. All thirteen trusted artifact assessments passed and all isolated preference files remained byte-for-byte unchanged. Authentication copies were removed. The original failed trials remain above.
+
+| Behavior | Follow-up observation |
+| --- | --- |
+| Direct prose and local fix | Both completed without preference lookup. The fix retained failing-before and passing-after evidence. |
+| Saved delegated role | Plain `resolve` succeeded; a linked investigator completed with the saved `gpt-6.1-sol` and low effort. |
+| Saved implementation panel | Initial rerun skipped review entirely despite reading implementation guidance. After making shared payload and persisted-data contracts explicit review triggers, two fresh migrations each read preferences after editing and completed two identified reviewers with the saved settings. |
+| Complete task override | No saved lookup; one identified reviewer completed with the explicit model and low effort despite a two-entry saved panel. |
+| Partial task override | Requests saying “inherit its reasoning effort” repeatedly skipped saved resolution. With effort omitted from the request and medium saved for review, a final fresh trial ran `resolve`, spawned a fresh reviewer with medium effort, and retained its completed verdict. That changed request disambiguates the case; it does not prove the wording changes alone caused success or settle every use of “inherit”. |
+| Saved Challenge panel | Two identified reviewers completed with saved settings and reported the producer-to-consumer regression. |
+| Unsupported panel entry | The valid reviewer completed; the unsupported model remained explicitly uncovered, with no substitution. |
+| Unavailable selection controls | `--disable multi_agent` did not remove the exposed collaboration tools. That run supplies saved Challenge panel evidence, not evidence about unavailable controls. This branch remains untested on a genuinely restricted host. |
+
+The independent change review found one blanket timing prohibition that would have blocked legitimate pre-implementation delegates. It was narrowed to implementation-review panel discovery, and the reviewer confirmed the correction. Package, source-resolution, skill, preference, fixture, and trace tests passed (53 tests). These focused runs were unblinded, use Codex source skills, and do not establish installed behavior, Claude parity, or universal adherence. Explicit inheritance wording and hosts without selection controls remain limits. No further instructions were added merely to turn those limits into a passing claim.

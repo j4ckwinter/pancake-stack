@@ -5,7 +5,7 @@ description: Configure Pancake Stack model and reasoning effort preferences. Use
 
 # Set up Pancake Stack
 
-Configure Pancake Stack only. This skill saves preferences for future Pancake Stack workflows. It does not change the current conversation's model, global host settings, or enforce a token budget.
+Configure Pancake Stack only. This skill saves preferences for future delegates and reviewer panels. Direct work uses the current host settings without a preference lookup. It does not change the current conversation's model, global host settings, or enforce a token budget.
 
 Read [active host guidance](../pancake/references/host-runtime.md) before using preference helpers or delegated settings. On Claude Code, add `--host claude` before every helper subcommand.
 
@@ -33,7 +33,7 @@ Keep existing fields unless the user changes them. A field of `null` inherits in
 
 ## Report preferences accurately
 
-After confirming persistence, summarize the choices changed by the user and the saved file location. State once that these preferences configure future Pancake workflows and leave the current chat unchanged. Avoid a full schema dump unless requested.
+After confirming persistence, summarize the choices changed by the user and the saved file location. State once that these preferences configure future delegates and reviewer panels and leave the current chat unchanged. Avoid a full schema dump unless requested.
 
 If effective preferences are requested or inheritance affects the result, distinguish saved values from resolved values. Resolve model and effort independently through role, defaults, then observable host values. For a non-null resolved value, identify its source from those fields. An unresolved null means “inherits from the active host; current value unavailable.” Never infer the current model or effort from catalog order or a tool's list of supported choices.
 

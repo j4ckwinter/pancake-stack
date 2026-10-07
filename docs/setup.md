@@ -6,6 +6,8 @@ Installed CLI trials verified saving and reading preferences at explicit tempora
 
 Setup queries the active host's model metadata before asking you to choose. Codex uses its local app server; Claude Code uses initialization metadata without sending a model turn. If discovery fails, setup reports the reason and falls back to accessible host metadata or your host picker. A remote or overridden host can have different choices. Setup saves your choices without changing the current conversation or global host settings.
 
+Saved preferences apply to delegates and reviewer panels. Direct work stays on your current host settings without running the preference helper. Roles are resolved when preparing delegates that can use them; saved panels are read at review time, including when model selection is unavailable. Fully specified choices in your task replace the corresponding saved choices.
+
 ## Run the preference helper
 
 Inspect the local model catalog without writing preferences:

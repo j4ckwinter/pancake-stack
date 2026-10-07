@@ -46,6 +46,12 @@ The temporary bundle holds a source snapshot of the skills being assessed. Recor
 
 For `invoice`, put a valid preference object at `profile/pancake-stack/config.json`. Set only the research role to a model and effort confirmed unavailable on the intended host. Keep the other fields null, following [the configuration contract](configuration.md). Snapshot this profile before the trial. An arbitrary unfamiliar model name does not by itself prove host unavailability.
 
+## Check observation before delegation trials
+
+Before assessing delegated behavior, run a small fresh delegation probe on the same host and capture a returned worker identity plus an identity-bearing completed verdict. A generic wait event or the lead's final claim is insufficient. If CLI JSONL omits those fields, retain session records by omitting `--ephemeral` and inspect only the trial-owned records from the isolated profile, or use a host that exposes completed worker status. The read-only `tests/behavioral/traces.py` assessor accepts explicit trial paths and extracts linked worker identities, observed turn settings, final verdicts, and completion. Its tests reject generic waits, lead-only claims, and stale verdicts after a new turn. Verify the parser against the active host probe before relying on it. Record requested settings separately from selections the host actually reports. If neither source supplies the evidence, mark delegation criteria unavailable before starting panel trials.
+
+Define behavioral acceptance criteria before editing workflow instructions. Include meaningful branch cases: direct explanation and edits, saved non-default roles, explicit and partial overrides, both panel workflows, and unavailable selection controls. Keep expected results outside candidate prompts. Package and helper tests remain separate from agent adherence trials.
+
 ## Give the candidate the task
 
 Start with a fresh context. Supply the natural request from `request.txt`, the prepared workspace path, and the source Pancake skill path at `bundle/skills/pancake/SKILL.md`. Explain that preference-reading commands must use `CODEX_HOME` pointing at the isolated `profile` directory. Do not change the real user's profile or global host settings.
