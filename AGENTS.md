@@ -9,7 +9,7 @@ Keep this project focused on Codex and Claude Code plugin foundations and the re
 - Keep the library declarative. Do not add bundled executable helpers, tests, or evaluation evidence. Keep task settings ephemeral and leave legacy preference files untouched.
 - Preserve the absence of global side effects. Do not write user preferences or register a marketplace as part of repository checks.
 - Distinguish proposed commands from host commands. Do not claim an alias or installation flow works without testing it on the named host.
-- Use concise imperative commit subjects that describe the actual change, such as `Add structural-quality design and review guidance`.
+- Use Conventional Commits: `type(scope): concise imperative description`. Scope is optional. Describe the actual change, such as `docs: link evaluation references to the hosted repository`.
 - Do not select a license, publish, commit, or install the Pancake Stack plugin without authorization.
 
-Validate JSON parsing, marketplace source resolution, and all skills after changes. Run the external evaluator from `../pancake-stack-evals/run_checks.py --source .`; its historical helper tests use isolated temporary storage. Tests and evidence belong in that separate repository. Installation remains a separate host check.
+Validate JSON parsing, marketplace source resolution, and all skills after changes. Use the external evaluator in [pancake-stack-evals](https://github.com/j4ckwinter/pancake-stack-evals). With that repository checked out beside this one, run `../pancake-stack-evals/run_checks.py --source .`; its historical helper tests use isolated temporary storage. Tests and evidence belong in that separate repository. Installation remains a separate host check.
