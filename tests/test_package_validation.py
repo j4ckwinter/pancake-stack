@@ -15,7 +15,7 @@ class PackageValidationTests(unittest.TestCase):
         self.addCleanup(self.storage.cleanup)
         self.root = Path(self.storage.name) / "package"
         self.root.mkdir()
-        for directory in ("skills", "docs", "config", ".agents", ".claude-plugin", "tests/behavioral/cases"):
+        for directory in ("skills", "docs", "config", ".agents", ".claude-plugin", ".github", "tests/behavioral/cases"):
             shutil.copytree(ROOT / directory, self.root / directory)
         for filename in ("README.md", "plugin.json"):
             shutil.copy2(ROOT / filename, self.root / filename)

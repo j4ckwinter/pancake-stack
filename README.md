@@ -79,3 +79,5 @@ python3 -B -m unittest discover -s tests -v
 ```
 
 these check the package, skills, links, preference helpers, and behavioral fixtures. preference tests use temporary storage. the checks don’t install the plugin or change your global preferences.
+
+[repository checks](.github/workflows/checks.yml) runs the same command on pull requests and pushes, using Python 3.12 on Ubuntu. installed-host checks and live model trials remain separate.
