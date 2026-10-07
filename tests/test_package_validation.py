@@ -116,6 +116,42 @@ class PackageValidationTests(unittest.TestCase):
         self.assert_diagnostic("README.md", "missing documented skill fix")
         self.assert_diagnostic("README.md", "unknown documented skill unknown")
 
+    def test_picker_metadata_missing_and_escaping_file(self):
+        filename = "skills/setup/agents/openai.yaml"
+        path = self.root / filename
+        path.unlink()
+        self.assert_diagnostic(filename, "cannot read file")
+        path.symlink_to(Path(self.storage.name) / "outside.yaml")
+        self.assert_diagnostic(filename, "path escapes package")
+
+    def test_picker_metadata_structure_and_values(self):
+        filename = "skills/setup/agents/openai.yaml"
+        valid = 'interface:\n  display_name: "Setup"\n  short_description: "Choose models"\n'
+        cases = (
+            ("", "expected interface mapping"),
+            (valid.replace("interface:", "interface: []"), "expected interface mapping"),
+            (valid.replace('  display_name: "Setup"\n', ""), "missing interface.display_name"),
+            (valid.replace('  short_description: "Choose models"\n', ""), "missing interface.short_description"),
+            (valid + '  display_name: "Again"\n', "duplicate interface field"),
+            (valid + 'unknown: "value"\n', "unsupported picker syntax"),
+            (valid.replace("  display_name", "    display_name"), "unsupported picker syntax"),
+            (valid.replace('"Setup"', '"unterminated'), "unsupported picker syntax"),
+            (valid.replace('"Setup"', '"bad\\q"'), "invalid quoted string"),
+            (valid.replace('"Setup"', '""'), "nonempty single-line text"),
+            (valid.replace('"Setup"', '"  "'), "nonempty single-line text"),
+            (valid.replace('"Setup"', '"line\\nline"'), "nonempty single-line text"),
+            (valid.replace('"Setup"', "true"), "unsupported picker syntax"),
+            (valid.replace('"Setup"', "[Setup]"), "unsupported picker syntax"),
+        )
+        for content, diagnostic in cases:
+            with self.subTest(content=content):
+                (self.root / filename).write_text(content)
+                self.assert_diagnostic(filename, diagnostic)
+        (self.root / filename).write_text(
+            'interface:\n  short_description: "Explain the learner’s \\"code\\""\n  display_name: "A different name"\n'
+        )
+        self.assertEqual(validate_package(self.root), [])
+
     def test_yaml_syntax_and_non_string_scalars_are_rejected(self):
         filename = "skills/fix/SKILL.md"
         for value in ("true", "NO", "null", "123", "2026-10-03", "text: more", "text:", "# comment", "text\t# comment", "&anchor text", "!tag text"):

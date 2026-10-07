@@ -2,6 +2,8 @@
 
 This record tracks accepted corrections, their owning layer, and evidence. “Verified” means the named check passed on the recorded scope. Guidance and observation are not enforcement of an agent's judgment.
 
+Picker metadata is checked for every skill at `agents/openai.yaml`. The repository convention is an `interface:` mapping containing exactly `display_name` and `short_description`, indented by two spaces with nonempty, single-line JSON-style quoted strings. The validator rejects missing files, escaping symlinks, duplicate or unknown fields, and unsupported syntax. This is a deliberately restricted YAML subset, not a general YAML parser or a claim about all metadata accepted by a host.
+
 | Observed failure | Owner | Enforcement or observation | Regression check | Status |
 | --- | --- | --- | --- | --- |
 | Package relationships and skill references relied on manual inspection. | `tests/package_validation.py` | Read-only repository-profile validation runs through ordinary unittest discovery. | `tests/test_package_validation.py` accepts valid changes and rejects malformed JSON, mismatched package identity, missing skills, unsupported headers, and missing or escaping links. It checks byte-for-byte preservation. | Verified for this repository profile; official schema compliance and installation remain separate. |

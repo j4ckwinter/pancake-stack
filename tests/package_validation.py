@@ -2,6 +2,9 @@
 
 Skill headers support only plain, unquoted, single-line name and description.
 Header values begin with an ASCII letter; YAML scalar literals are unsupported.
+Picker metadata supports an interface mapping with exactly display_name and
+short_description, using two-space indentation and JSON-style quoted strings.
+This deliberately restricted YAML subset is a repository convention.
 Markdown checks cover relative inline links, not reference-style links or anchors.
 """
 
@@ -147,6 +150,32 @@ def validate_package(root: Path) -> list[str]:
     skills = set()
     for path in sorted((root / "skills").glob("*/SKILL.md")):
         directory = path.parent
+        picker_path = directory / "agents/openai.yaml"
+        picker = read(picker_path)
+        if picker is not None:
+            picker_lines = picker.splitlines()
+            picker_fields = {}
+            if not picker_lines or picker_lines[0] != "interface:":
+                fail(picker_path, "expected interface mapping")
+            for line in picker_lines[1:]:
+                match = re.fullmatch(r"  (display_name|short_description): (\".*\")", line)
+                if not match:
+                    fail(picker_path, "unsupported picker syntax; use two-space indented fields and JSON-style quoted strings")
+                    continue
+                key, literal = match.groups()
+                if key in picker_fields:
+                    fail(picker_path, f"duplicate interface field {key}")
+                picker_fields[key] = None
+                try:
+                    value = json.loads(literal)
+                except ValueError:
+                    fail(picker_path, f"invalid quoted string for interface.{key}")
+                    continue
+                if not nonempty(value) or any(ord(char) < 32 for char in value):
+                    fail(picker_path, f"interface.{key} must be nonempty single-line text")
+                picker_fields[key] = value
+            for missing in {"display_name", "short_description"} - picker_fields.keys():
+                fail(picker_path, f"missing interface.{missing}")
         text = read(path)
         skills.add(directory.name)
         if text is None:
