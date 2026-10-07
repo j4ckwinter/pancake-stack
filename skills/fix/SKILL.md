@@ -21,4 +21,6 @@ Add a regression test when it can exercise the failure reliably through the real
 
 Repeat the original failing scenario after the fix under comparable conditions and record the result. If it cannot be exercised, report that gap without treating other passing tests as proof that the reported defect is resolved. Run checks appropriate to the affected behavior and inspect the final diff for unintended changes.
 
+Review the resulting change with [check](../check/SKILL.md). Use the [implementation review guidance](../pancake/references/implementation.md#review-the-affected-contracts) for consequential contracts and independent-review capability limits. Passing tests do not replace review.
+
 Finish with the cause and correction, followed by the original command or action, its observed failure, and its result after the fix. Include other relevant checks and remaining limitations. Use the observations already collected; do not claim a reproduction or successful check that did not occur.
