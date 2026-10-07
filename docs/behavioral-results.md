@@ -1,5 +1,7 @@
 # Workflow trials on 3 October 2026
 
+For the repeated baseline comparison on 7 October, see [baseline comparison](baseline-comparison.md). The historical trials below remain unchanged.
+
 These trials used the repository-source skills based on `602da98` with the changes prepared for `0.16.4`. Each task ran in a fresh agent context against its own temporary project and preference profile. The agents inherited the parent model. This was independent task execution with no provider diversity. The coordinating assessor knew the case and source variant, so assessment was not blinded.
 
 The fixtures are derived from the seven historical trial families. They do not reproduce the original historical environments. The candidate tasks received natural requests and source skill paths, without private acceptance probes or expected corrections. All filesystem access remained unrestricted. The setup reduces accidental clues but cannot establish that assessor files were inaccessible.

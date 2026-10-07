@@ -4,6 +4,27 @@ Use the seven scenarios in [tests/behavioral/cases](../tests/behavioral/cases) t
 
 The [3 October 2026 trial results](behavioral-results.md) record observed outcomes and unresolved process gaps.
 
+## Repeated baseline comparison
+
+The explicit live runner `tests/behavioral/compare.py` compares `summary`, `records`, and `exporter` with and without source Pancake guidance. It is never invoked by repository tests or CI. It requires an authenticated Codex CLI file cache and consumes live model usage. Use a new private output directory outside this repository:
+
+```sh
+python3 -B tests/behavioral/compare.py --output /tmp/pstack-comparison-unique --model gpt-6.1-sol --effort medium --repetitions 3
+```
+
+Check the active CLI and model access before using the example. The runner uses identical natural requests and common scope constraints, a fresh project and profile per candidate, and a two-thread limit. The treatment adds only the source skill invocation and its bundle. It alternates baseline-first and Pancake-first pairs across cases and repetitions; this is counterbalanced ordering, not random assignment. Runs are sequential. Each candidate has a five-minute timeout; an execution failure stops the batch for inspection. Failed artifact checks remain in the results.
+
+Before running, define the hypothesis as improved task quality or workflow adherence at measurable additional cost. Use three repetitions per case and treatment (18 runs) as a bounded pilot, not an effectiveness threshold. The criteria are:
+
+- **Task quality:** trusted artifact checks pass, requested regression coverage is meaningful, existing coverage is retained, and the review identifies the local consumer failure and inaccessible external contract without unsupported findings.
+- **Scope preservation:** protected files and read-only workspaces remain unchanged; candidates do not create plugin preferences.
+- **Workflow adherence:** source reads, failure reproduction before correction, executed verification, and linked completed migration reviewers are observed in tool/session records. Score these separately from correct artifacts. Baseline candidates are not required to follow Pancake, but their observed behavior can be compared.
+- **Cost:** report elapsed seconds, input/cached/output tokens, and recorded top-level tool calls including workers. An orchestration call may contain several shell or patch operations; this count does not measure every nested operation. Tokens are a usage proxy, not an invoice or monetary estimate. Distinguish task checks from guidance reads and avoid labeling all additional calls unnecessary.
+
+Inspect final responses and changed tests as well as machine results. A completed worker must actually review the relevant project and final code state; identity alone is insufficient. Record missing usage, unavailable blinding, source-read failures, and any configuration mismatch. Keep outputs under neutral labels when using a separate assessor; final responses can still reveal the treatment. Small synthetic tasks can saturate correctness and cannot establish production benefit or installed-host parity.
+
+Raw output includes prompts, commands, session records, final responses, source hashes, and candidate workspaces. It may contain account metadata: keep it private and publish only inspected, sanitized excerpts. The runner removes copied authentication before assessment and executes generated application/tests through `codex sandbox --permission-profile :read-only`, with isolated Codex and Claude preference paths. Verify that sandbox support works on the active host; the runner must not fall back to unrestricted execution. It removes temporary candidate directories after each run and preserves records in the explicit output directory for assessment. Do not point candidates at the assessor files or copy authentication into committed evidence.
+
 ## Check the fixtures first
 
 From the repository root, run the fixture-support tests.
