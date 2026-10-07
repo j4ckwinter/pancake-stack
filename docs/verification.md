@@ -20,6 +20,14 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.20.0 source verification
+
+The external suite has 70 checks, including historical helper tests. Package validation accepts all 19 skills and rejects Python files, bundled script directories, tests, hooks, and evaluation evidence in the library. Historical tests are labeled separately from current library behavior.
+
+Two scoped source-skill trials exercised the simplified instructions. Setup explained that future-chat defaults cannot be saved and returned task wording for two reviewers with inherited settings. A Challenge trial spawned two independent reviewers, retained both completed verdicts, and found a seeded keyword-argument regression despite passing fixture tests. The fixture remained unchanged. The host accepted inherited reviewer settings without reporting exact model IDs; model diversity is not claimed.
+
+Independent review found and corrected incomplete input hashing in the external evaluator and stale references to persistent Setup in personalization guidance. Detailed records and revision identifiers live in `../pancake-stack-evals/docs/library-split.md` and its evidence file. The generic skill-creator validator could not run in the trial environment because PyYAML was absent; the repository-specific validator passed. Version 0.20.0 installation and authenticated Claude workflow checks remain pending.
+
 ## Automation gap
 
 The former in-repository test workflow has been removed because its tests moved. GitHub cannot access this local-only evaluation repository. Automatic pull-request validation is pending an authorized remote and access configuration. When available, CI should check out a pinned evaluator revision beside the exact library revision and run the command above. Until then, maintainers run the external checks before committing.

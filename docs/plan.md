@@ -8,8 +8,9 @@ Tests, fixtures, detailed reports, and evidence have moved to the separate local
 
 The library contains no bundled Python scripts or tests. Setup helps phrase choices for the current task without saving a profile. Delegates inherit host settings unless the task explicitly overrides them. Legacy preference files remain untouched and are no longer read. Independent-review requirements remain in place.
 
+Source-skill trials verified that Setup explains the removal of saved defaults and that a task-supplied two-reviewer Challenge panel returns two completed verdicts. Independent review cleared the migration after correcting stale personalization guidance. These checks do not establish installed-host behavior.
+
 ## Next
-- Verify the simplified workflows with fresh agent trials and independent review.
 - Restore automatic pull-request validation once an evaluation-repository remote and access are authorized.
 - Run authenticated Claude workflows and verify visible picker behavior on supported hosts.
 - Exercise representative repository tasks beyond the synthetic fixtures.
