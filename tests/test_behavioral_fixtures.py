@@ -145,7 +145,7 @@ class BehavioralFixtureTests(unittest.TestCase):
             "implementation": {"model": None, "reasoningEffort": None},
             "review": {"model": None, "reasoningEffort": None},
             "research": {"model": "unavailable-research-model",
-                         "reasoningEffort": "unavailable-effort"},
+                         "reasoningEffort": None},
         })
         self.assertEqual(config.read_bytes(), before)
 

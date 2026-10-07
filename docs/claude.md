@@ -27,9 +27,9 @@ This local flow passed in a temporary Claude configuration directory on 6 Octobe
 
 ## Configure the active host
 
-Setup discovers model choices before asking you to select a model and supported effort. The Claude adapter asks the local CLI for initialization metadata without a user message or model turn. It preserves the returned aliases and effort choices. Empty effort metadata remains undiscovered. Discovery failure falls back to observable active-host metadata or your picker. CLI metadata does not prove account access or that a worker applies a setting.
+Setup discovers model choices before asking you to select a model. It does not offer saved effort choices. The Claude adapter asks the local CLI for initialization metadata without a user message or model turn. It preserves the returned aliases and effort choices. Empty effort metadata remains undiscovered. Discovery failure falls back to observable active-host metadata or your picker. CLI metadata does not prove account access or that a worker applies a setting.
 
-The preference object keeps schemas 1, 2, and 3 unchanged. Roles and both reviewer panels inherit fields independently. Claude Code uses `$CLAUDE_CONFIG_DIR/pancake-stack/config.json`, defaulting to `~/.claude/pancake-stack/config.json`. Codex uses its existing separate location. Models are opaque host requests; Pancake does not translate GPT names into Claude names or read another provider's file as a fallback.
+The preference object keeps schemas 1, 2, and 3 unchanged. Roles and both reviewer panels inherit models through their defaults. Effort inherits from the host unless explicitly requested for a task. Existing saved effort remains stored but inactive, and resolution discloses nonnull legacy effort once on stderr. Reads do not migrate or rewrite files. Setup preserves existing effort and unrelated choices when editing models. New entries use `null` effort. Claude Code uses `$CLAUDE_CONFIG_DIR/pancake-stack/config.json`, defaulting to `~/.claude/pancake-stack/config.json`. Codex uses its existing separate location. Models are opaque host requests; Pancake does not translate GPT names into Claude names or read another provider's file as a fallback.
 
 To inspect Claude preferences from the repository:
 
@@ -37,7 +37,7 @@ To inspect Claude preferences from the repository:
 python3 skills/setup/scripts/preferences.py --host claude show
 ```
 
-The flag precedes every preference subcommand. Explicit `--config` overrides either default path. Saving preferences configures future delegates and reviewer panels. Direct work uses current host settings without a preference lookup; saved panels are discovered at review time. Saving preferences leaves the current chat and global host settings unchanged. See the [configuration contract](configuration.md).
+The flag precedes every preference subcommand. Explicit `--config` overrides either default path. Saving model choices configures future delegates and reviewer panels. Direct work uses current host settings without a preference lookup; saved panels are discovered at review time. Saving preferences leaves the current chat and global host settings unchanged. See the [configuration contract](configuration.md).
 
 ## Delegate with the same review requirements
 

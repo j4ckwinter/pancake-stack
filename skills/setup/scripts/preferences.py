@@ -103,26 +103,20 @@ def save_config(path, config):
 
 
 def resolve(config, host_model, host_effort):
-    host = {"model": host_model, "reasoningEffort": host_effort}
-    effective = {}
-    for role in ROLES:
-        effective[role] = {}
-        for field in FIELDS:
-            value = config["roles"][role][field]
-            if value is None:
-                value = config["defaults"][field]
-            if value is None:
-                value = host[field]
-            effective[role][field] = value
-    return effective
+    return {
+        role: {
+            "model": config["roles"][role]["model"] or config["defaults"]["model"] or host_model,
+            "reasoningEffort": host_effort,
+        }
+        for role in ROLES
+    }
 
 
 def resolve_panel(config, panel, host_model, host_effort):
     review = resolve(config, host_model, host_effort)["review"]
     reviewers = config.get(panel) or [dict.fromkeys(FIELDS)]
     return [
-        {field: review[field] if choice[field] is None else choice[field]
-         for field in FIELDS}
+        {"model": choice["model"] or review["model"], "reasoningEffort": host_effort}
         for choice in reviewers
     ]
 
@@ -156,6 +150,13 @@ def main():
                     "reasoningEffort": args.host_reasoning_effort,
                 }
                 validate(host)
+                choices = [result["defaults"], *result["roles"].values()]
+                for panel in PANELS:
+                    choices.extend(result.get(panel, []))
+                if any(choice["reasoningEffort"] is not None for choice in choices):
+                    print("preferences: Saved reasoning-effort values remain stored but are inactive. "
+                          "Delegates inherit host effort unless the task explicitly requests an effort.",
+                          file=sys.stderr)
                 if args.command == "resolve":
                     result = resolve(result, args.host_model, args.host_reasoning_effort)
                 else:

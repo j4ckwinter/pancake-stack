@@ -1,12 +1,12 @@
 # Set up Pancake Stack
 
-Start a new chat after installing the package. Invoke `$pancake-stack:setup` in Codex or `/pancake-stack:setup` in Claude Code. Setup first asks for a model, then a supported reasoning effort. It accepts choices already supplied in your request. Role customization is optional. Keep a field unset to inherit its default, then the host setting.
+Start a new chat after installing the package. Invoke `$pancake-stack:setup` in Codex or `/pancake-stack:setup` in Claude Code. Setup asks for a model and accepts model choices already supplied in your request. Role customization is optional. Leave a model unset to inherit its default, then the host model. Effort inherits from the host unless a task explicitly requests it. Setup does not save effort choices.
 
 Installed CLI trials verified saving and reading preferences at explicit temporary paths and at the default path inside an isolated `CODEX_HOME`. The user has confirmed that setup loads in VS Code. Completing its visible VS Code selection flow remains unverified. See the [installation record](installation-verification.md).
 
 Setup queries the active host's model metadata before asking you to choose. Codex uses its local app server; Claude Code uses initialization metadata without sending a model turn. If discovery fails, setup reports the reason and falls back to accessible host metadata or your host picker. A remote or overridden host can have different choices. Setup saves your choices without changing the current conversation or global host settings.
 
-Saved preferences apply to delegates and reviewer panels. Direct work stays on your current host settings without running the preference helper. Roles are resolved when preparing delegates that can use them; saved panels are read at review time, including when model selection is unavailable. Fully specified choices in your task replace the corresponding saved choices.
+Saved model choices apply to delegates and reviewer panels. Direct work stays on your current host settings without running the preference helper. Roles are resolved when preparing delegates that can use them; saved panels are read at review time, including when model selection is unavailable. An explicit task model replaces the corresponding saved choice without a saved lookup. A task can request effort for that invocation only.
 
 ## Run the preference helper
 
@@ -28,6 +28,8 @@ python3 skills/setup/scripts/preferences.py show
 
 In Claude Code, add `--host claude` before every preference subcommand. The same save and resolution commands apply, using Claude-owned storage. The configuration and inheritance rules are shared; no preferences move between hosts automatically.
 
+Schemas 1, 2, and 3 remain readable without migration. Reads leave existing files unchanged. Setup preserves stored effort and unrelated choices when editing models, and uses `null` effort for new entries. Legacy effort remains stored but no longer controls delegates. Resolution prints one disclosure to stderr when it encounters nonnull saved effort.
+
 Save a complete preference object through stdin. This command writes user preferences:
 
 ```sh
@@ -40,7 +42,7 @@ Resolve preferences against observable host values:
 python3 skills/setup/scripts/preferences.py resolve --host-model MODEL_ID --host-reasoning-effort EFFORT
 ```
 
-Replace the placeholders with values from your host. Resolve does not apply the result. See the [configuration contract](configuration.md) for inheritance and validation rules.
+Replace the placeholders with values from your host. Resolve does not apply the result. Its effort field reports the supplied host value or `null`. Leave delegate effort unset unless the task explicitly requests an override. See the [configuration contract](configuration.md) for inheritance and validation rules.
 
 ## Verify without changing user preferences
 

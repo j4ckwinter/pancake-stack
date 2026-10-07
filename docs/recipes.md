@@ -2,7 +2,7 @@
 
 Use these prompts in a Codex chat after installing the plugin. Replace the example behavior and paths with your project's details. Select the installed skill in the host picker when available. The `$pancake-stack:...` text invokes a skill in chat, not a shell command.
 
-In Claude Code, use `/pancake-stack:...` with the same task text. Setup discovers Claude choices and saves Claude-owned preferences. The GPT model pairs below are recorded Codex examples; choose models supported by your active Claude host when requesting reviewer panels or competing designs. See [Claude Code support](claude.md) for observed host coverage.
+In Claude Code, use `/pancake-stack:...` with the same task text. Setup discovers Claude choices and saves Claude-owned preferences. The GPT model IDs below are recorded Codex examples; choose models supported by your active Claude host when requesting reviewer panels or competing designs. See [Claude Code support](claude.md) for observed host coverage.
 
 ## Start with a read-only walkthrough
 
@@ -12,7 +12,7 @@ No setup is required to inherit your current Codex settings. After installing or
 
 ## Trace a behavior
 
-> $pancake-stack:how Explain how the setup preference helper resolves a role's model and reasoning effort. Keep this read-only. Cite the implementation. Distinguish saved preferences from choices actually applied by the host.
+> $pancake-stack:how Explain how the setup preference helper resolves a role's model and preserves inactive saved effort. Keep this read-only. Cite the implementation. Distinguish saved preferences from choices actually applied by the host.
 
 Expect an execution trace with inspected code locations and explicit evidence gaps. If you need the reason behind a choice, use `$pancake-stack:why` and name the decision. Ask it to separate recorded rationale from inference.
 
@@ -24,13 +24,13 @@ For a consequential decision, explicitly request independent exploration.
 
 > $pancake-stack:design Explore two competing designs for migrating live invoice payloads from total to amount. Use independent candidate agents and a separate independent judge. Preserve readability of stored total records without rewriting the archive. Compare compatibility, ownership, failure recovery, migration cost, and verification against the existing approach. Keep the project unchanged.
 
-This is task-specific and does not save preferences. Ordinary requests to compare approaches remain direct Design work. If you want model diversity, supply supported candidate model and effort pairs and a judge pair. Omitted choices inherit the research preference for candidates and the review preference for the judge. The judge receives anonymized proposals after the candidates complete. Missing candidates or an unavailable judge remain explicit gaps.
+This is task-specific and does not save preferences. Ordinary requests to compare approaches remain direct Design work. If you want model diversity, supply supported candidate models and a judge model. Omitted models inherit the research preference for candidates and the review preference for the judge. An explicit model bypasses saved lookup. Effort inherits from the host unless requested separately for this task. The judge receives anonymized proposals after the candidates complete. Missing candidates or an unavailable judge remain explicit gaps.
 
 Then challenge the concrete proposal.
 
 > $pancake-stack:challenge Challenge the cancellation proposal above against the current implementation. Find a concrete ordering or failure that breaks its assumptions. Report supported findings and missing evidence. Do not apply fixes.
 
-To request model diversity, first use setup to select a Challenge reviewer panel, or supply supported reviewer model and effort pairs in the challenge prompt for this task only. Challenge launches one independent reviewer per selected entry when the host supports delegation. It reports actual selections and uncovered perspectives. Different models from the same provider do not establish provider diversity.
+To request model diversity, first use setup to select a Challenge reviewer panel, or supply supported reviewer models in the challenge prompt for this task only. Challenge launches one independent reviewer per selected entry when the host supports delegation. It reports actual selections and uncovered perspectives. Different models from the same provider do not establish provider diversity.
 
 Expect a recommendation first, then a verdict grounded in the proposal and inspected code. A design request or challenge does not authorize implementation.
 
@@ -64,11 +64,11 @@ For committed work, supply the commit or branch range instead. Expect actionable
 
 To configure a separate implementation review panel, use Setup before the implementation request.
 
-> $pancake-stack:setup Configure only my consequential implementation reviewers as gpt-6.1-sol at medium effort and gpt-6-sol at medium effort. Preserve defaults, roles, and my Challenge panel.
+> $pancake-stack:setup Configure only my consequential implementation reviewers as gpt-6.1-sol and gpt-6-sol. Preserve defaults, roles, and my Challenge panel.
 
-These example pairs were available in the verified host catalog; Setup must check your host. Saving an implementation panel opts into schema 3, which older helpers cannot read. A missing or empty panel retains the single independent reviewer for consequential changes. Local, low-impact work still permits direct review. A saved Challenge panel does not configure implementation review.
+These example models were available in the verified host catalog; Setup must check your host. Saving an implementation panel opts into schema 3, which older helpers cannot read. A missing or empty panel retains the single independent reviewer for consequential changes. Local, low-impact work still permits direct review. A saved Challenge panel does not configure implementation review.
 
-You can instead supply supported implementation reviewer pairs in a Pancake task for that invocation only. Neither setup nor model resolution proves that a model was applied. Expect completed reviewer results and requested-versus-observed selection evidence.
+You can instead supply supported implementation reviewer models in a Pancake task for that invocation only. Effort inherits from the host unless you request it separately for that task. Setup preserves legacy saved effort but does not apply it. Neither setup nor model resolution proves that a model was applied. Expect completed reviewer results and requested-versus-observed selection evidence.
 
 Name the outcome and allowed actions rather than relying on "loop until done" alone. Expect checked milestones and a final account of the result. A long run does not grant unrelated external actions or schedule unattended work.
 

@@ -58,9 +58,9 @@ class PreferencesTests(unittest.TestCase):
                               "--host-reasoning-effort", "low")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(json.loads(result.stdout), {
-            "implementation": {"model": "parent-model", "reasoningEffort": "high"},
-            "review": {"model": "review-model", "reasoningEffort": "high"},
-            "research": {"model": "parent-model", "reasoningEffort": "medium"},
+            "implementation": {"model": "parent-model", "reasoningEffort": "low"},
+            "review": {"model": "review-model", "reasoningEffort": "low"},
+            "research": {"model": "parent-model", "reasoningEffort": "low"},
         })
         self.assertEqual(self.run_cli("save", json.dumps(EXAMPLE)).returncode, 0)
         result = self.run_cli("resolve", None, "--host-model", "parent-model",
@@ -69,6 +69,60 @@ class PreferencesTests(unittest.TestCase):
             role: {"model": "parent-model", "reasoningEffort": "low"}
             for role in ("implementation", "review", "research")
         })
+
+    def test_legacy_efforts_are_inactive_and_preserved_across_schemas(self):
+        notice = ("preferences: Saved reasoning-effort values remain stored but are inactive. "
+                  "Delegates inherit host effort unless the task explicitly requests an effort.\n")
+        for version in (1, 2, 3):
+            config = copy.deepcopy(EXAMPLE)
+            config["schemaVersion"] = version
+            config["defaults"] = {"model": "default-model", "reasoningEffort": "high"}
+            config["roles"]["research"]["reasoningEffort"] = "low"
+            if version >= 2:
+                config["challengeReviewers"] = [
+                    {"model": "duplicate-model", "reasoningEffort": "high"},
+                    {"model": "duplicate-model", "reasoningEffort": "low"}]
+            if version == 3:
+                config["implementationReviewers"] = [
+                    {"model": None, "reasoningEffort": "unsupported-legacy-effort"}]
+            self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+            original = self.path.read_bytes()
+            for command in ("resolve", "resolve-challenge", "resolve-implementation-review"):
+                with self.subTest(version=version, command=command):
+                    result = self.run_cli(command, None, "--host-reasoning-effort", "medium")
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertEqual(result.stderr, notice)
+                    if command == "resolve":
+                        expected = {role: {"model": "default-model", "reasoningEffort": "medium"}
+                                    for role in ("implementation", "review", "research")}
+                    elif command == "resolve-challenge" and version >= 2:
+                        expected = [{"model": "duplicate-model", "reasoningEffort": "medium"},
+                                    {"model": "duplicate-model", "reasoningEffort": "medium"}]
+                    else:
+                        expected = [{"model": "default-model", "reasoningEffort": "medium"}]
+                    self.assertEqual(json.loads(result.stdout), expected)
+                    self.assertEqual(self.path.read_bytes(), original)
+            config["roles"]["review"]["model"] = "changed-model"
+            result = self.run_cli("save", json.dumps(config))
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(json.loads(self.run_cli("show").stdout), config)
+            self.assertEqual(json.loads(self.run_cli("resolve").stdout)["review"],
+                             {"model": "changed-model", "reasoningEffort": None})
+
+    def test_panel_only_effort_disclosure_and_all_null_silence(self):
+        config = copy.deepcopy(EXAMPLE)
+        config.update(schemaVersion=3, challengeReviewers=[], implementationReviewers=[
+            {"model": "reviewer", "reasoningEffort": "high"}])
+        self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+        result = self.run_cli("resolve-implementation-review")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), [{"model": "reviewer", "reasoningEffort": None}])
+        self.assertIn("remain stored but are inactive", result.stderr)
+        config["implementationReviewers"][0]["reasoningEffort"] = None
+        self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
+        result = self.run_cli("resolve-implementation-review")
+        self.assertEqual(result.stderr, "")
+        self.assertEqual(json.loads(result.stdout), [{"model": "reviewer", "reasoningEffort": None}])
 
     def test_invalid_inputs_preserve_existing_file(self):
         self.assertEqual(self.run_cli("save", json.dumps(EXAMPLE)).returncode, 0)
@@ -140,17 +194,17 @@ class PreferencesTests(unittest.TestCase):
                               "--host-reasoning-effort", "low")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(json.loads(result.stdout), [
-            {"model": "first-model", "reasoningEffort": "high"},
-            {"model": "review-model", "reasoningEffort": "medium"},
+            {"model": "first-model", "reasoningEffort": "low"},
+            {"model": "review-model", "reasoningEffort": "low"},
         ])
         roles = json.loads(self.run_cli("resolve").stdout)
         self.assertEqual(set(roles), {"implementation", "review", "research"})
-        self.assertEqual(roles["review"], {"model": "review-model", "reasoningEffort": "high"})
+        self.assertEqual(roles["review"], {"model": "review-model", "reasoningEffort": None})
         self.assertEqual(self.path.read_bytes(), original)
         config["challengeReviewers"] = []
         self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
         self.assertEqual(json.loads(self.run_cli("resolve-challenge").stdout),
-                         [{"model": "review-model", "reasoningEffort": "high"}])
+                         [{"model": "review-model", "reasoningEffort": None}])
         config["defaults"] = {"model": None, "reasoningEffort": None}
         config["roles"]["review"]["model"] = None
         config["challengeReviewers"] = [{"model": None, "reasoningEffort": None}]
@@ -202,7 +256,7 @@ class PreferencesTests(unittest.TestCase):
             result = self.run_cli("resolve-implementation-review")
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(json.loads(result.stdout),
-                             [{"model": "review-model", "reasoningEffort": "high"}])
+                             [{"model": "review-model", "reasoningEffort": None}])
             self.assertEqual(json.loads(self.run_cli("show").stdout), config)
             self.assertEqual(self.path.read_bytes(), original)
 
@@ -223,19 +277,19 @@ class PreferencesTests(unittest.TestCase):
                               "--host-model", "parent-model", "--host-reasoning-effort", "low")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(json.loads(result.stdout), [
-            {"model": "first-model", "reasoningEffort": "high"},
-            {"model": "review-model", "reasoningEffort": "medium"}])
+            {"model": "first-model", "reasoningEffort": "low"},
+            {"model": "review-model", "reasoningEffort": "low"}])
         self.assertEqual(json.loads(self.run_cli("resolve-challenge").stdout),
-                         [{"model": "challenge-model", "reasoningEffort": "low"}])
+                         [{"model": "challenge-model", "reasoningEffort": None}])
         self.assertEqual(json.loads(self.run_cli("resolve").stdout), {
-            "implementation": {"model": None, "reasoningEffort": "high"},
-            "review": {"model": "review-model", "reasoningEffort": "high"},
-            "research": {"model": None, "reasoningEffort": "high"}})
+            "implementation": {"model": None, "reasoningEffort": None},
+            "review": {"model": "review-model", "reasoningEffort": None},
+            "research": {"model": None, "reasoningEffort": None}})
         self.assertEqual(self.path.read_bytes(), original)
         config["implementationReviewers"] = []
         self.assertEqual(self.run_cli("save", json.dumps(config)).returncode, 0)
         self.assertEqual(json.loads(self.run_cli("resolve-implementation-review").stdout),
-                         [{"model": "review-model", "reasoningEffort": "high"}])
+                         [{"model": "review-model", "reasoningEffort": None}])
         self.assertEqual(json.loads(self.run_cli("show").stdout), config)
         config["roles"]["review"] = {"model": None, "reasoningEffort": None}
         config["defaults"] = {"model": None, "reasoningEffort": None}
@@ -326,6 +380,25 @@ class HostPreferencesTests(unittest.TestCase):
         result = self.invoke("--host", "claude", "save", payload=json.dumps(claude))
         self.assertEqual(result.returncode, 2)
         self.assertEqual(self.profile("claude").read_text(), "broken claude")
+
+    def test_legacy_effort_resolution_is_isolated_on_both_hosts(self):
+        for host in ("codex", "claude"):
+            config = copy.deepcopy(EXAMPLE)
+            config["defaults"] = {"model": host + "-model", "reasoningEffort": "high"}
+            result = self.invoke("--host", host, "save", payload=json.dumps(config))
+            self.assertEqual(result.returncode, 0, result.stderr)
+        originals = {host: self.profile(host).read_bytes() for host in ("codex", "claude")}
+        for host in ("codex", "claude"):
+            for command in ("resolve", "resolve-challenge", "resolve-implementation-review"):
+                result = self.invoke("--host", host, command, "--host-reasoning-effort", "low")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                choice = {"model": host + "-model", "reasoningEffort": "low"}
+                expected = ({role: choice for role in ("implementation", "review", "research")}
+                            if command == "resolve" else [choice])
+                self.assertEqual(json.loads(result.stdout), expected)
+                self.assertIn("remain stored but are inactive", result.stderr)
+                self.assertEqual({name: self.profile(name).read_bytes()
+                                  for name in ("codex", "claude")}, originals)
 
     def test_config_override_precedes_both_host_paths(self):
         explicit = self.root / "explicit.json"
