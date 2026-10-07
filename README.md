@@ -72,12 +72,4 @@ there are [prompt recipes](docs/recipes.md) if you want a starting point, or you
 
 ## a bit more
 
-[configuration](docs/configuration.md) and [setup](docs/setup.md) cover task settings and optional reviewers. [verification](docs/verification.md) explains the external evaluation repository, recorded results, and remaining gaps.
-
-Tests and evaluation tools live in the separate local `pancake-stack-evals` repository. Maintainers can run them against this checkout with:
-
-```sh
-python3 -B ../pancake-stack-evals/run_checks.py --source . --output /tmp/pancake-checks.json
-```
-
-The evaluation repository is local-only, so automatic GitHub checks are pending a remote and access configuration. Using the skills does not require the evaluation repository.
+[configuration](docs/configuration.md) and [setup](docs/setup.md) cover task settings and optional reviewers. [verification](docs/verification.md) covers checks, recorded results, and known limitations.
