@@ -70,14 +70,12 @@ there are [prompt recipes](docs/recipes.md) if you want a starting point, or you
 
 ## a bit more
 
-[configuration](docs/configuration.md) and [setup](docs/setup.md) cover preferences and optional reviewers. [accepted safeguards](docs/safeguards.md) covers the checks and remaining gaps.
+[configuration](docs/configuration.md) and [setup](docs/setup.md) cover preferences and optional reviewers. [verification](docs/verification.md) explains the external evaluation repository, recorded results, and remaining gaps.
 
-run the repository checks with:
+Tests and evaluation tools live in the separate local `pancake-stack-evals` repository. Maintainers can run them against this checkout with:
 
 ```sh
-python3 -B -m unittest discover -s tests -v
+python3 -B ../pancake-stack-evals/run_checks.py --source . --output /tmp/pancake-checks.json
 ```
 
-these check the package, skills, links, preference helpers, and behavioral fixtures. preference tests use temporary storage. the checks don’t install the plugin or change your global preferences.
-
-[repository checks](.github/workflows/checks.yml) runs the same command on pull requests and pushes, using Python 3.12 on Ubuntu. installed-host checks and live model trials remain separate.
+The evaluation repository is local-only, so automatic GitHub checks are pending a remote and access configuration. Using the skills does not require the evaluation repository.

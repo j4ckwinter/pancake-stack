@@ -49,7 +49,7 @@ Claude Code's Agent interface differs from Codex collaboration. The workflow use
 
 On 6 October 2026, Claude Code 2.1.291 validated both native manifests with `--strict`, installed the local marketplace package in an isolated profile, and initialized a session that listed all 19 unique namespaced skills from the shared tree. Its model metadata was read without authentication or a model turn. Repository tests exercise both manifests, shared metadata, source resolution, isolated host preferences, and discovery failure handling.
 
-The existing Codex installation flow also installed 0.19.0 in a fresh temporary profile. An authenticated installed How task returned a correct source-cited explanation and disclosed static-only inspection. Parent artifact checks passed and confirmed file preservation. See the [host evidence](evidence/claude-support-2026-10-06.json).
+The existing Codex installation flow also installed 0.19.0 in a fresh temporary profile. An authenticated installed How task returned a correct source-cited explanation and disclosed static-only inspection. Parent artifact checks passed and confirmed file preservation. See the [verification record](verification.md).
 
 Authenticated How, Fix, Check, Setup conversation flow, reviewer panels, and competing Design remain pending because this environment has no Claude authentication. Structural checks and skill discovery do not establish those behaviors. Applied per-worker effort and model selection remain separate gates. Codex's existing discovery and preference tests continue to run.
 

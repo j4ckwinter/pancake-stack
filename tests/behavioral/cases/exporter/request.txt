@@ -1,1 +1,0 @@
-Review the supplied change.diff for bugs and compatibility gaps. Check relevant callers and explain any limits on what you can verify. Leave the files unchanged.

@@ -12,4 +12,4 @@ Keep this project focused on Codex and Claude Code plugin foundations and the re
 - Use concise imperative commit subjects that describe the actual change, such as `Add structural-quality design and review guidance`.
 - Do not select a license, publish, commit, or install the Pancake Stack plugin without authorization.
 
-Validate JSON parsing, marketplace source resolution, and all skills after changes. Run the preference helper tests in isolated temporary storage. Installation remains a separate host check.
+Validate JSON parsing, marketplace source resolution, and all skills after changes. Run the external evaluator from `../pancake-stack-evals/run_checks.py --source .`; its historical helper tests use isolated temporary storage. Tests and evidence belong in that separate repository. Installation remains a separate host check.

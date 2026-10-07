@@ -46,15 +46,7 @@ Replace the placeholders with values from your host. Resolve does not apply the 
 
 ## Verify without changing user preferences
 
-Run the automated helper and fixture-support tests from the repository root:
-
-```sh
-python3 -m unittest discover -s tests -v
-```
-
-The preference tests pass explicit temporary paths to every helper invocation. Catalog tests use a temporary fake app server to check pagination, notifications, timeouts, malformed responses, and unavailable executables. The tests do not install a plugin or write to user preference storage.
-
-Use the [behavioral evaluation procedure](behavioral-evaluation.md) to exercise workflows on the fixtures under `tests/behavioral`. Automated fixture checks do not establish how an agent follows a skill or how the host invokes it. Keep those claims tied to workflow trials and the [installation record](installation-verification.md).
+Tests and historical workflow trials live in the separate local evaluation repository. See [verification](verification.md) for the external command and coverage limits.
 
 ## Configure Challenge reviewers
 

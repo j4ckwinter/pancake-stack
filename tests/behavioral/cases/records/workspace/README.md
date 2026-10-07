@@ -1,1 +1,0 @@
-New live invoice payloads should use amount. Stored archive records retain total and must remain readable without rewriting archive.json. Preserve the public create_invoice(total=...) API, including the established billing caller.
