@@ -2,9 +2,15 @@
 
 ## Current state
 
-Version 0.19.0 packages the same 19 workflows for Codex and Claude Code. Native Claude validation, isolated local installation, skill inventory, and model metadata discovery passed on 6 October 2026. Authenticated Claude behavior remains pending. See [Claude Code support](claude.md).
+Version 0.19.2 packages the same 19 workflows for Codex and Claude Code. Both hosts share the skill tree and keep separate preferences. Delegates inherit host effort unless the task explicitly requests an effort. Existing saved effort remains stored but inactive.
+
+Native Claude validation, isolated local installation, skill inventory, and model metadata discovery passed for 0.19.0 on 6 October 2026. Authenticated Claude behavior remains pending. See [Claude Code support](claude.md).
 
 Installed Codex CLI trials on 5 October 2026 verified isolated Setup persistence, saved Challenge and implementation panels, proportionate review for a small edit, and competing Design proposals with a separate judge. The [installation record](installation-verification.md) and [trial results](behavioral-results.md) retain the evidence and unsuccessful earlier trials.
+
+The [7 October baseline comparison](baseline-comparison.md) observed more consistent defect reproduction and independent migration review with Pancake. Both treatments passed all nine artifact checks. Pancake used more time and tokens, and one migration introduced a compatibility risk its reviewer missed. These results establish a process benefit on the tested fixtures, not improved correctness.
+
+Version 0.19.2 strengthens the migration fixture to protect keyword callers and adds reviewer evaluation checks. The [reviewer comparison](behavioral-results.md#reviewer-detection-and-narrow-consolidation-7-october-2026) found all seeded defects with both instruction variants and no false actionable findings. The small trial did not demonstrate lower overhead, so the production Check instructions remain unchanged. Broader repository tasks and authenticated Claude workflows remain verification gaps.
 
 The completed list records delivered guidance and repository work. The dated sections below record verification at their original versions. Their pending statements describe those earlier trials, not the current backlog.
 
