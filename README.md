@@ -41,6 +41,8 @@ reach for `$pancake-stack:pancake` when you have work to do. tell it what you wa
 
 use `$pancake-stack:design` when you want to settle the approach first. use `$pancake-stack:setup` to phrase delegate and reviewer choices for the current task. delegates inherit host settings unless you request an override. setup runs no bundled scripts and saves no preferences.
 
+for substantial work, pancake delegates useful independent investigation or implementation tasks when the host and your instructions allow it. it explains each agent's assignment and brings the results together. small or tightly coupled tasks stay with the main agent.
+
 there are [prompt recipes](docs/recipes.md) if you want a starting point, or you can pick a skill directly:
 
 <details>

@@ -41,7 +41,9 @@ Before applying delegated settings, read [active host guidance](references/host-
 
 Challenge and consequential implementation review select their task-supplied panels at review time. Without a supplied panel, follow each workflow's default review requirement. Setup can help phrase choices for the current task; it does not persist them.
 
-For justified candidate comparisons or independent workstreams, read [parallel work](references/parallel-work.md). Use the current agent by default. Delegate only when an independent review or separable investigation materially helps and host capabilities permit it. Keep writes isolated and review delegated results. Do not add agents simply to satisfy a fixed count or describe same-model reviews as a multi-model panel.
+For substantial work, read [parallel work](references/parallel-work.md) during planning and launch useful independent assignments early when host capabilities and task permissions permit it. Split investigations or implementation into bounded assignments while the lead advances another part. Keep small tasks and tightly coupled work in the current agent. Do not add agents simply to satisfy a fixed count. Existing independent-review requirements still apply; an implementation worker does not replace its independent reviewer.
+
+Make delegation visible with a brief update naming each agent's assignment and what the lead will handle. Launch through the host's actual delegation tool, and report an agent as started only after the tool confirms it. Summarize completed findings and material gaps as results arrive. Do not promise a particular host UI indicator or describe same-model reviews as a multi-model panel.
 
 ## Finish
 

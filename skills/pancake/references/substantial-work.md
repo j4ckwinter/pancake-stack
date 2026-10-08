@@ -14,6 +14,8 @@ Capture the relevant starting state before changing it. Prefer existing checks a
 
 Keep a short phase list in the conversation or available planning surface. For each unit, identify its dependency, owner, affected files or shared resources, expected result, and observable check. Address consequential uncertainty early without skipping blocking foundations. Use the existing design, experiment, and parallel-work guidance only when their conditions apply.
 
+Identify useful independent assignments during planning and delegate them by default when permitted and available, following [parallel work](parallel-work.md). Examples include tracing separate subsystems or implementing changes with separate ownership. State each agent's assignment and the work retained by the lead. If the work is tightly coupled, keep it direct rather than manufacturing parallel tasks. Reconsider delegation when later phases expose independent work.
+
 Implement and check each useful unit before relying on it. Separate verified results, observed failures, and inconclusive checks. A unit can pass while the overall outcome remains incomplete. For delegated work, inspect the artifact and evidence before integration; a worker's completion report is not verification.
 
 ## Check progress and revise

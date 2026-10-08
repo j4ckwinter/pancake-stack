@@ -14,7 +14,7 @@ Answer the user's question from the implementation. This is an explanation workf
 - Prefer implementation over comments and documentation when they disagree. Use tests to understand expected behavior, while distinguishing expectations from behavior actually observed.
 - Search narrowly and read the relevant callers. Stop when you can explain the requested flow and its ownership. Expand only to resolve a specific gap.
 - Keep the investigation read-only. Use inspection commands. Do not execute unfamiliar application code, run setup or installation, change configuration, or start services merely to explain them. If runtime evidence requires side effects, explain what static inspection establishes and what remains unverified.
-- Work in the current agent. This version does not require subagents or switch models. Task-supplied delegate choices do not change the current conversation's model.
+- Keep a focused trace in the current agent. For a substantial investigation with independent subsystem questions, delegate read-only slices through [parallel work](../pancake/references/parallel-work.md) when permitted and available. Inspect the decisive source locations before synthesizing the explanation. Delegate settings inherit from the host unless the task overrides them; they do not change the current conversation's model.
 
 ## Explain
 
