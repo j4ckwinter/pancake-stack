@@ -7,6 +7,8 @@ description: Diagnose and fix a reported software defect with focused verificati
 
 Read [core values](../pancake/references/values.md) and applicable repository instructions.
 
+Before running a reproduction or check, read [verify](../verify/SKILL.md) and apply its command inspection, isolation, readiness, evidence, and cleanup requirements throughout this workflow. Use those requirements for the checks below; the requested repair still authorizes the focused code and test changes described here.
+
 Establish expected and actual behavior from the report and implementation. Reproduce the failure on the relevant surface when feasible. If reproduction is unavailable, state the missing evidence and proceed only as far as the available evidence supports.
 
 Trace the symptom through its inputs, state changes, and callers. Identify the cause before changing code. Preserve existing contracts unless the requested fix requires changing them. Prefer a focused correction over a broad cleanup.

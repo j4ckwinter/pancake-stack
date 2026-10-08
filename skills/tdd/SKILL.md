@@ -7,6 +7,8 @@ description: Develop through a failing test before changing production code. Use
 
 Read [core values](../pancake/references/values.md) and applicable repository instructions. Use this workflow for requested test-first development. When the failure or intended behavior is unclear, use the reproduction and diagnosis guidance in [fix](../fix/SKILL.md) before starting the cycle below.
 
+Before running a reproduction or test, read [verify](../verify/SKILL.md) and apply its command inspection, isolation, readiness, evidence, and cleanup requirements throughout this workflow. Use those requirements within the test-first cycle below, preserving the failing-test step before production changes and the test-only scope when implementation is not requested.
+
 ## Establish the behavior
 
 Identify the requested observable result, affected interface, and existing test harness. Preserve behavior outside the request. Choose a small test that exercises the real interface and asserts a concrete result independent of the implementation. A mock-call assertion or a test that compares the function with itself does not establish the requested behavior.
