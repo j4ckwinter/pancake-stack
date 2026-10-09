@@ -1,0 +1,41 @@
+name: Package checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out library
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: pancake-stack
+          persist-credentials: false
+      - name: Check out evaluator
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: j4ckwinter/pancake-stack-evals
+          ref: f3f0b76215b2d84d610ed764207556f757622417
+          path: pancake-stack-evals
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Validate library and evaluator
+        run: python -B pancake-stack-evals/run_checks.py --source pancake-stack --output "$RUNNER_TEMP/pancake-checks.json"
+      - name: Retain check results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pancake-checks
+          path: ${{ runner.temp }}/pancake-checks.json
+          if-no-files-found: warn
