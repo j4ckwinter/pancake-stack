@@ -21,17 +21,9 @@ Read surrounding code and tests to check whether each suspected issue is already
 
 ## Independent perspectives
 
-When preparing reviewers, follow [active host guidance](../pancake/references/host-runtime.md). Omitted model and effort choices inherit the host. Do not read stored preferences or change the parent conversation settings.
+For a nonempty task-supplied panel, use one independent read-only reviewer per entry when delegation is available and permitted. An absent or explicitly empty panel uses independent reviewers when the consequences and available capabilities justify them. A supplied panel requests delegation, not extra passes by the lead.
 
-For a nonempty task-supplied panel, spawn one independent read-only reviewer per entry when delegation is available and permitted. Queue reviewers within host concurrency limits and await each completed verdict before synthesizing. For an absent or explicitly empty panel, use independent reviewers when the consequences and available capabilities justify them. A supplied panel requests delegation, not extra passes by the lead.
-
-Start each reviewer in a fresh minimal context, without inherited conversation history or earlier assessments. Supply the neutral brief and source pointers below, including the constraints needed to review safely. Follow the [reviewer context guidance](../pancake/references/host-runtime.md#reviewer-context) for host controls and unavailable isolation.
-
-Give every reviewer the same neutral brief, target snapshot or branch range, intended outcome, constraints, and evidence requirements. Ask each to inspect independently and return triggers, consequences, inspected locations, and uncertainty. Do not seed reviewers with the lead's suspected answer or other reviewers' findings. Prohibit edits, nested delegation, dependency installation, services, and external actions. If the target changes during review, identify the coverage mismatch before using the findings.
-
-Apply requested models through supported host selection. Omit effort to inherit from the host unless explicitly requested for this task. Apply explicit task effort separately when supported. Do not invent model IDs or silently substitute another model, effort, or provider. Record requested settings and what the host actually accepted or reported for each reviewer. An unknown inherited setting remains unknown. An unsupported or failed entry leaves that perspective uncovered; report it and continue with completed evidence. Retry only when the observed failure supports a bounded retry. If delegation is unavailable, review directly and disclose that the panel did not run. Multiple passes by one agent are not independent reviewers.
-
-Claim model diversity only when completed reviewers have distinct actual model IDs. Different reasoning efforts on one model provide independent reviews without model diversity. Different models from one provider do not establish provider diversity. Unknown selections, rejected settings, failed reviewers, and incomplete reviews remain coverage gaps.
+Before launching reviewers, read and follow the [shared execution, context, settings, and coverage protocol](../pancake/references/host-runtime.md). Require a completed verdict for each selected entry or report its concrete coverage gap before synthesizing.
 
 ## Judge the evidence
 
