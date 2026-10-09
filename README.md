@@ -19,7 +19,7 @@ open a new Codex chat, then give it a task:
 
 > $pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
 
-you can also select **Pancake** in the skill picker. see the [installation record](docs/installation-verification.md) for what’s been tested.
+in hosts with a skill picker, look for **Pancake**. CLI installation and discovery have been tested; visible picker behavior remains unverified. see the [installation record](docs/installation-verification.md).
 
 ### Claude Code
 

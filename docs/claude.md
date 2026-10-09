@@ -1,6 +1,6 @@
 # Claude Code support
 
-Pancake Stack 0.20.0 packages the same 19 workflows for Codex and Claude Code. Both hosts use the shared `skills/` tree. The native Claude manifests are in `.claude-plugin/`.
+Pancake Stack packages the same 19 workflows for Codex and Claude Code. Both hosts use the shared `skills/` tree. The native Claude manifests are in `.claude-plugin/`.
 
 ## Use Pancake in Claude Code
 
@@ -23,7 +23,7 @@ claude plugin marketplace add .
 claude plugin install pancake-stack@pancake-stack
 ```
 
-These installation commands passed for the recorded earlier package in a temporary Claude profile. Version 0.20.0 installation and authenticated workflow behavior remain unverified. See [installation verification](installation-verification.md).
+These installation commands passed for version 0.21.3 in a temporary Claude profile on 9 October 2026. Installed discovery returned all 19 skills with matching resources. Authenticated workflow behavior remains unverified because no Claude login was available. See [installation verification](installation-verification.md).
 
 ## Delegate through the active host
 
