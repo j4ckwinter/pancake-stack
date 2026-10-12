@@ -26,11 +26,19 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.4
+
+This release updates verification documentation and the pinned evaluator. The 19 skill implementations are unchanged from 0.21.3. Shared reviewer mechanics and conditional Design references already address the earlier consolidation proposals.
+
+The evaluator now has 86 checks and a separate [three-arm review comparison](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/review-comparison.md). Its 12-run source-skill pilot covered zero-valued configuration and deferred file consumption, each with a faulty change and a clean control. Every arm detected both seeded defects and reported no unsupported actionable findings. An independent assessor counted no unnecessary-work episodes under the predeclared rubric. Cost remains a separate observation, not evidence of unnecessary work by itself.
+
+The pilot used unchanged 0.21.3 skills, one repetition, one candidate model, and one CLI host. It does not establish general superiority, repeatability, or installed 0.21.4 behavior. Authenticated Claude workflows remain deferred. The [installation record](installation-verification.md) retains the earlier host checks without relabeling them as a new trial.
+
 ## Current checks, 9 October 2026
 
 Version 0.21.3 passed all 80 checks in the local evaluator, including JSON parsing, marketplace source resolution, all 19 skills, and historical helper tests. Independent static review found no actionable regressions in the reviewer-rule consolidation. Both hosts installed the package in temporary profiles and discovered all 19 skills with matching resources.
 
-Two installed Codex trials exercised the consolidated reviewer rules. A migration preserved the public keyword API and archives while completing the default independent review. Challenge completed both requested reviewers, found the seeded consumer regression, and preserved the fixture. Exact prompts, hashes, and verdicts are retained in the evaluator's `docs/reviewer-consolidation.md` and `docs/evidence/reviewer-consolidation-2026-10-09.json`. These new evaluator records are committed locally; publication is separate.
+Two installed Codex trials exercised the consolidated reviewer rules. A migration preserved the public keyword API and archives while completing the default independent review. Challenge completed both requested reviewers, found the seeded consumer regression, and preserved the fixture. Exact prompts, hashes, and verdicts are retained in the evaluator's [reviewer report](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/reviewer-consolidation.md) and [evidence](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/evidence/reviewer-consolidation-2026-10-09.json).
 
 A 12-trial baseline/Pancake/Poteto pilot covered a tiny edit and a compatibility migration. Eleven trials completed; one Poteto migration timed out. All retained outputs passed corrected primary artifact checks. A separate posthoc numeric audit found a compatibility restriction in one completed Poteto migration. Pancake used less time and fewer tokens than Poteto in this pilot, and more than baseline. The evaluator's `docs/three-arm-comparison.md` records the assessment correction and limits. Two repetitions per case on one host/model cannot establish broad efficacy.
 
@@ -46,6 +54,6 @@ Independent review found and corrected incomplete input hashing in the external 
 
 ## Automated package checks
 
-[Package checks](../.github/workflows/checks.yml) runs on pull requests, pushes to `main`, and manual dispatch. It checks out the library and evaluator as siblings, pins evaluator revision `f3f0b76215b2d84d610ed764207556f757622417` and action revisions, grants read-only repository permissions, and retains the JSON result.
+[Package checks](../.github/workflows/checks.yml) runs on pull requests, pushes to `main`, and manual dispatch. It checks out the library and evaluator as siblings, pins evaluator revision `d81ad93f3195d5164a305b79e504c44e16001b51` and action revisions, grants read-only repository permissions, and retains the JSON result.
 
-The pinned published evaluator passed its 70 checks in a local rehearsal and [hosted CI passed at library revision `1405ff6`](https://github.com/j4ckwinter/pancake-stack/actions/runs/37963572728) on 9 October 2026. The newer local evaluator passed 80 checks again on 12 October 2026 without changing either repository. The pin remains on a remotely available revision until evaluator updates are published separately. Hosted success for the older evaluator does not verify the newer checks. Installation and live model trials remain separate from CI.
+The evaluator update is [published through PR #1](https://github.com/j4ckwinter/pancake-stack-evals/pull/1), and this release pins its merged revision. Its 86 checks passed locally on 12 October 2026. Earlier [hosted CI at library revision `1405ff6`](https://github.com/j4ckwinter/pancake-stack/actions/runs/37963572728) used the older 70-check evaluator. Consult [current Actions results](https://github.com/j4ckwinter/pancake-stack/actions) for the exact library revision and hosted outcome. Installation and live model trials remain separate from CI.

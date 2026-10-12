@@ -12,8 +12,8 @@ Both hosts installed and discovered all 19 skills in isolated profiles for versi
 
 ## Next
 
-- Observe the configured GitHub workflow after an authorized push. Publish evaluator updates separately before advancing its pin.
-- Run authenticated Claude workflows and verify visible picker behavior on supported hosts.
+- Keep the CI evaluator pin on a published, verified revision.
+- Authenticated Claude workflows remain deferred. Visible picker behavior remains unverified on supported hosts.
 - Exercise representative repository tasks beyond the synthetic fixtures.
 
 Historical plans and dated verification records remain in the evaluation repository. License selection, publication, and changes to a user's plugin installation require separate authorization.
