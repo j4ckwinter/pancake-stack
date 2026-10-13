@@ -26,6 +26,14 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.6
+
+This release adds a [repository review pilot](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/repository-review.md) and pins its evaluator. A frozen, provenance-checked evaluator repository supplies two paired review tasks. Each has a behavior-preserving refactor and a seeded regression. The suite now has 104 checks.
+
+Sixteen isolated source-skill trials compared baseline review with Pancake Check in two counterbalanced repetitions. Each arm detected all four presented defects and reported no actionable findings on its four clean controls. Every trial completed and preserved its workspace. Independent assessment agreed with all 16 outcomes.
+
+These are seeded defects in two real repository modules, not historical bugs or broad evidence of review superiority. Candidate checks used inspection and in-memory probes under a read-only sandbox. Separate evaluator probes exercised filesystem behavior before the trials. All 19 skill implementations remain unchanged. Claude support is unchanged.
+
 ## Version 0.21.5
 
 This release adds a [validation-test quality pilot](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/validation-controls.md) and pins its evaluator. The evaluator checks generated rejection tests against a correct reader and separate boolean and float validation mutants. A test that rejects the wrong field cannot earn success. The suite now has 97 checks.
@@ -42,7 +50,7 @@ The evaluator now has 86 checks and a separate [three-arm review comparison](htt
 
 The pilot used unchanged 0.21.3 skills, one repetition, one candidate model, and one CLI host. It does not establish general superiority, repeatability, or installed 0.21.4 behavior. Authenticated Claude workflows remain deferred. The [installation record](installation-verification.md) retains the earlier host checks without relabeling them as a new trial.
 
-## Current checks, 9 October 2026
+## Version 0.21.3, 9 October 2026
 
 Version 0.21.3 passed all 80 checks in the local evaluator, including JSON parsing, marketplace source resolution, all 19 skills, and historical helper tests. Independent static review found no actionable regressions in the reviewer-rule consolidation. Both hosts installed the package in temporary profiles and discovered all 19 skills with matching resources.
 
@@ -62,6 +70,6 @@ Independent review found and corrected incomplete input hashing in the external 
 
 ## Automated package checks
 
-[Package checks](../.github/workflows/checks.yml) runs on pull requests, pushes to `main`, and manual dispatch. It checks out the library and evaluator as siblings, pins evaluator revision `8e7876c0820dc964f7a4e8176dfcc4aa88f767df` and action revisions, grants read-only repository permissions, and retains the JSON result.
+[Package checks](../.github/workflows/checks.yml) runs on pull requests, pushes to `main`, and manual dispatch. It checks out the library and evaluator as siblings, pins evaluator revision `b2453e0b13acd8f66875ecd6388c0082273f0b2a` and action revisions, grants read-only repository permissions, and retains the JSON result.
 
-The 0.21.4 evaluator update was [published through PR #1](https://github.com/j4ckwinter/pancake-stack-evals/pull/1), and its 86 checks passed locally on 12 October 2026. Version 0.21.5 pins the [validation evaluator from PR #2](https://github.com/j4ckwinter/pancake-stack-evals/pull/2), with 97 passing local checks. Earlier [hosted CI at library revision `1405ff6`](https://github.com/j4ckwinter/pancake-stack/actions/runs/37963572728) used the older 70-check evaluator. Consult [current Actions results](https://github.com/j4ckwinter/pancake-stack/actions) for the exact library revision and hosted outcome. Installation and live model trials remain separate from CI.
+The 0.21.4 evaluator update was [published through PR #1](https://github.com/j4ckwinter/pancake-stack-evals/pull/1), and its 86 checks passed locally on 12 October 2026. Version 0.21.5 pins the [validation evaluator from PR #2](https://github.com/j4ckwinter/pancake-stack-evals/pull/2), with 97 passing local checks. Version 0.21.6 pins the [repository-review evaluator from PR #3](https://github.com/j4ckwinter/pancake-stack-evals/pull/3), with 104 passing local checks. Earlier [hosted CI at library revision `1405ff6`](https://github.com/j4ckwinter/pancake-stack/actions/runs/37963572728) used the older 70-check evaluator. Consult [current Actions results](https://github.com/j4ckwinter/pancake-stack/actions) for the exact library revision and hosted outcome. Installation and live model trials remain separate from CI.

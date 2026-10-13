@@ -14,6 +14,7 @@ Both hosts installed and discovered all 19 skills in isolated profiles for versi
 
 - Keep the CI evaluator pin on a published, verified revision.
 - Authenticated Claude workflows remain deferred. Visible picker behavior remains unverified on supported hosts.
-- Exercise representative repository tasks beyond the synthetic fixtures. The validation-test pilot passed with current and proposed guidance; retain current wording.
+- Extend repository evaluation beyond the two paired review tasks to other projects and implementation work. The first 16 repository review trials passed in both arms; they do not establish general superiority.
+- Retain current Verify wording. The validation-test pilot passed with current and proposed guidance.
 
 Historical plans and dated verification records remain in the evaluation repository. License selection, publication, and changes to a user's plugin installation require separate authorization.
