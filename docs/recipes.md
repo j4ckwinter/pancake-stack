@@ -16,6 +16,18 @@ No setup is required to inherit your current Codex settings. After installing or
 
 Expect an execution trace with inspected code locations and explicit evidence gaps. If you need the reason behind a choice, use `$pancake-stack:why` and name the decision. Ask it to separate recorded rationale from inference.
 
+## Turn a ticket into an implementation brief
+
+Give Scope the ticket text and the relevant project context.
+
+> $pancake-stack:scope Our ticket says cancelling an import must stop further writes and tell the caller it was cancelled. Inspect the current import flow and its tests. Produce a brief with current behavior, observable acceptance criteria, compatibility constraints, and unresolved product choices. Keep this read-only and return the brief in chat.
+
+Review the proposed criteria and resolve any product choices before requesting implementation. A scope brief does not start the work. If a consequential design choice remains, use the [design recipe](#compare-and-challenge-a-design) first.
+
+> $pancake-stack:pancake Implement the cancellation behavior described in the accepted brief above. Preserve the existing successful-import behavior. Verify the acceptance criteria through the supported interface with isolated local data. Report the changes, checks, and remaining gaps. Do not commit, push, or deploy.
+
+Use the [authorized-run recipe](#finish-an-authorized-run) when you want to grant delivery permissions as well.
+
 ## Compare and challenge a design
 
 > $pancake-stack:design Propose how to add cancellation to our import job. Inspect the current job lifecycle and callers. Compare extending that design with a separate cancellation owner. Show caller usage, failure recovery, and a verification plan. Do not edit files.
@@ -57,6 +69,28 @@ Expect observations tied to the requested behavior. A passing build alone does n
 > $pancake-stack:check Review the staged and unstaged changes for bugs and regressions. Follow affected callers and stored-data contracts. Give each actionable finding a file location, trigger, and consequence. Keep this read-only and report verification gaps.
 
 For committed work, supply the commit or branch range instead. Expect actionable findings or a no-findings verdict with coverage limits. A clean workspace does not identify which committed change you intended to review.
+
+## Pause and resume in a fresh chat
+
+Ask Handoff to stop the current task and preserve a concrete resume point.
+
+> $pancake-stack:handoff Pause the import-cancellation work. Stop task-owned workers from making further edits. Inspect the current branch and local changes. Return a handoff with the objective, accepted decisions, completed and unfinished work, checks actually run, active resources, authorization limits, and the next action. Preserve my edits. Do not commit, stash, or clean up unrelated work.
+
+Copy the returned note into the new chat in the same repository. The note remains in the conversation unless you explicitly request a file. Use Recap to check the note against the current workspace before continuing.
+
+> $pancake-stack:recap Use the handoff below to recover the import-cancellation task. Inspect the current branch and relevant changes. Identify anything that differs from the note, distinguish previous check results from current evidence, and state the next useful action. Keep this read-only. Do not search other conversations.
+
+Paste the handoff after that prompt. Once the recovered state is clear, request continuation separately.
+
+> $pancake-stack:pancake Continue the unfinished import-cancellation work from the reconciled handoff above. Preserve the accepted requirements and my unrelated edits. Complete the remaining checks. Do not commit, push, or deploy.
+
+## Prepare a pull request description
+
+Use PR after a change is ready to describe. Replace `main` with the actual review base.
+
+> $pancake-stack:pr Draft a title and description for the current branch against main. Use the accepted import-cancellation brief and inspect the actual diff. Explain the caller-visible behavior, the verification already performed, and material limits. Identify local changes that are not yet committed separately from the copyable description. Do not create or update a remote PR.
+
+Expect a draft in chat. This request does not run new tests or publish the branch. If verification is still needed, use the [verification recipe](#prove-a-specific-outcome) first. To publish afterward, name the repository, source branch, and base, and explicitly authorize any required push and PR creation.
 
 ## Finish an authorized run
 
