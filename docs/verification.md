@@ -26,6 +26,12 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.7
+
+This release adds [onboarding recipes](recipes.md) for turning a ticket into an implementation brief, pausing and resuming work in a fresh chat, and drafting a pull request from the actual branch diff. Each sequence names its expected output and distinguishes read-only preparation from an authorized continuation.
+
+All 104 external package and evaluator checks passed, including JSON parsing, marketplace source resolution, skill metadata, and local documentation links. Independent review checked the examples against the existing Scope, Handoff, Recap, PR, and Pancake contracts. These are documented prompts, not new installed-host trial results. All 19 skill implementations, the evaluator pin, and Claude workflow support remain unchanged.
+
 ## Version 0.21.6
 
 This release adds a [repository review pilot](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/repository-review.md) and pins its evaluator. A frozen, provenance-checked evaluator repository supplies two paired review tasks. Each has a behavior-preserving refactor and a seeded regression. The suite now has 104 checks.
