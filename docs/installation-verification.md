@@ -1,6 +1,8 @@
 # Installation verification
 
-Version 0.21.4 updates verification documentation and the CI evaluator pin. Its skill files are unchanged from 0.21.3. No new installation trial is claimed for this release.
+The [Codex installation and refresh recipe](codex-installation.md) was tested on Codex CLI 0.160.0 on 14 October 2026. A local checkout installed 0.21.6, refreshed to 0.21.7 after a fast-forward pull and repeated add, and retained matching cached manifest and skill resources. A further add at 0.21.7 preserved those resources. The tested versions have identical skill contents, so this establishes version refresh and resource identity, not replacement of changed skill text. See the [refresh evidence](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/codex-refresh.md).
+
+Version 0.21.8 adds Design candidate-isolation guidance and updates verification documentation. Its source-skill and package checks are described in [verification](verification.md). The refresh experiment above is not an installed 0.21.8 workflow trial.
 
 Version 0.21.3 installed in separate temporary profiles on Codex 0.160.0 and Claude Code 2.1.291 on 9 October 2026. Both hosts discovered all 19 namespaced skills, and installed manifests and skill resources matched the tested source. No global configuration changed.
 

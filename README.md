@@ -6,20 +6,27 @@ these are the skills i use every day to help ai write code i actually want to ke
 
 ## try it out
 
-the same skills work in Codex and Claude Code. run these commands from the repo.
+the same skills work in Codex and Claude Code. get a local checkout first, or use the one you already have.
+
+```sh
+git clone https://github.com/j4ckwinter/pancake-stack.git
+cd pancake-stack
+```
+
+run the host commands below from that checkout.
 
 ### Codex
 
 ```sh
 codex plugin marketplace add .
-codex plugin add pancake-stack@pancake-stack
+codex plugin add pancake-stack@pancake-stack --json
 ```
 
 open a new Codex chat, then give it a task:
 
 > $pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
 
-in hosts with a skill picker, look for **Pancake**. CLI installation and discovery have been tested; visible picker behavior remains unverified. see the [installation record](docs/installation-verification.md).
+in hosts with a skill picker, look for **Pancake**. CLI installation and discovery have been tested; visible picker behavior remains unverified. see the [installation record](docs/installation-verification.md). to update an existing copy and confirm its installed version, use the [Codex refresh recipe](docs/codex-installation.md).
 
 ### Claude Code
 
