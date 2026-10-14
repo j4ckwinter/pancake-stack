@@ -20,4 +20,4 @@ Older versions used JSON preferences and Python helpers. Version 0.20.0 does not
 
 Old Codex profiles may remain under `$CODEX_HOME/pancake-stack/config.json`, defaulting to `~/.codex/pancake-stack/config.json`. Claude profiles may remain under `$CLAUDE_CONFIG_DIR/pancake-stack/config.json`, defaulting to `~/.claude/pancake-stack/config.json`. They are inert for this version. No manual deletion is required to use the library.
 
-Update the installed package and start a fresh chat to use new instructions. A version bump in the source repository does not update an existing installation. Installation remains a separate host action.
+Update the installed package and start a fresh chat to use new instructions. A version bump in the source repository does not update an existing installation. Installation remains a separate host action. The [Codex installation and refresh recipe](codex-installation.md) includes a check of the cached manifest version.
