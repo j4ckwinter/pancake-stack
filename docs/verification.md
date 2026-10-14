@@ -10,11 +10,24 @@ Clone [pancake-stack-evals](https://github.com/j4ckwinter/pancake-stack-evals) b
 git clone https://github.com/j4ckwinter/pancake-stack-evals.git ../pancake-stack-evals
 ```
 
-Then run from the Pancake Stack checkout:
+Run from the Pancake Stack checkout using the evaluator revision pinned in its CI workflow. A detached temporary worktree keeps an existing evaluator checkout and its uncommitted work intact:
 
 ```sh
-python3 -B ../pancake-stack-evals/run_checks.py --source . --output /tmp/pancake-checks.json
+pancake_evaluator_ref="$(sed -n 's/^          ref: //p' .github/workflows/checks.yml)"
+test -n "$pancake_evaluator_ref"
+git -C ../pancake-stack-evals fetch origin "$pancake_evaluator_ref"
+pancake_evaluator_worktree="$(mktemp -d "${TMPDIR:-/tmp}/pancake-evals.XXXXXX")"
+git -C ../pancake-stack-evals worktree add --detach "$pancake_evaluator_worktree" "$pancake_evaluator_ref"
+python3 -B "$pancake_evaluator_worktree/run_checks.py" --source "$PWD" --output /tmp/pancake-checks.json
 ```
+
+Inspect the command's outcome and `/tmp/pancake-checks.json`. Afterward, remove the temporary checkout:
+
+```sh
+git -C ../pancake-stack-evals worktree remove "$pancake_evaluator_worktree"
+```
+
+The `ref` comes from this checkout's [CI workflow](../.github/workflows/checks.yml), so an older library checkout uses its own evaluator pin. These are package checks; they do not install the plugin or register a marketplace.
 
 The evaluator records both repository revisions, file hashes, including nonignored untracked files, dirty state, and whether checks changed either tree. Package validation covers JSON parsing, marketplace source resolution, skill metadata, and local documentation links. Historical preference and catalog tests use archived helpers in isolated temporary storage. They do not verify current runtime features.
 
@@ -25,6 +38,14 @@ The evaluation repository retains [behavioral results](https://github.com/j4ckwi
 The October 2026 baseline pilot found more consistent reproduction and independent review with Pancake. Both treatments passed their artifact checks, and Pancake used more time and tokens. A subsequent reviewer pilot detected its seeded defects but did not establish lower overhead. Neither trial establishes broad correctness benefits.
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
+
+## Version 0.21.8
+
+Design now applies the shared fresh-context rules to independent candidates as well as the judge. One [source-skill trial](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/design-isolation.md) observed fresh candidate and judge launches with completed verdicts. Encrypted briefs limit the neutrality audit.
+
+The updated evaluator guards input identity in every live suite and adds [historical review](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/historical-review.md) and [context recovery](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/context-recovery.md). Both review arms missed the selected historical defect in both repetitions while reporting genuine additional gaps. The original control and a separate calibration follow-up retain their identities and cannot establish clean-control specificity. Current assessor regressions cover malformed archives, actual producer/reader compatibility, empty tests and both Boolean values. Recovery reached 20/20 required facts per arm. These small trials establish no general quality advantage.
+
+All 121 package and evaluator checks passed. Independent implementation reviews and an evidence-consistency audit completed. The [Codex refresh recipe](codex-installation.md) records a tested local-checkout update and cached-version check. Local package verification now resolves CI's pinned evaluator through a temporary detached checkout. The [decision trail](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/gap-pass.md) records the corrections and limits. Claude authenticated workflow status is unchanged.
 
 ## Version 0.21.7
 
@@ -76,6 +97,6 @@ Independent review found and corrected incomplete input hashing in the external 
 
 ## Automated package checks
 
-[Package checks](../.github/workflows/checks.yml) runs on pull requests, pushes to `main`, and manual dispatch. It checks out the library and evaluator as siblings, pins evaluator revision `b2453e0b13acd8f66875ecd6388c0082273f0b2a` and action revisions, grants read-only repository permissions, and retains the JSON result.
+[Package checks](../.github/workflows/checks.yml) runs on pull requests, pushes to `main`, and manual dispatch. It checks out the library and evaluator as siblings, pins the evaluator and action revisions, grants read-only repository permissions, and retains the JSON result.
 
 The 0.21.4 evaluator update was [published through PR #1](https://github.com/j4ckwinter/pancake-stack-evals/pull/1), and its 86 checks passed locally on 12 October 2026. Version 0.21.5 pins the [validation evaluator from PR #2](https://github.com/j4ckwinter/pancake-stack-evals/pull/2), with 97 passing local checks. Version 0.21.6 pins the [repository-review evaluator from PR #3](https://github.com/j4ckwinter/pancake-stack-evals/pull/3), with 104 passing local checks. Earlier [hosted CI at library revision `1405ff6`](https://github.com/j4ckwinter/pancake-stack/actions/runs/37963572728) used the older 70-check evaluator. Consult [current Actions results](https://github.com/j4ckwinter/pancake-stack/actions) for the exact library revision and hosted outcome. Installation and live model trials remain separate from CI.

@@ -8,7 +8,7 @@ In Claude Code, use `/pancake-stack:...` with the same task text. Setup helps ph
 
 > $pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only. Cite inspected code and name anything you could not verify.
 
-No setup is required to inherit your current Codex settings. After installing or refreshing the plugin, open a new chat. A stale chat can still expose older installed instructions. Historical installation results do not establish behavior for the simplified task settings; visible picker behavior remains a separate check.
+No setup is required to inherit your current Codex settings. After installing or refreshing the plugin, open a new chat. A stale chat can still expose older installed instructions. Installed Codex 0.21.3 trials exercised the task-scoped default reviewer and a requested two-reviewer Challenge. See the [installation record](installation-verification.md) for those results and the [refresh recipe](codex-installation.md) for updating the cached copy. Visible picker behavior remains a separate check.
 
 ## Trace a behavior
 
