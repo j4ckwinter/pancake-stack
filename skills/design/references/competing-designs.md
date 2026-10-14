@@ -18,6 +18,8 @@ Without supplied candidate choices, request at least two independent candidates 
 
 Launch at least two separate read-only candidate agents when delegation is available. Prohibit edits, nested delegation, installations, services, and external actions in their briefs. Queue work within host concurrency limits and await completed proposals. Apply model and effort separately through supported host capabilities. When model diversity is requested, use distinct supported model IDs from actual host metadata when available. Do not invent IDs, silently substitute rejected settings, or treat catalog availability as evidence that delegation applied a choice.
 
+Apply the [reviewer context isolation rules](../../pancake/references/host-runtime.md#reviewer-context) to every candidate as well as the judge. A neutral brief does not remove preferences or earlier proposals from inherited history. When fresh context is unavailable or cannot be established, report the independence gap instead of counting the affected proposal as independent exploration.
+
 Record requested settings and host-accepted or reported selections. Unknown inheritance remains unknown. Claim model diversity only for distinct actual model IDs of completed candidates. Different efforts on one model and different models from one provider do not establish provider diversity. Unsupported settings, failed agents, or fewer than two completed proposals leave coverage gaps. Retry only when an observed failure supports a bounded retry.
 
 ## Judge completed proposals
