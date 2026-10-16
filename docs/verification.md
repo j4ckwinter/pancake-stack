@@ -39,6 +39,16 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.9
+
+Design now loads boundary, lifecycle, and migration guidance through conditional references. Its entry point contains 852 whitespace-separated words, down from 1,392. This measures the entry file, not total context consumption or model performance.
+
+Explicit independent design cookoffs, including requests with candidate model choices, route to the existing candidate-isolation and separate-judge protocol. Planning guidance now separates the implementation sequence, phase tracking, and delegated-work mechanics. Shared resource isolation applies to partitioned workers as well as competing implementations.
+
+The external evaluator records the [Design reading-path comparison](https://github.com/j4ckwinter/pancake-stack-evals/blob/52476b13decd8677b94a6077478dba4a5d83ed1f/docs/design-reading-paths.md), source identities, observed reads, outputs, and limitations. These are source-skill trials, not installed-host verification. The historical assessor detection gap remains unresolved; existing structural-variant checks do not establish improved review detection. Claude authenticated workflow status is unchanged.
+
+All 127 local package and evaluator checks passed with both inputs unchanged. Independent code and evidence reviews completed. Ten comparison trials and one separate routing trial completed; the blinded assessment recorded 30 passed criteria and two unavailable neutral-brief criteria. Worker filename discovery outside the project and bundle is recorded as a scope limitation, separately from artifact preservation. CI pins the evaluator delivered in [evaluator PR #5](https://github.com/j4ckwinter/pancake-stack-evals/pull/5).
+
 ## Version 0.21.8
 
 Design now applies the shared fresh-context rules to independent candidates as well as the judge. One [source-skill trial](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/design-isolation.md) observed fresh candidate and judge launches with completed verdicts. Encrypted briefs limit the neutrality audit.
