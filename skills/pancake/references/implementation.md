@@ -16,9 +16,9 @@ Settle consequential interface, ownership, compatibility, or persistence choices
 
 For dependent phases, broad migrations, or material uncertainty, read [substantial-work guidance](substantial-work.md) for completion criteria and checkpoints.
 
-Identify prerequisites and dependencies. Divide the work into the smallest useful units that each end in an observable check. Complete blocking foundations before dependent changes. For substantial work, delegate useful independent investigation or implementation units by default through [parallel work](parallel-work.md), within host capabilities and task permissions. Isolate writes and shared mutable state. Keep small or tightly coupled work direct when coordination would cost more than it helps.
+Keep a short plan in the available planning surface or conversation. Order dependent units by their prerequisites and give each an observable completion check. For work spanning phases, use the unit tracking and checkpoints in substantial-work guidance. Record consequential decisions and revise the plan when evidence changes dependencies. Do not require commits, rebases, or additional artifacts merely to represent the sequence.
 
-Keep a short plan in the available planning surface or conversation. Record consequential decisions and revise the plan when new evidence changes dependencies. Check each unit before building further on it. Do not require commits, rebases, or additional artifacts merely to follow this sequence.
+For substantial work, use [parallel work](parallel-work.md) to assign useful independent units by default when permitted. That reference owns worker briefs, isolation, coverage, and integration. Keep small or tightly coupled work direct when coordination would cost more than it helps.
 
 ## Execute efficiently
 
