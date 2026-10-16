@@ -1,0 +1,7 @@
+# Design a migration
+
+For substantial implementation, identify the types, boundaries, or verification support that genuinely unblock dependent units. Sequence those foundations before their consumers. Prefer existing infrastructure when sufficient and avoid scaffolding for speculative phases. Trace the dominant reads, writes, and transitions to check that the chosen structure serves real usage.
+
+For a migration, describe the target state, affected callers and data, observable completion criteria, and how the old path will be retired. Name any necessary compatibility period and its removal condition. Avoid temporary adapters that solve no actual transition requirement. If intermediate breakage is proposed, make its scope, recovery, and verification boundary explicit; do not assume it is acceptable in shared branches or deployed systems. Keep implementation and delivery authorization separate from the proposal.
+
+For internal API replacement, inventory relevant callers and migrate them before removing the old path. Prefer one coordinated change when scope and compatibility permit it. Check external, persisted, or independently deployed consumers before assuming every caller can move together. A necessary compatibility path needs an owner, retirement condition, and verification; preserving it temporarily is justified by a real consumer requirement, not by avoiding caller migration.
