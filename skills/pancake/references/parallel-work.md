@@ -12,11 +12,15 @@ State the outcome, constraints, observable completion criteria, and resources av
 
 Give each worker a self-contained brief with relevant source pointers, exact target revision or workspace snapshot, exclusive write scope or read-only scope, verification requirements, and expected result. Workers inherit task permissions and may not expand them. Use inherited host settings or explicit task choices through supported controls; do not invent models or claim cloud placement or provider diversity unavailable on the host.
 
+Isolate data directories, ports, and other mutable state as well as files. Disjoint file ownership alone is insufficient when tests share an application instance or database. If isolation cannot be established, keep workers read-only or work sequentially and disclose the limit.
+
 Use the host's actual delegation tool after briefly explaining the assignments and the lead's own work. Confirm successful launches before claiming agents started. Continue independent work while they run, then report useful findings, failures, or changed assignments without narrating routine polling. If delegation is unavailable or prohibited, proceed directly and note the limitation when material. Agent updates must describe actual activity; host UI labels are outside the skill's control.
 
-For competing code candidates, use separate worktrees or isolated scratch copies from the same baseline, including task-relevant local changes when required. Do not silently compare a dirty working tree with candidates based only on HEAD. Isolate data directories, ports, and other mutable state as well as files. Disjoint file ownership alone is insufficient when tests share an application instance or database. If isolation cannot be established, keep candidates read-only or work sequentially and disclose the limit.
+For competing code candidates, use separate worktrees or isolated scratch copies from the same baseline, including task-relevant local changes when required. Do not silently compare a dirty working tree with candidates based only on HEAD.
 
 ## Cookoff
+
+For explicitly requested independent competing-design exploration, or design comparisons with user-supplied candidate model choices and optional effort, follow [competing designs](../../design/references/competing-designs.md). That mode owns candidate isolation and the separate judge requirement. The proportional cookoff below covers other comparisons and does not relax that contract.
 
 Define a small rubric tied to the task before generating candidates. Compare structurally different approaches when the tradeoff warrants it. Give candidates the same objective, constraints, and baseline without seeding a preferred answer. Require an artifact or proposal plus concise rationale and evidence. Do not run competing production edits for a design-only request.
 
@@ -26,7 +30,7 @@ Select a coherent base. Incorporate another candidate's idea only when it improv
 
 ## Partitioned work
 
-Identify prerequisites and assign non-overlapping ownership before starting dependent work. Track the required slices, their owners, results, and unresolved dependencies in the existing plan. For sequential dependent phases, complete and check the prerequisite before handing over its output. The coordinator reviews results and owns integration.
+Use the existing plan and its dependency checks. Assign non-overlapping ownership to the delegated slices and track their owners, returned artifacts, and uncovered work there. The coordinator inspects worker artifacts and evidence before integration and verifies the combined result.
 
 Require each result to identify its target, what was done or inspected, verification performed, and remaining gaps. Deduplicate findings and resolve incompatible assumptions against the source. A failed or missing worker result leaves its slice uncovered. Retry only when the cause is understood and another attempt is useful; otherwise report the gap. Do not mark complete merely because most workers succeeded.
 
@@ -38,4 +42,4 @@ If scope or dependencies change, update ownership before continuing. Stop obsole
 
 Report the result, actual review independence, selection rationale or coverage, verification, and gaps. Clean up only owned temporary resources when useful and authorized, preserving evidence and valuable unmerged work. Do not delete worktrees, publish branches, or commit merely to complete an orchestration checklist.
 
-Workers inherit host settings unless the task explicitly requests supported model or effort choices. Follow [Pancake agent guidance](../SKILL.md). Do not read saved preferences. Task-supplied reviewer panels retain their coverage rules even when selection controls are unavailable.
+Follow [Pancake agent guidance](../SKILL.md) for task settings and reviewer-panel coverage.

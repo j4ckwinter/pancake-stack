@@ -1,0 +1,5 @@
+# Design trust boundaries
+
+At a trust boundary, identify the raw input, authoritative contract, parsing or validation owner, and resulting domain value or error. Static annotations do not validate JSON, configuration, network payloads, or persisted records at runtime. Reuse established parsers and schema-derived types when available rather than maintaining competing definitions. Keep transport and framework conversion at the boundary unless exposing those representations is an intentional contract.
+
+Use domain types to prevent demonstrated mistakes, such as interchangeable identifiers or contradictory state variants, with the target language's established idioms. Make relevant variant handling explicit and exhaustive where supported. Do not use casts or assertions as evidence that external data is valid. After validation, avoid repeating the same guard throughout internal calls; retain checks required by mutable state, trust changes, or actual runtime constraints. Separate domain decisions from I/O and framework wiring when it materially improves clarity or verification, without forcing wrappers or a language migration.
