@@ -10,6 +10,8 @@ Establish the requested outcome and observable acceptance criteria before editin
 
 For a defect, keep the original command or action and its observed failure available for the final report. For a shared interface, data migration, security boundary, or concurrency change, identify the host's independent-review capability and permitted reviewer scope before editing. This is a capability check only; defer implementation-review panel selection until the implementation is ready for review. Investigation or code delegates and a separately requested pre-implementation Challenge apply their task choices when preparing that work. Carry these facts in the existing plan or conversation; a separate artifact is optional.
 
+For refactoring, capture the affected behavior with an existing focused check before restructuring, then repeat it afterward. Add characterization coverage only when existing checks cannot establish the contract and the task permits it. Report an unavailable baseline.
+
 Settle consequential interface, ownership, compatibility, or persistence choices before implementation with [design](../../design/SKILL.md). Use [challenge](../../challenge/SKILL.md) when a consequential assumption is disputed or needs adversarial examination. Do not require it for every change. Resolve supported findings within the authorized scope before relying on the affected assumption. Small local changes can use the existing shape directly. Resolve repository facts through inspection; leave required product decisions explicit rather than guessing.
 
 ## Plan substantial work
