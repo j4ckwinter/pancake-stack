@@ -39,6 +39,14 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.10
+
+Ordinary refactors now capture affected behavior with an existing focused check before restructuring and repeat it afterward. Check moves detailed comment and suppression guidance into a conditional reference, reducing its entrypoint from 662 to 479 words. The existing 19 skills and Design decomposition remain intact.
+
+The [workflow report](https://github.com/j4ckwinter/pancake-stack-evals/blob/afb9203cf33dec23f200e4985f0b39b933522a4e/docs/workflow-gap-results.md) records two refactor pairs and a separate guarded smoke pair. Revised runs checked behavior before and after editing; original runs checked only afterward. Twelve review runs found all presented defects and reported no actionable findings on clean controls in both variants. An ordinary-fix pair passed in both variants. Reading observations did not establish consistent total-context savings, so no further extraction was accepted.
+
+The [historical follow-up](https://github.com/j4ckwinter/pancake-stack-evals/blob/afb9203cf33dec23f200e4985f0b39b933522a4e/docs/historical-review-followup.md) still missed the selected defect. An exploratory wording change did not improve detection and was rejected. The release pins the published evaluator from [PR #6](https://github.com/j4ckwinter/pancake-stack-evals/pull/6), with 133 passing local checks. Independent code and evidence reviews passed. These are narrow source-guidance trials on one host and model, not new installation checks or general quality claims. Claude authenticated workflow verification remains deferred.
+
 ## Version 0.21.9
 
 Design now loads boundary, lifecycle, and migration guidance through conditional references. Its entry point contains 852 whitespace-separated words, down from 1,392. This measures the entry file, not total context consumption or model performance.

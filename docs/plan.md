@@ -10,11 +10,14 @@ Checks, fixtures, and detailed evidence live in [pancake-stack-evals](https://gi
 
 Both hosts installed and discovered all 19 skills in isolated profiles for version 0.21.3. Installed Codex trials exercised a consequential migration with the default independent reviewer and a two-reviewer Challenge panel. A separate baseline/Pancake/Poteto pilot measured outcomes and overhead; it does not establish general superiority.
 
+Ordinary refactors now establish a focused behavior baseline before editing. Check routes detailed comment and suppression review to a conditional reference. Paired trials support retaining both changes, but observed reading volume does not justify further extraction. See the [0.21.10 verification record](verification.md#version-02110).
+
 ## Next
 
 - Keep the CI evaluator pin on a published, verified revision.
 - Authenticated Claude workflows remain deferred. Visible picker behavior remains unverified on supported hosts.
 - Extend repository evaluation beyond the two paired review tasks to other projects and implementation work. The first 16 repository review trials passed in both arms; they do not establish general superiority.
+- Investigate the historical review miss using new discriminating cases before adding more guidance. The latest acceptance-wording experiment did not improve detection.
 - Retain current Verify wording. The validation-test pilot passed with current and proposed guidance.
 
 Historical plans and dated verification records remain in the evaluation repository. License selection, publication, and changes to a user's plugin installation require separate authorization.
