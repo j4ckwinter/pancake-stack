@@ -46,6 +46,8 @@ Claude Code has validated the package and found all 19 skills. authenticated wor
 
 reach for `$pancake-stack:pancake` when you have work to do. tell it what you want, where to look, and how you’ll know it works.
 
+pancake also handles runtime diagnosis, performance experiments, PR feedback triage, and matching an existing interface. see the [workflow recipes](docs/recipes.md#use-pancakes-specialized-workflows) for examples and the actions each request authorizes.
+
 for substantial work, pancake delegates useful independent investigation or implementation tasks when the host and your instructions allow it. it explains each agent's assignment and brings the results together. small or tightly coupled tasks stay with the main agent.
 
 there are [prompt recipes](docs/recipes.md) if you want a starting point, or you can pick a skill directly:
