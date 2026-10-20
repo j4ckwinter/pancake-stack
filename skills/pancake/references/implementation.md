@@ -4,15 +4,11 @@ Use this sequence for authorized implementation, including new behavior, fixes, 
 
 ## Ground and choose
 
-For consequential TypeScript data shapes or boundary handling, read [TypeScript guidance](../../design/references/typescript.md).
-
 Establish the requested outcome and observable acceptance criteria before editing. Choose checks based on the behavior being changed, including fresh agent trials for changes to workflow execution; Markdown package validation alone cannot establish agent behavior. Inspect relevant code, callers, tests, and current workspace changes. Preserve unrelated work. Use [scope](../../scope/SKILL.md) when requirements are materially unclear, [how](../../how/SKILL.md) for an execution-flow gap, and the reproduction and diagnosis guidance in [fix](../../fix/SKILL.md) for defects. When using fix, perform its implementation and checks in the corresponding phases below rather than completing a separate fix workflow during grounding. Read only the guidance needed.
 
-For a defect, keep the original command or action and its observed failure available for the final report. For a shared interface, data migration, security boundary, or concurrency change, identify the host's independent-review capability and permitted reviewer scope before editing. This is a capability check only; defer implementation-review panel selection until the implementation is ready for review. Investigation or code delegates and a separately requested pre-implementation Challenge apply their task choices when preparing that work. Carry these facts in the existing plan or conversation; a separate artifact is optional.
+For a defect, keep the original command or action and its observed failure available for the final report. Before consequential edits, read [change review](change-review.md) for affected-contract classification, review capability, and design preparation.
 
 For refactoring, capture the affected behavior with an existing focused check before restructuring, then repeat it afterward. Add characterization coverage only when existing checks cannot establish the contract and the task permits it. Report an unavailable baseline.
-
-Settle consequential interface, ownership, compatibility, or persistence choices before implementation with [design](../../design/SKILL.md). Use [challenge](../../challenge/SKILL.md) when a consequential assumption is disputed or needs adversarial examination. Do not require it for every change. Resolve supported findings within the authorized scope before relying on the affected assumption. Small local changes can use the existing shape directly. Resolve repository facts through inspection; leave required product decisions explicit rather than guessing.
 
 ## Plan substantial work
 
@@ -40,11 +36,7 @@ Make the simplest change that meets the agreed outcome. Add a regression test wh
 
 ## Review the affected contracts
 
-Inspect the completed diff using [check](../../check/SKILL.md), including affected callers and contracts. Changes to shared interfaces, serialized payload fields, persisted-data compatibility, security boundaries, or concurrency require the independent review below, even when the diff is small. A change confined to local behavior without those contracts can use direct review. Classify by the affected contract, not line count.
-
-Use a task-supplied implementation reviewer list when present. An absent or explicitly empty list retains one independent reviewer for consequential work. Do not use a Challenge panel for implementation review. Before launching reviewers, read and follow the [shared execution, context, settings, and coverage protocol](host-runtime.md). Require a completed verdict for each selected entry or report its concrete coverage gap.
-
-Ask reviewers to inspect independently through [check](../../check/SKILL.md). Inspect and deduplicate findings by mechanism rather than vote count. Resolve supported findings within scope before completion and keep material disagreement explicit when evidence cannot settle it.
+Apply [change review](change-review.md) to the completed diff, including its independent-review and completion requirements.
 
 ## Verify and handle failures
 
@@ -56,6 +48,6 @@ For an environment or tooling limitation, complete independent checks and report
 
 ## Finish or continue
 
-Before the final reply, check the task's completion facts against the observations collected above. For a defect, include the cause, the original failing action and result, and the corrected result. For a consequential change, include the completed independent-review verdict or the concrete capability or permission limit and direct-review result. If the reviewer is still running, wait for the verdict rather than reporting completion. Keep the evidence brief; a command and its before-and-after output can fit in one sentence.
+Before the final reply, check the task's completion facts against the observations collected above. For a defect, include the cause, the original failing action and result, and the corrected result. Keep the evidence brief; a command and its before-and-after output can fit in one sentence.
 
 Report the outcome, material decisions, these review and verification results, and remaining gaps. If work remains unfinished or is explicitly paused, use [handoff](../../handoff/SKILL.md) to preserve a concise continuation note in the conversation. Include completed units, current state, known blockers, and the next action. Save a separate note only when requested. Do not create a handoff for every completed small task.

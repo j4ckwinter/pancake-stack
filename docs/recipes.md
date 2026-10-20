@@ -92,6 +92,20 @@ Use PR after a change is ready to describe. Replace `main` with the actual revie
 
 Expect a draft in chat. This request does not run new tests or publish the branch. If verification is still needed, use the [verification recipe](#prove-a-specific-outcome) first. To publish afterward, name the repository, source branch, and base, and explicitly authorize any required push and PR creation.
 
+## Use Pancake's specialized workflows
+
+These workflows are references within Pancake, not separate skills. Invoke Pancake and describe the outcome and allowed actions.
+
+> $pancake-stack:pancake Investigate why the worker's memory grows using the captured profiles in traces/. Separate observed evidence from hypotheses and identify the next useful measurement. Keep this read-only; do not repair the code.
+
+> $pancake-stack:pancake Compare the current parser with the proposed cache on the supplied workload. Run a bounded local experiment with repeated measurements and correctness checks. Report the result and uncertainty. Keep prototypes and results in the agreed temporary directory; do not change production code.
+
+> $pancake-stack:pancake Check the status and review feedback for PR 42. Report blockers and assess each comment against the current diff. Keep this read-only; do not post replies, change code, merge, or start a watcher.
+
+> $pancake-stack:pancake Match the settings page to the supplied reference while preserving behavior. Use the required states and viewports from the supplied brief, capture the current rendering, implement the corrections, and compare the result. Report any state or tool you could not verify. Do not commit or publish.
+
+Runtime diagnosis separates evidence from proposed repairs. Experiments need comparable measurements and correctness checks. PR triage needs current forge evidence. Visual parity needs rendered comparisons; source inspection alone does not establish a match.
+
 ## Finish an authorized run
 
 > $pancake-stack:pancake Implement cancellation for the import job using the agreed design above. Continue until the caller observes cancellation, further writes stop, and the relevant checks pass. Use isolated local data. Keep a short plan with checked milestones and record consequential decisions. You may commit the completed change. Do not push or deploy. If a required decision or unavailable capability blocks completion, preserve the state and explain the next action.
