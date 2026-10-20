@@ -39,6 +39,18 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.11
+
+Check now asks reviewers to construct a representative valid operation and exercise the complete changed acceptance path, or explicitly report a concrete unexecuted trace. Fix, TDD, and implementation share consequential preparation and final-review rules in [change review](../skills/pancake/references/change-review.md). Small local changes retain direct review. Pancake's picker description and four recipes expose existing workflows; all 19 skills remain.
+
+The [acceptance-path trials](https://github.com/j4ckwinter/pancake-stack-evals/blob/0c25c1c943c7ec148c24daf47e1fdd74026d38ef/docs/contract-execution-followup.md) detected the selected historical defect with the candidate instruction in the paired run and a separate adaptive repeat. The baseline missed it. Both controls retain supported residual findings, so these results do not establish clean-control specificity or general superiority.
+
+[Direct-entrypoint trials](https://github.com/j4ckwinter/pancake-stack-evals/blob/0c25c1c943c7ec148c24daf47e1fdd74026d38ef/docs/direct-entrypoints.md) found no missing Fix or TDD rule. [Four extraction trials and a local smoke](https://github.com/j4ckwinter/pancake-stack-evals/blob/0c25c1c943c7ec148c24daf47e1fdd74026d38ef/docs/shared-change-review.md) preserved observed repair, test-first, and review behavior. Guidance volume increased; the extraction is retained for shared ownership, not context savings. The small [TypeScript extraction](https://github.com/j4ckwinter/pancake-stack-evals/blob/0c25c1c943c7ec148c24daf47e1fdd74026d38ef/docs/boundary-extraction-decision.md) was rejected because its 23-word reduction did not justify another navigation step.
+
+[Six source-catalog probes](https://github.com/j4ckwinter/pancake-stack-evals/blob/0c25c1c943c7ec148c24daf47e1fdd74026d38ef/docs/source-catalog-routing.md) selected and read the expected guidance. One also read an unnecessary alternative. These probes do not demonstrate automatic discovery, picker behavior, or an improvement caused by the documentation change.
+
+All 136 final local package and evaluator checks passed with both inputs unchanged. Independent source and evaluator reviews completed. CI pins the published evaluator from [PR #7](https://github.com/j4ckwinter/pancake-stack-evals/pull/7). Public records retain selected hashes and aggregate judgments; [publication provenance](https://github.com/j4ckwinter/pancake-stack-evals/blob/0c25c1c943c7ec148c24daf47e1fdd74026d38ef/docs/publication-provenance.md) maps rewritten local evidence commits while preserving actual trial identities. Raw records remain private. Authenticated Claude workflow verification remains deferred.
+
 ## Version 0.21.10
 
 Ordinary refactors now capture affected behavior with an existing focused check before restructuring and repeat it afterward. Check moves detailed comment and suppression guidance into a conditional reference, reducing its entrypoint from 662 to 479 words. The existing 19 skills and Design decomposition remain intact.

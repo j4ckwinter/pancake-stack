@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: j4ckwinter/pancake-stack-evals
-          ref: afb9203cf33dec23f200e4985f0b39b933522a4e
+          ref: 0c25c1c943c7ec148c24daf47e1fdd74026d38ef
           path: pancake-stack-evals
           persist-credentials: false
       - name: Set up Python
