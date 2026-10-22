@@ -39,6 +39,16 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.12
+
+Pancake now loads performance, prototype, and skill-evaluation detail through conditional references. Shared experiment framing, baseline, decision, and cleanup rules stay together. Every branch instruction is preserved. All 19 skills and their descriptions remain unchanged. The contributor check command now explicitly invokes Python.
+
+The [six extraction trials](https://github.com/j4ckwinter/pancake-stack-evals/blob/68d2b7afe0780d4ebc294cf598b4836cfb385a00/docs/experiment-references.md) passed outcome and protected-file checks in both variants. Complete returned guidance fell from 2,893 to 2,610 words for performance and from 2,893 to 2,378 for prototypes. Skill evaluation also read less guidance, but most of that difference came from incidental Check/Verify reads. These observations support this bounded split, not token savings, faster execution, or general efficacy.
+
+[Sixteen natural-task routing trials](https://github.com/j4ckwinter/pancake-stack-evals/blob/68d2b7afe0780d4ebc294cf598b4836cfb385a00/docs/metadata-routing.md) completed with and without source metadata. The catalog arm used applicable guidance in all eight tasks. This is source-catalog evidence, not native discovery or picker verification. [Eight unrelated acceptance-path trials](https://github.com/j4ckwinter/pancake-stack-evals/blob/68d2b7afe0780d4ebc294cf598b4836cfb385a00/docs/acceptance-paths.md) detected both defect domains and cleared their controls in both guidance variants, showing no reason to add wording.
+
+All 154 local package and evaluator checks passed with unchanged inputs. Independent source, evaluator, and evidence reviews completed. CI pins the published evaluator from [PR #8](https://github.com/j4ckwinter/pancake-stack-evals/pull/8). Its [decision trail](https://github.com/j4ckwinter/pancake-stack-evals/blob/68d2b7afe0780d4ebc294cf598b4836cfb385a00/docs/measured-gap-decisions.md) records the correction from incomplete CLI events to raw session call/output evidence, partial blinding, single-observation limits, and sample-retention limits. No subjects were rerun to correct the assessment packets. Raw records remain private. Claude workflows and plugin installation were not exercised.
+
 ## Version 0.21.11
 
 Check now asks reviewers to construct a representative valid operation and exercise the complete changed acceptance path, or explicitly report a concrete unexecuted trace. Fix, TDD, and implementation share consequential preparation and final-review rules in [change review](../skills/pancake/references/change-review.md). Small local changes retain direct review. Pancake's picker description and four recipes expose existing workflows; all 19 skills remain.

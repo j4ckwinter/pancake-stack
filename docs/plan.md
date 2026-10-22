@@ -10,14 +10,14 @@ Checks, fixtures, and detailed evidence live in [pancake-stack-evals](https://gi
 
 Both hosts installed and discovered all 19 skills in isolated profiles for version 0.21.3. Installed Codex trials exercised a consequential migration with the default independent reviewer and a two-reviewer Challenge panel. A separate baseline/Pancake/Poteto pilot measured outcomes and overhead; it does not establish general superiority.
 
-Check now traces representative valid operations through changed acceptance gates. Direct Fix and TDD trials demonstrated the existing safeguards; a shared reference makes consequential preparation and review ownership explicit. The TypeScript split was rejected, and existing specialized workflows gained clearer metadata and recipes. See the [0.21.11 verification record](verification.md#version-02111) for bounded evidence and reading-volume limits.
+Check now traces representative valid operations through changed acceptance gates. Direct Fix and TDD trials demonstrated the existing safeguards; a shared reference makes consequential preparation and review ownership explicit. The TypeScript split was rejected, and existing specialized workflows gained clearer metadata and recipes. Selective experiment references now reduce observed reading in three bounded task pairs while preserving their outcomes. Natural-request routing and unrelated acceptance cases extend coverage without adding skill wording. See the [0.21.12 verification record](verification.md#version-02112) for evidence and limits.
 
 ## Next
 
 - Keep the CI evaluator pin on a published, verified revision.
 - Authenticated Claude workflows remain deferred. Visible picker behavior remains unverified on supported hosts.
 - Extend repository evaluation beyond the two paired review tasks to other projects and implementation work. The first 16 repository review trials passed in both arms; they do not establish general superiority.
-- Extend acceptance-path review beyond the historical fixture. The revised instruction detected that target in bounded trials; residual assessor addition-scope limitations remain documented in the evaluator.
+- Extend acceptance-path review to additional real repositories. Two synthetic domains and clean controls passed in both variants; they do not establish a general advantage from the instruction.
 - Retain current Verify wording. The validation-test pilot passed with current and proposed guidance.
 
 Historical plans and dated verification records remain in the evaluation repository. License selection, publication, and changes to a user's plugin installation require separate authorization.
