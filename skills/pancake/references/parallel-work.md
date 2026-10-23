@@ -42,4 +42,4 @@ If scope or dependencies change, update ownership before continuing. Stop obsole
 
 Report the result, actual review independence, selection rationale or coverage, verification, and gaps. Clean up only owned temporary resources when useful and authorized, preserving evidence and valuable unmerged work. Do not delete worktrees, publish branches, or commit merely to complete an orchestration checklist.
 
-Follow [Pancake agent guidance](../SKILL.md) for task settings and reviewer-panel coverage.
+Before applying delegated model or effort choices, read [active host guidance](host-runtime.md). Independent implementation review follows [change review](change-review.md); an implementation worker cannot replace its independent reviewer.

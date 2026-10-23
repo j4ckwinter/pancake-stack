@@ -14,7 +14,7 @@ Capture the relevant starting state before changing it. Prefer existing checks a
 
 Keep a short phase list in the conversation or available planning surface. For each unit, identify its dependency, owner, affected files or shared resources, expected result, and observable check. Address consequential uncertainty early without skipping blocking foundations. Use the existing design, experiment, and parallel-work guidance only when their conditions apply.
 
-Use [parallel work](parallel-work.md) for useful independent assignments, including its delegation defaults and ownership rules. Reconsider available independent work when later phases change the dependencies.
+During planning, read [parallel work](parallel-work.md) for delegation defaults and ownership. Reconsider independent assignments when dependencies change.
 
 Implement and check each unit before relying on it. Track verified results, observed failures, and inconclusive checks separately. A unit can pass while the overall outcome remains incomplete.
 
@@ -30,7 +30,7 @@ If progress requires unavailable evidence, a product decision, or work outside a
 
 ## Continue across phases
 
-Track each unit as pending, active, verified, or blocked, with its current artifact and relevant evidence. Distinguish code completion from integration and delivery. Record ownership changes and outstanding work before relying on a replacement worker. Use the parallel-work reference when delegation is justified; a single owner needs no orchestration registry.
+Track each unit as pending, active, verified, or blocked, with its current artifact and relevant evidence. Distinguish code completion from integration and delivery. Record ownership changes and outstanding work before relying on a replacement worker.
 
 For dependent branches or PRs, record the actual base and prerequisite revision. Do not assume the default branch or create commits and PRs merely to represent phases. Recheck affected evidence when a prerequisite changes. Use shipping guidance only when delivery is requested.
 

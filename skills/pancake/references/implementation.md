@@ -16,13 +16,13 @@ For dependent phases, broad migrations, or material uncertainty, read [substanti
 
 Keep a short plan in the available planning surface or conversation. Order dependent units by their prerequisites and give each an observable completion check. For work spanning phases, use the unit tracking and checkpoints in substantial-work guidance. Record consequential decisions and revise the plan when evidence changes dependencies. Do not require commits, rebases, or additional artifacts merely to represent the sequence.
 
-For substantial work, use [parallel work](parallel-work.md) to assign useful independent units by default when permitted. That reference owns worker briefs, isolation, coverage, and integration. Keep small or tightly coupled work direct when coordination would cost more than it helps.
+For substantial work, read [parallel work](parallel-work.md) during planning for delegation defaults and coordination.
 
 ## Execute efficiently
 
 Reuse existing scripts, queries, and generators before doing repetitive transformations by hand. Add a small task-specific tool when it makes the work materially more reliable or reviewable, with explicit inputs, write scope, and a way to inspect the result. Validate it on a representative unit before applying it broadly, and consider rerun behavior. A few clear edits need no new automation. Keep tooling within authorized scope; do not install a framework or persist a helper merely to satisfy a process rule.
 
-Bound investigation output to the relevant paths and questions. Retain concise findings with artifact pointers, assumptions, verification state, and next actions rather than repeatedly loading whole files or histories. Expand inspection when evidence identifies another affected boundary. Use the existing parallel-work guidance only when delegation improves the task; context size alone is not a reason to invent workers or lose decisive evidence.
+Bound investigation output to the relevant paths and questions. Retain concise findings with artifact pointers, assumptions, verification state, and next actions rather than repeatedly loading whole files or histories. Expand inspection when evidence identifies another affected boundary.
 
 Resolve observable repository facts through inspection and make routine reversible implementation choices within the requested scope. Continue independent authorized work while awaiting a required product decision. Ask only for information or authorization that is genuinely missing, after making the dependent choice concrete where possible. Explain material assumptions so the user can steer; do not interpret silence as approval or replace a requested product decision with an untested guess.
 
