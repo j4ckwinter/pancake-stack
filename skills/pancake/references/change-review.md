@@ -1,6 +1,6 @@
 # Prepare and review consequential changes
 
-Classify by the affected contract, not line count. Changes to shared interfaces, serialized payload fields, persisted-data compatibility, security boundaries, or concurrency require independent review. A change confined to local behavior without those contracts can use direct review.
+Classify by the affected contract, not line count. Changes to shared interfaces, serialized payload fields, persisted-data compatibility, security boundaries, or concurrency require independent review. Changes to agent instructions or release configuration also require independent review when they alter authorization, delegation, or verification behavior. Wording-only edits that preserve behavior, and local changes without these contracts, can use direct review.
 
 ## Before consequential edits
 

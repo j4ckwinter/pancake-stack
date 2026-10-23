@@ -6,7 +6,7 @@ Use this sequence for authorized implementation, including new behavior, fixes, 
 
 Establish the requested outcome and observable acceptance criteria before editing. Choose checks based on the behavior being changed, including fresh agent trials for changes to workflow execution; Markdown package validation alone cannot establish agent behavior. Inspect relevant code, callers, tests, and current workspace changes. Preserve unrelated work. Use [scope](../../scope/SKILL.md) when requirements are materially unclear, [how](../../how/SKILL.md) for an execution-flow gap, and the reproduction and diagnosis guidance in [fix](../../fix/SKILL.md) for defects. When using fix, perform its implementation and checks in the corresponding phases below rather than completing a separate fix workflow during grounding. Read only the guidance needed.
 
-For a defect, keep the original command or action and its observed failure available for the final report. Before consequential edits, read [change review](change-review.md) for affected-contract classification, review capability, and design preparation.
+For a defect, keep the original command or action and its observed failure available for the final report. Before editing, read [change review](change-review.md) for affected-contract classification, review capability, and design preparation.
 
 For refactoring, capture the affected behavior with an existing focused check before restructuring, then repeat it afterward. Add characterization coverage only when existing checks cannot establish the contract and the task permits it. Report an unavailable baseline.
 

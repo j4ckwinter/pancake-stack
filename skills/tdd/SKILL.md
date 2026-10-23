@@ -17,7 +17,7 @@ If a useful test needs unavailable services, broad infrastructure, brittle mocks
 
 When only tests are requested, add and run the requested coverage, report whether it passes or exposes a defect, and stop without editing production code. A passing test is valid coverage of working behavior; do not manufacture a failure. Use the cycle below when implementation changes are authorized.
 
-Before consequential production edits, read [change review](../pancake/references/change-review.md) for affected-contract classification, review capability, and design preparation. Small local changes can proceed directly.
+Before editing, read [change review](../pancake/references/change-review.md) for affected-contract classification, review capability, and design preparation. Small local changes can proceed directly.
 
 ## Run the cycle
 
