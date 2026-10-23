@@ -17,7 +17,7 @@ If repeated corrections fail the same scenario, compare their observed results a
 
 For ownership, timing, or distribution failures, inspect the relevant actors and their state or lifecycle. Find what assigns the problematic state before compensating for it. Use existing diagnostics first; do not require an actor census for an unrelated local defect or create instrumentation outside the authorized scope. Missing observations remain explicit gaps. Revisit the assumption when evidence contradicts it, while preserving useful verified work.
 
-Before consequential production edits, read [change review](../pancake/references/change-review.md) for affected-contract classification, review capability, and design preparation. Small local changes can proceed directly.
+Before editing, read [change review](../pancake/references/change-review.md) for affected-contract classification, review capability, and design preparation. Small local changes can proceed directly.
 
 Choose a correction that removes the demonstrated cause and preserves relevant contracts. A retry, fallback, or symptom guard is appropriate only when the behavior requires it and its limits are understood. If the cause needs an action outside scope or a product decision, explain the dependency and complete independent checks; do not conceal the unresolved defect behind passing unrelated tests.
 

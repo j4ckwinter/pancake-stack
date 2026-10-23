@@ -6,7 +6,7 @@ Use this sequence for authorized implementation, including new behavior, fixes, 
 
 Establish the requested outcome and observable acceptance criteria before editing. Choose checks based on the behavior being changed, including fresh agent trials for changes to workflow execution; Markdown package validation alone cannot establish agent behavior. Inspect relevant code, callers, tests, and current workspace changes. Preserve unrelated work. Use [scope](../../scope/SKILL.md) when requirements are materially unclear, [how](../../how/SKILL.md) for an execution-flow gap, and the reproduction and diagnosis guidance in [fix](../../fix/SKILL.md) for defects. When using fix, perform its implementation and checks in the corresponding phases below rather than completing a separate fix workflow during grounding. Read only the guidance needed.
 
-For a defect, keep the original command or action and its observed failure available for the final report. Before consequential edits, read [change review](change-review.md) for affected-contract classification, review capability, and design preparation.
+For a defect, keep the original command or action and its observed failure available for the final report. Before editing, read [change review](change-review.md) for affected-contract classification, review capability, and design preparation.
 
 For refactoring, capture the affected behavior with an existing focused check before restructuring, then repeat it afterward. Add characterization coverage only when existing checks cannot establish the contract and the task permits it. Report an unavailable baseline.
 
@@ -16,13 +16,13 @@ For dependent phases, broad migrations, or material uncertainty, read [substanti
 
 Keep a short plan in the available planning surface or conversation. Order dependent units by their prerequisites and give each an observable completion check. For work spanning phases, use the unit tracking and checkpoints in substantial-work guidance. Record consequential decisions and revise the plan when evidence changes dependencies. Do not require commits, rebases, or additional artifacts merely to represent the sequence.
 
-For substantial work, use [parallel work](parallel-work.md) to assign useful independent units by default when permitted. That reference owns worker briefs, isolation, coverage, and integration. Keep small or tightly coupled work direct when coordination would cost more than it helps.
+For substantial work, read [parallel work](parallel-work.md) during planning for delegation defaults and coordination.
 
 ## Execute efficiently
 
 Reuse existing scripts, queries, and generators before doing repetitive transformations by hand. Add a small task-specific tool when it makes the work materially more reliable or reviewable, with explicit inputs, write scope, and a way to inspect the result. Validate it on a representative unit before applying it broadly, and consider rerun behavior. A few clear edits need no new automation. Keep tooling within authorized scope; do not install a framework or persist a helper merely to satisfy a process rule.
 
-Bound investigation output to the relevant paths and questions. Retain concise findings with artifact pointers, assumptions, verification state, and next actions rather than repeatedly loading whole files or histories. Expand inspection when evidence identifies another affected boundary. Use the existing parallel-work guidance only when delegation improves the task; context size alone is not a reason to invent workers or lose decisive evidence.
+Bound investigation output to the relevant paths and questions. Retain concise findings with artifact pointers, assumptions, verification state, and next actions rather than repeatedly loading whole files or histories. Expand inspection when evidence identifies another affected boundary.
 
 Resolve observable repository facts through inspection and make routine reversible implementation choices within the requested scope. Continue independent authorized work while awaiting a required product decision. Ask only for information or authorization that is genuinely missing, after making the dependent choice concrete where possible. Explain material assumptions so the user can steer; do not interpret silence as approval or replace a requested product decision with an untested guess.
 

@@ -39,6 +39,16 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.13
+
+Delegation coordination now has one owner, reducing repeated guidance without adding skills. Pancake, Fix, and TDD load change classification before editing. Changes to agent instructions or release configuration that alter authorization, delegation, or verification behavior require independent review; wording-only edits retain direct review.
+
+The [reading-path comparison](https://github.com/j4ckwinter/pancake-stack-evals/blob/b4f9dba8fd86d0b680e06479ebc84801c0935716/docs/reading-paths.md) recorded 149 fewer returned guidance words in each selected task pair with preserved outcomes. This measures complete returned Markdown, not tokens or general efficiency. [Sample-retention coverage](https://github.com/j4ckwinter/pancake-stack-evals/blob/b4f9dba8fd86d0b680e06479ebc84801c0935716/docs/sample-retention.md) preserved two batches of 80 observations and rejected an attempted overwrite. The recorder and tests live only in the evaluator.
+
+Two [PR-maintenance tasks](https://github.com/j4ckwinter/pancake-stack-evals/blob/b4f9dba8fd86d0b680e06479ebc84801c0935716/docs/pr-maintenance-execution.md) executed a local forge adapter and correctly distinguished stale-head failures from the clean control. [Instruction-classification trials](https://github.com/j4ckwinter/pancake-stack-evals/blob/b4f9dba8fd86d0b680e06479ebc84801c0935716/docs/instruction-classification.md) found that the baseline edited the shared procedure correctly but skipped independent review. The final candidate completed review for the behavioral change through Pancake and Fix, retained direct review for a title edit, and preserved test-first behavior and independent review through TDD. An earlier candidate's review completion remains unproven in its retained records.
+
+All 179 local package and evaluator tests passed with unchanged inputs. Independent source and evaluator reviews completed. CI pins the published evaluator from [PR #9](https://github.com/j4ckwinter/pancake-stack-evals/pull/9). The [decision trail](https://github.com/j4ckwinter/pancake-stack-evals/blob/b4f9dba8fd86d0b680e06479ebc84801c0935716/docs/workflow-gap-decisions.md) records exclusions, adaptive follow-up, and limits. These are bounded source-skill observations, not broad efficacy or installed-host evidence. Raw sessions remain private. Claude workflows and plugin installation were not exercised.
+
 ## Version 0.21.12
 
 Pancake now loads performance, prototype, and skill-evaluation detail through conditional references. Shared experiment framing, baseline, decision, and cleanup rules stay together. Every branch instruction is preserved. All 19 skills and their descriptions remain unchanged. The contributor check command now explicitly invokes Python.
