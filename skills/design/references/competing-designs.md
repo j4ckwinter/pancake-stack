@@ -1,6 +1,6 @@
 # Explore competing designs
 
-Use this mode only when the user explicitly requests independent competing-design exploration or supplies candidate model choices with optional task effort. Keep ordinary Design for a request merely to compare alternatives. A design request remains read-only; exploration does not authorize implementation, preference writes, dependency installation, services, or external actions.
+Use this mode when [Design](../SKILL.md#compare-approaches) selects independent exploration for an unresolved consequential choice, or when the user requests it or supplies candidate model choices. Respect explicit delegation limits and keep settled or small choices direct unless independent exploration was requested. A design request remains read-only; exploration does not authorize implementation, preference writes, dependency installation, services, or external actions.
 
 ## Establish the comparison
 
