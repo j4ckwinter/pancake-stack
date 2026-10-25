@@ -1,53 +1,47 @@
 # Implement with rigor
 
-Use this sequence for authorized implementation, including new behavior, fixes, and refactoring. Scale the work to its consequences. A small change can follow the sequence without a separate plan document.
+Use this sequence for authorized implementation, including new behavior, fixes, and refactoring. Keep small changes direct. Read only the guidance needed.
 
-## Ground and choose
+## 1. Establish the outcome and baseline
 
-Establish the requested outcome and observable acceptance criteria before editing. Choose checks based on the behavior being changed, including fresh agent trials for changes to workflow execution; Markdown package validation alone cannot establish agent behavior. Inspect relevant code, callers, tests, and current workspace changes. Preserve unrelated work. Use [scope](../../scope/SKILL.md) when requirements are materially unclear, [how](../../how/SKILL.md) for an execution-flow gap, and the reproduction and diagnosis guidance in [fix](../../fix/SKILL.md) for defects. When using fix, perform its implementation and checks in the corresponding phases below rather than completing a separate fix workflow during grounding. Read only the guidance needed.
+Define observable acceptance criteria from the request. Inspect relevant code, callers, tests, repository instructions, and workspace changes. Preserve unrelated work. Choose checks that exercise the changed behavior. Workflow changes need fresh agent trials; package validation alone cannot establish agent behavior.
 
-For a defect, keep the original command or action and its observed failure available for the final report. Before editing, read [change review](change-review.md) for affected-contract classification, review capability, and design preparation.
+Use [scope](../../scope/SKILL.md) for materially unclear requirements and [how](../../how/SKILL.md) for execution-flow gaps. For defects, use [fix](../../fix/SKILL.md) to reproduce and diagnose, then perform its implementation and checks in the phases below. Retain the original failing action and result.
 
-For refactoring, capture the affected behavior with an existing focused check before restructuring, then repeat it afterward. Add characterization coverage only when existing checks cannot establish the contract and the task permits it. Report an unavailable baseline.
+For refactoring, run an existing focused check before restructuring. Add characterization coverage only when existing checks cannot establish the contract and the task permits it. Report an unavailable baseline.
 
-## Plan substantial work
+Before editing, read [change review](change-review.md) for affected-contract classification, review capability, and design preparation.
 
-For dependent phases, broad migrations, or material uncertainty, read [substantial-work guidance](substantial-work.md) for completion criteria and checkpoints.
+## 2. Plan the necessary work
 
-Keep a short plan in the available planning surface or conversation. Order dependent units by their prerequisites and give each an observable completion check. For work spanning phases, use the unit tracking and checkpoints in substantial-work guidance. Record consequential decisions and revise the plan when evidence changes dependencies. Do not require commits, rebases, or additional artifacts merely to represent the sequence.
+For dependent phases, broad migrations, material uncertainty, or sustained work, read [substantial-work guidance](substantial-work.md). It owns unit tracking, completion checks, and phase checkpoints. For substantial work, read [parallel work](parallel-work.md) for delegation and coordination.
 
-For substantial work, read [parallel work](parallel-work.md) during planning for delegation defaults and coordination.
+Keep the plan in the available planning surface or conversation. Order units by prerequisites and give each an observable completion check. Revise the plan when evidence changes dependencies. Do not create commits, rebases, or separate artifacts merely to represent the sequence.
 
-## Execute efficiently
+Resolve observable facts through inspection. Make routine reversible choices within scope and explain material assumptions. Ask only for genuinely missing information or authorization, after making the dependent choice concrete where possible. Continue independent work while awaiting a required decision. Silence is not approval.
 
-Reuse existing scripts, queries, and generators before doing repetitive transformations by hand. Add a small task-specific tool when it makes the work materially more reliable or reviewable, with explicit inputs, write scope, and a way to inspect the result. Validate it on a representative unit before applying it broadly, and consider rerun behavior. A few clear edits need no new automation. Keep tooling within authorized scope; do not install a framework or persist a helper merely to satisfy a process rule.
+## 3. Make the focused change
 
-Bound investigation output to the relevant paths and questions. Retain concise findings with artifact pointers, assumptions, verification state, and next actions rather than repeatedly loading whole files or histories. Expand inspection when evidence identifies another affected boundary.
+Inspect the affected path for obsolete branches, duplicated decisions, and pass-through wrappers before adding mechanisms. Confirm callers and contracts before deleting apparent redundancy. Simplify only where it helps the requested change.
 
-Resolve observable repository facts through inspection and make routine reversible implementation choices within the requested scope. Continue independent authorized work while awaiting a required product decision. Ask only for information or authorization that is genuinely missing, after making the dependent choice concrete where possible. Explain material assumptions so the user can steer; do not interpret silence as approval or replace a requested product decision with an untested guess.
+Keep domain decisions together and mutable state narrowly owned. Add an abstraction only when it removes meaningful duplication, hides useful complexity, or protects an invariant. Assess reader effort through the caller path, not a fixed file or layer count. Make the simplest change that meets the outcome. Add a reliable regression test or reuse an adequate existing check.
 
-## Implement
+Reuse scripts, queries, and generators for repetitive transformations. Build a task-specific tool only when it improves reliability or reviewability. Define its inputs and write scope, consider reruns, and validate a representative result before broad use. Do not install frameworks or persist helpers merely to satisfy process.
 
-Before adding a layer or mechanism, inspect the affected path for obsolete branches, duplicated decisions, and pass-through wrappers that can be removed within scope. Confirm callers and relevant contracts before deleting anything; apparent redundancy can preserve compatibility or a boundary requirement. Simplify only when it helps the requested change, not as a repository-wide cleanup prerequisite.
+Bound investigation to relevant paths and questions. Keep concise findings, artifact pointers, assumptions, verification state, and next actions. Expand inspection when evidence reveals another affected boundary.
 
-Organize the change around observed usage. Keep local behavior direct, mutable state narrowly owned, and domain decisions in one clear place. Introduce an abstraction when it removes meaningful duplication, hides useful complexity, or protects an invariant. Do not add indirection for hypothetical future callers. Assess reader effort by tracing the actual caller path rather than imposing a fixed number of files or layers.
+## 4. Review and verify
 
-Make the simplest change that meets the agreed outcome. Add a regression test when it reliably exercises a defect, or reuse an existing check when new infrastructure would not earn its cost.
+Apply [change review](change-review.md) to the completed diff, including its independent-review and completion requirements. Use [verify](../../verify/SKILL.md) to exercise the requested behavior on the resulting artifact. A review without findings does not replace verification.
 
-## Review the affected contracts
+For defects, repeat the original failing scenario under comparable conditions and retain the before-and-after results. For refactoring, repeat the baseline check and verify affected contracts. Passing other tests does not prove an unexercised scenario.
 
-Apply [change review](change-review.md) to the completed diff, including its independent-review and completion requirements.
+## 5. Resolve failures and finish
 
-## Verify and handle failures
+Classify failures as product defects, environment limitations, or observation errors. Diagnose an in-scope defect, make a focused correction, review it, and rerun affected checks. Expand testing only when the correction or failure warrants it. Never weaken assertions, suppress checks, or add speculative fixes to manufacture a pass.
 
-Use [verify](../../verify/SKILL.md) to exercise the requested behavior. Tie the conclusion to the code and state actually checked. A review without findings does not replace verification. For a defect, repeat the original failing scenario under comparable conditions after the correction. Record the before-and-after result. If that scenario cannot be exercised, name the limitation; passing other tests does not establish that the reported defect is resolved. For refactoring, verify that the relevant existing behavior and contracts remain unchanged.
+For a tooling or environment limit, complete independent checks and report the gap. Stop a failing loop when progress needs unavailable evidence, a required decision, or action outside scope. Do not change unrelated infrastructure or claim success for unexercised behavior.
 
-When a check fails, determine whether the failure comes from product behavior, the environment, or the observation method. For a product defect within the authorized implementation scope, diagnose it, make a focused correction, review the correction, and rerun the affected checks. Expand testing only when the correction or failure warrants it. Do not suppress checks, weaken assertions, or add speculative fixes to manufacture a pass.
+Check completion against the acceptance criteria. Report the outcome, material decisions, review verdicts, verification, and remaining gaps. For defects, include the cause and original failing action with its before-and-after result.
 
-For an environment or tooling limitation, complete independent checks and report the specific gap. Do not claim success for an unexercised behavior or change unrelated infrastructure without authorization. Stop a failing loop when progress needs unavailable evidence, a required user decision, or an action outside scope. Preserve the current state and explain the concrete next step rather than declaring completion.
-
-## Finish or continue
-
-Before the final reply, check the task's completion facts against the observations collected above. For a defect, include the cause, the original failing action and result, and the corrected result. Keep the evidence brief; a command and its before-and-after output can fit in one sentence.
-
-Report the outcome, material decisions, these review and verification results, and remaining gaps. If work remains unfinished or is explicitly paused, use [handoff](../../handoff/SKILL.md) to preserve a concise continuation note in the conversation. Include completed units, current state, known blockers, and the next action. Save a separate note only when requested. Do not create a handoff for every completed small task.
+If work remains unfinished or is explicitly paused, use [handoff](../../handoff/SKILL.md) for a concise continuation note in the conversation. Save a separate note only when requested. Do not create a handoff for completed small tasks.
