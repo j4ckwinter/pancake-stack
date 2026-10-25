@@ -32,11 +32,11 @@ Use the [authorized-run recipe](#finish-an-authorized-run) when you want to gran
 
 > $pancake-stack:design Propose how to add cancellation to our import job. Inspect the current job lifecycle and callers. Compare extending that design with a separate cancellation owner. Show caller usage, failure recovery, and a verification plan. Do not edit files.
 
-For a consequential decision, explicitly request independent exploration.
+You can also request independent exploration explicitly.
 
 > $pancake-stack:design Explore two competing designs for migrating live invoice payloads from total to amount. Use independent candidate agents and a separate independent judge. Preserve readability of stored total records without rewriting the archive. Compare compatibility, ownership, failure recovery, migration cost, and verification against the existing approach. Keep the project unchanged.
 
-This is task-specific and does not save preferences. Ordinary requests to compare approaches remain direct Design work. If you want model diversity, supply supported candidate models and a judge model. Omitted models inherit the active host settings for both candidates and the judge. Effort inherits from the host unless requested separately for this task. The judge receives anonymized proposals after the candidates complete. Missing candidates or an unavailable judge remain explicit gaps.
+This is task-specific and does not save preferences. Small changes and choices settled by an existing pattern or hard constraint remain direct Design work. Unresolved consequential choices with materially different viable approaches use independent exploration by default. Explicit delegation limits still apply. If you want model diversity, supply supported candidate models and a judge model. Omitted models inherit the active host settings for both candidates and the judge. Effort inherits from the host unless requested separately for this task. The judge receives anonymized proposals after the candidates complete. Missing candidates or an unavailable judge remain explicit gaps.
 
 Then challenge the concrete proposal.
 

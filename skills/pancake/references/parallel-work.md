@@ -20,7 +20,7 @@ For competing code candidates, use separate worktrees or isolated scratch copies
 
 ## Cookoff
 
-For explicitly requested independent competing-design exploration, or design comparisons with user-supplied candidate model choices and optional effort, follow [competing designs](../../design/references/competing-designs.md). That mode owns candidate isolation and the separate judge requirement. The proportional cookoff below covers other comparisons and does not relax that contract.
+For independent design exploration selected by [Design](../../design/SKILL.md#compare-approaches), requested explicitly, or selected through task-supplied candidate choices, follow [competing designs](../../design/references/competing-designs.md). That mode owns candidate isolation and the separate judge requirement. The proportional cookoff below covers other comparisons and does not relax that contract.
 
 Define a small rubric tied to the task before generating candidates. Compare structurally different approaches when the tradeoff warrants it. Give candidates the same objective, constraints, and baseline without seeding a preferred answer. Require an artifact or proposal plus concise rationale and evidence. Do not run competing production edits for a design-only request.
 

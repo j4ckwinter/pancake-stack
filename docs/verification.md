@@ -39,6 +39,18 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.14
+
+The implementation sequence is shorter and ordered by action. Four source-skill runs across two task pairs preserved the small-refactor and compatibility outcomes, including baseline checks and independent consequential review. Complete returned guidance decreased in both pairs. These observations establish bounded behavior preservation and reading reductions, not general speed or quality gains.
+
+Design now defaults to independent candidates and a separate judge when a consequential ownership, interface, persistence, or concurrency choice remains unresolved and materially different viable approaches remain. Established patterns, hard constraints, small changes, and explicit delegation limits keep work direct. In four design runs across two task pairs, the ambiguous task exercised the new default and the small-interface controls stayed direct. Both variants met the semantic criteria. The judge refined the candidate's contracts, at additional time and guidance cost; this is not evidence of general superiority.
+
+A conditional cookoff extraction was tested and rejected. Both ordinary investigation and explicit comparison completed, but reading volume varied by task. The ordinary path did not show lower total guidance reading. The candidate patch and decision remain in the evaluator rather than adding another library reference.
+
+Eight full-repository review trials compared the accepted Pancake source with a pinned Codex adaptation of Poteto. Both detected the two seeded defects and cleared the two clean controls. Independent assessment found no false actionable findings. The shared read-only, no-delegation scope does not test orchestration strengths or establish general review superiority.
+
+The [execution-path evidence](https://github.com/j4ckwinter/pancake-stack-evals/blob/910c9f9955c2cfb1c44266ae414fd7776c2a9cb2/docs/execution-paths.md) records the source identities, trial artifacts, independent assessments, rejected candidate, and limitations. Timings are descriptive because machine load was not controlled and some package checks overlapped runs. Worker briefing content was unavailable in encrypted records. Source-skill trials do not establish installed-host behavior, and Claude workflows were excluded.
+
 ## Version 0.21.13
 
 Delegation coordination now has one owner, reducing repeated guidance without adding skills. Pancake, Fix, and TDD load change classification before editing. Changes to agent instructions or release configuration that alter authorization, delegation, or verification behavior require independent review; wording-only edits retain direct review.
