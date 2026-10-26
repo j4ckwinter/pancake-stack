@@ -39,6 +39,16 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.15
+
+This release expands external evaluation coverage and pins the published evaluator. The 19 shared workflows remain unchanged. Fourteen source-guidance trials cover delegated implementation, representative-unit pilots, fresh-state verification recipes, and returned worker artifacts.
+
+Pancake and a pinned Codex adaptation of upstream pstack 0.15.32 both completed substantive delegated importer work and passed the bounded artifact checks. Both small controls stayed direct. The pilot paragraph did not produce a pilot before broad assignment in either migration run. Both recipe variants worked from empty and existing state, and both reconciliation variants preserved newer contracts while accepting compatible returned work. The three proposed wording additions were rejected; their patches and decisions remain in the evaluator.
+
+The recipe oracle initially reused an evidence filename across independent scenarios. Both recipes correctly refused the overwrite. A corrected fixture replayed the saved artifacts successfully without rerunning models; the original failures and correction remain recorded. Stand-in setup and live worker interruption were not exercised. The returned-artifact comparison explicitly requested the parallel-work reference and does not test automatic discovery.
+
+The [coordination evidence](https://github.com/j4ckwinter/pancake-stack-evals/blob/0159450d2c8f316185264506816292632d5decb3/docs/coordination-gaps.md) records exact inputs, artifacts, independent assessments, and limitations. These are single observations per task and arm, not evidence of general superiority or speed. Local package and evaluator checks ran 194 tests, with 193 passing and the opt-in sandbox smoke skipped; that smoke passed separately. Source-skill trials do not establish installed-host behavior. Claude workflows and plugin installation remain excluded.
+
 ## Version 0.21.14
 
 The implementation sequence is shorter and ordered by action. Four source-skill runs across two task pairs preserved the small-refactor and compatibility outcomes, including baseline checks and independent consequential review. Complete returned guidance decreased in both pairs. These observations establish bounded behavior preservation and reading reductions, not general speed or quality gains.
