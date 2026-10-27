@@ -20,6 +20,8 @@ Keep the plan in the available planning surface or conversation. Order units by 
 
 Resolve observable facts through inspection. Make routine reversible choices within scope and explain material assumptions. Ask only for genuinely missing information or authorization, after making the dependent choice concrete where possible. Continue independent work while awaiting a required decision. Silence is not approval.
 
+Establish foundations before features that depend on them. Reuse existing conventions and put needed CI, linting, test infrastructure, and shared types in place first. Keep setup proportional to the task.
+
 ## 3. Make the focused change
 
 Inspect the affected path for obsolete branches, duplicated decisions, and pass-through wrappers before adding mechanisms. Confirm callers and contracts before deleting apparent redundancy. Simplify only where it helps the requested change.
