@@ -4,6 +4,28 @@ Use these prompts in a Codex chat after installing the plugin. Replace the examp
 
 In Claude Code, use `/pancake-stack:...` with the same task text. Setup helps phrase task choices without saving preferences. Use choices supported by the active host when requesting particular reviewer or candidate models. See [Claude Code support](claude.md) for observed host coverage.
 
+## Start with the outcome
+
+Give Pancake the goal, an observable completion check, and the constraints that matter. It chooses the applicable workflow.
+
+> $pancake-stack:pancake Implement cancellation from the agreed brief. Prove that further writes stop after cancellation and successful imports still work.
+
+Once the task and constraints are agreed, a short follow-up can continue the work within that scope.
+
+> Continue with the agreed implementation and finish the remaining checks.
+
+## Steer work in progress
+
+Use a short correction when the work drifts. Keep the agreed constraints and state any change in scope explicitly.
+
+- To narrow an investigation: "Return to the original failure. Run the smallest check that distinguishes the remaining possible causes."
+- To reduce delegation: "Keep implementation with the main agent. Retain independent review where required."
+- To check a success claim: "Repeat the original action against the changed code and show the result. Name anything you could not verify."
+
+For a same-chat catch-up, ask Recap for the decisions you need to make as well as the work completed.
+
+> $pancake-stack:recap What changed since my last message? Separate work you can finish from decisions that need me. For each decision, give your recommendation, the tradeoff, and the evidence. Keep this read-only.
+
 ## Start with a read-only walkthrough
 
 > $pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only. Cite inspected code and name anything you could not verify.
