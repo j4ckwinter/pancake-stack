@@ -39,6 +39,10 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.17
+
+The implementation sequence now puts needed CI, linting, test infrastructure, and shared types before dependent feature work. It preserves existing conventions and keeps setup proportional to the task. This adds one sequencing paragraph without a new skill or application setup policy.
+
 ## Version 0.21.16
 
 Fix now places its existing distinguishing-observation instruction in initial diagnosis, conditional on ambiguity. Short goal-first prompts, mid-run corrections, and a same-chat catch-up example were added to the recipes. All 19 skills remain.
