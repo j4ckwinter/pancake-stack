@@ -39,6 +39,12 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.18
+
+Comment Critic now reviews scoped code comments and suppressions before implementation correctness review. The lead schedules one independent read-only pass when delegation is available; assigned critics cannot delegate another pass. Writing guidance rejects narration and test-step commentary while preserving legal text, public API contracts, required tooling directives, and evidenced external constraints. Unresolved constraints remain protected pending investigation.
+
+Independent review and a bounded fresh-context snippet trial covered the comment policy. The trial distinguished redundant narration from protected or unresolved comments; it does not establish installed-host behavior or end-to-end cleanup reliability. All 19 skills remain.
+
 ## Version 0.21.17
 
 The implementation sequence now puts needed CI, linting, test infrastructure, and shared types before dependent feature work. It preserves existing conventions and keeps setup proportional to the task. This adds one sequencing paragraph without a new skill or application setup policy.
