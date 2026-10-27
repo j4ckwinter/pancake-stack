@@ -32,6 +32,8 @@ Reuse scripts, queries, and generators for repetitive transformations. Build a t
 
 Bound investigation to relevant paths and questions. Keep concise findings, artifact pointers, assumptions, verification state, and next actions. Expand inspection when evidence reveals another affected boundary.
 
+Write code that explains itself through names, types, and structure. Keep comments for evidenced non-obvious external constraints, relevant issue or RFC links, public API contracts, and required legal or tooling directives. For confusing code under our control, improve its names, types, or structure within scope instead of explaining it with narration. Do not add narration, section banners, commented-out code, or test-step commentary. Apply this rule to delegated changes too.
+
 ## 4. Review and verify
 
 Apply [change review](change-review.md) to the completed diff, including its independent-review and completion requirements. Use [verify](../../verify/SKILL.md) to exercise the requested behavior on the resulting artifact. A review without findings does not replace verification.

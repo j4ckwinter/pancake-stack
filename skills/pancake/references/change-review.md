@@ -12,6 +12,8 @@ Settle consequential interface, ownership, compatibility, or persistence choices
 
 ## Review the completed change
 
+Before reviewing an implementation diff with code comments or suppressions, run the scoped [comment review](comment-cleanup.md). Resolve accepted findings within the authorized task before correctness review. A read-only review reports findings without edits.
+
 Inspect the completed diff using [check](../../check/SKILL.md), including affected callers and contracts. Passing tests do not replace review.
 
 Use a task-supplied implementation reviewer list when present. An absent or explicitly empty list retains one independent reviewer for consequential work. Do not use a Challenge panel for implementation review. Before launching reviewers, read and follow the [shared execution, context, settings, and coverage protocol](host-runtime.md). Require a completed verdict for each selected entry or report its concrete coverage gap.
