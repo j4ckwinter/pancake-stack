@@ -39,6 +39,16 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.16
+
+Fix now places its existing distinguishing-observation instruction in initial diagnosis, conditional on ambiguity. Short goal-first prompts, mid-run corrections, and a same-chat catch-up example were added to the recipes. All 19 skills remain.
+
+Ten natural repair trials exercised Fix, TDD, and Pancake with implementation workers permitted but not requested. All passed the bounded artifact and scope checks. The proposed parallel-work links increased reference reading in the changed importer runs without changing delegation or assessed outcomes, so they were rejected. These compact fixtures do not establish which larger repairs benefit from delegation.
+
+Four diagnosis trials preserved the quote-service and small-control outcomes in both variants. Independent assessment confirmed causal evidence before production edits, real failing regressions, and completed quote-service review. The instruction relocation is a sequencing clarification, not a measured diagnostic improvement. The recipe additions received documentation review, not behavioral trials.
+
+The published evaluator records [natural repair routing](https://github.com/j4ckwinter/pancake-stack-evals/blob/563502ee4c6caa43504446a6d13bdd450835d521/docs/natural-repair-routing.md) and [initial diagnosis](https://github.com/j4ckwinter/pancake-stack-evals/blob/563502ee4c6caa43504446a6d13bdd450835d521/docs/initial-diagnosis.md), including exact inputs, normalized outcomes, independent assessments, and limitations. Local package and evaluator validation completed 197 tests with one opt-in sandbox smoke skipped. These single observations per case and arm do not establish general superiority or installed-host behavior. Raw records remain private. Claude workflows and plugin installation were excluded.
+
 ## Version 0.21.15
 
 This release expands external evaluation coverage and pins the published evaluator. The 19 shared workflows remain unchanged. Fourteen source-guidance trials cover delegated implementation, representative-unit pilots, fresh-state verification recipes, and returned worker artifacts.
