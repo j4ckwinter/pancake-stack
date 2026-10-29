@@ -50,6 +50,12 @@ pancake also handles runtime diagnosis, performance experiments, PR feedback tri
 
 for substantial work, pancake delegates useful independent investigation or implementation tasks when the host and your instructions allow it. it explains each agent's assignment and brings the results together. small or tightly coupled tasks stay with the main agent.
 
+for an interrogate-style review, request a multi-model panel:
+
+> $pancake-stack:challenge Challenge this proposal using multi-model review. Choose two distinct supported models. Check their findings against the code and report any missing coverage. Do not apply fixes.
+
+use `$pancake-stack:check` with the same reviewer request for a diff review. see [reviewer recipes](docs/recipes.md#request-independent-or-multi-model-review) for explicit model choices and host limitations.
+
 there are [prompt recipes](docs/recipes.md) if you want a starting point, or you can pick a skill directly:
 
 <details>
@@ -64,7 +70,7 @@ there are [prompt recipes](docs/recipes.md) if you want a starting point, or you
 | `$pancake-stack:why` | investigate why it was built that way. |
 | `$pancake-stack:teach` | explain a concept at your pace. |
 | `$pancake-stack:check` | review a change for bugs and regressions. |
-| `$pancake-stack:challenge` | stress-test assumptions and decisions. |
+| `$pancake-stack:challenge` | stress-test assumptions with optional multi-model review. |
 | `$pancake-stack:fix` | figure out what broke and fix it. |
 | `$pancake-stack:tdd` | write and run a failing test, then implement the behavior. |
 | `$pancake-stack:verify` | check it works and say what still needs checking. |

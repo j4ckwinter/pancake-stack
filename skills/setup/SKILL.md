@@ -11,7 +11,7 @@ Explain that direct work uses the current conversation settings and delegates in
 
 Use model choices visible in the current host's exposed tool metadata or supplied by the user. If supported choices are unavailable, explain the limit and retain inheritance unless the user specifies an override. Do not query a separate CLI, guess model IDs, or claim that a visible choice was applied. Effort also inherits unless explicitly requested for the task.
 
-For a requested reviewer panel, help phrase the reviewer count and any model or effort choices in the task request. Distinguish Challenge reviewers from consequential implementation reviewers. A nonempty task list requests one reviewer per entry. An empty or absent implementation panel retains the single independent reviewer for consequential changes. Ordinary low-impact work still allows direct review.
+For a requested reviewer panel, help phrase the reviewer count and any model or effort choices in the task request. Distinguish Challenge, standalone Check, and consequential implementation reviewers. An explicit multi-model request can let the workflow select two distinct exposed models without a saved list. A nonempty task list requests one reviewer per entry. An empty or absent implementation panel retains the single independent reviewer for consequential changes unless multi-model review was requested. Ordinary low-impact work still allows direct review.
 
 Return a concise task instruction the user can use, including supplied choices and any unresolved host limitation. Choices explicitly adopted in the current conversation apply to the specified task. Do not imply they persist across chats. Setup alone does not authorize launching reviewers or implementing the task.
 

@@ -24,8 +24,8 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 - For execution-flow explanations, read [how](../how/SKILL.md).
 - For historical rationale and design motivation, read [why](../why/SKILL.md).
 - For proving requested behavior, read [verify](../verify/SKILL.md).
-- For adversarial review of contested decisions or consequential assumptions, read [challenge](../challenge/SKILL.md). Challenge consumes its optional reviewer panel and delegates one reviewer per selected entry when supported.
-- For change reviews, read [check](../check/SKILL.md).
+- For adversarial or interrogate-style review of contested decisions or consequential assumptions, read [challenge](../challenge/SKILL.md).
+- For change reviews, read [check](../check/SKILL.md). Both Check and Challenge support explicitly requested independent or multi-model reviewer panels.
 - For explicitly requested structural or code-quality reviews, read [structural-quality guidance](../design/references/structural-quality.md). Review remains read-only unless edits are requested.
 - For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
 - For explicitly requested test-first development or regression tests, read [tdd](../tdd/SKILL.md). Keep the failing-test step before production changes.
@@ -39,7 +39,7 @@ Direct work uses the current conversation settings. Delegates inherit the active
 
 Before applying delegated settings, read [active host guidance](references/host-runtime.md). Use only the controls exposed by the active host. An explicit task choice is a request, not proof of application. Report unsupported or rejected selections and observed fallback when material. Selected reviewer panels retain their coverage rules; unsupported entries remain uncovered. Ordinary inheritance needs no setup explanation.
 
-Challenge and consequential implementation review select their task-supplied panels at review time. Without a supplied panel, follow each workflow's default review requirement. Setup can help phrase choices for the current task; it does not persist them.
+Challenge, Check, and consequential implementation review select their task-supplied panels at review time. An explicit multi-model request can select distinct supported models through the shared host guidance. Otherwise follow each workflow's default review requirement. Setup can help phrase choices for the current task; it does not persist them.
 
 For substantial work, read [parallel work](references/parallel-work.md) during planning. It owns delegation defaults, assignment briefs, isolation, launch reporting, and integration. Existing independent-review requirements still apply; an implementation worker does not replace its independent reviewer.
 

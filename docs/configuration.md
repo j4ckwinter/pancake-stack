@@ -4,13 +4,15 @@ Pancake Stack 0.20.0 has no persistent preference store or runtime configuration
 
 ## Choose reviewers
 
-A nonempty task-supplied panel requests one independent reviewer per entry. Specify whether it applies to Challenge or consequential implementation review. Omitted model or effort choices inherit host settings. An absent or explicitly empty implementation panel retains one independent reviewer for consequential changes. Challenge chooses independent review according to the consequences and available capabilities when no panel is supplied. Explicit task limits on delegation take precedence.
+A nonempty task-supplied panel requests one independent reviewer per entry. Specify whether it applies to Challenge, standalone Check, or consequential implementation review. Omitted model or effort choices inherit host settings. An absent or explicitly empty implementation panel retains one independent reviewer for consequential changes unless multi-model review was explicitly requested. Challenge chooses independent review according to the consequences and available capabilities when no panel is supplied. Explicit task limits on delegation take precedence.
 
 Each selected reviewer needs an identified, completed verdict. Unsupported choices and incomplete reviewers remain coverage gaps. A requested model is not proof of the model actually selected. Workflows report accepted or observed settings when available and do not invent values for inheritance.
 
 Example task wording:
 
 > For this implementation, use two independent reviewers with inherited host settings. Report each completed verdict and any missing review coverage.
+
+An explicit multi-model request without a nonempty model list selects two distinct models from the active host's exposed choices, or the requested count. A reviewer count alone inherits host settings. When distinct choices cannot be established, the workflow reports the diversity gap and completes permitted review. It does not silently replace unsupported requested models.
 
 To request particular models, supply their host-supported names in the task. Model and effort are separate choices. Setup can help phrase the request without running discovery scripts or saving a profile. Choices adopted in a conversation apply to the specified task, not future chats.
 

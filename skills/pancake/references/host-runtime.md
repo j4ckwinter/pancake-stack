@@ -10,6 +10,10 @@ Identify the active client from its tools or explicit session context, not PATH 
 
 A nonempty task-supplied reviewer list selects one reviewer per entry. An absent or explicitly empty list uses the workflow's default review requirement. Explicit limits on delegation take precedence. Keep unsupported requested entries as coverage gaps instead of silently replacing them.
 
+Without a nonempty list, an explicitly requested reviewer count selects that many independent reviewers with inherited settings unless model diversity was requested.
+
+An explicit request for multi-model review without a nonempty model list authorizes selecting two distinct models from the active host's exposed choices. Honor any requested reviewer count, model constraints, and effort. Announce the selected models before launching. If enough distinct supported choices cannot be established, report the diversity gap and complete the permitted review without inventing or silently substituting models. A request for multiple reviewers alone retains model inheritance.
+
 ## Delegated settings
 
 Use the host's available delegation interface. Codex collaboration tools and Claude Code's Agent tool have different argument contracts. Pass only settings supported by the actual exposed tool. If selecting a worker model or effort requires a fresh context, use that supported invocation instead of a full-history fork that cannot accept overrides. Use Claude Code's native model selection when available; do not assume a full model ID is accepted by a tool expecting aliases. Never combine model and effort into an identifier or change global settings to emulate a missing override.
@@ -18,9 +22,9 @@ Record requested settings and what the host accepted or reported for each delega
 
 ## Independent review execution
 
-Apply this protocol when Challenge or implementation calls for independent review. The calling workflow determines when review is required and its default reviewer count; reading this reference does not itself request delegation.
+Apply this protocol when Challenge, Check, or implementation calls for independent review. The calling workflow determines when review is required and its default reviewer count; reading this reference does not itself request delegation. An assigned reviewer returns its own findings without launching another panel.
 
-For a nonempty task-supplied panel, launch one independent read-only reviewer per entry through working, permitted host delegation. Otherwise use the calling workflow's default. Queue reviewers within host concurrency limits. Track each selected entry, its returned agent identity, and its completed verdict separately. Verify identity-bearing completion and retain each actual verdict before declaring the panel complete. A generic wait completion, another reviewer's result, a progress message, or a read of a review skill does not establish completion. Interrupted reviewers without verdicts remain uncovered.
+Resolve the panel from the task choices above, then launch one independent read-only reviewer per selected entry through working, permitted host delegation. Otherwise use the calling workflow's default. Queue reviewers within host concurrency limits. Track each selected entry, its returned agent identity, and its completed verdict separately. Verify identity-bearing completion and retain each actual verdict before declaring the panel complete. A generic wait completion, another reviewer's result, a progress message, or a read of a review skill does not establish completion. Interrupted reviewers without verdicts remain uncovered.
 
 Give every reviewer the same neutral objective, target revision or workspace snapshot, relevant source pointers, user requirements, evidence requirements, and applicable permissions and repository instructions. Ask for concrete triggers, consequences, inspected locations, and uncertainty. Prohibit edits, nested delegation, dependency installation, services, and external actions. If the target changes, identify the coverage mismatch and review the affected correction before relying on earlier findings.
 
@@ -37,6 +41,8 @@ If the host cannot provide a fresh context or its isolation cannot be establishe
 If delegation is unavailable, outside task permissions, or yields no completed independent reviewer, perform permitted direct review and report the concrete independence gap. Multiple passes by one agent are not independent review. Continue with completed evidence when part of a panel fails; unsupported, failed, and incomplete entries remain uncovered.
 
 Claim model diversity only when completed reviewers have distinct actual model IDs. Same-model reviewers, including different efforts, provide independent reviews without model diversity. Different models from one provider do not establish provider diversity.
+
+For a panel, report each reviewer's requested model, accepted or observed model, completion status, and supported findings. Keep unknown settings explicit. Inspect each finding against the target, rerun a decisive safe check when available, and deduplicate by failure mechanism. Keep supported lone-reviewer findings. Resolve disagreements with evidence rather than vote counts, and report material unresolved disagreements and missing coverage. A panel request does not authorize fixes or new reproduction files.
 
 ## Invocation and project skills
 
