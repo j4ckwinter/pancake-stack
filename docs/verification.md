@@ -39,6 +39,16 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.19
+
+Challenge and standalone Check now accept explicit multi-model review requests. Without a supplied model list, the workflow selects two distinct exposed models, or the requested count. Explicit panels remain authoritative. The shared protocol owns selection, fresh contexts, completion, evidence-based synthesis, and coverage reporting. Ordinary Check remains direct. All 19 skills remain.
+
+A bounded source-skill Check trial launched two fresh reviewers with distinct requested models. Both returned the seeded zero-limit regression, and the lead reproduced it. The live tool responses exposed no runtime model IDs, which the lead reported as a gap. Posthoc session records confirmed distinct runtime models. An unsupported-model Challenge trial preserved both coverage gaps without substitutions. An ordinary Check trial launched no reviewers and found no actionable issue in the clean control. Fixture snapshots remained unchanged. These observations establish routing and bounded outcomes, not a detection benefit over same-model review.
+
+The external evaluator retains the [trial report](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/multi-model-review.md), including model evidence, input provenance, and limitations. Encrypted reviewer briefs prevent an independent audit of brief neutrality.
+
+Package checks cover JSON parsing, marketplace source resolution, and all skills. These checks and source-skill trials do not establish installed-host behavior. Authenticated Claude workflow coverage remains unchanged. Reproduction files remain outside the default read-only review contract.
+
 ## Version 0.21.18
 
 Comment Critic now reviews scoped code comments and suppressions before implementation correctness review. The lead schedules one independent read-only pass when delegation is available; assigned critics cannot delegate another pass. Writing guidance rejects narration and test-step commentary while preserving legal text, public API contracts, required tooling directives, and evidenced external constraints. Unresolved constraints remain protected pending investigation.

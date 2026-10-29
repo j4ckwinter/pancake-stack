@@ -16,7 +16,7 @@ Before reviewing an implementation diff with code comments or suppressions, run 
 
 Inspect the completed diff using [check](../../check/SKILL.md), including affected callers and contracts. Passing tests do not replace review.
 
-Use a task-supplied implementation reviewer list when present. An absent or explicitly empty list retains one independent reviewer for consequential work. Do not use a Challenge panel for implementation review. Before launching reviewers, read and follow the [shared execution, context, settings, and coverage protocol](host-runtime.md). Require a completed verdict for each selected entry or report its concrete coverage gap.
+Use a task-supplied implementation reviewer list when present. An absent or explicitly empty list retains one independent reviewer for consequential work unless multi-model implementation review was explicitly requested. Do not reuse a Challenge or standalone Check panel as the implementation panel. Before launching reviewers, read and follow the [shared execution, context, settings, and coverage protocol](host-runtime.md). Require a completed verdict for each selected entry or report its concrete coverage gap.
 
 Ask reviewers to inspect independently through [check](../../check/SKILL.md). Inspect and deduplicate findings by mechanism rather than vote count. Resolve supported findings within scope before completion and keep material disagreement explicit when evidence cannot settle it.
 

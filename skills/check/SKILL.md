@@ -1,6 +1,6 @@
 ---
 name: check
-description: Review a code change for actionable bugs, regressions, and verification gaps. Use when the user asks to check a diff, review changes, or assess what a change could break.
+description: Review a code change for actionable bugs, regressions, and verification gaps, with independent or multi-model reviewers when requested. Use when the user asks to check a diff, review changes, or assess what a change could break.
 ---
 
 # Check a change
@@ -10,6 +10,8 @@ Read [core values](../pancake/references/values.md). Review without editing file
 For an explicitly requested structural or code-quality review, also read [structural-quality guidance](../design/references/structural-quality.md). Keep maintainability recommendations separate from correctness findings; an ordinary change review does not require a structural audit.
 
 Use the supplied diff, commit, or branch range. If none is specified, inspect staged and unstaged changes, including relevant untracked files. If the workspace is clean and no review target can be inferred, ask for the target rather than inventing a comparison.
+
+For an explicitly requested panel, independent reviewer count, or multi-model review, follow the [shared reviewer protocol](../pancake/references/host-runtime.md). Ordinary standalone Check remains direct. When assigned as a reviewer, perform your own review without launching another panel. A panel selected by the implementation workflow remains owned by that workflow.
 
 Read repository instructions and the changed code in context. Follow affected callers and contracts, including persisted data, external interfaces, and failure paths when relevant. Focus on concrete breakage rather than style preferences or hypothetical rewrites.
 

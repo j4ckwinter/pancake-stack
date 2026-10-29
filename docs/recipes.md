@@ -86,6 +86,24 @@ Use `tdd` when you want a test-first cycle. Use `fix` when the cause still needs
 
 Expect observations tied to the requested behavior. A passing build alone does not demonstrate cancellation. If you need repeatable project instructions, explicitly request a reusable verification recipe and its destination.
 
+## Request independent or multi-model review
+
+For an adversarial review of a proposal or consequential change:
+
+> $pancake-stack:challenge Challenge this proposal using multi-model review. Choose two distinct models supported by this host. Give each reviewer the same scope and requirements. Verify their findings against the code and report unresolved disagreements. Do not apply fixes.
+
+For a diff review with a selected panel, replace `MODEL_A` and `MODEL_B` with supported model names:
+
+> $pancake-stack:check Review the staged and unstaged changes with two independent reviewers, one using MODEL_A and one using MODEL_B. Let effort inherit. Report each reviewer's requested and observed model, completion status, and supported findings. Keep the review read-only.
+
+To request independence without model diversity:
+
+> $pancake-stack:check Review this diff with two independent reviewers using inherited host settings. Report supported findings and missing coverage. Do not apply fixes.
+
+Models are announced before review. Unsupported entries remain coverage gaps. Distinct model IDs establish model diversity only when confirmed for completed reviewers. Different models from one provider do not establish provider diversity. A request for a panel does not authorize scratch reproduction files or implementation.
+
+A panel report identifies each reviewer, requested and observed settings, completion, and supported findings. The lead retains supported findings even when only one reviewer reports them. Unresolved disagreements remain explicit.
+
 ## Review a change
 
 > $pancake-stack:check Review the staged and unstaged changes for bugs and regressions. Follow affected callers and stored-data contracts. Give each actionable finding a file location, trigger, and consequence. Keep this read-only and report verification gaps.

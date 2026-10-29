@@ -1,6 +1,6 @@
 ---
 name: challenge
-description: Challenge assumptions in a software design or consequential code change with evidence-based adversarial review. Use for blind spots, contested decisions, or requests to stress-test an approach. Use check for routine diff review.
+description: Challenge assumptions in a software design or consequential code change with evidence-based adversarial or multi-model review. Use for interrogate-style reviews, blind spots, contested decisions, or requests to stress-test an approach. Use check for routine diff review.
 ---
 
 # Challenge the approach
@@ -21,7 +21,7 @@ Read surrounding code and tests to check whether each suspected issue is already
 
 ## Independent perspectives
 
-For a nonempty task-supplied panel, use one independent read-only reviewer per entry when delegation is available and permitted. An absent or explicitly empty panel uses independent reviewers when the consequences and available capabilities justify them. A supplied panel requests delegation, not extra passes by the lead.
+An explicit multi-model request, independent reviewer count, or nonempty task-supplied panel selects independent read-only reviewers through the shared protocol below. Otherwise use independent reviewers when the consequences and available capabilities justify them. A supplied panel requests delegation, not extra passes by the lead.
 
 Before launching reviewers, read and follow the [shared execution, context, settings, and coverage protocol](../pancake/references/host-runtime.md). Require a completed verdict for each selected entry or report its concrete coverage gap before synthesizing.
 
