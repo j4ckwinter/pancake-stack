@@ -86,6 +86,22 @@ Use `tdd` when you want a test-first cycle. Use `fix` when the cause still needs
 
 Expect observations tied to the requested behavior. A passing build alone does not demonstrate cancellation. If you need repeatable project instructions, explicitly request a reusable verification recipe and its destination.
 
+To check an existing repair, name its actual artifact:
+
+> $pancake-stack:verify Verify that the supplied fix commit resolves the reported import failure. Compare it with the relevant pre-fix revision using isolated data and the same user action. Report both revisions and outcomes. Do not change the fix or open another PR.
+
+If the baseline cannot reproduce the failure, expect an inconclusive comparison even when the patched build passes. Repetitions depend on the failure's intermittency.
+
+When creating a consequential harness, authorize isolated edits if you want evidence that it catches broken behavior:
+
+> $pancake-stack:verify Improve the import verification harness and its existing recipe. In a disposable copy, demonstrate that the check rejects a representative lost-write defect and accepts valid completion. Preserve product code. Cover the documented CLI and API entry points in a small coverage table.
+
+Formal verification is optional and uses the project's available tooling:
+
+> $pancake-stack:verify Audit whether the existing retry model still describes the current implementation. Check its atomic steps, assumptions, bounds, and covered revision. Run the existing checker and investigate any counterexample against the code. Keep this read-only and distinguish model drift from a product defect.
+
+A model result covers its stated assumptions and bounds. An unavailable checker or unexecuted counterexample remains a verification gap. These are request examples, not records of installed-host checks.
+
 ## Request independent or multi-model review
 
 For an adversarial review of a proposal or consequential change:

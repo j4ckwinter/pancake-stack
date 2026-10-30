@@ -39,6 +39,14 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.20
+
+Verify now supports selective failure-detection checks for consequential harnesses, comparison of an existing fix with its baseline, and optional formal-verification guidance that connects model assumptions and atomic steps to current code. Reusable recipes can record several supported entry points in a small coverage table. Check distinguishes introduced or newly exposed regressions from unrelated pre-existing defects. All 19 skills remain.
+
+Five bounded fresh-context source-skill trials exercised these paths. A strengthened harness detected deliberate whitespace corruption through API and CLI writers; a review separated a new regression from an old defect; a model audit reproduced an interleaving excluded by a passing model; and existing-fix comparisons distinguished a confirmed zero-value repair from a report that did not reproduce on the baseline. The harness trial initially used temporary storage outside its assigned directory, reported the deviation, and corrected subsequent runs. Independent implementation review found a stale marketplace version, which was corrected and rechecked.
+
+The external evaluator retains the [trial report and artifacts](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/verification-strengthening.md). These single observations do not establish improvement over prior guidance, installed-host behavior, or an unbounded formal proof. Optional detailed references preserve focused routing; entry-file word counts increased, and no runtime overhead reduction is claimed. Installation and authenticated Claude workflow coverage remain unchanged.
+
 ## Version 0.21.19
 
 Challenge and standalone Check now accept explicit multi-model review requests. Without a supplied model list, the workflow selects two distinct exposed models, or the requested count. Explicit panels remain authoritative. The shared protocol owns selection, fresh contexts, completion, evidence-based synthesis, and coverage reporting. Ordinary Check remains direct. All 19 skills remain.
