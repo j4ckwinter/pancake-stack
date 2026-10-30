@@ -9,11 +9,15 @@ Read [core values](../pancake/references/values.md) and applicable repository in
 
 For a requested reusable project recipe, or when a relevant recipe already exists, read [project verification recipes](references/recipes.md). For a requested audit or maintenance of an existing recipe, read [recipe maintenance](references/maintenance.md). Reuse existing recipes only after checking their relevant assumptions. Do not generate a recipe during every verification task.
 
+For a named existing fix or a requested baseline-versus-patch comparison, read [existing-fix verification](references/existing-fix.md). For requested formal verification, model checking, or maintenance of a model or proof, read [formal verification](references/formal-verification.md). These modes retain the scope, isolation, and cleanup requirements below.
+
 Inspect documented commands, existing tests, and available tools. Choose the smallest set of checks that covers the requested behavior and affected contracts. Reuse the project's harness before proposing new infrastructure. Inspect unfamiliar commands for side effects before running them. A build, lint check, or passing test suite proves only what it exercises.
 
 Exercise the interface relevant to the claim when feasible. For a UI, perform the action and inspect its result. For a CLI, invoke the command and inspect output, exit status, and relevant files. For an API or library, call its supported interface and inspect the response or resulting state. Include a failure or boundary case when it materially affects the claim. Do not substitute internal state setters, mocks, or screenshots of an unrelated build for the requested behavior.
 
 Check that the observation can distinguish the intended behavior from the relevant failure. An assertion that a mock was called, a value exists, or no exception occurred may be insufficient for the claimed outcome. Prefer a concrete expected output or observable effect grounded in the contract, independent of the code under test. For a meaningful absence, exercise the triggering condition and inspect the relevant state rather than accepting an empty fixture as proof. Mocks can isolate dependencies, but results must still exercise the behavior being claimed.
+
+When creating or changing a consequential verification harness or safeguard, read [failure-detection checks](references/failure-detection.md). Demonstrate that it detects a representative break when isolated edits are authorized; ordinary verification does not require mutation testing or grant permission to edit code.
 
 For a defect, use the original scenario and comparable before-and-after evidence when available. Do not alter the expected result to match broken behavior. For behavior-preserving changes, check the relevant contract rather than internal call order unless that order is itself required. Verification alone does not authorize adding or deleting tests; report ineffective checks and propose the focused correction when editing is outside scope.
 

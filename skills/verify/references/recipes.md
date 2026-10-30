@@ -20,6 +20,8 @@ Include only what another agent or colleague needs to execute it cold.
 
 Use exact commands only when verified or clearly marked as unverified. Document working directories and environment overrides when required. If a helper genuinely removes repeated fragile work, create it only within authorized file scope, document its invocation, and execute it. Do not create feature maps, placeholder directories, or scripts solely to match a template.
 
+When the requested feature has several supported entry points, use a compact coverage table if it prevents ambiguous claims. Record each relevant entry point, prerequisite, action, expected result, and status: inspected, passed, failed, or unverified. Derive rows from actual routes, commands, or contracts and keep them in the existing recipe. A toolbar action does not establish keyboard or CLI behavior, and one successful path does not cover every row. Do not expand the map into an unrelated application inventory.
+
 ## Prove and maintain it
 
 Execute the recipe through the real relevant interface in an isolated environment when permitted. Verify at least the primary documented path and its cleanup. State the revision or application state exercised. Inspect retained evidence after teardown. Broader coverage claims require exercising the corresponding cases; one successful path does not prove all features.
