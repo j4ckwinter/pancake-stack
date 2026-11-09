@@ -39,6 +39,12 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.21
+
+The Claude Code setup now uses the persistent local marketplace install, `claude plugin marketplace add ./` followed by `claude plugin install pancake-stack@pancake-stack`, instead of a one-session `--plugin-dir` load. Claude Code rejects a bare `.` as a marketplace source. A local install reads the checkout directly, so edits apply at the next session start or after `/reload-plugins`. Skill content is unchanged. All 19 skills remain.
+
+The install, marketplace update, and plugin update commands passed in a temporary Claude profile on Claude Code 2.1.319 against the 0.21.20 source, and the maintainer completed the same install in their own profile. Skill discovery after this install and authenticated Claude workflows were not rechecked.
+
 ## Version 0.21.20
 
 Verify now supports selective failure-detection checks for consequential harnesses, comparison of an existing fix with its baseline, and optional formal-verification guidance that connects model assumptions and atomic steps to current code. Reusable recipes can record several supported entry points in a small coverage table. Check distinguishes introduced or newly exposed regressions from unrelated pre-existing defects. All 19 skills remain.

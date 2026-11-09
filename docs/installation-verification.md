@@ -6,6 +6,8 @@ Version 0.21.8 adds Design candidate-isolation guidance and updates verification
 
 Version 0.21.3 installed in separate temporary profiles on Codex 0.160.0 and Claude Code 2.1.291 on 9 October 2026. Both hosts discovered all 19 namespaced skills, and installed manifests and skill resources matched the tested source. No global configuration changed.
 
+The Claude Code local marketplace install in [Claude Code support](claude.md) passed on Claude Code 2.1.319 on 9 November 2026 in a temporary profile and in the maintainer's profile. It used the `./` source; a bare `.` was rejected. The installed plugin reads from the checkout. Skill discovery after this install was not rechecked.
+
 Fresh installed Codex trials completed a compatibility migration with one default independent reviewer and a read-only Challenge with two requested reviewers. Trusted artifact checks passed. Claude authenticated workflows and visible app picker behavior remain unverified. These scoped checks do not cover every skill or host configuration.
 
 The detailed historical record remains in [pancake-stack-evals](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/installation-verification.md) and [source history](https://github.com/j4ckwinter/pancake-stack/blob/795dc890ee0b0acf24e743d82362c4a92e4202e1/docs). The [installed reviewer report](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/reviewer-consolidation.md) and its [evidence](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/evidence/reviewer-consolidation-2026-10-09.json) retain the newer trials. See [verification](verification.md) for current checks and evidence limits.
