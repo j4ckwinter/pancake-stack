@@ -30,15 +30,18 @@ in hosts with a skill picker, look for **Pancake**. CLI installation and discove
 
 ### Claude Code
 
-load the plugin for one session:
+install the plugin so it loads in every session:
 
 ```sh
-claude --plugin-dir .
+claude plugin marketplace add ./
+claude plugin install pancake-stack@pancake-stack
 ```
 
-then give it the same task, using `/` instead of `$`:
+open a new Claude Code session, then give it the same task, using `/` instead of `$`:
 
 > /pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
+
+the install reads from this checkout, so edits take effect at the next session start or after `/reload-plugins`. to load the checkout for one session without installing it, run `claude --plugin-dir .` instead.
 
 Claude Code has validated the package and found all 19 skills. authenticated workflow and reviewer-setting checks are still pending. see [Claude Code support](docs/claude.md) for details.
 
