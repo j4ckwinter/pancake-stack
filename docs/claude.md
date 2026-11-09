@@ -4,26 +4,28 @@ Pancake Stack packages the same 19 workflows for Codex and Claude Code. Both hos
 
 ## Use Pancake in Claude Code
 
-From the repository root, load the plugin for one session:
+From the repository root, install the plugin from the local marketplace:
 
 ```sh
-claude --plugin-dir .
+claude plugin marketplace add ./
+claude plugin install pancake-stack@pancake-stack
 ```
 
-Then request a read-only explanation:
+The plugin then loads in every new Claude Code session. These installation commands passed for version 0.21.20 in a temporary Claude profile on Claude Code 2.1.319 on 9 November 2026. The source must be written as `./`; a bare `.` is rejected as an invalid marketplace source. Authenticated workflow behavior remains unverified because no Claude login was available. See [installation verification](installation-verification.md).
+
+Open a new session and request a read-only explanation:
 
 > /pancake-stack:how Explain how this project starts and where its main behavior lives. Keep this read-only and cite the implementation.
 
 Use `/pancake-stack:pancake` for implementation and `/pancake-stack:setup` for help phrasing task-scoped reviewer choices. Other names match the [skill list](../README.md). Replace the Codex `$` prefix in [prompt recipes](recipes.md) with `/`.
 
-The local marketplace flow is:
+Claude Code namespaces plugin skills under the plugin name, so installed skills appear as `/pancake-stack:<skill>`.
 
-```sh
-claude plugin marketplace add .
-claude plugin install pancake-stack@pancake-stack
-```
+## Edit a local install
 
-These installation commands passed for version 0.21.3 in a temporary Claude profile on 9 October 2026. Installed discovery returned all 19 skills with matching resources. Authenticated workflow behavior remains unverified because no Claude login was available. See [installation verification](installation-verification.md).
+A local marketplace install reads the plugin from this checkout instead of copying it. Edits take effect at the next session start or after `/reload-plugins`. No reinstall or version bump is needed.
+
+To load a checkout for one session without installing it, run `claude --plugin-dir .` instead.
 
 ## Delegate through the active host
 
