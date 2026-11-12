@@ -1,6 +1,6 @@
 # Active host boundary
 
-Read this reference before applying delegated model or effort choices. Keep the shared workflows and review requirements the same on both hosts.
+Read this reference before applying delegated model or effort choices. Keep the shared workflows and review requirements the same across supported hosts.
 
 ## Task choices
 
@@ -46,6 +46,6 @@ For a panel, report each reviewer's requested model, accepted or observed model,
 
 ## Invocation and project skills
 
-Codex plugin skills use `$pancake-stack:<skill>`. Claude Code plugin skills use `/pancake-stack:<skill>`. Both load the same installed workflow tree. Resolve references from their installed skill location rather than the user's workspace.
+Codex plugin skills use `$pancake-stack:<skill>`. Claude Code plugin skills use `/pancake-stack:<skill>`. In Cursor, type `/` and select the skill by name from the picker; do not assume Codex or Claude namespaced syntax. All hosts load the same installed workflow tree. Resolve references from their installed skill location rather than the user's workspace.
 
-When a user explicitly requests a project skill, use the active host's authoring guidance. Codex project skills live in `.agents/skills/<name>/SKILL.md`. Claude Code project skills live in `.claude/skills/<name>/SKILL.md`. Preserve the requested destination and invocation policy. Never write into the installed plugin cache to personalize a project.
+When a user explicitly requests a project skill, use the active host's authoring guidance. Codex project skills live in `.agents/skills/<name>/SKILL.md`. Claude Code project skills live in `.claude/skills/<name>/SKILL.md`. Cursor project skills can live in `.cursor/skills/<name>/SKILL.md` or `.agents/skills/<name>/SKILL.md`. Preserve the requested destination and invocation policy. Never write into the installed plugin cache to personalize a project.

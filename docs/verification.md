@@ -39,6 +39,12 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.22
+
+Cursor setup now uses the existing portable manifest and shared 19-skill tree. The [Cursor guide](cursor.md) documents copying the package into Cursor's local plugin directory, reloading, and selecting skills through the slash picker. README, setup, and host guidance now include Cursor. Workflow permissions and reviewer requirements are unchanged.
+
+The copy recipe preserved the manifest, all 19 skills, and documentation in isolated temporary storage and refused an existing destination. Cursor loading, discovery, invocation, and delegated review remain unverified. This release does not establish a public Cursor Marketplace listing.
+
 ## Version 0.21.21
 
 The Claude Code setup now uses the persistent local marketplace install, `claude plugin marketplace add ./` followed by `claude plugin install pancake-stack@pancake-stack`, instead of a one-session `--plugin-dir` load. Claude Code rejects a bare `.` as a marketplace source. A local install reads the checkout directly, so edits apply at the next session start or after `/reload-plugins`. Skill content is unchanged. All 19 skills remain.

@@ -6,14 +6,14 @@ these are the skills i use every day to help ai write code i actually want to ke
 
 ## try it out
 
-the same skills work in Codex and Claude Code. get a local checkout first, or use the one you already have.
+the same skill tree is packaged for Codex, Claude Code, and Cursor. get a local checkout first, or use the one you already have.
 
 ```sh
 git clone https://github.com/j4ckwinter/pancake-stack.git
 cd pancake-stack
 ```
 
-run the host commands below from that checkout.
+follow the host instructions below from that checkout.
 
 ### Codex
 
@@ -44,6 +44,12 @@ open a new Claude Code session, then give it the same task, using `/` instead of
 the install reads from this checkout, so edits take effect at the next session start or after `/reload-plugins`. to load the checkout for one session without installing it, run `claude --plugin-dir .` instead.
 
 Claude Code has validated the package and found all 19 skills. authenticated workflow and reviewer-setting checks are still pending. see [Claude Code support](docs/claude.md) for details.
+
+### Cursor
+
+Cursor supports the existing portable `plugin.json` and shared skills. follow the [Cursor local installation guide](docs/cursor.md), then reload Cursor and select `pancake` from the `/` skill picker.
+
+this uses Cursor’s documented local plugin loading. installation, discovery, and workflow behavior have not yet been tested in Cursor.
 
 ## use it
 

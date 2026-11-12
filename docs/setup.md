@@ -1,6 +1,6 @@
 # Set up a task
 
-No setup is required to inherit the active host's settings. Invoke `$pancake-stack:setup` in Codex or `/pancake-stack:setup` in Claude Code when you want help expressing delegate or reviewer choices for a task.
+No setup is required to inherit the active host's settings. Invoke `$pancake-stack:setup` in Codex or `/pancake-stack:setup` in Claude Code when you want help expressing delegate or reviewer choices for a task. In Cursor, type `/` and select `setup` from the skill picker after following the [Cursor installation guide](cursor.md).
 
 Setup uses choices visible in the active host or supplied by you. It does not launch a model-discovery process, save preferences, change the current model, or start reviewers. When supported choices are unknown, it explains the limitation instead of inventing model IDs.
 
