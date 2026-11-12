@@ -4,56 +4,75 @@ i love how quickly ai lets me move. i hate the slop i end up building, fixing, a
 what i do love is pancakes. so naturally, i made a stack.
 these are the skills i use every day to help ai write code i actually want to keep.
 
-## try it out
+## install it
 
-the same skill tree is packaged for Codex, Claude Code, and Cursor. get a local checkout first, or use the one you already have.
+the same 19 skills are packaged for Codex, Claude Code, and Cursor. pick the one you use: [Codex](#codex), [Claude Code](#claude-code), or [Cursor](#cursor).
+
+for Codex or Claude Code, grab the repo first. if you already have it, open a terminal in that checkout instead. Cursor users can skip straight to the [Cursor instructions](#cursor).
 
 ```sh
 git clone https://github.com/j4ckwinter/pancake-stack.git
 cd pancake-stack
 ```
 
-follow the host instructions below from that checkout.
+run the Codex or Claude Code commands below from the `pancake-stack` folder. the shell examples use bash or zsh.
 
 ### Codex
+
+with the Codex CLI installed, run:
 
 ```sh
 codex plugin marketplace add .
 codex plugin add pancake-stack@pancake-stack --json
 ```
 
-open a new Codex chat, then give it a task:
+open a new Codex chat and start your request with `$pancake-stack:pancake`. if your client has a skill picker, look for **Pancake**.
 
-> $pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
-
-in hosts with a skill picker, look for **Pancake**. CLI installation and discovery have been tested; visible picker behavior remains unverified. see the [installation record](docs/installation-verification.md). to update an existing copy and confirm its installed version, use the [Codex refresh recipe](docs/codex-installation.md).
+CLI installation and discovery have been tested; the visible picker hasn’t. [installation details and updates](docs/codex-installation.md).
 
 ### Claude Code
 
-install the plugin so it loads in every session:
+with Claude Code installed, run:
 
 ```sh
 claude plugin marketplace add ./
 claude plugin install pancake-stack@pancake-stack
 ```
 
-open a new Claude Code session, then give it the same task, using `/` instead of `$`:
+open a new Claude Code session and start your request with `/pancake-stack:pancake`.
 
-> /pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
-
-the install reads from this checkout, so edits take effect at the next session start or after `/reload-plugins`. to load the checkout for one session without installing it, run `claude --plugin-dir .` instead.
-
-Claude Code has validated the package and found all 19 skills. authenticated workflow and reviewer-setting checks are still pending. see [Claude Code support](docs/claude.md) for details.
+the plugin reads from this checkout, so keep the folder around. edits take effect in a new session or after `/reload-plugins`. package validation and discovery passed; authenticated workflow checks are still pending. [details and one-session use](docs/claude.md).
 
 ### Cursor
 
-Cursor supports the existing portable `plugin.json` and shared skills. follow the [Cursor local installation guide](docs/cursor.md), then reload Cursor and select `pancake` from the `/` skill picker.
+with Git installed, run this from any folder to clone directly into Cursor’s local plugins folder:
 
-this uses Cursor’s documented local plugin loading. installation, discovery, and workflow behavior have not yet been tested in Cursor.
+```sh
+git clone https://github.com/j4ckwinter/pancake-stack.git \
+  "$HOME/.cursor/plugins/local/pancake-stack"
+```
+
+restart Cursor or run **Developer: Reload Window**. open **Customize** to check for the plugin, then type `/` in Agent chat and select `pancake`.
+
+to update, run this and reload Cursor again:
+
+```sh
+git -C "$HOME/.cursor/plugins/local/pancake-stack" pull --ff-only
+```
+
+if you already copied the plugin into that folder, follow the [migration instructions](docs/cursor.md#switch-from-a-manual-copy) first. local plugin imports must be allowed. this uses Cursor’s documented local plugin folder, but loading and workflows haven’t been tested yet. [details and manual-copy fallback](docs/cursor.md).
+
+## try it out
+
+select pancake using your environment’s instructions above, then give it a small task:
+
+> Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
+
+when you have work to do, tell it what you want, where to look, and how you’ll know it works.
 
 ## use it
 
-reach for `$pancake-stack:pancake` when you have work to do. tell it what you want, where to look, and how you’ll know it works.
+examples below use Codex’s `$pancake-stack:<skill>` syntax. in Claude Code, use `/pancake-stack:<skill>`. in Cursor, type `/` and select the skill by name.
 
 pancake also handles runtime diagnosis, performance experiments, PR feedback triage, and matching an existing interface. see the [workflow recipes](docs/recipes.md#use-pancakes-specialized-workflows) for examples and the actions each request authorizes.
 
@@ -95,4 +114,4 @@ there are [prompt recipes](docs/recipes.md) if you want a starting point, or you
 
 ## a bit more
 
-[configuration](docs/configuration.md) and [setup](docs/setup.md) cover task settings and optional reviewers. [verification](docs/verification.md) covers checks, recorded results, and known limitations.
+[configuration](docs/configuration.md) and [setup](docs/setup.md) cover task settings and optional reviewers. [verification](docs/verification.md) covers checks and known limitations; the [installation record](docs/installation-verification.md) keeps the host-specific results.
