@@ -9,12 +9,12 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 
 ## Choose the work
 
-- For implementation comment review or explicitly requested comment cleanup, read [comment-cleanup guidance](references/comment-cleanup.md). A cleanup audit remains read-only unless edits are requested.
-- For requested worktree inventory or cleanup, read [worktree-cleanup guidance](references/worktree-cleanup.md). Inventory remains read-only.
+- For implementation comment review or explicitly requested comment cleanup, read [comment-cleanup guidance](references/comment-cleanup.md).
+- For requested worktree inventory or cleanup, read [worktree-cleanup guidance](references/worktree-cleanup.md).
 - For catching up on a project or recovering prior decisions and unfinished work, read [recap](../recap/SKILL.md). Historical recovery stays scoped to the requested project and topic.
 - For requested task pickup or an explicit pause, read [handoff](../handoff/SKILL.md) and its continuation guidance.
 - For requested commits, merges, releases, publication, deployment, or delivery preparation, read [shipping guidance](references/shipping.md).
-- For requested PR status, feedback triage, or merge-readiness work, read [PR-maintenance guidance](references/pr-maintenance.md). A status request remains read-only.
+- For requested PR status, feedback triage, or merge-readiness work, read [PR-maintenance guidance](references/pr-maintenance.md).
 - For matching an interface or preserving appearance during a migration, read [visual-parity guidance](references/visual-parity.md).
 - For runtime symptoms or captured profiling artifacts, read [forensics guidance](references/forensics.md). Keep a diagnosis separate from repair unless both are requested.
 - For performance experiments, prototypes that settle observable questions, or skill evaluations, read [measured experiments](references/experiments.md). Use it only when the requested work authorizes the experiment.
@@ -26,7 +26,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 - For proving requested behavior, read [verify](../verify/SKILL.md).
 - For adversarial or interrogate-style review of contested decisions or consequential assumptions, read [challenge](../challenge/SKILL.md).
 - For change reviews, read [check](../check/SKILL.md). Both Check and Challenge support explicitly requested independent or multi-model reviewer panels.
-- For explicitly requested structural or code-quality reviews, read [structural-quality guidance](../design/references/structural-quality.md). Review remains read-only unless edits are requested.
+- For explicitly requested structural or code-quality reviews, read [structural-quality guidance](../design/references/structural-quality.md).
 - For design proposals and consequential architecture choices, read [design](../design/SKILL.md).
 - For explicitly requested test-first development or regression tests, read [tdd](../tdd/SKILL.md). Keep the failing-test step before production changes.
 - For authorized implementation, read [the implementation sequence](references/implementation.md). It covers grounding, design choices, implementation, proportional review, verification, and failure handling.
@@ -35,13 +35,9 @@ Read only the workflow needed for the task. Do not run every workflow in sequenc
 
 ## Agents and task choices
 
-Direct work uses the current conversation settings. Delegates inherit the active host's model and effort unless the user supplies explicit choices for this task. Do not read or write stored Pancake preferences, run model-discovery helpers, or change global host settings.
+Direct work uses the current conversation settings. Delegates inherit the active host's settings unless the user supplies choices for this task. Before applying a delegated setting or launching reviewers, read [active host guidance](references/host-runtime.md); it owns model and effort choices, reviewer panels, and coverage reporting.
 
-Before applying delegated settings, read [active host guidance](references/host-runtime.md). Use only the controls exposed by the active host. An explicit task choice is a request, not proof of application. Report unsupported or rejected selections and observed fallback when material. Selected reviewer panels retain their coverage rules; unsupported entries remain uncovered. Ordinary inheritance needs no setup explanation.
-
-Challenge, Check, and consequential implementation review select their task-supplied panels at review time. An explicit multi-model request can select distinct supported models through the shared host guidance. Otherwise follow each workflow's default review requirement. Setup can help phrase choices for the current task; it does not persist them.
-
-For substantial work, read [parallel work](references/parallel-work.md) during planning. It owns delegation defaults, assignment briefs, isolation, launch reporting, and integration. Existing independent-review requirements still apply; an implementation worker does not replace its independent reviewer.
+For substantial work, read [parallel work](references/parallel-work.md) during planning. It owns delegation defaults, assignment briefs, isolation, launch reporting, and integration. An implementation worker does not replace its independent reviewer.
 
 ## Finish
 

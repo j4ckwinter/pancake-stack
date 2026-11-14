@@ -1,6 +1,6 @@
 # Explore competing designs
 
-Use this mode when [Design](../SKILL.md#compare-approaches) selects independent exploration for an unresolved consequential choice, or when the user requests it or supplies candidate model choices. Respect explicit delegation limits and keep settled or small choices direct unless independent exploration was requested. A design request remains read-only; exploration does not authorize implementation, preference writes, dependency installation, services, or external actions.
+Use this mode when [Design](../SKILL.md#compare-approaches) selects independent exploration for an unresolved consequential choice, or when the user requests it or supplies candidate model choices. Respect explicit delegation limits and keep settled or small choices direct unless independent exploration was requested.
 
 ## Establish the comparison
 
@@ -12,15 +12,13 @@ Prepare one neutral brief with the same baseline, criteria, constraints, and evi
 
 ## Request independent candidates
 
-Read [active host guidance](../../pancake/references/host-runtime.md) before applying delegated settings. Candidates and the judge inherit the active host's model and effort unless the task explicitly supplies choices. Do not read saved preferences, persist choices, or switch the parent conversation.
+Read [active host guidance](../../pancake/references/host-runtime.md) before applying delegated settings. It owns inheritance, model and effort choices, recorded settings, and diversity claims for candidates and the judge. When model diversity is requested, select distinct models and report any diversity gap as that guidance describes for multi-model review.
 
-Without supplied candidate choices, request at least two independent candidates with inherited settings. An explicit list with fewer than two entries cannot establish a competing exploration; disclose the gap and use direct Design unless the user supplies the missing choice. When delegation is unavailable, compare directly using current host settings and disclose that independent exploration and judging did not run.
+Without supplied candidate choices, request at least two independent candidates with inherited settings unless model diversity was requested. An explicit list with fewer than two entries cannot establish a competing exploration; disclose the gap and use direct Design unless the user supplies the missing choice.
 
-Launch at least two separate read-only candidate agents when delegation is available. Prohibit edits, nested delegation, installations, services, and external actions in their briefs. Queue work within host concurrency limits and await completed proposals. Apply model and effort separately through supported host capabilities. When model diversity is requested, use distinct supported model IDs from actual host metadata when available. Do not invent IDs, silently substitute rejected settings, or treat catalog availability as evidence that delegation applied a choice.
+Launch at least two separate read-only candidate agents when delegation is available. Prohibit edits, nested delegation, installations, services, and external actions in their briefs. Queue work within host concurrency limits and await completed proposals. Unsupported settings, failed agents, or fewer than two completed proposals leave coverage gaps.
 
 Apply the [reviewer context isolation rules](../../pancake/references/host-runtime.md#reviewer-context) to every candidate as well as the judge. A neutral brief does not remove preferences or earlier proposals from inherited history. When fresh context is unavailable or cannot be established, report the independence gap instead of counting the affected proposal as independent exploration.
-
-Record requested settings and host-accepted or reported selections. Unknown inheritance remains unknown. Claim model diversity only for distinct actual model IDs of completed candidates. Different efforts on one model and different models from one provider do not establish provider diversity. Unsupported settings, failed agents, or fewer than two completed proposals leave coverage gaps. Retry only when an observed failure supports a bounded retry.
 
 ## Judge completed proposals
 
@@ -34,4 +32,4 @@ Check the judge's evidence before adopting its recommendation. Resolve consequen
 
 If delegation is unavailable, compare directly and disclose that independent exploration and judging did not run. If fewer than two candidates complete, report an incomplete comparison. If a separate judge cannot complete, the lead may recommend from available evidence while disclosing that independent judging is absent. Multiple passes by the lead are not independent agents.
 
-Report the recommendation, decisive criteria, meaningful rejected alternatives, actual candidate and judge independence, requested versus applied settings when material, and remaining coverage gaps. Keep proposed checks distinct from observed results. Stop at the design unless implementation was also authorized.
+Report the recommendation, decisive criteria, meaningful rejected alternatives, actual candidate and judge independence, requested versus applied settings when material, and remaining coverage gaps.

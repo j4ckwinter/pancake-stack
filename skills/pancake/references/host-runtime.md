@@ -4,7 +4,7 @@ Read this reference before applying delegated model or effort choices. Keep the 
 
 ## Task choices
 
-Direct work uses the current conversation settings. Delegates inherit the active host's settings by omitting model and effort overrides. Apply an override only when explicitly requested for this task and supported by the exposed interface. An omitted or null choice means inheritance. Do not discover models through a bundled helper or read, create, migrate, or delete saved Pancake preference files.
+Direct work uses the current conversation settings. Delegates inherit the active host's settings by omitting model and effort overrides. Apply an override only when explicitly requested for this task and supported by the exposed interface. An omitted or null choice means inheritance, which needs no setup explanation. Do not discover models through a bundled helper or read, create, migrate, or delete saved Pancake preference files.
 
 Identify the active client from its tools or explicit session context, not PATH or inherited environment variables. Use choices visible in the active tool metadata or supplied by the user. If available choices cannot be observed, say so; do not invent model IDs or treat a supplied choice as confirmed support. Setup may help the user express task choices without saving them.
 
@@ -18,7 +18,7 @@ An explicit request for multi-model review without a nonempty model list authori
 
 Use the host's available delegation interface. Codex collaboration tools and Claude Code's Agent tool have different argument contracts. Pass only settings supported by the actual exposed tool. If selecting a worker model or effort requires a fresh context, use that supported invocation instead of a full-history fork that cannot accept overrides. Use Claude Code's native model selection when available; do not assume a full model ID is accepted by a tool expecting aliases. Never combine model and effort into an identifier or change global settings to emulate a missing override.
 
-Record requested settings and what the host accepted or reported for each delegate. Unknown inherited settings remain unknown. Do not silently substitute settings or providers. Unsupported or failed entries remain uncovered; retry only when the observed failure supports a bounded retry.
+Record requested settings and what the host accepted or reported for each delegate. Report unsupported or rejected selections and observed fallback when material. Unknown inherited settings remain unknown. Do not silently substitute settings or providers. Unsupported or failed entries remain uncovered; retry only when the observed failure supports a bounded retry.
 
 ## Independent review execution
 
@@ -40,7 +40,7 @@ If the host cannot provide a fresh context or its isolation cannot be establishe
 
 If delegation is unavailable, outside task permissions, or yields no completed independent reviewer, perform permitted direct review and report the concrete independence gap. Multiple passes by one agent are not independent review. Continue with completed evidence when part of a panel fails; unsupported, failed, and incomplete entries remain uncovered.
 
-Claim model diversity only when completed reviewers have distinct actual model IDs. Same-model reviewers, including different efforts, provide independent reviews without model diversity. Different models from one provider do not establish provider diversity.
+Claim model diversity only when completed reviewers or design candidates have distinct actual model IDs. Same-model reviewers, including different efforts, provide independent reviews without model diversity. Different models from one provider do not establish provider diversity.
 
 For a panel, report each reviewer's requested model, accepted or observed model, completion status, and supported findings. Keep unknown settings explicit. Inspect each finding against the target, rerun a decisive safe check when available, and deduplicate by failure mechanism. Keep supported lone-reviewer findings. Resolve disagreements with evidence rather than vote counts, and report material unresolved disagreements and missing coverage. A panel request does not authorize fixes or new reproduction files.
 
