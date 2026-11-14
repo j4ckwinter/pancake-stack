@@ -4,11 +4,13 @@ Use this reference before implementation review when the changed code contains c
 
 When cleanup accompanies an implementation task, limit edits to comments attached to the code changed for that task, including adjacent comments whose claims the change affects. Reading a file or editing one function does not authorize cleaning up other functions or the whole file. Preserve unrelated working-tree changes. A standalone cleanup request may explicitly name a broader file, directory, or diff scope; use that scope only when requested. Inspect outside the edit scope when needed to understand a comment, without expanding cleanup to the inspected code.
 
-## Delegate the comment review
+## Run the comment pass
 
-The lead schedules one comment pass for the scoped diff. When agents are available and permitted, follow the [review context and settings protocol](host-runtime.md) and assign an independent read-only reviewer the scoped diff and this reference. An assigned Comment Critic applies the policy directly and must not delegate another comment pass. Use the Comment Critic role: challenge every comment against the exceptions below, identify code that needs clearer structure, and report findings without editing application code. This is a review brief, not a required host agent type. The lead inspects each finding and applies authorized corrections. If delegation is unavailable, perform the same inspection directly and report that limit. Skip the pass when the diff has no code comments or suppressions.
+The lead runs one comment pass for the scoped diff directly, before the implementation correctness review. Skip the pass when the diff has no code comments or suppressions. Challenge every comment against the exceptions below and identify code that needs clearer structure.
 
-Require the reviewer to identify each location, recommend removal or an evidenced exception, and name any underlying code problem. Mark concrete code problems as refactor targets with the symbol and reason; the label is a finding, not permission to expand scope. Reject invented defects, scope escapes, and removals that violate an exception. Keep comment findings distinct from correctness findings.
+For an explicitly requested cleanup or audit, the lead may assign the pass to an independent read-only reviewer when agents are available and permitted. Follow the [review context and settings protocol](host-runtime.md) and give the reviewer the scoped diff and this reference. The reviewer applies the policy directly, reports findings without editing application code, and must not delegate another comment pass. The lead inspects each finding, rejects invented defects, scope escapes, and removals that violate an exception, and applies authorized corrections.
+
+For each comment, identify the location, recommend removal or an evidenced exception, and name any underlying code problem. Mark concrete code problems as refactor targets with the symbol and reason; the label is a finding, not permission to expand scope. Keep comment findings distinct from correctness findings.
 
 ## Inspect before removing
 
@@ -30,4 +32,4 @@ When a comment records an invariant, preserve it until any proposed replacement 
 
 Inspect each comment edit against the task's changed code or explicitly requested cleanup scope. Revert any task-owned cleanup outside that boundary while preserving unrelated user edits. Inspect the diff for accidental code, directive, or data changes. Run the existing checks relevant to the affected files, including generation, documentation, lint, or behavioral checks where comments have tooling significance. A prose-only edit may need only direct inspection; state the actual verification and any unexercised behavior. Do not add tests merely to count comments or mirror the cleanup instructions.
 
-For an audit, return concrete candidates and reasons without editing. For requested edits, report the affected files, meaningful removals or corrections, preserved constraints, checks performed, and unresolved refactor proposals. Keep cleanup findings separate from confirmed defects. Do not commit or publish unless requested.
+For an audit, return concrete candidates and reasons without editing. For requested edits, report the affected files, meaningful removals or corrections, preserved constraints, checks performed, and unresolved refactor proposals. Keep cleanup findings separate from confirmed defects.
