@@ -39,6 +39,12 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.23
+
+The core values now state the shared evidence, verification, and permission guards once. Skills that read the values drop sentences that only restated those guards. Guards that name a specific action remain, and `balls`, `how`, `setup`, `sift`, `wtf`, `fix`, `tdd`, and `why` are unchanged. The entry skill's task-choice section points to host guidance, and competing designs defers to host guidance for settings and diversity rules. The comment pass before implementation review now runs directly by the lead; a delegated reviewer remains available for requested cleanups and audits. Skill text falls from 25,019 to 24,518 whitespace-separated words. All 19 skills remain.
+
+One independent reviewer read the change twice. The first pass found that the new values wording restricted more than the guards it replaced, and that several removed sentences named actions no general rule covered. Those were corrected or restored. A final round of verbatim restorations was not re-reviewed. Package checks passed. No fresh agent trials ran, so this release has no behavioral evidence for the new wording. Installed-host coverage is unchanged from earlier records.
+
 ## Version 0.21.22
 
 Cursor setup now uses the existing portable manifest and shared 19-skill tree. The [Cursor guide](cursor.md) documents copying the package into Cursor's local plugin directory, reloading, and selecting skills through the slash picker. README, setup, and host guidance now include Cursor. Workflow permissions and reviewer requirements are unchanged.

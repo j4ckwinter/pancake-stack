@@ -18,6 +18,8 @@ Versions 0.21.17 and 0.21.18 put needed application foundations before dependent
 
 Version 0.21.20 strengthens Verify with selective failure-detection checks, baseline comparisons for existing fixes, and optional model-to-code verification guidance. Check distinguishes introduced or newly exposed regressions from unrelated pre-existing defects. Five bounded source-skill trials exercised these paths. They do not establish improvement over prior guidance or installed-host behavior. All 19 skills remain. See the [0.21.20 verification record](verification.md#version-02120).
 
+Version 0.21.23 states the shared evidence, verification, and permission guards once in the core values and removes sentences that only restated them. The entry skill's task-choice section and competing designs defer to host guidance for delegate settings, and the comment pass before implementation review runs directly. One independent reviewer read the change; no agent trials ran. See the [0.21.23 verification record](verification.md#version-02123).
+
 Cursor uses the existing portable manifest. The [Cursor guide](cursor.md) documents local loading; installed discovery and workflow behavior remain unverified.
 
 ## Next
