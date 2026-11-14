@@ -2,7 +2,7 @@
 
 ## Current state
 
-The library contains 19 shared workflows packaged for Codex, Claude Code, and Cursor. [plugin.json](../plugin.json) declares the current version. All hosts share the same workflow tree and task-scoped settings. Delegates inherit host settings unless the task explicitly overrides them. Setup saves no preferences; legacy preference files remain untouched.
+The library contains 19 shared workflows packaged for Codex, Claude Code, and Cursor. [plugin.json](../plugin.json) declares the current version. All hosts share the same workflow tree and task-scoped settings. Delegates inherit host settings unless the task explicitly overrides them or loaded instructions name an economy model for gathering delegates. Setup saves no preferences; legacy preference files remain untouched.
 
 Shared reviewer execution, context isolation, completion tracking, and coverage rules live in [host-runtime.md](../skills/pancake/references/host-runtime.md). Challenge retains its review trigger; [change review](../skills/pancake/references/change-review.md) owns consequential preparation and implementation review for Fix, TDD, and the implementation sequence. The library remains declarative, without bundled executable helpers or tests.
 
@@ -20,6 +20,8 @@ Version 0.21.20 strengthens Verify with selective failure-detection checks, base
 
 Version 0.21.23 states the shared evidence, verification, and permission guards once in the core values and removes sentences that only restated them. The entry skill's task-choice section and competing designs defer to host guidance for delegate settings, and the comment pass before implementation review runs directly. One independent reviewer read the change; no agent trials ran. See the [0.21.23 verification record](verification.md#version-02123).
 
+Version 0.21.24 lets read-only gathering delegates run on an economy model that the user names, while reviewers, candidates, judges, implementation workers, and the lead keep their settings. Two Claude Code trials observed the named model on gathering delegates and the inherited model on a reviewer; gathering accuracy was not compared. See the [0.21.24 verification record](verification.md#version-02124).
+
 Cursor uses the existing portable manifest. The [Cursor guide](cursor.md) documents local loading; installed discovery and workflow behavior remain unverified.
 
 ## Next
@@ -27,7 +29,7 @@ Cursor uses the existing portable manifest. The [Cursor guide](cursor.md) docume
 1. Define and run a bounded real-repository evaluation in the external evaluator. Select representative implementation and review tasks, pin the inputs and baseline, and define correctness and scope checks before running trials. Record outcomes, time, tokens, and limitations. Include acceptance-path review and valid-operation controls; existing repository and synthetic trials do not establish a general advantage.
 2. Verify current installed Codex workflows, including the latest Verify paths and explicit multi-model review. Record the installed version, resource identity, completed verdicts, and requested versus observed model settings. Earlier installed trials and newer source-skill trials do not establish current installed behavior.
 3. Complete authenticated Claude workflow checks when authentication is available, and verify visible skill-picker behavior on supported hosts. Preserve the distinction between package discovery, invocation, applied reviewer settings, and workflow outcomes.
-4. Use observed failures or measured benefits to choose further guidance changes. For multi-model review, compare against same-model review before claiming better detection or lower cost. Retain rejected wording experiments and their reasons in the evaluator.
+4. Use observed failures or measured benefits to choose further guidance changes. For multi-model review, compare against same-model review before claiming better detection or lower cost. Retain rejected wording experiments and their reasons in the evaluator. For economy-model gathering, compare what a cheaper gatherer misses on a fixed fixture against the inherited model before claiming it is as accurate.
 
 Keep the CI evaluator pin on a published, verified revision and run package checks after library changes. Keep tests, trial artifacts, and detailed evidence in the external evaluator. Planning these checks does not authorize installation changes or live experiments.
 
