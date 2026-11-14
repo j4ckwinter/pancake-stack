@@ -5,7 +5,7 @@ description: Recover decisions, unfinished work, and the current state of a name
 
 # Recover the working context
 
-Read [core values](../pancake/references/values.md) and applicable repository instructions. Return a grounded brief of the requested work. Recap does not authorize continuing implementation, changing files, or contacting others.
+Read [core values](../pancake/references/values.md) and applicable repository instructions. Return a grounded brief of the requested work.
 
 Start with the current conversation, supplied notes, and relevant handoffs. Use a complete supplied state summary rather than searching history again. Establish the project and topic from the request and workspace. For requested recent history with no date range, state a seven-day window; honor an explicit range or request for all history without silently narrowing it.
 
@@ -17,4 +17,4 @@ Use supplied tickets, PRs, and other records when they resolve a consequential g
 
 Lead with where the work stands. Include the objective, accepted decisions and known reasons, completed and unfinished threads, relevant verification and gaps, and the next useful action. Keep proposed, local, committed, and confirmed delivered work distinct. Cite inspected artifacts or identifiable supplied records beside the claims they support. Omit credentials and unrelated personal details. Keep the brief proportional rather than reproducing a transcript or imposing fixed status labels.
 
-Return the brief in chat. Save a file only when requested. If the user asks to resume work as well, use [handoff continuation guidance](../handoff/references/continuation.md) to reconcile state before acting within that authorization.
+Return the brief in chat. If the user asks to resume work as well, use [handoff continuation guidance](../handoff/references/continuation.md) to reconcile state before acting within that authorization.

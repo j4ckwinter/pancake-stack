@@ -11,7 +11,7 @@ For a requested reusable project recipe, or when a relevant recipe already exist
 
 For a named existing fix or a requested baseline-versus-patch comparison, read [existing-fix verification](references/existing-fix.md). For requested formal verification, model checking, or maintenance of a model or proof, read [formal verification](references/formal-verification.md). These modes retain the scope, isolation, and cleanup requirements below.
 
-Inspect documented commands, existing tests, and available tools. Choose the smallest set of checks that covers the requested behavior and affected contracts. Reuse the project's harness before proposing new infrastructure. Inspect unfamiliar commands for side effects before running them. A build, lint check, or passing test suite proves only what it exercises.
+Inspect documented commands, existing tests, and available tools. Choose the smallest set of checks that covers the requested behavior and affected contracts. Reuse the project's harness before proposing new infrastructure. Inspect unfamiliar commands for side effects before running them.
 
 Exercise the interface relevant to the claim when feasible. For a UI, perform the action and inspect its result. For a CLI, invoke the command and inspect output, exit status, and relevant files. For an API or library, call its supported interface and inspect the response or resulting state. Include a failure or boundary case when it materially affects the claim. Do not substitute internal state setters, mocks, or screenshots of an unrelated build for the requested behavior.
 

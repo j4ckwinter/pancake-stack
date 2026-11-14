@@ -7,7 +7,7 @@ description: Prepare a concise continuation note for a new chat or colleague fro
 
 Read [core values](../pancake/references/values.md). Prepare a self-contained note for someone who has not read the conversation. Summarize the active objective and latest user constraints, not the entire chat history.
 
-Use the current conversation and supplied task or ticket as the primary context. In a repository, inspect the current branch, HEAD, git status, staged diff, and unstaged diff with read-only commands. Read relevant changed or untracked files only when needed to clarify the work. Distinguish changes belonging to this task from unrelated workspace changes. If repository access is unavailable, state that the workspace state could not be checked. Do not invent a branch, ticket, or completed action.
+Use the current conversation and supplied task or ticket as the primary context. In a repository, inspect the current branch, HEAD, git status, staged diff, and unstaged diff with read-only commands. Read relevant changed or untracked files only when needed to clarify the work. Distinguish changes belonging to this task from unrelated workspace changes. If repository access is unavailable, state that the workspace state could not be checked.
 
 Include the information needed to resume, usually in these short sections.
 
@@ -21,6 +21,6 @@ Include exact commands, paths, and artifact links only when useful for continuat
 
 Keep the note proportional to the task. Omit empty sections and repetitive chronology. Preserve uncertainties that could affect the next action. Reference applicable repository instructions so the recipient reads them before acting. A handoff records authorization boundaries; it does not grant the recipient additional permission.
 
-Return the note in the response. Save it to a file only when requested, using the requested destination and preserving unrelated content. Do not stage, commit, publish, send messages, stop processes, or continue implementation merely to make the handoff look complete.
+Return the note in the response. Save it to a file only when requested, using the requested destination and preserving unrelated content. Do not stage changes, stop processes, or continue implementation to make the handoff look complete.
 
 For requested pickup or an explicit pause, read [continuation guidance](references/continuation.md). A pickup summary stays read-only; continuation follows only when requested.

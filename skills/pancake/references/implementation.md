@@ -38,7 +38,7 @@ Write code that explains itself through names, types, and structure. Keep commen
 
 Apply [change review](change-review.md) to the completed diff, including its independent-review and completion requirements. Use [verify](../../verify/SKILL.md) to exercise the requested behavior on the resulting artifact. A review without findings does not replace verification.
 
-For defects, repeat the original failing scenario under comparable conditions and retain the before-and-after results. For refactoring, repeat the baseline check and verify affected contracts. Passing other tests does not prove an unexercised scenario.
+For defects, repeat the original failing scenario under comparable conditions and retain the before-and-after results. For refactoring, repeat the baseline check and verify affected contracts.
 
 ## 5. Resolve failures and finish
 
@@ -48,4 +48,4 @@ For a tooling or environment limit, complete independent checks and report the g
 
 Check completion against the acceptance criteria. Report the outcome, material decisions, review verdicts, verification, and remaining gaps. For defects, include the cause and original failing action with its before-and-after result.
 
-If work remains unfinished or is explicitly paused, use [handoff](../../handoff/SKILL.md) for a concise continuation note in the conversation. Save a separate note only when requested. Do not create a handoff for completed small tasks.
+If work remains unfinished or is explicitly paused, use [handoff](../../handoff/SKILL.md) for a concise continuation note in the conversation. Do not create a handoff for completed small tasks.

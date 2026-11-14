@@ -5,7 +5,7 @@ description: Challenge assumptions in a software design or consequential code ch
 
 # Challenge the approach
 
-Read [core values](../pancake/references/values.md), [sift](../sift/SKILL.md), and applicable repository instructions. Return a verdict without applying changes unless repair or implementation was separately requested.
+Read [core values](../pancake/references/values.md), [sift](../sift/SKILL.md), and applicable repository instructions.
 
 ## Establish the target
 
@@ -31,4 +31,4 @@ Inspect the evidence behind findings rather than tallying votes. Deduplicate rep
 
 Classify useful findings as act on, consider, or unresolved. Act on means a supported issue materially threatens the stated outcome; consider means a real tradeoff whose benefit may not justify changing the approach; unresolved means evidence needed for a conclusion is missing. Reject disproved or out-of-scope claims and explain noteworthy dismissals without filling the answer with noise.
 
-Lead with the verdict and strongest actionable findings. For each, give the assumption challenged, concrete trigger, consequence, evidence, and cheapest useful next check or correction. For proposals, cite the relevant proposal passage or assumption; for code, link inspected locations. Report review scope, actual reviewer independence, and material coverage gaps. If no actionable issue survives, say so without claiming the approach is proven safe. Stop at the verdict unless further work was authorized.
+Lead with the verdict and strongest actionable findings. For each, give the assumption challenged, concrete trigger, consequence, evidence, and cheapest useful next check or correction. For proposals, cite the relevant proposal passage or assumption; for code, link inspected locations. Report review scope, actual reviewer independence, and material coverage gaps. If no actionable issue survives, say so without claiming the approach is proven safe.

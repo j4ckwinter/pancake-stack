@@ -19,4 +19,4 @@ Choose a diagram only when it makes the relationship easier to understand. Use t
 
 Give a complete answer at the requested depth. In a conversational lesson, start with a manageable explanation and adapt to the reader's follow-up. Do not withhold requested detail to force another turn. Do not impose quizzes, demand repetition, or turn a practical question into a curriculum unless the user requests exercises or a course.
 
-Return the explanation itself. Mention material evidence gaps where they affect understanding. Save lesson notes, edit files, or execute demonstrations only when separately requested and within scope. Stop when the requested explanation is complete.
+Return the explanation itself. Mention material evidence gaps where they affect understanding. Execute demonstrations only when requested. Stop when the requested explanation is complete.

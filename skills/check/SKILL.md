@@ -5,7 +5,7 @@ description: Review a code change for actionable bugs, regressions, and verifica
 
 # Check a change
 
-Read [core values](../pancake/references/values.md). Review without editing files unless the user separately requests fixes.
+Read [core values](../pancake/references/values.md).
 
 For an explicitly requested structural or code-quality review, also read [structural-quality guidance](../design/references/structural-quality.md). Keep maintainability recommendations separate from correctness findings; an ordinary change review does not require a structural audit.
 
@@ -27,4 +27,4 @@ For each suspected issue, establish its trigger and consequence. Check surroundi
 
 Establish how each finding relates to the reviewed change. When attribution is uncertain, compare the relevant behavior with the intended baseline. A pre-existing defect exposed by a new caller or changed contract can still be a regression; explain that connection. Keep unrelated pre-existing defects separate from findings against the diff. If the baseline is unavailable, state the attribution gap rather than asserting that the change introduced the issue.
 
-Lead with actionable findings, ordered by impact. Give each finding an inspected file location, the triggering scenario, and the resulting behavior. Label uncertainty. If there are no findings, say so and report material verification gaps. Mention consequential risks checked and cleared when that explains the verdict, with the evidence that cleared them. Keep unresolved assumptions separate from confirmed findings, and avoid invented probability estimates. Passing checks alone do not establish that the change is correct.
+Lead with actionable findings, ordered by impact. Give each finding an inspected file location, the triggering scenario, and the resulting behavior. Label uncertainty. If there are no findings, say so and report material verification gaps. Mention consequential risks checked and cleared when that explains the verdict, with the evidence that cleared them. Keep unresolved assumptions separate from confirmed findings, and avoid invented probability estimates.

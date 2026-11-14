@@ -39,4 +39,4 @@ Present each useful proposal with its supporting evidence, specific target, expe
 
 Lead with the highest-value lessons and proposed actions. Briefly explain significant ideas rejected or deferred when that helps the user decide. If nothing durable emerges, say so without manufacturing a backlog. Keep the response proportional to the task and avoid restating its entire history.
 
-Do not edit skills, user preferences, repository files, or external trackers unless the user has explicitly requested the relevant changes. If implementation is already authorized, apply only the covered improvements, preserve unrelated work, and validate the affected behavior or skill. Report applied changes separately from proposals and remaining gaps. Reflection does not authorize commits, publication, or global changes.
+Do not edit skills, user preferences, repository files, or external trackers unless the user has explicitly requested the relevant changes. If implementation is already authorized, apply only the covered improvements, preserve unrelated work, and validate the affected behavior or skill. Report applied changes separately from proposals and remaining gaps.

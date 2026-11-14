@@ -21,7 +21,7 @@ Lead with the concrete problem and the resulting behavior. Use a before-and-afte
 
 Keep a small PR brief. Include implementation details only when they explain a consequential decision or help assess the change. Follow the applicable repository template. Otherwise, include a concise description, relevant verification, and material risks or remaining work without empty boilerplate sections.
 
-Report checks actually run and their observed results. Attribute checks reported in the conversation and do not imply they were rerun or cover later changes. Mark planned or missing verification explicitly. Do not run tests, start a review, or repair code merely to produce wording unless separately requested. A passing build does not prove all behavior works.
+Report checks actually run and their observed results. Attribute checks reported in the conversation and do not imply they were rerun or cover later changes. Mark planned or missing verification explicitly. Do not run tests, start a review, or repair code merely to produce wording unless separately requested.
 
 Return a copyable title and Markdown body without a preamble. Add a short scope note outside the body when the draft includes uncommitted work or an unresolved base. Preserve uncertainty and limitations that matter to approval. Do not claim that a PR exists or has been updated when only a draft was produced.
 

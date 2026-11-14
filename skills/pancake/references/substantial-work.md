@@ -2,7 +2,7 @@
 
 Read this when planning or authorized implementation spans dependent phases, many callers, material uncertainty, or a requested sustained run. Use the existing implementation sequence for ordinary changes. This reference adds checkpoints to that sequence.
 
-A request for a plan delivers the plan without starting implementation. Use inspected evidence for proposed units and verification; distinguish planned checks from completed ones. Save a plan only when requested.
+A request for a plan delivers the plan without starting implementation. Use inspected evidence for proposed units and verification.
 
 ## Frame the outcome
 
@@ -26,13 +26,13 @@ At meaningful phase boundaries, report completed outcomes, verification evidence
 
 When evidence changes the plan, explain the cause and revise the remaining units. Diagnose failed checks using the implementation sequence. Repeated attempts without new evidence should trigger examination of the premise or observation method. Preserve useful, correct partial work; discard only task-owned experimental changes that failed their stated criteria.
 
-If progress requires unavailable evidence, a product decision, or work outside authorization, identify the specific dependency and complete independent work where possible. Do not lower completion criteria to manufacture success. On an explicit pause or interruption, preserve a handoff with current artifacts, completed checks, unresolved dependencies, and the next action. Save a separate record only when requested.
+If progress requires unavailable evidence, a product decision, or work outside authorization, identify the specific dependency and complete independent work where possible. Do not lower completion criteria to manufacture success. On an explicit pause or interruption, preserve a handoff with current artifacts, completed checks, unresolved dependencies, and the next action.
 
 ## Continue across phases
 
 Track each unit as pending, active, verified, or blocked, with its current artifact and relevant evidence. Distinguish code completion from integration and delivery. Record ownership changes and outstanding work before relying on a replacement worker.
 
-For dependent branches or PRs, record the actual base and prerequisite revision. Do not assume the default branch or create commits and PRs merely to represent phases. Recheck affected evidence when a prerequisite changes. Use shipping guidance only when delivery is requested.
+For dependent branches or PRs, record the actual base and prerequisite revision. Do not assume the default branch. Recheck affected evidence when a prerequisite changes. Use shipping guidance only when delivery is requested.
 
 For a requested sustained run, state a checkable exit condition and applicable limits before continuing. Continue authorized units while useful progress is possible. Reevaluate remaining work against the outcome rather than repeating the same failed action. An autonomy request does not authorize unrelated work, bypass a required decision, or grant merge and deployment permission.
 
@@ -40,4 +40,4 @@ Use host-supported continuation or event observation only when requested and ava
 
 ## Verify the whole
 
-After integrating the units, check the original completion criteria and affected behavior on the combined artifact. Earlier unit checks do not establish integration correctness. Report what passed, what failed, and what remains unexercised. If required work remains, describe the continuation rather than declaring completion. This guidance does not authorize commits, publishing, or background automation.
+After integrating the units, check the original completion criteria and affected behavior on the combined artifact. Earlier unit checks do not establish integration correctness. Report what passed, what failed, and what remains unexercised. If required work remains, describe the continuation rather than declaring completion.
