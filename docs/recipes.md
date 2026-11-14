@@ -170,6 +170,10 @@ Supply a reviewer panel in the implementation request when you need more than th
 
 > For this implementation, use two independent reviewers. Both should inherit the active host settings. Report each completed verdict and any missing coverage.
 
+To run read-only gathering delegates on a cheaper model while reviewers and implementation workers keep yours, name a model the host's delegation tool accepts:
+
+> Use ECONOMY_MODEL as the economy model for gathering delegates. Report each delegate's requested and observed model.
+
 You can request supported reviewer models and effort explicitly for the task. Setup can help phrase those choices but does not save them. Local, low-impact work still permits direct review. Expect completed reviewer results and requested-versus-observed selection evidence when you supply overrides.
 
 Name the outcome and allowed actions rather than relying on "loop until done" alone. Expect checked milestones and a final account of the result. A long run does not grant unrelated external actions or schedule unattended work.

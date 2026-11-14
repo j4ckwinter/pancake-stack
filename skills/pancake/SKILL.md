@@ -35,7 +35,7 @@ Read only the workflow needed for the task. Do not run every workflow in sequenc
 
 ## Agents and task choices
 
-Direct work uses the current conversation settings. Delegates inherit the active host's settings unless the user supplies choices for this task. Before applying a delegated setting or launching reviewers, read [active host guidance](references/host-runtime.md); it owns model and effort choices, reviewer panels, and coverage reporting.
+Direct work uses the current conversation settings. Delegates inherit the active host's settings unless the user supplies choices for this task or loaded instructions name an economy model for gathering delegates. Before applying a delegated setting or launching reviewers, read [active host guidance](references/host-runtime.md); it owns model and effort choices, reviewer panels, and coverage reporting.
 
 For substantial work, read [parallel work](references/parallel-work.md) during planning. It owns delegation defaults, assignment briefs, isolation, launch reporting, and integration. An implementation worker does not replace its independent reviewer.
 

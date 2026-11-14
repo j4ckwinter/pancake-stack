@@ -76,7 +76,7 @@ examples below use Codex’s `$pancake-stack:<skill>` syntax. in Claude Code, us
 
 pancake also handles runtime diagnosis, performance experiments, PR feedback triage, and matching an existing interface. see the [workflow recipes](docs/recipes.md#use-pancakes-specialized-workflows) for examples and the actions each request authorizes.
 
-for substantial work, pancake delegates useful independent investigation or implementation tasks when the host and your instructions allow it. it explains each agent's assignment and brings the results together. small or tightly coupled tasks stay with the main agent.
+for substantial work, pancake delegates useful independent investigation or implementation tasks when the host and your instructions allow it. it explains each agent's assignment and brings the results together. small or tightly coupled tasks stay with the main agent. name an economy model and the read-only agents that only gather evidence use it, while reviewers and implementation workers keep yours. see [configuration](docs/configuration.md#use-an-economy-model-for-gathering-work).
 
 for an interrogate-style review, request a multi-model panel:
 

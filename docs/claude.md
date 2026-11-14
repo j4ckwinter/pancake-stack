@@ -29,7 +29,7 @@ To load a checkout for one session without installing it, run `claude --plugin-d
 
 ## Delegate through the active host
 
-Workers inherit the active host's model and effort unless the task supplies explicit choices. Claude Code's Agent interface differs from Codex collaboration. Apply only controls exposed by the actual host. A supplied model ID is a request, not proof that the host accepts or applies it.
+Delegates inherit the active host's model and effort unless the task supplies explicit choices or you name an economy model for gathering delegates. Claude Code's Agent interface differs from Codex collaboration. Apply only controls exposed by the actual host. A supplied model ID is a request, not proof that the host accepts or applies it. Name the economy model by an alias the Agent tool accepts, such as `sonnet`; see [task settings](configuration.md#use-an-economy-model-for-gathering-work).
 
 Reviewers still need separately identified completed verdicts. Missing or unsupported choices remain coverage gaps. Competing Design retains independent candidates and a separate judge. Direct work uses current conversation settings.
 

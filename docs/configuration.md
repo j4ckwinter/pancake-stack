@@ -1,6 +1,6 @@
 # Task settings
 
-Pancake Stack 0.20.0 has no persistent preference store or runtime configuration scripts. Direct work uses the current conversation settings. Delegates inherit the active host's model and effort unless the user explicitly supplies choices for the task.
+Pancake Stack 0.20.0 has no persistent preference store or runtime configuration scripts. Direct work uses the current conversation settings. Delegates inherit the active host's model and effort unless the user explicitly supplies choices for the task or names an [economy model for gathering delegates](#use-an-economy-model-for-gathering-work).
 
 ## Choose reviewers
 
@@ -14,7 +14,23 @@ Example task wording:
 
 An explicit multi-model request without a nonempty model list selects two distinct models from the active host's exposed choices, or the requested count. A reviewer count alone inherits host settings. When distinct choices cannot be established, the workflow reports the diversity gap and completes permitted review. It does not silently replace unsupported requested models.
 
-To request particular models, supply their host-supported names in the task. Model and effort are separate choices. Setup can help phrase the request without running discovery scripts or saving a profile. Choices adopted in a conversation apply to the specified task, not future chats.
+To request particular models, supply their host-supported names in the task. Model and effort are separate choices. Setup can help phrase the request without running discovery scripts or saving a profile. Choices adopted in a conversation apply to the specified task, not future chats. The one standing choice is an economy model for gathering delegates, which lives in your own instruction file.
+
+## Use an economy model for gathering work
+
+Gathering delegates are read-only and return located facts for the lead to check. Their work is bulk reading, searching, inventories, fetching pages, and tracing existing behavior to explain it. They can run on a cheaper model than the conversation. Every other delegate keeps its inherited or task-chosen settings, and so does the lead. That includes reviewers, candidates and judges, implementation workers, and any delegate that writes, runs checks, investigates a defect, or recommends an approach. [Host guidance](../skills/pancake/references/host-runtime.md#gathering-delegates) owns the full rule.
+
+Pancake Stack never picks the cheaper model itself. Name it in the task, using a name the host's delegation tool accepts:
+
+> Use ECONOMY_MODEL as the economy model for gathering delegates. Report each delegate's requested and observed model.
+
+To make it standing, put a host-specific line in your own user or repository instruction file. Pancake Stack reads what the host has loaded and writes nothing, so this is your instruction, not a saved Pancake preference:
+
+> For Pancake Stack gathering delegates on Claude Code, use sonnet as the economy model. Apply this only as the "Gathering delegates" section of Pancake Stack's `skills/pancake/references/host-runtime.md` defines. Where that guidance is not loaded, and for every other delegate, keep inherited or task-chosen settings.
+
+Without a named economy model, gathering delegates inherit like every other delegate. If the host rejects the named model, the delegate inherits and the fallback is reported.
+
+The lead inspects the decisive source locations behind a gathering result and treats it as covering only the scope it reports. A result that fails inspection is rerun once with inherited settings, and the rerun is reported. A requested model is still not proof of the model applied.
 
 ## Migration from 0.19.x
 

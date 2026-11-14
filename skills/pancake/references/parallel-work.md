@@ -4,13 +4,15 @@ Use this reference for substantial work with independent investigation or implem
 
 For an investigation, split distinct questions or subsystems and ask each agent for inspected evidence and unresolved gaps. For implementation, delegate bounded changes with exclusive ownership while the lead handles another unit or integration. Keep dependent work sequential until its prerequisite is ready. The lead remains responsible for checking results and the combined outcome. Do not turn an ordinary investigation into competing designs or a reviewer panel unless that workflow applies.
 
+A read-only slice that only returns located facts for the lead to check is gathering work. [Host guidance](host-runtime.md#gathering-delegates) defines gathering delegates and lets them run on a named economy model.
+
 Assess independence by whether an agent can complete a bounded assignment from available inputs while the lead makes progress elsewhere. Related subsystems can still be investigated separately and synthesized afterward. Being able to finish the whole task alone is not, by itself, a reason to keep substantial work direct.
 
 ## Frame and isolate
 
 State the outcome, constraints, observable completion criteria, and resources available. Choose either a cookoff of alternative solutions to the same problem or partitioned work that covers separate parts. State the selection rule or required coverage before starting. Respect user-specified limits and actual host concurrency, including nested workers. Queue work that exceeds capacity rather than spawning without bounds.
 
-Give each worker a self-contained brief with relevant source pointers, exact target revision or workspace snapshot, exclusive write scope or read-only scope, verification requirements, and expected result. Workers inherit task permissions and may not expand them. Use inherited host settings or explicit task choices through supported controls; do not invent models or claim cloud placement or provider diversity unavailable on the host.
+Give each worker a self-contained brief with relevant source pointers, exact target revision or workspace snapshot, exclusive write scope or read-only scope, verification requirements, and expected result. Workers inherit task permissions and may not expand them. Use inherited host settings, explicit task choices, or a named economy model for gathering delegates through supported controls; do not invent models or claim cloud placement or provider diversity unavailable on the host.
 
 Isolate data directories, ports, and other mutable state as well as files. Disjoint file ownership alone is insufficient when tests share an application instance or database. If isolation cannot be established, keep workers read-only or work sequentially and disclose the limit.
 
