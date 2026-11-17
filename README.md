@@ -41,7 +41,7 @@ claude plugin install pancake-stack@pancake-stack
 
 open a new Claude Code session and start your request with `/pancake-stack:pancake`.
 
-the plugin reads from this checkout, so keep the folder around. edits take effect in a new session or after `/reload-plugins`. package validation and discovery passed; authenticated workflow checks are still pending. [details and one-session use](docs/claude.md).
+the plugin reads from this checkout, so keep the folder around. edits take effect in a new session or after `/reload-plugins`. installs, skill discovery and signed-in workflows have all run in Claude Code: i use the installed plugin every day, and two recorded trials ran for 0.21.24. those trials don’t cover every skill. [details and one-session use](docs/claude.md).
 
 ### Cursor
 

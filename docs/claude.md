@@ -11,7 +11,7 @@ claude plugin marketplace add ./
 claude plugin install pancake-stack@pancake-stack
 ```
 
-The plugin then loads in every new Claude Code session. These installation commands passed for version 0.21.20 in a temporary Claude profile on Claude Code 2.1.319 on 9 November 2026. The source must be written as `./`; a bare `.` is rejected as an invalid marketplace source. Authenticated workflow behavior remains unverified because no Claude login was available. See [installation verification](installation-verification.md).
+The plugin then loads in every new Claude Code session. These installation commands passed for version 0.21.20 in a temporary Claude profile on Claude Code 2.1.319 on 9 November 2026. The source must be written as `./`; a bare `.` is rejected as an invalid marketplace source. That profile had no Claude login. Authenticated workflows have since run in two recorded trials for 0.21.24 and in the maintainer's daily use; see [verification](verification.md#version-02125) and [installation verification](installation-verification.md).
 
 Open a new session and request a read-only explanation:
 
