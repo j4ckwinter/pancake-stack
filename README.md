@@ -115,3 +115,7 @@ there are [prompt recipes](docs/recipes.md) if you want a starting point, or you
 ## a bit more
 
 [configuration](docs/configuration.md) and [setup](docs/setup.md) cover task settings and optional reviewers. [verification](docs/verification.md) covers checks and known limitations; the [installation record](docs/installation-verification.md) keeps the host-specific results.
+
+## licence
+
+MIT, in `LICENSE`. take it, change it, make your own stack.
