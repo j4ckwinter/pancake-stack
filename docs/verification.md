@@ -37,7 +37,13 @@ The evaluation repository retains [behavioral results](https://github.com/j4ckwi
 
 The October 2026 baseline pilot found more consistent reproduction and independent review with Pancake. Both treatments passed their artifact checks, and Pancake used more time and tokens. A subsequent reviewer pilot detected its seeded defects but did not establish lower overhead. Neither trial establishes broad correctness benefits.
 
-Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed, while authenticated Claude workflows remained unverified. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
+Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed. Authenticated Claude workflows have run in two recorded trials and in the maintainer's daily use, but recorded trials do not cover most skills. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
+
+## Version 0.21.25
+
+The library is licensed under MIT, declared in `LICENSE` and the portable manifest. The native Claude manifest keeps its fixed field set. The Claude Code support record now reflects authenticated use. Skill content is unchanged. All 19 skills remain.
+
+A fresh clone of 0.21.24 from GitHub installed with the documented commands in a temporary Claude profile on Claude Code 2.1.326 on 17 November 2026; that profile had no login. In the maintainer's profile on the same version, the installed plugin reads the checkout, a session listed all 19 namespaced skills, and `/pancake-stack:pancake` carried authenticated implementation and release work across several repositories that day. This is everyday use, not a controlled trial: no artifacts were retained, and it does not establish the behavior of each skill. Package checks passed.
 
 ## Version 0.21.24
 

@@ -22,6 +22,8 @@ Version 0.21.23 states the shared evidence, verification, and permission guards 
 
 Version 0.21.24 lets read-only gathering delegates run on an economy model that the user names, while reviewers, candidates, judges, implementation workers, and the lead keep their settings. Two Claude Code trials observed the named model on gathering delegates and the inherited model on a reviewer; gathering accuracy was not compared. See the [0.21.24 verification record](verification.md#version-02124).
 
+Version 0.21.25 licenses the library under MIT and records authenticated Claude Code use on 2.1.326. Skill content is unchanged; no new agent trials ran. See the [0.21.25 verification record](verification.md#version-02125).
+
 Cursor uses the existing portable manifest. The [Cursor guide](cursor.md) documents local loading; installed discovery and workflow behavior remain unverified.
 
 ## Next
