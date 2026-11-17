@@ -39,6 +39,12 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed. Authenticated Claude workflows have run in two recorded trials and in the maintainer's daily use, but recorded trials do not cover most skills. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.26
+
+The README now leads with the single entry point: start any request with pancake, written per host as `/pancake-stack:pancake` in Claude Code, `$pancake-stack:pancake` in Codex, and the **pancake** item from `/` in Cursor. The first-try example includes that command, and the skill table is presented as optional shortcuts. It names `pr`, `balls`, `wtf`, and `setup` as the skills pancake does not route to. Skill content is unchanged. All 19 skills remain.
+
+The host forms are the ones already documented for each host. A shorter `/pancake` form in Claude Code was not tested and is not documented. No agent trials ran. Package checks passed.
+
 ## Version 0.21.25
 
 The library is licensed under MIT, declared in `LICENSE` and the portable manifest. The native Claude manifest keeps its fixed field set. The Claude Code support record now reflects authenticated use. Skill content is unchanged. All 19 skills remain.

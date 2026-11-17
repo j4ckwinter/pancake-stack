@@ -24,6 +24,8 @@ Version 0.21.24 lets read-only gathering delegates run on an economy model that 
 
 Version 0.21.25 licenses the library under MIT and records authenticated Claude Code use on 2.1.326. Skill content is unchanged; no new agent trials ran. See the [0.21.25 verification record](verification.md#version-02125).
 
+Version 0.21.26 makes the README lead with pancake as the single entry point. Skill content is unchanged; no agent trials ran. See the [0.21.26 verification record](verification.md#version-02126).
+
 Cursor uses the existing portable manifest. The [Cursor guide](cursor.md) documents local loading; installed discovery and workflow behavior remain unverified.
 
 ## Next
