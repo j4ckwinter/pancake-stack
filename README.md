@@ -4,6 +4,18 @@ i love how quickly ai lets me move. i hate the slop i end up building, fixing, a
 what i do love is pancakes. so naturally, i made a stack.
 these are the skills i use every day to help ai write code i actually want to keep.
 
+## one command
+
+you only need one: **pancake**. start any request with it and say what you want. it works out whether the job is explaining, planning, fixing, reviewing or verifying, and how careful to be.
+
+| host | type |
+| --- | --- |
+| Claude Code | `/pancake-stack:pancake` |
+| Codex | `$pancake-stack:pancake` |
+| Cursor | `/`, then pick **pancake** |
+
+pancake reaches most of the other skills by itself. a few do small jobs of their own: `pr` drafts a PR description, `balls` a standup, `wtf` rewrites the last answer, and `setup` helps pick reviewer settings.
+
 ## install it
 
 the same 19 skills are packaged for Codex, Claude Code, and Cursor. pick the one you use: [Codex](#codex), [Claude Code](#claude-code), or [Cursor](#cursor).
@@ -64,9 +76,11 @@ if you already copied the plugin into that folder, follow the [migration instruc
 
 ## try it out
 
-select pancake using your environment’s instructions above, then give it a small task:
+open a new session and start with pancake. in Claude Code:
 
-> Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
+> /pancake-stack:pancake Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
+
+in Codex, start with `$pancake-stack:pancake` instead. in Cursor, type `/` and pick **pancake**.
 
 when you have work to do, tell it what you want, where to look, and how you’ll know it works.
 
@@ -84,10 +98,10 @@ for an interrogate-style review, request a multi-model panel:
 
 use `$pancake-stack:check` with the same reviewer request for a diff review. see [reviewer recipes](docs/recipes.md#request-independent-or-multi-model-review) for explicit model choices and host limitations.
 
-there are [prompt recipes](docs/recipes.md) if you want a starting point, or you can pick a skill directly:
+there are [prompt recipes](docs/recipes.md) if you want a starting point. you don’t need the other skills, since pancake picks for you, but you can go straight to one:
 
 <details>
-<summary>all the other skills</summary>
+<summary>shortcuts to the other skills</summary>
 
 | skill | use it to |
 | --- | --- |
