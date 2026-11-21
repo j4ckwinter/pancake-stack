@@ -51,4 +51,4 @@ The second `mkdir` refuses an existing destination. Reload Cursor after copying.
 
 This guide provides local loading, not a public marketplace listing. Public distribution requires a separate submission and review through the [Cursor Marketplace](https://cursor.com/marketplace/publish).
 
-Repository checks validate the package and skill references. Cursor loading, picker discovery, invocation, and delegated review remain unverified. The shared [host guidance](../skills/pancake/references/host-runtime.md) applies: use only exposed host controls, preserve task permissions, and report unsupported reviewer choices or missing independent review. Package validation does not establish those host behaviors.
+Repository checks validate the package and skill references. On 21 November 2026 Jack reported that installed Cursor loads and runs the skills; no evaluator record backs that report. The shared [host guidance](../skills/pancake/references/host-runtime.md) applies: use only exposed host controls, preserve task permissions, and report unsupported reviewer choices or missing independent review. Package validation does not establish those host behaviors.
