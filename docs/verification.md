@@ -39,6 +39,22 @@ The October 2026 baseline pilot found more consistent reproduction and independe
 
 Earlier Codex installation and workflow trials passed on their recorded versions. Claude packaging and skill discovery passed. Authenticated Claude workflows have run in two recorded trials and in the maintainer's daily use, but recorded trials do not cover most skills. Installation, visible picker behavior, applied model selection, and live workflow behavior remain separate from structural validation.
 
+## Version 0.21.27
+
+Upstream pstack moved from 0.15.32 to 0.15.46 mostly by shortening skills. This release takes what fits proportionate rigor:
+
+- The core values add giving a real judgment and running an available check instead of handing it to the user.
+- Pancake's plan for substantial work starts with the goal and the smallest change that meets it. Delegate briefs open with the goal and carry standing rules: the brief's checks are the whole bar, unrun checks are reported as unrun, workers do not question the user, and retries go to a fresh agent.
+- Why, how, reflect, and Challenge are shorter. Challenge proves a finding with a safe run that writes no files unless authorized, and leaves out style and future-change risks. Why still forbids fetching history and installing connectors.
+- `sharpen` deepens a task without enlarging it and rewrites its prompt. It does not run the task.
+- `create-verification` writes and proves a project-local verification skill, reusing Verify's recipe and formal guidance. Formal checks are written only on request.
+
+Upstream's fixed model defaults, autonomous external actions, always-delegated how, and its other skills were not adopted. The evaluator's routing catalog now expects 21 skills, and CI pins evaluator `35b5016`.
+
+Headless Claude Code 2.1.330 trials on Sonnet compared 0.21.26 with this text. How found 8, 7, 6, and 7 of 8 keyed environment reads before and 6, 7, 7, and 8 after. Challenge found 2 of 2 seeded defects with no false findings on 2 clean controls in both arms; the final text's four runs wrote no files. Four guard cases changed, staged, and committed nothing. Sharpen read the fixture, changed nothing, and returned a rewritten prompt. Create-verification wrote a skill to `.agents/skills`, ran eight cases through the real command, retained evidence after cleanup, and reported the empty-input crash as a known failure. Headless Claude Code refused writes to `.claude/skills` with or without an allow rule, and the agent reported a draft instead. An independent review found four conflicts, which were fixed before release. Package checks passed.
+
+Why and reflect were not trialed. The formal path of create-verification, installed-plugin behavior, and visible pickers were not exercised. The samples are small and unblinded.
+
 ## Version 0.21.26
 
 The README now leads with the single entry point: start any request with pancake, written per host as `/pancake-stack:pancake` in Claude Code, `$pancake-stack:pancake` in Codex, and the **pancake** item from `/` in Cursor. The first-try example includes that command, and the skill table is presented as optional shortcuts. It names `pr`, `balls`, `wtf`, and `setup` as the skills pancake does not route to. Skill content is unchanged. All 19 skills remain.

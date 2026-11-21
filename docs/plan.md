@@ -26,6 +26,8 @@ Version 0.21.25 licenses the library under MIT and records authenticated Claude 
 
 Version 0.21.26 makes the README lead with pancake as the single entry point. Skill content is unchanged; no agent trials ran. See the [0.21.26 verification record](verification.md#version-02126).
 
+Version 0.21.27 adapts upstream pstack 0.15.46's pruning to the core values and adds `sharpen` and `create-verification`, bringing the library to 21 skills. Bounded headless Claude Code trials found no loss on how, Challenge, or guard cases and exercised both new skills; they do not establish improvement. See the [0.21.27 verification record](verification.md#version-02127).
+
 Cursor uses the existing portable manifest. The [Cursor guide](cursor.md) documents local loading. On 21 November 2026 Jack reported that installed Cursor loads and runs the skills, and that current installed Codex workflows were checked. No evaluator record backs either report.
 
 On 21 November 2026, 34 headless Claude Code trials from source skill trees ran authenticated How, Fix, Check, Setup, reviewer panels and competing Design. Requested delegate models and efforts matched what session records showed applied. A named `haiku` economy model for gathering found every environment-variable read on one fixture at under half the inherited model's reported cost. Multi-model and same-model panels both found every seeded defect with no false findings. The 0.21.23 values consolidation showed no regression against the earlier tree. See the [Claude workflow checks](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/claude-workflow-checks.md).
