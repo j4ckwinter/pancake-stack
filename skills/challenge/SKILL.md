@@ -17,7 +17,7 @@ State the intended outcome, constraints, and the assumptions that matter, from t
 
 Look for a concrete input, state, ordering, failure, or consumer that defeats the stated outcome, across contracts, data ownership, recovery, concurrency, security boundaries, and needless complexity where they apply. Read the surrounding code and tests to check whether each suspect is already handled.
 
-Prove a finding when a safe run can: an existing test, a repro script, or a probe in a temporary copy outside the workspace. Record the command, its output, and the output the intent requires. Do not edit the target, install dependencies, start services, or make live external writes merely to challenge it. A finding that no safe run can settle needs a traced trigger through inspected code and stays labeled unproved. Leave out style, naming, and risks that need a future change to matter.
+Prove a finding when a safe run can settle it without writing files, such as an existing test or a command that feeds the triggering input to the real code. Record the command, its output, and the output the intent requires. Write a repro script or temporary copy only when the request authorizes it. Do not edit the target, install dependencies, start services, or make live external writes merely to challenge it. A finding that no safe run can settle needs a traced trigger through inspected code and stays labeled unproved. Leave out style, naming, and risks that need a future change to matter.
 
 ## Independent perspectives
 

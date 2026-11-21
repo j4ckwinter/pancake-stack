@@ -7,7 +7,7 @@ description: Investigate the rationale and history behind existing code or a des
 
 Read [core values](../pancake/references/values.md) and applicable repository instructions. Keep the investigation read-only.
 
-Answer from the record, not the code. Anchor the question in the behavior, symbol, or decision, and state your interpretation of a broad one. Read the change that introduced it and each meaningful later change, following renames; blame shows only the last edit, and a commit title is not a motive. Then read nearby documentation, design records, tests, and any supplied ticket or pull-request discussion. Use accessible remote sources only when relevant and permitted; do not sweep unrelated conversations or services. When the trail is thin or a source is inaccessible, say so and continue with what exists.
+Answer from the record, not the code. Anchor the question in the behavior, symbol, or decision, and state your interpretation of a broad one. Read the change that introduced it and each meaningful later change, following renames; blame shows only the last edit, and a commit title is not a motive. Then read nearby documentation, design records, tests, and any supplied ticket or pull-request discussion. Use accessible remote sources only when relevant and permitted. Do not fetch repository history, install connectors, or sweep unrelated conversations or services. When history is shallow, the trail is thin, or a source is inaccessible, say so and continue with what exists.
 
 Label each reason by its evidence:
 
