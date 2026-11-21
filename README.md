@@ -14,11 +14,11 @@ you only need one: **pancake**. start any request with it and say what you want.
 | Codex | `$pancake-stack:pancake` |
 | Cursor | `/`, then pick **pancake** |
 
-pancake reaches most of the other skills by itself. a few do small jobs of their own: `pr` drafts a PR description, `balls` a standup, `wtf` rewrites the last answer, and `setup` helps pick reviewer settings.
+pancake reaches most of the other skills by itself. a few do small jobs of their own: `pr` drafts a PR description, `balls` a standup, `wtf` rewrites the last answer, `sharpen` turns a task into a deeper prompt, and `setup` helps pick reviewer settings.
 
 ## install it
 
-the same 19 skills are packaged for Codex, Claude Code, and Cursor. pick the one you use: [Codex](#codex), [Claude Code](#claude-code), or [Cursor](#cursor).
+the same 21 skills are packaged for Codex, Claude Code, and Cursor. pick the one you use: [Codex](#codex), [Claude Code](#claude-code), or [Cursor](#cursor).
 
 for Codex or Claude Code, grab the repo first. if you already have it, open a terminal in that checkout instead. Cursor users can skip straight to the [Cursor instructions](#cursor).
 
@@ -116,8 +116,10 @@ there are [prompt recipes](docs/recipes.md) if you want a starting point. you do
 | `$pancake-stack:fix` | figure out what broke and fix it. |
 | `$pancake-stack:tdd` | write and run a failing test, then implement the behavior. |
 | `$pancake-stack:verify` | check it works and say what still needs checking. |
+| `$pancake-stack:create-verification` | write and prove a project skill that checks the app or a property. |
 | `$pancake-stack:sift` | clean up supplied prose. |
 | `$pancake-stack:wtf` | make the previous answer clearer. |
+| `$pancake-stack:sharpen` | make a task deeper, not bigger, and rewrite the prompt. |
 | `$pancake-stack:balls` | draft a standup with blockers, aims, and lessons learned. |
 | `$pancake-stack:pr` | draft a PR title and description. |
 | `$pancake-stack:handoff` | leave someone enough context to pick things up. |

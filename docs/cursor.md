@@ -1,6 +1,6 @@
 # Cursor support
 
-Cursor supports the existing root [plugin.json](../plugin.json) and shared `skills/` tree through the portable Agent Plugins format. No separate Cursor manifest is needed for these 19 skills. See Cursor’s [supported plugin formats](https://cursor.com/docs/reference/plugins).
+Cursor supports the existing root [plugin.json](../plugin.json) and shared `skills/` tree through the portable Agent Plugins format. No separate Cursor manifest is needed for these 21 skills. See Cursor’s [supported plugin formats](https://cursor.com/docs/reference/plugins).
 
 ## Clone into Cursor
 
@@ -15,7 +15,7 @@ git clone https://github.com/j4ckwinter/pancake-stack.git \
 
 This creates a checkout of the repository's default branch. It does not include uncommitted changes from another checkout. If the destination already contains a manual copy, follow [Switch from a manual copy](#switch-from-a-manual-copy) first.
 
-Restart Cursor or run **Developer: Reload Window**. In **Customize**, check that Pancake Stack and its 19 skills appear. Type `/` in Agent chat and select `pancake`, then send:
+Restart Cursor or run **Developer: Reload Window**. In **Customize**, check that Pancake Stack and its 21 skills appear. Type `/` in Agent chat and select `pancake`, then send:
 
 > Explain how this project starts and where its main behavior lives. Keep this read-only and cite the code you inspect.
 

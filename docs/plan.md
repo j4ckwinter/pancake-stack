@@ -2,7 +2,7 @@
 
 ## Current state
 
-The library contains 19 shared workflows packaged for Codex, Claude Code, and Cursor. [plugin.json](../plugin.json) declares the current version. All hosts share the same workflow tree and task-scoped settings. Delegates inherit host settings unless the task explicitly overrides them or loaded instructions name an economy model for gathering delegates. Setup saves no preferences; legacy preference files remain untouched.
+The library contains 21 shared workflows packaged for Codex, Claude Code, and Cursor. [plugin.json](../plugin.json) declares the current version. All hosts share the same workflow tree and task-scoped settings. Delegates inherit host settings unless the task explicitly overrides them or loaded instructions name an economy model for gathering delegates. Setup saves no preferences; legacy preference files remain untouched.
 
 Shared reviewer execution, context isolation, completion tracking, and coverage rules live in [host-runtime.md](../skills/pancake/references/host-runtime.md). Challenge retains its review trigger; [change review](../skills/pancake/references/change-review.md) owns consequential preparation and implementation review for Fix, TDD, and the implementation sequence. The library remains declarative, without bundled executable helpers or tests.
 
