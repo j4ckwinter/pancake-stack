@@ -26,14 +26,15 @@ Version 0.21.25 licenses the library under MIT and records authenticated Claude 
 
 Version 0.21.26 makes the README lead with pancake as the single entry point. Skill content is unchanged; no agent trials ran. See the [0.21.26 verification record](verification.md#version-02126).
 
-Cursor uses the existing portable manifest. The [Cursor guide](cursor.md) documents local loading; installed discovery and workflow behavior remain unverified.
+Cursor uses the existing portable manifest. The [Cursor guide](cursor.md) documents local loading. On 21 November 2026 Jack reported that installed Cursor loads and runs the skills, and that current installed Codex workflows were checked. No evaluator record backs either report.
+
+On 21 November 2026, 34 headless Claude Code trials from source skill trees ran authenticated How, Fix, Check, Setup, reviewer panels and competing Design. Requested delegate models and efforts matched what session records showed applied. A named `haiku` economy model for gathering found every environment-variable read on one fixture at under half the inherited model's reported cost. Multi-model and same-model panels both found every seeded defect with no false findings. The 0.21.23 values consolidation showed no regression against the earlier tree. See the [Claude workflow checks](https://github.com/j4ckwinter/pancake-stack-evals/blob/main/docs/claude-workflow-checks.md).
 
 ## Next
 
 1. Define and run a bounded real-repository evaluation in the external evaluator. Select representative implementation and review tasks, pin the inputs and baseline, and define correctness and scope checks before running trials. Record outcomes, time, tokens, and limitations. Include acceptance-path review and valid-operation controls; existing repository and synthetic trials do not establish a general advantage.
-2. Verify current installed Codex workflows, including the latest Verify paths and explicit multi-model review. Record the installed version, resource identity, completed verdicts, and requested versus observed model settings. Earlier installed trials and newer source-skill trials do not establish current installed behavior.
-3. Complete authenticated Claude workflow checks when authentication is available, and verify visible skill-picker behavior on supported hosts. Preserve the distinction between package discovery, invocation, applied reviewer settings, and workflow outcomes.
-4. Use observed failures or measured benefits to choose further guidance changes. For multi-model review, compare against same-model review before claiming better detection or lower cost. Retain rejected wording experiments and their reasons in the evaluator. For economy-model gathering, compare what a cheaper gatherer misses on a fixed fixture against the inherited model before claiming it is as accurate.
+2. Verify visible skill-picker behavior on supported hosts. Headless Claude trials cannot observe it.
+3. Use observed failures or measured benefits to choose further guidance changes. Multi-model and same-model review were indistinguishable on saturated cases; claim better detection only after harder cases separate them. Retain rejected wording experiments and their reasons in the evaluator. Economy-model gathering matched the inherited model on one fixture; check more fixtures before claiming general parity.
 
 Keep the CI evaluator pin on a published, verified revision and run package checks after library changes. Keep tests, trial artifacts, and detailed evidence in the external evaluator. Planning these checks does not authorize installation changes or live experiments.
 
