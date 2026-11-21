@@ -5,7 +5,7 @@ description: Apply proportionate rigor to a software task. Use when the user inv
 
 # Work with rigor
 
-Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicable repository instructions. Apply sift while drafting progress updates, explanations, authorized written artifacts, and final replies. Keep the requested outcome and scope explicit. For substantial work, maintain a short plan whose steps end in observable checks. Handle small tasks directly.
+Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicable repository instructions. Apply sift while drafting progress updates, explanations, authorized written artifacts, and final replies. For substantial work, maintain a short plan that starts with the goal and the smallest change that meets it, and whose steps end in observable checks. Open each delegate brief with the goal. Handle small tasks directly.
 
 ## Choose the work
 
@@ -24,6 +24,7 @@ Read [core values](references/values.md), [sift](../sift/SKILL.md), and applicab
 - For execution-flow explanations, read [how](../how/SKILL.md).
 - For historical rationale and design motivation, read [why](../why/SKILL.md).
 - For proving requested behavior, read [verify](../verify/SKILL.md).
+- For a requested project-local verification skill or reusable model check, read [create-verification](../create-verification/SKILL.md).
 - For adversarial or interrogate-style review of contested decisions or consequential assumptions, read [challenge](../challenge/SKILL.md).
 - For change reviews, read [check](../check/SKILL.md). Both Check and Challenge support explicitly requested independent or multi-model reviewer panels.
 - For explicitly requested structural or code-quality reviews, read [structural-quality guidance](../design/references/structural-quality.md).

@@ -1,6 +1,6 @@
 # Claude Code support
 
-Pancake Stack packages the same 19 workflows for Codex and Claude Code. Both hosts use the shared `skills/` tree. The native Claude manifests are in `.claude-plugin/`.
+Pancake Stack packages the same 21 workflows for Codex and Claude Code. Both hosts use the shared `skills/` tree. The native Claude manifests are in `.claude-plugin/`.
 
 ## Use Pancake in Claude Code
 

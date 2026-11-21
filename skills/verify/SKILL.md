@@ -7,7 +7,7 @@ description: Verify requested software behavior through existing tests and relev
 
 Read [core values](../pancake/references/values.md) and applicable repository instructions. Establish the behavior to prove from the request, ticket, or recent change. Define the expected observable result before running checks. If no useful target can be identified, ask what behavior needs verification.
 
-For a requested reusable project recipe, or when a relevant recipe already exists, read [project verification recipes](references/recipes.md). For a requested audit or maintenance of an existing recipe, read [recipe maintenance](references/maintenance.md). Reuse existing recipes only after checking their relevant assumptions. Do not generate a recipe during every verification task.
+For a requested project-local verification skill, use [create-verification](../create-verification/SKILL.md). For another requested reusable recipe, or when a relevant recipe already exists, read [project verification recipes](references/recipes.md). For a requested audit or maintenance of an existing recipe, read [recipe maintenance](references/maintenance.md). Reuse existing recipes only after checking their relevant assumptions. Do not generate a recipe during every verification task.
 
 For a named existing fix or a requested baseline-versus-patch comparison, read [existing-fix verification](references/existing-fix.md). For requested formal verification, model checking, or maintenance of a model or proof, read [formal verification](references/formal-verification.md). These modes retain the scope, isolation, and cleanup requirements below.
 

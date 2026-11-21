@@ -9,15 +9,15 @@ Read [core values](../pancake/references/values.md), [sift](../sift/SKILL.md), a
 
 ## Establish the target
 
-Use the supplied proposal, files, diff, or branch range. For recent local work, inspect staged and unstaged changes and relevant untracked files. For a branch comparison, establish the intended base from available evidence instead of assuming main. If the target cannot be inferred, ask what to challenge. Do not mistake a clean workspace for an absence of committed changes.
+Use the supplied proposal, files, diff, or branch range. For recent local work, include staged, unstaged, and relevant untracked changes; for a branch, establish the base from evidence instead of assuming main. A clean workspace does not mean there are no committed changes. If the target cannot be inferred, ask what to challenge.
 
-State the intended outcome, constraints, and consequential assumptions briefly. Inspect enough implementation and callers to distinguish existing safeguards from proposed ones. A design can be challenged before code exists; label assumptions and proposed contracts accordingly. Do not invent missing requirements to make an approach fail.
+State the intended outcome, constraints, and the assumptions that matter, from the request, commits, and any description. Inspect enough code and callers to tell existing safeguards from proposed ones. A design can be challenged before code exists; label its assumptions and proposed contracts as such. Do not invent requirements to make an approach fail.
 
-## Seek counterexamples
+## Break it
 
-Choose the review questions that matter to this target. Look for a concrete input, state, ordering, failure, or consumer that would invalidate the approach. Consider contract compatibility, data ownership, failure recovery, concurrency, security boundaries, and unnecessary complexity where relevant. Prefer a discriminating counterexample to a generic warning.
+Look for a concrete input, state, ordering, failure, or consumer that defeats the stated outcome, across contracts, data ownership, recovery, concurrency, security boundaries, and needless complexity where they apply. Read the surrounding code and tests to check whether each suspect is already handled.
 
-Read surrounding code and tests to check whether each suspected issue is already handled. Use focused, safe checks when they can settle a question. Do not modify files, install dependencies, run live external writes, or start services merely to challenge a proposal. When runtime evidence is unavailable, state what static evidence supports and what remains unproved.
+Prove a finding when a safe run can settle it without writing files, such as an existing test or a command that feeds the triggering input to the real code. Record the command, its output, and the output the intent requires. Write a repro script or temporary copy only when the request authorizes it. Do not edit the target, install dependencies, start services, or make live external writes merely to challenge it. A finding that no safe run can settle needs a traced trigger through inspected code and stays labeled unproved. Leave out style, naming, and risks that need a future change to matter.
 
 ## Independent perspectives
 
@@ -25,10 +25,14 @@ An explicit multi-model request, independent reviewer count, or nonempty task-su
 
 Before launching reviewers, read and follow the [shared execution, context, settings, and coverage protocol](../pancake/references/host-runtime.md). Require a completed verdict for each selected entry or report its concrete coverage gap before synthesizing.
 
-## Judge the evidence
+## Judge and report
 
-Inspect the evidence behind findings rather than tallying votes. Deduplicate reports of the same mechanism. Agreement can suggest where to investigate; it does not prove correctness. A lone finding can be decisive when its evidence holds. Resolve disagreements by checking the disputed contract or trigger, or leave the uncertainty explicit.
+Weigh evidence, not votes. Rerun or recheck each finding before keeping it, merge findings that share a cause, and keep a lone finding whose evidence holds. Resolve disagreement by checking the disputed contract or trigger, or leave it open.
 
-Classify useful findings as act on, consider, or unresolved. Act on means a supported issue materially threatens the stated outcome; consider means a real tradeoff whose benefit may not justify changing the approach; unresolved means evidence needed for a conclusion is missing. Reject disproved or out-of-scope claims and explain noteworthy dismissals without filling the answer with noise.
+Classify what survives:
 
-Lead with the verdict and strongest actionable findings. For each, give the assumption challenged, concrete trigger, consequence, evidence, and cheapest useful next check or correction. For proposals, cite the relevant proposal passage or assumption; for code, link inspected locations. Report review scope, actual reviewer independence, and material coverage gaps. If no actionable issue survives, say so without claiming the approach is proven safe.
+- **Act on**: a supported issue that threatens the stated outcome.
+- **Consider**: a real tradeoff whose benefit may not justify changing the approach.
+- **Unresolved**: the evidence needed for a conclusion is missing.
+
+Lead with the verdict and the strongest findings. For each, give the assumption challenged, the trigger, the consequence, the evidence or command output, and the cheapest next check or correction, linking inspected locations or the proposal passage. Note dropped claims only when the dismissal is informative. Report the scope, actual reviewer independence, and coverage gaps. If nothing actionable survives, say so without calling the approach proven safe.
